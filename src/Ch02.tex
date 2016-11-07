@@ -1206,13 +1206,22 @@ $$\limn\df{1-\sin\df{n\pi}{2n+1}}{\df1n}=\df{\pi}4,
 %   \item $\sumn n!\left(\df{x}{n}\right)^n\quad (x>0)$
 \end{enumerate}
 
-{\bf 例：}设$t>0$，讨论级数$\sumn\df{n^n}{t^nn!}$的敛散性。
+{\bf 例：}设$t>0$，讨论级数$\sumn\df{t^nn!}{n^n}$的敛散性。
 
 [提示]：若$t=e$，
-$$\df{a_{n+1}}{a_n}=\df{\left(1+\df1n\right)^n}{t}>1,$$
+$$\df{a_{n+1}}{a_n}=\df{e}{\left(1+\df1n\right)^n}>1,$$
 故$\{a_n\}$必不以$0$为极限，可知$\sumn a_n$发散；
 
 $t\ne e$的情况利用比值判别法即可判断。
+
+{\bf 注：}考虑$\sumn\df{n^n}{e^nn!}$，
+则以上推导不再成立，该如何判定其敛散性呢？
+
+[提示]：因为$\left(1+\df1n\right)^n<e<\left(1+\df1n\right)^{n+1}$，故
+$$\df{a_{n+1}}{a_n}=\df{\left(1+\df1n\right)^n}{e}>\df1{1+\frac1n}=\df n{n+1},$$
+于是
+$$a_n>\df{n-1}na_{n-1}>\df{n-1}n\cdot\df{n-2}{n-1}\ldots\df12a_1=\df{a_1}n,$$
+由此易知原级数发散。
 
 {\bf 定理2.4.4‘}（习题2.4-11：比值判别法的不等式形式）
 设$a_n\geq 0\,(n=1,2,\ldots)$，则 
@@ -1310,6 +1319,15 @@ $$\sumn\df{2+(-1)^n}{5^n}$$
   提示：$\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}\geq\df{n^n\cdot
   n^{\frac1n}}{(n+1)^n}\to\df1e\ne0$，故发散
 \end{enumerate}
+
+{\it 注：另解：
+$$\limn\df{n^{n+\frac1n}}{\left(n+\df1n\right)^n}
+=\limn\df{\sqrt[n]n}{\left(1+\df1{n^2}\right)^n},$$
+其中
+$$\limn\left(1+\df1{n^2}\right)^n=
+\left\{\limn\left(1+\df1{n^2}\right)^{n^2}\right\}^{\limn\frac1n}=e^0=1,$$
+故以上极限$=1\ne0$，级数不满足收敛的必要条件！
+}
 
 \begin{shaded}
 
