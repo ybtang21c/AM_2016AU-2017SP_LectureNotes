@@ -2,18 +2,24 @@
 
 \chapter{导数与不定积分}
 
+导数刻画了函数关于自变量的变化率，在现实问题中有很多对应的实例，例如：速度、密度、压强、出生率、
+死亡率、曲线斜率，等等。导数的引入，极大增强了用数学工具刻画现实问题的能力，可以说其作用是飞跃式的。
+
+不定积分是求导的逆向运算，在Newton、Leibniz揭示了微分和积分的关系后，其重要性才得到了真正的
+认识。不定积分的计算是整个微积分学中的一大难点。
+
 \section{导数的概念}
 
 \subsection{函数在一点处的导数}
 
 {\bf 定义4.1.1：}函数$y=f(x)$在$x_0$的某领域内有定义，若
 $$\limdx\df{f(x_0+\dx)-f(x_0)}{\dx}$$
-存在， 则称其为{\it $f(x)$在$x_0$处的导数}， 记为
-$$f\,'(x_0),\quad \left.\df{\d y}{\d x}\right|_{x=x_0},\quad\left.\df{\d }{\d
-x}y\right|_{x=x_0},\quad \left.\df{\d }{\d x}f(x)\right|_{x=x_0}\quad
-y'_x|_{x=x_0}$$
+存在， 则称{$f(x)$在$x_0$处可导}，该极限称为{\it $f(x)$在$x_0$处的导数}， 记为
+$${\b f\,'(x_0),\quad \left.\df{\d y}{\d x}\right|_{x=x_0},\quad\left.\df{\d
+}{\d x}y\right|_{x=x_0},\quad \left.\df{\d }{\d x}f(x)\right|_{x=x_0}\quad
+y'_x|_{x=x_0},\quad \dot{y}(x_0)}$$
 
-{\bf 例1：}假设$f\,'(x_0)$存在，则
+{\bf 例：}假设$f\,'(x_0)$存在，则
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\limdx\df{f(x_0-\Delta x)-f(x_0)}{\Delta
@@ -24,7 +30,10 @@ y'_x|_{x=x_0}$$
   \underline{\quad{$2f\,'(x_0)$}\quad}
 \end{enumerate}
 
-{\bf 思考：}若以上某个极限存在，是否就意味着$f(x)$在$x_0$可导？
+{\bf 思考：}以上哪个极限存在，与$f(x)$在$x_0$可导等价？
+
+答：只有(3)与可导的定义不等价，因为其中没有提到$f(x_0)$，换言之，{\b 即便$f(x_0)$
+没有定义，(3)也可能成立，但这样一来导数的定义就没有意义了！}
 
 \subsubsection{【导数的物理/几何意义】}
 
@@ -34,15 +43,23 @@ y'_x|_{x=x_0}$$
   $$k(x_0)=\lim\limits_{x\to x_0}\df{f(x)-f(x_0)}{x-x_0}$$
   \item {\it 瞬时速度：}
   $$v(t_0)=\lim\limits_{t\to t_0}\df{S(t)-S(t_0)}{t-t_0}$$
+  \item {\it 出生率：}
+  $$\gamma(s_0)=\lim\limits_{s\to s_0}\df{[s_0,s]\mbox{内出生的人口总数}}{s-s_0}$$
 \end{itemize}
 
-{\bf 导数：函数关于自变量的相对变化率！}\ps{当自变量发生变化时，函数值发生的相应变化与之的比率}
+{\bf 导数：函数关于自变量的变化率！}\ps{当自变量发生变化时，函数值发生的相应变化与之的比率}
 
 {\bf 例：}已知函数$f(x)$在点$x_0$处可导，求曲线$y=f(x)$在该点的切线和法线方程。
 
+\begin{itemize}
+  \setlength{\itemindent}{1cm}
+  \item {\it\b 切线：\quad $y=f(x_0)+f'(x_0)(x-x_0)$}
+  \item {\it\b 法线：\quad $y=f(x_0)-\df1{f'(x_0)}(x-x_0)\quad(f'(x_0)\ne 0)$}
+\end{itemize}
+
 {\bf 例：}若抛物线$y=x^2$上有三个不同号点处的法线交于一点，这三个点的横坐标需要满足什么条件？
 
-{\bf [hint]:} 设三个点的横坐标分别是$a_1,a_2,a_3$。
+[提示]： 设三个点的横坐标分别是$a_1,a_2,a_3$。
 
 情形一：若某个$a_i=0$（不妨为$a_1=0$），显然由对称性可知，必有$a_2=-a_3$。
 
@@ -54,21 +71,22 @@ $$\df{a_1+a_2}{a_3}=\df{a_1+a_3}{a_2}=\df{a_2+a_3}{a_1}$$
 $$\df{a_1+a_2+a_3}{a_3}=\df{a_1+a_2+a_3}{a_2}=\df{a_1+a_2+a_3}{a_1}$$
 显然$a_,a_2,a_3$相互不同，故必有$a_1+a_2+a_3=0$。
 
-{\bf 思考：}可导等价于有切线吗？（否）
+{\b {\bf 思考：}可导等价于有切线吗？（{\it 否，若切线是铅直方向的，则导数没有意义！}）}
 
-{\bf P156-例1：}讨论函数$f(x)=\sqrt[3]x$在点$x=0$是否可导？
+{\bf 例：}讨论函数$f(x)=\sqrt[3]x$在点$x=0$是否可导？
 
 \subsubsection{【导数存在的条件】}
 
 {\bf 定理4.1.1：}$f(x)$在$x_0$可导，当且仅当在该点的左、右导数存在且相等。
+\ps{\b 左导数：$f'_-(x_0)$\\ 右导数$f'_+(x_0)$，注意和导函数的左右极限的区别}
 
-{\bf 定理：}初等函数在其定义域内是处处可导的。
+{\bf 定理：}初等函数在其定义域内是处处可导的。\ps{而且其任意阶导函数也是可导的！}
 
 {\bf 定理4.1.2：}$f(x)$在一点可导，则一定在该点连续。
 
 {\bf 例：}函数$f(x)=x^2D(x)$在$x=0$可导，但在其他地方都不连续。
 
-{\bf P164-例8：}确定常数$a,b$的值，使得函数
+{\bf 教材-例8：}确定常数$a,b$的值，使得函数
 $$f(x)=\left\{\begin{array}{ll}ax+b,& x>0\\
 e^x,& x\leq 0\end{array}\right.$$
 在$x=0$可导。
@@ -101,24 +119,25 @@ a+bx, & x\geq 0
 ix$，其中$a_i(i=1,2,\ldots,n)$为常数，且对任意$x\in\mathbb{R}$， 
 $|f(x)|\leq |\sin x|$，证明：
 $$\left|a_1+2a_2+\ldots+na_n\right|\leq 1$$
-{\bf [hint]:}$f(0)=0$，于是
-$$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{\sin x}{|x|}=1$$
+
+[提示]：$f(0)=0$，于是
+$$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{|\sin x|}{|x|}=1$$
 事实上$f'(0)=a_1+2a_2+\ldots+na_n$.
 
 {\bf 思考：}
 \begin{enumerate} 
   \setlength{\itemindent}{1cm}
-  \item $f'(x_0)$和$[f(x_0)]'$，$f'(x)$和$[f(x)]'$？
-  \item $f'_+(x_0)$和$f'(x_0^+)$有何区别？
+  \item $f'(x_0)$和$[f(x_0)]'$，$f'(x)$和$[f(x)]'$有何异同？
+  \item $f'_+(x_0)$和$f'(x_0+0)$有何区别？\ps{有些书上也把$f'(x_0+0)$记为$f'(x_0^+)$}
   \item $f(x)=g(x)\Rightarrow f'(x)=g'(x)$？反之呢？
   \item 园面积$S(r)$关于直径的导数$S'(r)=l(r)$为圆周长，
-  球体积关于直径的导数为表面积，如何解释？类似的，（定长）圆柱体的体积与侧面积？
-  矩形的体积与各边长对应的侧面积？
+  球体积关于直径的导数为表面积，如何解释？类似的，（定长）圆柱体的体积关于截面半径的导数
+  等于其与侧面积？矩形的体积关于各边长的导数等于其对应的截面积？
 \end{enumerate}
 
 \subsection{导函数}
 
-{\bf 例}（{\it 一些常用函数的导函数}）
+{\bf 例}（{\it 一些常用函数的导函数}）\ps{利用定义验证以下的导函数是复习函数极限计算的好方法！}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $f(x)=C\;(C\mbox{为常数})$ \hfill $f\,'(x)=0$ 
@@ -138,12 +157,12 @@ $$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{\sin x}{|x|}=1$$
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $[u(x)\pm v(x)]'=u'(x)\pm v'(x)$ 
-  \item $[u(x)v(x)]' =u'(x)v(x)+u(x)v'(x)$ \ps{自行验证$(uvx)'$的公式}
+  \item $[u(x)v(x)]' =u'(x)v(x)+u(x)v'(x)$ \ps{自行推导$(uvx)'$的公式}
   \item $\left[\df{u(x)}{v(x)}\right]'
   =\df{u'(x)v(x)-u(x)v'(x)}{v^2(x)}\;(v(x)\ne 0)$
 \end{enumerate}
 
-{\bf P172-例2-4：}计算以下函数的导函数
+{\bf 教材-例2-4：}计算以下函数的导函数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $f(x)=2x^3+3x-4x+5-\df 6x$ 
@@ -157,14 +176,36 @@ $$|f'(0)|=\limx{0}\df{|f(x)|}{|x|}\leq\limx{0}\df{\sin x}{|x|}=1$$
 {\bf 例：}已知$f(x)$可导，且无零点，证明：$y=f(x)$和$y=f(x)\sin x$
 在相交的位置必相切。
 
+{\bf 思考：}函数$y=f(x)$和$y=f(x)\sin x$的图像有何关系？
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch4/x3Sinx.pdf}}\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch4/xSinx.pdf}}
+	
+	$y=x^{1/3}\sin x$\hspace{5cm}$y=x\sin x$
+	
+	\resizebox{!}{4cm}{\includegraphics{./images/ch4/1xSinx.pdf}}\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch4/rxSinx.pdf}}
+	
+	$y=\df1x\sin x$\hspace{5cm}$y=[x]\sin x$
+	
+	\resizebox{!}{4cm}{\includegraphics{./images/ch4/lnxSinx.pdf}}\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch4/11xSinx.pdf}}
+	
+	$y=\ln x\sin x$\hspace{5cm}$y=1.1^x\sin x$
+\end{center}
+
 \subsection{反函数求导法则}
 
 {\bf 定理4.2.2：}设$y=f(x)$是$x=\varphi(y)$的反函数，
 若$x=\varphi(y)$在$y$处可导，且$\varphi'(x)\ne 0$，则
-$y=f(x)$在点$x=\varphi(y)$处可导，且
-$$f\,'(x)=\df{1}{\varphi'(y)}$$
+$y=f(x)$在点$x=\varphi(y)$处可导，且\ps{\b 正确理解和使用下面这个公式是本节的难点！}
+$${\b f\,'(x)=\df{1}{\varphi'(y)}}$$
 
-{\bf P174-例7-8：}计算下列函数的导函数
+{\bf 例：}考虑函数$y=e^x$，我们已知$(e^x)'_{\b x}=e^x$，故
+$$(\ln y)'_{\b y}=\df1{(e^x)'_{\b x}}=\df1{e^x}=\df1y$$
+
+{\bf 例7-8：}计算下列函数的导函数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $f(x)=\arcsin x$ \hfill $f\,'(x)=\df{1}{\sqrt{1-x^2}}$ 
@@ -184,9 +225,9 @@ $$f\,'(x)=\df{1}{\varphi'(y)}$$
 {\bf 定理4.2.3}({\it 链式法则})设函数$u=\varphi(x)$在$x$处可导，
 函数$y=f(u)$在$u=\varphi(x)$处可导，则复合函数$y=f[\varphi(x)]$
 在$x$处可导，且
-$$y'_x=f\,'(u)\varphi'(x)$$
+$${\b y'_x=f_u'(u)\varphi_x'(x)}$$
 
-{\bf P176-例5：}计算下列函数的导函数
+{\bf 教材-例5：}计算下列函数的导函数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $y=a^x\;(a>0,a\ne 1)$ \hfill $y'=a^x\ln a$ 
@@ -195,7 +236,7 @@ $$y'_x=f\,'(u)\varphi'(x)$$
 
 {\bf 例：}若$f$可导，且$[f(x^2)]'=[f^2(x)]'$，则$f(1)=1$或$f'(1)=0$.
 
-{\bf P176-例10-19：}计算下列函数的导函数
+{\bf 教材-例10-19：}计算下列函数的导函数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $y=e^{x^2}$ 
@@ -209,16 +250,17 @@ $$y'_x=f\,'(u)\varphi'(x)$$
   \item $y=e^{\tan\frac 1x}$
 \end{enumerate}
 
-{\bf 例：}形如$y=u^v$的函数求导，其中$u,v$均可导
+{\b{\bf 例：}形如$y=u^v$的函数求导，其中$u,v$均可导\ps{难点！注意这类函数并不属于基本的初等函数}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $y=x^x$
+  $$(x^x)'=(e^{x\ln x})'=e^{x\ln x}\left(\ln x+x\cdot\df1x\right)=x^x(1+\ln x)$$
   \item $y=x^{x^x}$
   \item $y=\left(x^x\right)^x$
 \end{enumerate}
+}
 
-
-{\bf P180-例20：}设$f(x)$可导，且$f\,'\left(\df{\pi}{4}\right)=1$，求
+{\bf 教材-例20：}设$f(x)$可导，且$f\,'\left(\df{\pi}{4}\right)=1$，求
 $$\varphi(x)=f\left(\arctan\df{1+x}{1-x}\right)$$
 在$x=0$处的导数。
 
@@ -227,11 +269,11 @@ $$\varphi(x)=f\left(\arctan\df{1+x}{1-x}\right)$$
 {\bf 定义4.2.1}（{\it $n$阶导数}）
 $$f^{\,(n)}(x)=\df{\d^nf(x)}{\d x^n}=\left[f^{\,(n-1)}(x)\right]'_x$$
 
-{\bf P181-例34：}求函数$f(x)=x^3+2x^2-3x+10$的各阶导函数。
+{\bf 教材-例34：}求函数$f(x)=x^3+2x^2-3x+10$的各阶导函数。
 
 {\bf 注：}若$P(x)$为$n$次多项式，则$P^{(n+1)}(x)=0$。
 
-{\bf P182-例25-26：}求以下函数的$n$阶导数
+{\bf 教材-例25-26：}求以下函数的$n$阶导数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $y=\df 1x$ \hfill $y^{(n)}(x)=(-1)^n\df{n!}{x^{n+1}}$ 
@@ -240,30 +282,43 @@ $$f^{\,(n)}(x)=\df{\d^nf(x)}{\d x^n}=\left[f^{\,(n-1)}(x)\right]'_x$$
   \item $y=xe^x$ \hfill $y^{(n)}(x)=(n+x)e^x$
   \item $y=e^{ax}\sin bx$
 
-{\bf [hint]:}
+[提示]：
 $$y'=e^{ax}(a\sin bx+b\cos
 bx)=\sqrt{a^2+b^2}e^{ax}\sin(bx+\varphi),
 \;\tan\varphi=\df ba$$
 $$y^{(n)}=\left(a^2+b^2\right)^{n/2}e^{ax}\sin(bx+n\varphi)$$ 
 \end{enumerate}
 
-{\bf 【Leibnitz公式】}
+{\bf 【Leibnitz公式】}\ps{\b 难点+考点！}
 
-$${\left[u(x)v(x)\right]^{(n)}=
-\sum\limits_{k=0}^nC_n^ku^{(n-k)}(x)v^{(k)}(x)}$$
+$${\b{\left[u(x)v(x)\right]^{(n)}=
+\sum\limits_{k=0}^nC_n^ku^{(n-k)}(x)v^{(k)}(x)}}$$
 
-{\bf P184-例27：}设$y=x^3e^x$，求$y^{(10)}$。
+{\bf 教材-例27：}设$y=x^3e^x$，求$y^{(10)}$。
 
 {\bf 例：}$(x^2\sin x)^{(80)}=(x^2-6320)\sin x-160x\cos x$。
 
 {\bf 例：}
-$$left(\df{2x}{1-x^2})^{(n)}=n!\left[\df1{(1-x)^{n+1}}
+$$\left(\df{2x}{1-x^2}\right)^{(n)}=n!\left[\df1{(1-x)^{n+1}}
 -\df{(-1)^n}{(1+x)^{n+1}}\right]$$
 
 {\bf 例：}设$y=\arctan x$，求$y^{(n)}(0)$
 
+[提示]：
+$$y'=\df1{1+x^2}\quad \Rightarrow\quad (1+x^2)y'=1,$$
+利用Leibniz公式可得
+$${\b (1+x^2)y^{(n)}+2nxy^{(n-1)}+n(n-1)y^{(n-2)}=0,}$$
+令$x=0$，可得
+$$y^{(n)}(0)+n(n-1)y^{(n-2)}(0)=0\quad
+\Rightarrow\quad y^{(n)}(0)=-n(n-1)y^{(n-2)}(0)$$
+注意到$y'(0)=1,y''(0)=0$，故
+$$y^{(n)}(0)=\left\{\begin{array}{ll}
+0,\quad& n=2k\\
+(-1)^k(2k+1)!,\quad& n=2k+1
+\end{array}\right.$$
+
 \begin{shaded}
-{\bf [hint]:}非典型的解法
+[提示]：非典型的解法
 $$y'=\df1{1+x^2}=\cos^2y=\cos y\sin\left(y+\df{\pi}2\right)$$
 $$y''=\cos^2y\cos\left(2y+\df{\pi}2\right)=\cos^2y\sin2\left(y+\df{\pi}2\right)$$
 $$y'''=2\cos^3y\sin3\left(y+\df{\pi}2\right)$$
@@ -278,56 +333,71 @@ $$y^{(n)}=(n-1)!\df1{(1+x^2)^{n/2}}\sin n(\pi-z)=
 
 {\bf 隐函数：}由形如$f(x,y)=0$的方程所确定的函数
 
-{\bf P185-例28：}设$y=y(x)$是由方程
+问题：由隐函数方程$f(x,y)=0$解出变量$y$关于$x$的导数
+
+解法：{\it\b 视$y$为$x$的函数$y(x)$，则原方程即为
+$$f(x,y(x))=0,$$
+两边同时关于$x$求导，然后利用求导后的方程解出$y'_x$即可
+}
+
+{\bf 教材-例28：}设$y=y(x)$是由方程
 $$x^3+y^3=3xy$$
 所确定的隐函数，满足$y(3/2)=3/2$，求其
 在点$(3/2,3/2)$处的切线方程。
+
+{\bf 解}：将$y$视为$x$的函数，对已知方程两边关于$x$求导，可得
+\ps{\b 在隐函数方程求导的结果中，允许同时包含$x$和$y$}
+$$3x^2+3y^2y'=3y+3xy'\quad\Rightarrow\quad
+y'=\df{x^2-y}{x-y^2},$$
+带入$(x,y)=(3/2,3/2)$可得$y'(3/2)=-1$，故所求切线方程为
+$$y=-x+3.$$
 
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch4/x3y33xy.jpg}}
 \end{center}
 
-{\bf P186-例29：}设$y=y(x)$是由方程$y^2=x^2-\cos y$所确定的隐函数，求$y''(x)$。
+{\bf 教材-例29：}设$y=y(x)$是由方程$y^2=x^2-\cos y$所确定的隐函数，求$y''(x)$。
 
 \begin{center}
 	\resizebox{!}{6cm}{\includegraphics{./images/ch4/y2x2-cosy.jpg}}
 \end{center}
 
-{\bf P187-例30：}求函数$y=(x^2+1)\sqrt[3]{(x-2)^2(x^2+x)}$的导数。
+{\bf 教材-例30：}求函数$y=(x^2+1)\sqrt[3]{(x-2)^2(x^2+x)}$的导数。
 
 {\bf 例：}设$x^2+xy+y^2=1$，则
 $$y'=-\df{2x+y}{x+2y},\quad y''=-\df6{(x+2y)^3}$$
 $$y'''=-\df{54x}{(x+2y)^5}$$
 $x+2y=0$恰好与经过角度旋转（逆时针$\pi/6$）的椭圆的交点出切线与$y$轴平行。
 
+\begin{shaded}
+	{\bf 例：}证明椭圆上任一点处的法线平分该点与两个焦点的连线所夹角。
 
-{\bf 例：}证明椭圆上任一点处的法线平分该点与两个焦点的连线所夹角。
+	[提示]：{\it 如图
+	\begin{center}
+		\resizebox{!}{5cm}{\includegraphics{./images/ch4/rollEc.pdf}}
+	\end{center}
+	只需证明上半椭圆上任一点有此性质即可。通过旋转椭圆，总可以是点$P(x,y)$处的切线为水平的，
+	即$y'(x)=0$。
+	此时，设椭圆的两个焦点分别为$(0,0)$和$(h,k)$，则由椭圆的几何性质，有
+	$$\sqrt{x^2+y^2}+\sqrt{(x-h)^2+(y-k)^2}=L,$$
+	其中$L$为某个确定的值。两端同时对$x$求导，并带入$y'(x)=0$，可得
+	$$\df{x}{\sqrt{x^2+y^2}}=\df{h-x}{\sqrt{(x-h)^2+(y-k)^2}}.$$
+	由图上不难看出该式也即$\sin\alpha=\sin\beta$，即证。}
+		
+[又解]:
+设椭圆为$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$，左右焦点分别为$F_1,F_2$，椭圆上任意一点$P(x_0,y_0)$。
+$P$点处法线平分$\angle F_1PF_2$的充分必要条件为$P$点处切线平分$\angle F_1PF_2$的外角。
+$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$两边同时关于$x$求导，有
+$$\frac{2x}{a^2}+\frac{2yy’}{b^2}=0,$$
+得
+$$y’=-\frac{b^2x}{a^2y}$$
+所以$P$处的切线斜率$k=-\frac{b^2x_0}{a^2y_0}$。
+又$\angle 1,\angle 2\in(0,\pi/2)$，且
+$$\tan\angle 1=-\frac{b^2y_0}{a^2y_0}-\frac{y_0}{x_0}-c=\frac{b^2}{cy_0},$$
+同理$\tan\angle 2= \frac{b^2}{cy_0}$，
+故$\angle 1=\angle 2$。
 
-{\bf [提示]:}{\it 如图
-\begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch4/rollEc.pdf}}
-\end{center}
-只需证明上半椭圆上任一点有此性质即可。通过旋转椭圆，总可以是点$P(x,y)$处的切线为水平的，
-即$y'(x)=0$。
-此时，设椭圆的两个焦点分别为$(0,0)$和$(h,k)$，则由椭圆的几何性质，有
-$$\sqrt{x^2+y^2}+\sqrt{(x-h)^2+(y-k)^2}=L,$$
-其中$L$为某个确定的值。两端同时对$x$求导，并带入$y'(x)=0$，可得
-$$\df{x}{\sqrt{x^2+y^2}}=\df{h-x}{\sqrt{(x-h)^2+(y-k)^2}}.$$
-由图上不难看出该式也即$\sin\alpha=\sin\beta$，即证。}
-
-% [au]:
-% 设椭圆为$\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$，左右焦点分别为$F_1,F_2$，椭圆上任意一点$P(x_0,y_0)$。 
-% $P$点处法线平分$\angle F_1PF_2$的充分必要条件为$P$点处切线平分$\angle F_1PF_2$的外角。 
-% $\frac{x^2}{a^2}+\frac{y^2}{b^2}=1$两边同时关于$x$求导，有
-% $$\frac{2x}{a^2}+\frac{2yy’}{b^2}=0,$$
-% 得
-% $$y’=-\frac{b^2x}{a^2y}$$
-% 所以$P$处的切线斜率$k=-\frac{b^2x_0}{a^2y_0}$。
-% 又$\angle 1,\angle 2\in(0,\pi/2)$，且
-% $$\tan\angle 1=-\frac{b^2y_0}{a^2y_0}-\frac{y_0}{x_0}-c=\frac{b^2}{cy_0},$$ 
-% 同理$\tan\angle 2= \frac{b^2}{cy_0}$，
-% 故$\angle 1=\angle 2$。
-
+\end{shaded}
 
 \subsection{参数方程求导法则}
 
@@ -338,14 +408,14 @@ x=\varphi(t)\\
 y=\psi(t)
 \end{array}
 \right.$$
-确定， $x=\varphi(t)$可逆， 则
-$$y'(x)=\df{\psi'(t)}{\varphi'(t)}$$
+确定， $x=\varphi(t)$可逆， 则\ps{\b 要求熟练掌握有关的推导，难点！}
+$${\b y'(x)=\df{\psi'(t)}{\varphi'(t)}}$$
 
-$$y''(x)=\df{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}$$
+$${\b y''(x)=\df{\psi''(t)\varphi'(t)-\psi'(t)\varphi''(t)}{[\varphi'(t)]^3}}$$
 
-{\bf P188-例31：}求抛物线$x=y^2$在$(1,1)$和$(4,-2)$处的切线方程。
+{\bf 教材-例31：}求抛物线$x=y^2$在$(1,1)$和$(4,-2)$处的切线方程。
 
-{\bf P189-例32：}已知$\left\{\begin{array}{l}x=t-\sin t\\
+{\bf 教材-例32：}已知$\left\{\begin{array}{l}x=t-\sin t\\
 y=1-\cos t\end{array}\right.$，求$y''(x)$。
 
 \begin{center}
@@ -364,6 +434,39 @@ $$y'''_{xxx}=-\df{9\sqrt3}8\df{\cos t}{\sin^5t}$$
 时以上导数才有意义。
 
 {\bf 例：}Archimedes螺线$\rho=a\theta$与双曲螺线$\rho=a/\theta$相交处相互垂直。
+
+\begin{center}
+	\resizebox{!}{8cm}{\includegraphics{./images/ch4/arCurve.pdf}}
+	
+	{\it$\rho=\theta$和$\rho=1/\theta$\quad($\theta\in(0,10\pi)$)
+	
+	两曲线的交点为$\theta(k)=-k\pi+\sqrt{k^2\pi^2+1},(k\in\mathbb{N})$
+	
+	但是注意到只有当$k=0$时，曲线交点处的$\theta$值才对两个函数来说才是相同的，
+	
+	因此，两条曲线真正意义上的交点只有$\theta=1$
+	}
+\end{center}
+
+[提示]：两曲线的参数方程分别为
+$$
+\left\{\begin{array}{l}
+	x=a\theta\cos\theta\\
+	y=a\theta\sin\theta
+\end{array}\right.
+\quad\quad\quad
+\left\{\begin{array}{l}
+	x=\df{a}{\theta}\cos\theta\\
+	y=\df{a}{\theta}\sin\theta
+\end{array}\right.
+$$
+相应的曲线斜率分别为
+$$y'_x=\df{\sin\theta+\theta\cos\theta}{\cos\theta-\theta\sin\theta}
+\quad\quad\quad
+y'_x=-\df{\theta\cos\theta-\sin\theta}{\theta\sin\theta+\cos\theta}
+$$
+显然$\theta=1$时二者的乘积为$-1$，这意味着两条曲线在交点处垂直！
+\ps{$k\ne0$时，从图像上看两条曲线也是相互垂直的，如何证明呢？}
 
 \section{微分}
 
