@@ -76,13 +76,16 @@ $\limx{x_0}v(x)$都不存在，则下列命题中正确的是（\quad）%D
 (4)\;若$x\to\pi$时，$\sqrt[4]{\sin\df x2}-1\sim A(x-\pi)^k$，则$A=$
 \underline{\hspace{4cm}}.
 
+\bigskip
+
 {\bf 三、计算以下极限（每题4分）}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\limn n^2\left(\df
   kn-\df1{n+1}-\df1{n+2}-\ldots-\df1{n+k}\right),\quad(k\in\mathbb{Z}_+)$
   \item $\limn\df{1+2^3+\ldots+n^3}{n^4}$
-  \item $\limn n(\sqrt[n]a-1),\quad(a>0)$
+  \item $\limn\df{1+\sqrt2+\sqrt[3]3+\ldots+\sqrt[n]n}n$
+%   \item $\limn n(\sqrt[n]a-1),\quad(a>0)$
 %   \item $\limn\left[\df1{1\cdot 2\cdot 3}+\df1{2\cdot 3\cdot 4}+\ldots+
 %   \df1{n\cdot (n+1)\cdot (n+2)}\right]$
 %   \item $\limn\df{n^5}{2^n}$
@@ -185,18 +188,23 @@ $$\limx0\sin x\ln|x|=\limx0x\ln|x|=\limx{+\infty}\df{-\ln x}x=0$$
   	&=\limn\df{n^3}{C_4^1n^3-C_4^2n^2+C_4^3n-1}=\df14\tag{{+2\;\mbox{分}}}
   \end{align}
   
-(3)\;由Henie定理，
-$$\mbox{原式}=\limx{+\infty}x\left(a^{\frac1x}-1\right)
-=\lim\limits_{y\to0^+}\df{a^y-1}y=\ln a\eqno{(+4\mbox{分})}$$
+(3)\;\ps{\b 本题若使用Stolz定理不给分！}
+$$1=\df{1+1+\ldots+1}n<\df{1+\sqrt2+\ldots+\sqrt[n]n}n<\df{n\cdot\sqrt[n]n}n,$$
+注意到$\limn\sqrt[n]n=1$，故由夹逼定理，原式$=1$。\hfill{(+4分)}
+  
+% (3)\;由Henie定理，
+% $$\mbox{原式}=\limx{+\infty}x\left(a^{\frac1x}-1\right)
+% =\lim\limits_{y\to0^+}\df{a^y-1}y=\ln a\eqno{(+4\mbox{分})}$$
 
 (4)\;
 \begin{align}
   	\mbox{原式}&=\limx{\infty}\left\{\left[1+\df{(a-b)x+ab}
   	{(x-a)(x+b)}\right]^{\frac{(x-a)(x+b)}{(a-b)x+ab}}\right\}
   	^\frac{[(a-b)x+ab]x}{(x-a)(x+b)\tag{{+2\;\mbox{分}}}}\\
-  	&=\exp\left\{\df{[(a-b)x+ab]x}{(x-a)(x+b)}\ln\left[
+  	&=\left\{\limx{\infty}\left[
   	1+\df{(a-b)x+ab}{(x-a)(x+b)}\right]^{\frac{(x-a)(x+b)}
-  	{(a-b)x+ab}}\right\}=e^{a-b}\tag{{+2\;\mbox{分}}}
+  	{(a-b)x+ab}}\right\}^{\limx{\infty}\frac{[(a-b)x+ab]x}
+  	{(x-a)(x+b)}}=e^{a-b}\tag{{+2\;\mbox{分}}}
   \end{align}
 
 (5)
