@@ -343,7 +343,21 @@ $$y^{(n)}=(n-1)!\cos^ny\sin n\left(y+\df{\pi}2\right)$$
 $$y^{(n)}=(n-1)!\df1{(1+x^2)^{n/2}}\sin n(\pi-z)=
 (n-1)!\df1{(1+x^2)^{n/2}}\sin n\arctan\df1x$$
 \end{shaded}
-{\bf 习题集P77-例23：}设$y=(\arcsin x)^2$，求$y^{(n)}(0)$
+
+{\bf 例：}设$y=(\arcsin x)^2$，求$y^{(n)}(0)$
+
+[提示]：
+$$y'=2\arcsin x\df1{\sqrt{1-x^2}}\quad
+\Rightarrow\quad \sqrt{1-x^2}y'=2\arcsin x,$$
+$$-\df1{\sqrt{1-x^2}}y'+\sqrt{1-x^2}y''=2\df1{\sqrt{1-x^2}}\quad
+\Rightarrow\quad-xy'+(1-x^2)y''=2$$
+两边同时求$n$次导数，然后令$x=0$，得
+$$y^{(n+2)}(0)=n^2y^{(n)}(0).$$
+易得$y'(0)=0,y''(0)=2$，从而\ps{双阶乘：$(2n)!!=2n(2n-2)(2n-4)\ldots2$}
+$$y^{(n)}(0)=\left\{\begin{array}{ll}
+2[(n-2)!!]^2,& n\mbox{为偶数}\\
+0,& n\mbox{为奇数}
+\end{array}\right.$$
 
 \subsection{隐函数求导法则}
 
