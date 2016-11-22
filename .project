@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>AM_2016AU-2017SP_LectureNotes</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>net.sourceforge.texlipse.builder.TexlipseBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>net.sourceforge.texlipse.builder.TexlipseNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/longdiv.tex</name>
+			<type>1</type>
+			<location>/usr/local/texlive/2013/texmf-dist/tex/generic/genmisc/longdiv.tex</location>
+		</link>
+	</linkedResources>
+</projectDescription>
