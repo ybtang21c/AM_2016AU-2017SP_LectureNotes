@@ -63,7 +63,7 @@ $\limx{x_0}v(x)$都不存在，则下列命题中正确的是（\quad）%D
 
 {\bf 二、填空题（每题3分）}
 
-(1)\;设$\limx{\infty}\df{(x-1)(x-2)(x-3)(2x-5)}{(2x-1)^{\alpha}}=\beta$，
+(1)\;设$\limx{\infty}\df{(x-1)(x-2)(x-3)(2x-5)}{(2x-1)^{\alpha}}=\beta\ne 0$，
 则$\beta=$\underline{\hspace{4cm}}.
 
 (2)\;若$x\to0$时，$\ln\df{1-ax^2}{1+ax^2}\sim\df1{10000}x^4+\sin^2(\sqrt6x)$，
@@ -84,7 +84,7 @@ $\limx{x_0}v(x)$都不存在，则下列命题中正确的是（\quad）%D
   \item $\limn n^2\left(\df
   kn-\df1{n+1}-\df1{n+2}-\ldots-\df1{n+k}\right),\quad(k\in\mathbb{Z}_+)$
   \item $\limn\df{1+2^3+\ldots+n^3}{n^4}$
-  \item $\limn\df{1+\sqrt2+\sqrt[3]3+\ldots+\sqrt[n]n}n$
+  \item $\limn\df{1+\sqrt[n]2+\sqrt[n]3+\ldots+\sqrt[n]n}n$
 %   \item $\limn n(\sqrt[n]a-1),\quad(a>0)$
 %   \item $\limn\left[\df1{1\cdot 2\cdot 3}+\df1{2\cdot 3\cdot 4}+\ldots+
 %   \df1{n\cdot (n+1)\cdot (n+2)}\right]$
@@ -97,7 +97,8 @@ $\limx{x_0}v(x)$都不存在，则下列命题中正确的是（\quad）%D
 %   \item $\limx{+\infty}\df{\ln(2+3e^{3x})}{\ln(3+2e^{2x})}$
   \item $\limx{0}\df1{x^3}\left[\left(\df{2+\cos x}3\right)^x-1\right]$
 %   \item $\limx{\pi/4}(\tan x)^{\tan 2x}$
-  \item $\limx{0}\df{\arctan x-\sin x}{x^3}$
+%   \item $\limx{0}\df{\arctan x-\sin x}{x^3}$
+  \item $\limx{0}\df{\df1{1+x^2}-\cos x}{x^2}$
 \end{enumerate}
 
 {\bf 四、判定以下级数的敛散性（每题4分）}
@@ -124,7 +125,8 @@ $\limx{x_0}v(x)$都不存在，则下列命题中正确的是（\quad）%D
 $$f(x)=\lim\limits_{t\to x}\left(\df{x-1}{t-1}\right)^{\frac{t}{x-t}},$$
 求$f(x)$的连续区间和间断点，并指出其间断点的类型。
 
-{\bf 六（6分）、}设$a_n>0\;(n=1,2,\ldots)$，记$r_n=\df{a_{n+1}}{a_n}$，证明：
+{\bf 六（6分）、}证明不等式形式的比值判别法：
+设$a_n>0\;(n=1,2,\ldots)$，记$r_n=\df{a_{n+1}}{a_n}$，证明：
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item 若对充分大的$n$，总有$r_n\geq 1$，则$\sumn a_n$发散；
@@ -188,8 +190,8 @@ $$\limx0\sin x\ln|x|=\limx0x\ln|x|=\limx{+\infty}\df{-\ln x}x=0$$
   	&=\limn\df{n^3}{C_4^1n^3-C_4^2n^2+C_4^3n-1}=\df14\tag{{+2\;\mbox{分}}}
   \end{align}
   
-(3)\;\ps{\b 本题若使用Stolz定理不给分！}
-$$1=\df{1+1+\ldots+1}n<\df{1+\sqrt2+\ldots+\sqrt[n]n}n<\df{n\cdot\sqrt[n]n}n,$$
+(3);\ps{用Stolz定理不得分}
+$$1=\df{1+1+\ldots+1}n<\df{1+\sqrt[n]2+\ldots+\sqrt[n]n}n<\df{n\cdot\sqrt[n]n}n,$$
 注意到$\limn\sqrt[n]n=1$，故由夹逼定理，原式$=1$。\hfill{(+4分)}
   
 % (3)\;由Henie定理，
@@ -234,13 +236,20 @@ $$1=\df{1+1+\ldots+1}n<\df{1+\sqrt2+\ldots+\sqrt[n]n}n<\df{n\cdot\sqrt[n]n}n,$$
   	&=-\df16\tag{{+2\;\mbox{分}}}
   \end{align}
 
-(8)\;令$y=\arctan x$，
-  \begin{align}
-  	\mbox{原式}&=\lim\limits_{y\to 0}\df{y-\df
-  	y{\sqrt{1+y^2}}}{y^3}\tag{{+2\;\mbox{分}}}\\
-  	&=\lim\limits_{y\to 0}\df{(\sqrt{1+y^2}-1)}{y^2\sqrt{1+y^2}}
-  	=\lim\limits_{y\to 0}\df1{\sqrt{1+y^2}+1}=\df12\tag{{+2\;\mbox{分}}}
-  \end{align}
+% (8)\;令$y=\arctan x$，
+%   \begin{align}
+%   	\mbox{原式}&=\lim\limits_{y\to 0}\df{y-\df
+%   	y{\sqrt{1+y^2}}}{y^3}\tag{{+2\;\mbox{分}}}\\
+%   	&=\lim\limits_{y\to 0}\df{(\sqrt{1+y^2}-1)}{y^2\sqrt{1+y^2}}
+%   	=\lim\limits_{y\to 0}\df1{\sqrt{1+y^2}+1}=\df12\tag{{+2\;\mbox{分}}}
+%   \end{align}
+
+(8)\;
+\begin{align}
+	\mbox{原式}&=\limx0\df{\df1{1+x^2}-1}{x^2}+\limx0\df{1-\cos
+	x}{x^2}\tag{{+2\;\mbox{分}}}\\
+	&=\limx0\df{-x^2}{x^2}-\limx0\df{\df12x^2}{x^2}=-1-\df12=-\df32\tag{{+2\;\mbox{分}}}
+\end{align}
 
 {\bf 四、判定以下级数的敛散性（每题4分）}
 
