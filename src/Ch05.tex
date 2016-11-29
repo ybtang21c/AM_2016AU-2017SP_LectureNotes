@@ -2,6 +2,12 @@
 
 \chapter{导数的应用}
 
+微分学最初是独立于积分学的，因为其自身已经可以解决许多的应用问题。
+本章讨论的极值、最值、单调性和曲率等，都是微分学的独立应用，其中
+中值定理和Taylor公式又可以说是整个微分学的“制高点”，集成和融汇
+了导数与微分的绝大部分思想与概念，正确地理解和熟练掌握这部分的知识
+是对微积分有一个全面深刻认识的基础。
+
 % \begin{shaded}
 % 	{\bf 多项式函数的拐点、极值点的判定：}设
 % 	$$P(x)=(x-a_1)^{k_1}(x-a_2)^{k_2}\ldots(x-a_n)^{k_n},$$
@@ -54,7 +60,7 @@
 
 {\bf 问题：}给定一个函数，如何求其最大和最小值？
 
-{\bf P224-例1：}画出函数$f(x)=3x^4-4x^3-12x^2+3$在区间$[-2,3]$，通过
+{\bf 教材-例1：}画出函数$f(x)=3x^4-4x^3-12x^2+3$在区间$[-2,3]$，通过
 观察求其最大和最小值。
 
 \begin{center}
@@ -65,19 +71,19 @@ $$f(-2)=35,\quad f(3)=30,\quad f(2)=-29$$
 
 {\bf 定理5.1.1}（Fermat引理）：若函数$f(x)$在$x_0$处可导，且在$x_0$的某邻域内，有
 $$f(x)\geq f(x_0)\quad (\mbox{或}\quad f(x)\leq f(x_0))$$
-则$f'(x_0)=0$。
+则$f'(x_0)=0$。\ps{掌握费马引理的证明方法}
 
 \subsection{极值}
 
-{\bf 定义5.1.1：}设在$x_0$的某去心邻域内，恒有
+{\bf 定义5.1.1：}\ps{极值即{\b 局部唯一的最值}}设在$x_0$的某去心邻域内，恒有
 $$f(x)<f(x_0)\quad (\mbox{或}\quad f(x)>f(x_0)),$$
 则称$f(x_0)$是$f(x)$的一个{\it 极大（小）值}，$x_0$称为$f(x)$的一个{\it 极值点}。
 
 \begin{itemize}
   \setlength{\itemindent}{1cm}
-  \item 函数在极值点处未必可导 
-  \item 可导函数极值点处的导数为零 
-  \item 导数为零的点（{\it 驻点}）未必是极值点
+  \item {\b 函数在极值点处未必可导} 
+  \item {\b 可导函数极值点处的导数为零} 
+  \item {\b 导数为零的点（{\it 驻点}）未必是极值点}
 \end{itemize}
 
 \begin{center}
@@ -85,16 +91,16 @@ $$f(x)<f(x_0)\quad (\mbox{或}\quad f(x)>f(x_0)),$$
 \end{center}
 
 {\bf 定理5.1.2}（极值判定的充分条件）设$f(x)$在$x_0$附近连续，
-若$f(x)$在$x_0$两侧单调性发生改变，则$f(x)$在$x_0$取极值。
+若$f(x)$在$x_0$两侧单调性发生改变，则$f(x)$在$x_0$取极值。\ps{这个条件是充要的吗？}
 
-{\bf 注：}连续函数单调性的分界点是函数的极值点。
+{\bf 注：}{\b 连续函数单调性的分界点是函数的极值点。}
 
 {\bf 例：}判断正误
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item 函数的极大值一定是最大值\quad  ({$\times$}) 
-  \item 函数的最大值一定是极大值\quad  ({$\times$}) 
-  \item 函数的极大值一定比极小值大\quad  ({$\times$}) 
+  \item {\b 函数的极大值一定是最大值\quad  ({$\times$})} 
+  \item {\b 函数的最大值一定是极大值\quad  ({$\times$})} 
+  \item {\b 函数的极大值一定比极小值大\quad  ({$\times$})} 
 \end{enumerate}
 
 \subsection{最值（最优化）问题}
@@ -115,37 +121,39 @@ $$f(x)<f(x_0)\quad (\mbox{或}\quad f(x)>f(x_0)),$$
   \item 逐个计算
   $f(a),f(x_1),f(x_2),\ldots,f(x_n),f(b)$，
   {\it 比较求得最大和最小值}。
-  \ps{之所以不考虑其他的点，是因为这些点没有考虑的价值}
+%   \ps{之所以不考虑其他的点，是因为这些点没有考虑的价值}
 \end{enumerate}
 
-{\bf P224-例1：}求函数$f(x)=3x^4-4x^3-12x^2+3$在区间$[-2,3]$上的最大和最小值。
+{\bf 教材-例1：}求函数$f(x)=3x^4-4x^3-12x^2+3$在区间$[-2,3]$上的最大和最小值。
 
-% \begin{shaded}
-% {\bf 【最优化问题】}
-% 
-% {\bf 目标：}求函数$f(x)$的最值
-% 
-% {\bf 约束：}变量$x$所需满足的条件，例如：$x\in[a,b]$，$|x^2-2|<1$
-% \ps{更一般的问题意味着更多的变量、更多的约束甚至是多个最值}
-% 
-% \begin{itemize}
-%   \setlength{\itemindent}{1cm}
-%   \item 给定边长，求所能围成的矩形区域的最大面积？ 
-%   \item 给定原材料，生产各种商品所能获得最大利润？ 
-%   \item 为达到特定生产收益，所需投入的最少资源？ 
-%   \item \ldots \ldots 
-% \end{itemize}
-% 
-% {\bf 解题过程：}
-% \begin{enumerate}[(1)]
-%   \setlength{\itemindent}{1cm}
-%   \item {\it 理解题意：}画图、定义变量 
-%   \item {\it 建立关系：}目标函数表达式 
-%   \item {\it 求解最值}
-% \end{enumerate}
-% \end{shaded}
+\begin{shaded}
+	{\bf 【优化问题】}：{\it 求特定函数给定条件下的最优结果}
+	
+	{\bf 目标：}求函数$f(x)$的最值
+	
+	{\bf 约束：}变量$x$所需满足的条件，例如：$x\in[a,b]$，$|x^2-2|<1$
+	% \ps{更一般的问题意味着更多的变量、更多的约束甚至是多个最值}
+	
+	\begin{itemize}
+	  \setlength{\itemindent}{1cm}
+	  \item 给定边长，求所能围成的矩形区域的最大面积？
+	  \item 给定原材料，生产各种商品所能获得最大利润？
+	  \item 为达到特定生产收益，所需投入的最少资源？
+	  \item \ldots \ldots
+	\end{itemize}
+	
+	{\bf 求解：}
+	\begin{enumerate}[(1)]
+	  \setlength{\itemindent}{1cm}
+	  \item {\it 理解题意：}画图、定义变量
+	  \item {\it 建立关系：}目标函数表达式
+	  \item {\it 求解最值：}推理或仿真求解
+	\end{enumerate}
+	
+	{\it 更一般的问题意味着更多的变量、更多的约束以及更复杂的目标（例如：多个输出最值）}
+\end{shaded}
 
-{\bf P230-例5：}一个边长为$a$的方形铁皮，在四角各剪去一个边长为$x$的小正方形，然后折成
+{\bf 教材-例5：}一个边长为$a$的方形铁皮，在四角各剪去一个边长为$x$的小正方形，然后折成
 一个无盖的长方体容器，问当$x$取何值时，长方体容器的容积最大？
 
 {\bf 例：}半径为$R$的圆形纸张上剪去一个扇形，剩余部分做成一个圆锥形容器，求该容器的最大
@@ -160,10 +168,10 @@ $$V^2(\theta)=\df{\pi^2R^6}9\left(\df{\theta^2}{4\pi^2}\right)^2
 记$x=\df{\theta^2}{4\pi^2},c=\df{\pi^2R^6}9$，从而$V=cx^2(1-x)$，显然$x\in[0,1]$，
 计算可得其驻点$x_0=\df23$，易证其也是最大值点，此时$V_{\max}=\df{2\pi R^3}{9\sqrt3}$
 
-{\bf P230-例4：}用输油管连接离海岸12km的钻井平台和沿岸往下20km处的炼油厂。已知水下和陆上铺设
+{\bf 教材-例4：}用输油管连接离海岸12km的钻井平台和沿岸往下20km处的炼油厂。已知水下和陆上铺设
 管道的成本分别是每公里50万元和30万元，问该如何设计线路，使总的建设成本最低？
 
-{\bf 例：}通常情况下，声波上层岩石中的传播速度$c_1$小于在下层岩石中的传播速度$c_2$。
+{\bf 例（地质勘探）：}通常情况下，声波上层岩石中的传播速度$c_1$小于在下层岩石中的传播速度$c_2$。
 如图所示，求
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
@@ -272,7 +280,7 @@ $$R'(\alpha)=\df{2v_0^2}{g\cos^2\theta}\cos(2\alpha+\theta),$$
 \end{enumerate}
 则：存在$\xi\in(a,b)$，使得$f\,'(\xi)=0$。
 
-{\bf 注：}三个条件缺一不可！！
+{\bf 注：}{\b 三个条件缺一不可！！}\ps{为什么？每种情况给出相应的反例！}
 
 {\bf 例：}证明：对函数$f(x)=(x-1)(x-2)(x-3)$，至少存在一点
 $\xi\in(1,3)$，使得$f\,''(\xi)=0$。
@@ -280,12 +288,21 @@ $\xi\in(1,3)$，使得$f\,''(\xi)=0$。
 {\bf 例}（Darboux定理）设$f(x)$在$[a,b]$上可导，且$f\,'_+(a)f\,'_-(b)<0$，
 则存在$\xi\in(a,b)$，使得$f\,'(\xi)=0$。
 
+[提示]：不妨设$f'_+(a)>0$，且$f(a)>f(b)$，则可以证明必存在$c\in(a,b)$，
+使得$f(c)=f(a)$，然后使用Rolle定理。
+
 {\bf 例：}设$f(x)$在$[a,b]$上满足Rolle定理条件，
 且$f\,'_+(a)f\,'_-(b)>0$，则$f\,'(0)=0$在$(a,b)$内至少有两个根。
+
+[提示]：利用极限的保号性，说明在$a,b$附近各有一点，两点函数值反号，然后利用
+介值定理和Rolle定理。
 
 {\bf 例：}设$\df{a_0}{n+1}+\df{a_1}{n}+\ldots+a_n=0$，证明：方程
 $$a_0x^n+a_1x^{n-1}+\ldots+a_n=0$$
 在区间$(0,1)$内至少有一个根。
+
+[提示]：令
+$$F(x)=\df{a_0}{n+1}x^{n+1}+\df{a_1}{n}x^n+\ldots+a_nx$$
 
 {\bf 推论}（Rolle定理的高阶推广）
 设$f(x)$在$[x_0,x_n]$上有$n-1$阶连续导数，在$(x_0,x_n)$内
@@ -293,21 +310,24 @@ $n$阶可导，且
 $$f(x_0)=f(x_1)=\ldots=f(x_n),\quad(x_0<x_1<\ldots<x_n),$$
 则存在$\xi\in(x_0,x_n)$，使得$f^{(n)}(\xi)=0$。
 
+[提示]：反复使用Rolle定理。
+
 {\bf 例：}设$f(x)\in C[a,b]$，在$(a,b)$内可导，且$f(a)=f(b)=0$，证明：存在
 $\xi\in(a,b)$，使得：
 $$f'(\xi)+f(\xi)=0.$$
 
-{\bf 提示：}$F(x)=f(x)e^x$
+[提示]：$F(x)=f(x)e^x$
 
-{\bf 注：}辅助函数的构造可以从不定积分中获得一些启发
+{\bf 注：}{\b 辅助函数的构造可以从不定积分中获得一些启发
 \begin{itemize}
   \setlength{\itemindent}{1cm}
-  \item $f(\xi)+\lambda f'(\xi)=0$： $F(x)=e^{\lambda x}f(x)$
-  \item $f'(\xi)+f(\xi)g'(\xi)=0$： $F(x)=e^{\lambda g(x)}f(x)$
-  \item $nf(\xi)+xf'(\xi)=0$： $F(x)=x^nf(x)$ 
-  \item $f'(\xi)g(\xi)+f(\xi)g'(\xi)=0$：$F(x)=f(x)g(x)$
-  \item $f'(x)g(x)-f(x)g'(x)=0$： $F(x)=\df{f(x)}{g(x)}$
+  \item $f(\xi)+\lambda f'(\xi)=0$：令$F(x)=e^{\lambda x}f(x)$
+  \item $f'(\xi)+f(\xi)g'(\xi)=0$： 令$F(x)=e^{\lambda g(x)}f(x)$
+  \item $nf(\xi)+xf'(\xi)=0$： 令$F(x)=x^nf(x)$ 
+  \item $f'(\xi)g(\xi)+f(\xi)g'(\xi)=0$：令$F(x)=f(x)g(x)$
+  \item $f'(x)g(x)-f(x)g'(x)=0$： 令$F(x)=\df{f(x)}{g(x)}$
 \end{itemize}
+}
 
 
 \subsection{Lagrange中值定理}
@@ -318,35 +338,36 @@ $$f'(\xi)+f(\xi)=0.$$
   \item 在区间$[a,b]$上连续 
   \item 在区间$(a,b)$内可导 
 \end{enumerate}
-则：存在$\xi\in(a,b)$，使得 
-$$f\,'(\xi)=\df{f(b)-f(a)}{b-a}.$$
+则：{\b 存在$\xi\in(a,b)$，使得 
+$$f\,'(\xi)=\df{f(b)-f(a)}{b-a}.$$}
 
 {\bf 注：}Lagrange中值定理的几种常见形式
-$$f(b)-f(a)=f'(\xi)(b-a)$$
-$$f(x+\Delta x)=f(x)+f'(x+\theta\Delta x)(b-a),(\theta\in(0,1))$$
+$${\b f(b)-f(a)=f'(\xi)(b-a)}$$
+$${\b f(x+\Delta x)=f(x)+f'(x+\theta\Delta x)\Delta x,
+\quad (\theta\in(0,1))}$$
 
-{\bf 推论（P237-例1）}
+{\bf 推论（教材-例1）}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item 导数恒为零的函数取值恒为常数。
   \item 导数恒大于零的函数严格单调递增。
 \end{enumerate}
 
-{\bf P237-例3：}证明方程$x^5+x-1=0$只有唯一实根。
+{\bf 教材-例3：}证明方程$x^5+x-1=0$只有唯一实根。
 
 {\bf 例：}证明：$\df{\ln x-\ln x_1}{x-x_1}<\df 1{x_1},\quad (0<x_1<x)$
 
-{\bf P237-例2：}证明不等式：$\df{x}{1+x}<\ln(1+x)<x,\;x>0$
+{\bf 教材-例2：}证明不等式：$\df{x}{1+x}<\ln(1+x)<x,\;x>0$
 
 {\bf 注：}在证明Eular常数
 $$\gamma=\limn\left(1+\df12+\ldots+\df1n-\ln n\right)$$
 时，用到了这个不等式。
 
-{\bf P238-例4：}设$f(x)\in C[a,b]$，且$f(x)$在$(a,b)$内二阶可导，
+{\bf 教材-例4：}设$f(x)\in C[a,b]$，且$f(x)$在$(a,b)$内二阶可导，
 连接函数曲线两端点的直线在$(a,b)$内至少与曲线存在一个交点，
 则存在$\xi\in(a,b)$，使得$f\,''(\xi)=0$。
 
-{\bf 思考：}若端点连线与函数曲线存在多个交点，能够得到什么结论？
+{\bf 思考：}{\b 若光滑曲线的端点连线与函数曲线存在多个交点，能够得到什么结论？}
 
 利用与Lagrange中值定理相似的思想，可以证明：
 
@@ -361,6 +382,20 @@ $$F(t)=f(t)-\df{(t-a)(t-b)}{(x-a)(x-b)}f(x)$$
 {\bf 过给定$n$个点$(x_i,f(x_i))(i=1,2,\ldots,n)$的Lagrange插值多项式}
 $$L_n(x)=\sum\limits_{i=1}^n\prod_{j=1,j\ne i}^{n}
 \df{x-x_j}{x_i-x_j}f(x_i)$$
+
+{\bf 例：}过点$(0,0),(1,2),(2,-1),(3,-2)$的Lagrange插值多项式为
+$$L(x)=\df{x^3}6-8x^2+\df{41}6x$$
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/L4x.pdf}}
+\end{center}
+
+%% code of Mathematica 
+% f[x_] := 7/6*x^3 - 6 x^2 + 41/6*x;
+% CCurve = Plot[f[x], {x, -0.5, 3.5}];
+% DCurve = ListPlot[Table[{n, f[n]}, {n, 0, 3}], Filling -> Axis];
+% Show[CCurve, DCurve]
+
 \end{shaded}
 
 \subsection{Cauchy中值定理}
@@ -432,16 +467,31 @@ $$\limx{a^+}\df{f(x)}{g(x)}=\limx{a^+}\df{f\,'(x)}{g'(x)}$$
 
 {\bf 注：}以上结论可以直接推广到$\infty/\infty$不定式的情形
 
-参考L'Hospital法则的正面原理，可以证明下面的两个结论：
+参考L'Hospital法则的证明原理，可以证明下面的两个结论：
 
 {\bf 例：}设$\limx{+\infty}f(x)$和$\limx{+\infty}f\,'(x)$均存在，证明：
 $$\limx{+\infty}f\,'(x)=0.$$
 
+证：由Lagrange中值定理，对任意$x\in\mathbb{R}$，存在$\xi\in[x,x+1]$，满足
+$$f(x+1)-f(x)=f'(\xi),$$
+注意到$x\to+\infty\Leftrightarrow\xi\to+\infty$，$\limx{+\infty}f(x+1)=
+\limx{+\infty}f(x)$，故
+$$0=\limx{+\infty}[f(x+1)-f(x)]=\limx{+\infty}f'(\xi)
+=\lim\limits_{\xi\to+\infty}f'(\xi)=\limx{+\infty}f'(x)$$
+即证。
+
 {\bf 例：}设$f(x)$在$U(x_0)$内连续，在$U^0(x_0)$内可导，
 且$\limx{x_0}f\,'(x)=l$，则$$f\,'(x_0)=l.$$
 
+[提示]：由Lagrange中值定理，对任意$\Delta x\in\mathbb{R}$，存在
+$\xi\in[x_0,x_0+\Delta x]$，使得
+$$\df{f(x_0+\Delta x)-f(x_0)}{\Delta x}=f'(\xi),$$
+注意到$\Delta x\to 0\Leftrightarrow\xi\to0$，故
+$$f'(x_0)=\lim\limits_{\Delta x\to 0}\df{f(x_0+\Delta x)-f(x_0)}{x_0}
+=\lim\limits_{\Delta x\to 0}f'(\xi)=\lim\limits_{\xi\to 0}f'(\xi)=l,$$
+即证。
 
-{\bf P242-243-例5-13}
+{\bf 教材-例5-13}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\limx{0}\df{x-\sin x}{x^3}$ 
@@ -465,9 +515,29 @@ $$\limx{+\infty}f\,'(x)=0.$$
 	\resizebox{!}{4cm}{\includegraphics{./images/ch5/lim00.pdf}}
 \end{center}
 
-{\bf 习题5.2-15：}设$f(x)$在$x_0$附近存在二阶连续导函数，则
+{\b{\bf 习题5.2-15：}设$f(x)$在$x_0$附近存在二阶连续导函数，则
 $$\lim\limits_{h\to 0}\df{f(x_0+h)+f(x_0-h)-2f(x_0)}{h^2}=f\,''(x_0).$$
-若条件减弱为“$f(x)$在$x=x_0$处二阶可导”，结论是否仍然成立？
+若条件减弱为“$f(x)$在$x=x_0$处二阶可导”，结论是否仍然成立？\ps{难点！}
+
+[提示]：成立，但是如下推导是不对的
+\begin{align}
+	\lim\limits_{h\to 0}&\df{f(x_0+h)+f(x_0-h)-2f(x_0)}{h^2}
+	=\lim\limits_{h\to 0}\df{f'(x_0+h)-f'(x_0-h)}{2h}\notag\\
+	&=\lim\limits_{h\to 0}\df{f''(x_0+h)+f''(x_0-h)}{2}
+	=f''(0)\notag
+\end{align}
+其中的错误在于，条件中只有$f(x)$在$x=x_0$处二阶可导，而不是$f(x)$的二阶导数
+在$x_0$附近连续，因此最后的两个等号都是不成立的！
+
+事实上，正确的推导应该是
+\begin{align}
+	\lim\limits_{h\to 0}&\df{f(x_0+h)+f(x_0-h)-2f(x_0)}{h^2}
+	=\lim\limits_{h\to 0}\df{f'(x_0+h)-f'(x_0-h)}{2h}\notag\\
+	&=\df12\lim\limits_{h\to 0}\df{f'(x_0+h)-f'(x_0)}{h}
+	+\df12\lim\limits_{h\to 0}\df{f'(x_0-h)-f'(x_0)}{-h}
+	=f''(0)\notag
+\end{align}
+其中最后一个等号只用到了二阶导数的定义。}
 
 {\bf 例：}
 设$f(0)=1$，且
@@ -478,18 +548,18 @@ $$\limx{0}\df{\ln(1-x)+f(x)\sin x}{e^{x^2}-1}=0,$$
 
 \subsection{可导函数的单调性与极值}
 
-\subsubsection{单调性}
+\subsubsection{【单调性】}
 
 {\bf 定理5.4.1：}设$f(x)$在$[a,b]$上连续，$(a,b)$内可导，且$f\,'(x)$恒大（小）于零，
 则$f(x)$在$[a,b]$上严格单调递增（减）。
 
 \begin{itemize}
   \setlength{\itemindent}{1cm}
-  \item {以上仅仅是判定可导函数严格单调的充分条件，而非充要条件} 
-  \item {若定理中的“大（小）于”改成“大（小）于等于”，则对应于单调递增情形，且为充要条件}
+  \item 以上仅仅是判定可导函数严格单调的充分条件，而非充要条件 
+  \item 若定理中的“大（小）于”改成“大（小）于等于”，则对应于单调递增情形，且为充要条件
+  \item {\b 若定理中的“大（小）于”改成“大（小）于等于”，且导数知道不可能在任何一段
+  连续区间内恒等于零，则可推出函数为{\it 严格}单调}
 \end{itemize}
-
-{\bf P264-例1-2：}讨论$y=x-\sin x$的单调性。
 
 {\bf 定理}（可导函数单调的充要条件）设$f(x)$在$[a,b]$上连续，$(a,b)$内可导，
 则$f(x)$在$[a,b]$上严格单调递增，当且仅当：
@@ -499,28 +569,42 @@ $$\limx{0}\df{\ln(1-x)+f(x)\sin x}{e^{x^2}-1}=0,$$
   \item 在$(a,b)$的任意子区间上$f\,'(x)$不恒为零
 \end{enumerate}
 
-{\bf 注：}导函数只有{\it 孤立零点}的函数严格单调
+{\bf 注：}{\b 导函数不变号且只有{\it 孤立零点}的函数严格单调！}
 
-\subsubsection{单调性的应用}
+{\bf 教材-例1-2：}讨论$y=x-\sin x$的单调性。\ps{用导数来证明单调性显然比
+利用函数的性质直接证明要容易得多}
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/xpmSinx.pdf}}
+	
+	{\it $y=x\pm\sin x$的函数图形}
+\end{center}
+
+\subsubsection{【单调性的应用】}
 
 {\bf 推论1：}设$\varphi(x),\psi(x) $均在$[a,b]$上可导，且：
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\varphi'(x)>\psi'(x),\;x\in(a,b)$
-  \item $\varphi(a)=\psi(a)$
+  \item $\varphi(a)\geq\psi(a)$
 \end{enumerate}
 则在$(a,b)$上，恒有$\varphi(x)>\psi(x)$
 
 {\bf 例：}证明：当$x>0$时，恒有
 $$x-\df 16x^3<\sin x<x.$$
 
-{\bf 推论2：}设$\varphi(x),\psi(x) $均在$[a,b]$上$n$阶可导，且：
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/xSinxx3.pdf}}
+\end{center}
+
+{\b {\bf 推论2：}设$\varphi(x),\psi(x) $均在$[a,b]$上$n$阶可导，且：
+\ps{反复多次利用前述推论！}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\varphi^{(n)}(x)>\psi^{(n)}(x),\;x\in(a,b)$
-  \item $\varphi^{(k)}(a)=\psi^{(k)}(a),k=0,1,2,\ldots,n-1$
+  \item $\varphi^{(k)}(a)\geq\psi^{(k)}(a),k=0,1,2,\ldots,n-1$
 \end{enumerate}
-则在$(a,b)$上，恒有$\varphi(x)>\psi(x)$
+则在$(a,b)$上，恒有$\varphi(x)>\psi(x)$}
 
 {\bf 例：}证明下列不等式
 \begin{enumerate}[(1)]
@@ -530,11 +614,17 @@ $$x-\df 16x^3<\sin x<x.$$
   {x^2}{2!}+\df{x^3}{3!}+\ldots+\df{x^n}{n!},\;(x>0,n\in\mathbb{N})$
 \end{enumerate}
 
-\subsubsection{可导函数的极值}
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/lnxArctanx.pdf}}\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/exTaylor.pdf}}
+\end{center}
 
-{\bf 定理5.4.2}极值第一充分条件）
-设$f(x)$在$x_0$连续，在$x_0$的去心领域内可导，且$f\,'(x)$在$x_0$两侧导数值异号，则
-$f(x)$在$x_0$处取极值。
+\subsubsection{【可导函数的极值】}
+
+{\bf 定理5.4.2}（极值第一充分条件）
+设$f(x)$在$x_0$连续，在$x_0$的去心领域内可导，且$f\,'(x)$在$x_0$两侧导数值异号
+（{\it $f(x)$单调性不同}），则$f(x)$在$x_0$处取极值。\ps{\b 此处不关心$f(x)$在
+$x_0$是否可导！}
 
 {\bf 例：}讨论以下函数的极值
 \begin{enumerate}[(1)]
@@ -543,7 +633,14 @@ $f(x)$在$x_0$处取极值。
   \item $f(x)=\left(1+x+\df{x^2}{2!}+\ldots+\df{x^n}{n!}\right)e^{-x}$ 
 \end{enumerate}
 
-{\bf 定理5.4.3}（极值第二充分条件）
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/2x3.pdf}}\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/1xxe-x.pdf}}
+	
+	{\it 蓝色和黄色分别为函数和导函数的曲线}
+\end{center}
+
+{\bf 定理5.4.3}（极值第二充分条件）\ps{最常用的极值判定方法}
 设$f(x)$在$x_0$二阶可导，且$f\,'(x_0)=0$，则
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
@@ -554,11 +651,18 @@ $f(x)$在$x_0$处取极值。
 {\bf 例：}讨论以下函数的极值
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $f(x)=x^3-6x^2+5$\hfill (P267-例4)
+  \item $f(x)=x^3-6x^2+5$\hfill (教材-例4)
   \item $f(x)=\cos x+\df12\cos 2x$
 \end{enumerate}
 
-\subsubsection{综合应用}
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/x36x2-5.pdf}}\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch5/cosxcos2x.pdf}}
+	
+	{\it 蓝色、黄色和绿色分别为函数、导函数和二阶导函数的曲线}
+\end{center}
+
+\subsubsection{【综合应用】}
 
 {\bf 例：}函数$f(x)$对满足
 $$xf\,''(x)+3x[f\,'(x)]^2=1-e^{-x}$$
@@ -568,14 +672,22 @@ $$xf\,''(x)+3x[f\,'(x)]^2=1-e^{-x}$$
   \item 若$f(x)$在$x=0$处有极值，该极值为极大还是极小？
 \end{enumerate}
 
-{\bf P280-习题7：}求数列$\sqrt[n]n$中最大的一项。
+{\bf 教材-习题7：}求数列$\sqrt[n]n$中最大的一项。
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/x1x.pdf}}
+\end{center}
 
 {\bf 例：}求$a$的取值范围，使$y=a^x$与$y=x$必相交。
 
 {\bf 提示：}充要条件是存在$x_0>0$，满足$a^{x_0}=x_0$，也即$a$位于$g(x)=x^{x}$
 的值域中。结果$a\in(0,e^{\frac1e}]$
 
-{\bf P270-例7：}判定方程$2^x-2x=1$有几个实根。
+{\bf 教材-例7：}判定方程$2^x-2x=1$有几个实根。
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/2x2x.pdf}}
+\end{center}
 
 {\bf 例：}已知$x>0$时，
 $$kx+\df1{x^2}=1$$
@@ -587,13 +699,13 @@ $$F(x)=\df{f(x)-f(a)}{x-a}$$
 
 {\bf 例：}设$a,b$均为正数，证明：$a(1-b)$和$b(1-a)$不可能同时大于$\df14$。
 
-{\bf 提示：}令$f(x)=x(1-x)$，可求得其最大值为$\df14$。若以上两数都大于$1/4$，则
+[提示]：令$f(x)=x(1-x)$，可求得其最大值为$\df14$。若以上两数都大于$1/4$，则
 $$a(1-b)b(1-a)>\df1{16},$$
 这与前述最大值的性质矛盾。
 
 {\bf 例：}当$a$取何值时，$a^x\geq1+x$恒成立。
 
-{\bf 提示：}两条曲线总有交点$(0,1)$，又$(a^x)''=a^x\ln^2x>0$，故$y=a^x$上凹。
+[提示]：两条曲线总有交点$(0,1)$，又$(a^x)''=a^x\ln^2x>0$，故$y=a^x$上凹。
 要使之位于$y=x+1$上方，只需后者为其切线，由此易得$a=e$.
 
 \begin{shaded}
@@ -618,10 +730,12 @@ $$f(x_0)=\df1{k+1}(x_1+x_2+\ldots+x_k-k\sqrt[k]{x_1x_2\ldots x_k})\geq 0$$
 
 \subsection{曲线的凹凸性}
 
-{\bf 约定：}以下的凹凸均指“上凹”和“上凸”
+{\bf 约定：}以下的凹凸均指“上凹”和“上凸”\ps{\b 目前的教材上对于函数的凹凸和
+曲线的凹凸定义有所不同，并且刚好相反：K}
 
 {\bf 定义5.4.1：}设函数$f(x)$在区间$I$上有定义，若对任意$x_1,x_2\in I$，
 以及任意$\lambda\in[0,1]$，有
+\ps{\b 直观地说，就是割线上的取值大于函数值，则称为凹，反之为凸}
 $$f[\lambda x_1+(1-\lambda)x_2]\leq\lambda f(x_1)+(1-\lambda)f(x_2)$$
 则称$f(x)$是区间$I$上的{\it 凹函数}。若上式中的等号严格成立，则称其为{\it 严格凹函数}。
 
@@ -701,6 +815,10 @@ $$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1). $$
 	
 	{\bf 例：}$y=(x-1)(x-2)^2(x-3)^3$有几个极值点和拐点？
 	
+	\begin{center}
+		\resizebox{!}{5cm}{\includegraphics{./images/ch5/x123.pdf}}
+	\end{center}
+	
 	{\bf 解：}利用前述的判定准则：
 	\begin{enumerate}[(1)]
   	  \setlength{\itemindent}{1cm}
@@ -715,6 +833,10 @@ $$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1). $$
 	综上，该函数共有$3$个极值点，$4$个拐点。
 	
 	{\bf 例：}$y=2(x+1)^5(x-2)^8(x-4)^3+9$有几个极值点和拐点？
+	
+	\begin{center}
+		\resizebox{!}{5cm}{\includegraphics{./images/ch5/x124.pdf}}
+	\end{center}
 	
 	{\bf 解：}注意到该函数和
 	$$y=2(x+1)^5(x-2)^8(x-4)^3,$$
@@ -734,7 +856,7 @@ $$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1). $$
 	
 \end{shaded}
 
-{\bf 推论}（P276-例11）严格凸（凹）函数的驻点为极值点。
+{\bf 推论}（教材-例11）严格凸（凹）函数的驻点为极值点。
 
 \subsection{分析作图}
 
@@ -749,7 +871,7 @@ $$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1). $$
   $f''(x)<0$；$x\in(-4,0)$时，$f''(x)>0$
 \end{enumerate}
 
-{\bf P279-例14：}作出函数$y=\df{x}{1+x^2}$的图形。
+{\bf 教材-例14：}作出函数$y=\df{x}{1+x^2}$的图形。
 
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch5/x1x2.pdf}}

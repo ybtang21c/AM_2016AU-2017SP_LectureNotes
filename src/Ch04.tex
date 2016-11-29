@@ -991,17 +991,73 @@ $$Q(x)=\prod\limits_{i=1}^s(x-a_i)^{\lambda_i}
   \setlength{\itemindent}{1cm}
   \item $\dint\df A{x-a}\d x=A\ln|x-a|+C$ 
   \item $\dint\df{B\d x}{(x-a)^n}=\df B{(1-n)(x-a)^{n-1}}+C$
-  \item $\dint\df{Q(x)}{(x-a)^n}$, let$u=x-a$\\
-  e.g. $\dint\df x{(x+1)^3}\d x$ 
+  \item $\dint\df{Q(x)}{(x-a)^n}$，令$u=x-a$\\
+  例如： $\dint\df x{(x+1)^3}\d x=\dint\df{(u-1)^3}{u^3}\d u$ 
   \item $\dint\df{Cx+D}{x^2+px+q}\d x=
   \df C2\ln(x^2+px+q)+\df{2D-Cp}{\sqrt{4q-p^2}}
-  \arctan\df{2x+p}{\sqrt{4q-p^2}}+C$
+  \arctan\df{2x+p}{\sqrt{4q-p^2}}+C_1$\ps{假设$\Delta=p^2-4q<0$}
   \item $\dint\df{Ex+F}{(x^2+px+q)^m}\d x
   =\df E{2(1-m)(x^2+px+q)^{m-1}}+J_m$，其中：记$u^2=q-p^2/4$，
   $$J_m=\df{y}{2u^2(m-1)(y^2+u^2)^{m-1}}+
   \df{3-2m}{2u^2(1-m)}J_{m-1},$$
   $$J_1=\df1u\arctan\df yu+C$$
 \end{enumerate}
+
+{\bf 注：}1、关于（4），{\b 形如$\dint\df{\d x}{x^2+px+q}$的积分，
+记$\Delta=p^2-4q$，
+
+（i）若$\Delta>0$，则记$x_{1,2}=\df{-p\pm\sqrt{\Delta}}2$为$x^2+px+q=0$
+的两个相异实根，于是
+\begin{align}
+	\dint\df{\d x}{x^2+px+q}&=\dint\df{\d x}{(x-x_1)(x-x_2)}
+	=\df1{x_1-x_2}\dint\left(\df1{x-x_1}-\df1{x-x_2}\right)\d x\notag\\
+	&=\df2{\sqrt{\Delta}}\ln\left|\df{x-x_1}{x-x_2}\right|+C\notag\\
+	&=\df2{\sqrt{p^2-4q}}\ln\left|\df{2x+p-\sqrt{p^2-4q}}
+	{2x+p+\sqrt{p^2-4q}}\right|+C\notag
+\end{align}
+
+（ii）若$\Delta=0$，则$x=-\df p2$为$x^2+px+q=0$的二重根，从而
+$$\dint\df{\d x}{x^2+px+q}=\dint\df{\d x}{(x+p/2)^2}=-\df2{2x+p}+C$$
+
+（iii）若$\Delta<0$，令$u=x+\df p2$，记$A=\sqrt{-\Delta/4}=\df{\sqrt{4q-p^2}}2$则
+\begin{align}
+	\dint\df{\d x}{x^2+px+q}&=\dint\df{\d u}{u^2+A^2}
+	=\df1A\dint\df{\d(u/A)}{(u/A)^2+1}\notag\\
+	&=\df1A\arctan\df uA+C=\df2{\sqrt{-\Delta}}
+	\arctan\df{2x+p}{\sqrt{-\Delta}}+C\notag\\
+	&=\df2{\sqrt{4q-p^2}}\arctan\df{2x+p}{\sqrt{4q-p^2}}+C\notag
+\end{align}
+}
+
+2、以上的（5）最终均可化为如下的积分
+
+% \begin{align}
+% 	I_2=&\dint\df{\d x}{(1+x^2)^2}
+% 	=\df12\dint\df{x\d x^2}{(1+x^2)^2}
+% 	=\df12\dint\df{x\d(1+x^2)}{(1+x^2)^2}
+% 	=-\df12\dint x\d\df1{1+x^2}\notag\\
+% 	&=\df{x}{2(1+x^2)}\notag
+% \end{align}
+
+\begin{align}
+	I_2&=\dint\df{\d x}{(1+x^2)^2}
+	=\dint\df{(1+x^2)-x^2}{(1+x^2)^2}\d x
+	=\dint\df{\d x}{1+x^2}-\df12\dint\df{x\d x^2}{(1+x^2)^2}\notag\\
+	&=\dint\df{\d x}{1+x^2}+\df12\dint x\d\df1{1+x^2}\notag
+	=\dint\df{\d x}{1+x^2}+\df12\df{x}{1+x^2}
+	-\df12\dint\df{\d x}{1+x^2}\notag\\
+	&=\df12\arctan x+\df{x}{2(1+x^2)}+C\notag
+\end{align}
+
+\begin{align}
+	I_n&=\dint\df{\d x}{(1+x^2)^n}
+	=\dint\df{(1+x^2)-x^2}{(1+x^2)^n}\d x
+	=I_{n-1}-\df12\dint\df{x\d x^2}{(1+x^2)^n}\notag\\
+	&=I_{n-1}+\df1{2(n-1)}\dint x\d\df1{(1+x^2)^{n-1}}\notag\\
+	&=I_{n-1}+\df{x}{2(n-1)(1+x^2)^{n-1}}
+	-\df1{2(n-1)}I_{n-1}\notag\\
+	&=\df{2n-3}{2(n-1)}I_{n-1}+\df{x}{2(n-1)(1+x^2)^{n-1}}\notag
+\end{align}
 
 {\bf 性质：}
 \begin{enumerate}
@@ -1016,7 +1072,7 @@ $$Q(x)=\prod\limits_{i=1}^s(x-a_i)^{\lambda_i}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\dint\df{x+1}{x^2+5x+6}\d x$ 
-  \item $\dint\df1{x^3}\d x$
+%   \item $\dint\df1{x^3}\d x$
   \item $\dint\df{x+2}{(2x+1)(x^2+x+1)}\d x$
   \item $\dint\df{x-3}{(x-1)(x^2-1)}\d x$
   \item $\dint\df{1-x^3}{(1+x)^4}\d x$
@@ -1291,7 +1347,7 @@ $$\mbox{原式}=\dint\df1{1+\cos\left(x-\df{\pi}2\right)}\d x=\ldots
 $$\mbox{原式}=\dint\df{1-\sin x}{\cos^2x}\d x=\ldots=\tan x-\sec x+C$$
 
 (4)方法1：
-$$\mbox{原式}=\df14\dint1{\sin\df x2\cos x2\cos^2\df x2}\d\df x2
+$$\mbox{原式}=\df14\dint\df1{\sin\df x2\cos\df x2\cos^2\df x2}\d\df x2
 =\df14\dint\df{1+\tan^2\df x2}{\tan\df x2}\d\tan\df x2
 =\df14\ln\left|\tan\df x2\right|+\df18\tan^2\df x2+C$$
 
