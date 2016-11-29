@@ -954,56 +954,107 @@ $$\dint uv'\d x=uv-\dint u'v\d x$$
 其中$P(x),Q(x)$均为多项式函数 ，若$P(x)$的次数小于$Q(x)$的次数，
 称该函数为{\it 真分式} ，否则为{\it 假分式}
 
-{\bf 注：}利用{\it 多项式除法}，任意假分式都可以表示成一个多项式与一个真分式的和，例如：
+{\bf 注：}利用{\b\it 多项式除法}，任意假分式都可以表示成一个多项式与一个真分式的和，例如：
 $$\df{2x^4+x^2+3}{x^2+1}=2x^2-1+\df{4}{x^2+1}$$
 
 \begin{shaded}
-{\bf 【有理函数分解的一般过程】}
+
+\subsubsection{【有理函数分解的一般过程】}
 
 第一步：任意多项式$Q(x)$在实数系内总能分解为一个常数，与形如$(x-a)^n$与$(x^2+px+q)^m$
 的诸因式之乘积，其中$a$是$Q(x)$的$n$重根，二次多项式$x^2+px+q$没有实根（$p^2-4q<0$），
 有共轭复根，且重数均为$m$，故
-$$Q(x)=\prod\limits_{i=1}^s(x-a_i)^{\lambda_i}
-\prod\limits_{j=1}^t(x^2+p_jx+q_j)^{\mu_j},$$
-其中$\lambda_1,\ldots,\lambda_s,\mu_1,\ldots,\mu_t$均为正整数。
+$${\b Q(x)=\prod\limits_{i=1}^s(x-a_i)^{\lambda_i}
+\prod\limits_{j=1}^t(x^2+p_jx+q_j)^{\mu_j}},$$
+其中$\lambda_1,\ldots,\lambda_s,\mu_1,\ldots,\mu_t$均为正整数，且
+$$\lambda_1+\lambda_2+\ldots+\lambda_s+
+\mu_1+\mu_2+\ldots+\mu_t=Q(x)\mbox{的次数}$$
 
 第二步：根据代数的分项分式定理，真分式$\df{P(x)}{Q(x)}$可进行如下分解
-\begin{eqnarray*}
-	\df{P(x)}{Q(x)}&=&\df{A_1}{(x-a_1)^{\lambda_1}}
+
+{\b
+\begin{align}
+	\df{P(x)}{Q(x)}&=\df{A_1}{(x-a_1)^{\lambda_1}}
 	+\df{A_2}{(x-a_1)^{\lambda_1-1}}+\ldots
-	+\df{A_{\lambda_1}}{x-a_1}+\ldots\\
-	&&+\df{B_1}{(x-a_s)^{\lambda_s}}
+	+\df{A_{\lambda_1}}{x-a_1}+\ldots\tag{*}\\
+	&+\df{B_1}{(x-a_s)^{\lambda_s}}
 	+\df{B_2}{(x-a_s)^{\lambda_s-1}}+\ldots
-	+\df{B_{\lambda_s}}{x-a_s}+\ldots\\
-	&&+\df{M_1x+N_1}{(x^2+p_1x+q_1)^{\mu_1}}
+	+\df{B_{\lambda_s}}{x-a_s}+\ldots\notag\\
+	&+\df{M_1x+N_1}{(x^2+p_1x+q_1)^{\mu_1}}
 	+\df{M_2x+N_2}{(x^2+p_1x+q_1)^{\mu_1-1}}+\ldots
-	+\df{M_{\mu_1}x+N_{\mu_1}}{x^2+p_1x+q_1}+\ldots\\
-	&&+\df{U_1x+V_1}{(x^2+p_tx+q_t)^{\mu_t}}
+	+\df{M_{\mu_1}x+N_{\mu_1}}{x^2+p_1x+q_1}+\ldots\notag\\
+	&+\df{U_1x+V_1}{(x^2+p_tx+q_t)^{\mu_t}}
 	+\df{U_2x+V_2}{(x^2+p_tx+q_t)^{\mu_t-1}}+\ldots
-	+\df{U_{\mu_t}x+V_{\mu_t}}{x^2+p_tx+q_t}
-\end{eqnarray*}
+	+\df{U_{\mu_t}x+V_{\mu_t}}{x^2+p_tx+q_t}\notag
+\end{align}
+}
 
 第三步：用待定系数法求出以上的所有常数。
 \end{shaded}
 
-{\bf 例}（基本的有理函数积分）
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint\df A{x-a}\d x=A\ln|x-a|+C$ 
-  \item $\dint\df{B\d x}{(x-a)^n}=\df B{(1-n)(x-a)^{n-1}}+C$
-  \item $\dint\df{Q(x)}{(x-a)^n}$，令$u=x-a$\\
-  例如： $\dint\df x{(x+1)^3}\d x=\dint\df{(u-1)^3}{u^3}\d u$ 
-  \item $\dint\df{Cx+D}{x^2+px+q}\d x=
+{\bf 例：}（基本的有理函数积分）\ps{\b 重点掌握！}
+
+（1）{\b$\dint\df A{x-a}\d x=A\ln|x-a|+C$} 
+
+（2）{\b$\dint\df{B\d x}{(x-a)^n}=\df B{(1-n)(x-a)^{n-1}}+C$}
+
+（3）{\b$\dint\df{Q(x)}{(x-a)^n}$，令$u=x-a$}
+
+例： $\dint\df x{(x+1)^3}\d x\xlongequal{u=x+1}\dint\df{(u-1)^3}{u^3}\d u$
+
+（4）{\b$\dint\df{Cx+D}{x^2+px+q}\d x$，其中$p^2-4q<0$}
+
+例：
+\begin{align}
+	\dint\df{x+1}{x^2+x+1}\d x
+	&=\dint\df{\left(x+\df12\right)+\df12}{\left(x+\df12\right)^2+\df34}
+	\d\left(x+\df12\right)\notag\\
+	&=\df12\dint\df{\d\left(x+\df12\right)^2}
+	{\left(x+\df12\right)^2+\df34}+\df{1}{\sqrt3}\dint
+	\df{\d\df2{\sqrt3}\left(x+\df12\right)}
+	{\left[\df2{\sqrt3}\left(x+\df12\right)\right]^2+1}\notag\\
+	&=\df12\ln|x^2+x+1|+\df1{\sqrt3}\arctan\df2{\sqrt3}\left(x+\df12\right)+C\notag
+\end{align}
+一般地，
+$$\dint\df{Cx+D}{x^2+px+q}\d x=
   \df C2\ln(x^2+px+q)+\df{2D-Cp}{\sqrt{4q-p^2}}
-  \arctan\df{2x+p}{\sqrt{4q-p^2}}+C_1$\ps{假设$\Delta=p^2-4q<0$}
-  \item $\dint\df{Ex+F}{(x^2+px+q)^m}\d x
-  =\df E{2(1-m)(x^2+px+q)^{m-1}}+J_m$，其中：记$u^2=q-p^2/4$，
-  $$J_m=\df{y}{2u^2(m-1)(y^2+u^2)^{m-1}}+
+  \arctan\df{2x+p}{\sqrt{4q-p^2}}+C_1$$
+
+（5）$\dint\df{Ex+F}{(x^2+px+q)^m}\d x$，其中$p^2-4q<0$
+
+[提示]：参考（4）中示例的解法，（5）最终均可化为类似如下的积分
+
+\begin{align}
+	I_2&=\dint\df{\d x}{(1+x^2)^2}
+	=\dint\df{(1+x^2)-x^2}{(1+x^2)^2}\d x
+	=\dint\df{\d x}{1+x^2}-\df12\dint\df{x\d x^2}{(1+x^2)^2}\notag\\
+	&=\dint\df{\d x}{1+x^2}+\df12\dint x\d\df1{1+x^2}\notag
+	=\dint\df{\d x}{1+x^2}+\df12\df{x}{1+x^2}
+	-\df12\dint\df{\d x}{1+x^2}\notag\\
+	&=\df12\arctan x+\df{x}{2(1+x^2)}+C\notag
+\end{align}
+
+\begin{align}
+	I_n&=\dint\df{\d x}{(1+x^2)^n}
+	=\dint\df{(1+x^2)-x^2}{(1+x^2)^n}\d x
+	=I_{n-1}-\df12\dint\df{x\d x^2}{(1+x^2)^n}\notag\\
+	&=I_{n-1}+\df1{2(n-1)}\dint x\d\df1{(1+x^2)^{n-1}}\notag\\
+	&=I_{n-1}+\df{x}{2(n-1)(1+x^2)^{n-1}}
+	-\df1{2(n-1)}I_{n-1}\notag\\
+	&=\df{2n-3}{2(n-1)}I_{n-1}+\df{x}{2(n-1)(1+x^2)^{n-1}}\notag
+\end{align}
+
+通过递推，最终可以得到
+
+$$\dint\df{Ex+F}{(x^2+px+q)^m}\d x
+  =\df E{2(1-m)(x^2+px+q)^{m-1}}+J_m$$
+
+其中
+$$J_m=\df{y}{2u^2(m-1)(y^2+u^2)^{m-1}}+
   \df{3-2m}{2u^2(1-m)}J_{m-1},$$
   $$J_1=\df1u\arctan\df yu+C$$
-\end{enumerate}
 
-{\bf 注：}1、关于（4），{\b 形如$\dint\df{\d x}{x^2+px+q}$的积分，
+{\bf 注：}{\b 计算形如$\dint\df{\d x}{x^2+px+q}$的积分，
 记$\Delta=p^2-4q$，
 
 （i）若$\Delta>0$，则记$x_{1,2}=\df{-p\pm\sqrt{\Delta}}2$为$x^2+px+q=0$
@@ -1029,44 +1080,10 @@ $$\dint\df{\d x}{x^2+px+q}=\dint\df{\d x}{(x+p/2)^2}=-\df2{2x+p}+C$$
 \end{align}
 }
 
-2、以上的（5）最终均可化为如下的积分
-
-% \begin{align}
-% 	I_2=&\dint\df{\d x}{(1+x^2)^2}
-% 	=\df12\dint\df{x\d x^2}{(1+x^2)^2}
-% 	=\df12\dint\df{x\d(1+x^2)}{(1+x^2)^2}
-% 	=-\df12\dint x\d\df1{1+x^2}\notag\\
-% 	&=\df{x}{2(1+x^2)}\notag
-% \end{align}
-
-\begin{align}
-	I_2&=\dint\df{\d x}{(1+x^2)^2}
-	=\dint\df{(1+x^2)-x^2}{(1+x^2)^2}\d x
-	=\dint\df{\d x}{1+x^2}-\df12\dint\df{x\d x^2}{(1+x^2)^2}\notag\\
-	&=\dint\df{\d x}{1+x^2}+\df12\dint x\d\df1{1+x^2}\notag
-	=\dint\df{\d x}{1+x^2}+\df12\df{x}{1+x^2}
-	-\df12\dint\df{\d x}{1+x^2}\notag\\
-	&=\df12\arctan x+\df{x}{2(1+x^2)}+C\notag
-\end{align}
-
-\begin{align}
-	I_n&=\dint\df{\d x}{(1+x^2)^n}
-	=\dint\df{(1+x^2)-x^2}{(1+x^2)^n}\d x
-	=I_{n-1}-\df12\dint\df{x\d x^2}{(1+x^2)^n}\notag\\
-	&=I_{n-1}+\df1{2(n-1)}\dint x\d\df1{(1+x^2)^{n-1}}\notag\\
-	&=I_{n-1}+\df{x}{2(n-1)(1+x^2)^{n-1}}
-	-\df1{2(n-1)}I_{n-1}\notag\\
-	&=\df{2n-3}{2(n-1)}I_{n-1}+\df{x}{2(n-1)(1+x^2)^{n-1}}\notag
-\end{align}
-
-{\bf 性质：}
-\begin{enumerate}
-  \setlength{\itemindent}{1cm}
-  \item {\b 设$Q(x)$可分解为两个没有公因式的多项式$Q_1(x),Q_2(x)$的乘积，
-  则真分式$\df{P(x)}{Q(x)}$必可分解为
-  两个真分式$\df{P_1(x)}{Q_1(x)},\df{P_2(x)}{Q_2(x)}$的和}
-  \item {\b 任意多项式都可分解为形如$(x^2+px+q)^l$，$(x-a)^k$的多项式的乘积}
-\end{enumerate}
+{\bf 性质：}{\b 设$Q(x)$可分解为两个没有公因式的多项式$Q_1(x),Q_2(x)$的乘积，
+则真分式$\df{P(x)}{Q(x)}$必可分解为
+两个真分式$\df{P_1(x)}{Q_1(x)},\df{P_2(x)}{Q_2(x)}$的和}
+\ps{这意味着并不总是需要分解成（*）式那样复杂精细的形式}
 
 {\bf 例：}计算下列不定积分
 \begin{enumerate}[(1)]
@@ -1078,33 +1095,61 @@ $$\dint\df{\d x}{x^2+px+q}=\dint\df{\d x}{(x+p/2)^2}=-\df2{2x+p}+C$$
   \item $\dint\df{1-x^3}{(1+x)^4}\d x$
 \end{enumerate}
 
-{\bf 【一些可以化成有理函数的积分】}
+\subsubsection{【一些可以化成有理函数的积分】}
 
 {\bf 情形一：}
-$$\dint R(\sin x,\cos x)\d x$$
-令$t=\tan\df x2$（万能代换），则
-$$\sin x=\df{2t}{1+t^2},\quad\cos x=\df{1-t^2}{1+t^2}$$
+$${\b \dint R(\sin x,\cos x)\d x}$$
+[提示]：{\b（万能代换）令$t=\tan\df x2$，则
+$$\sin x=\df{2t}{1+t^2},\quad\cos x=\df{1-t^2}{1+t^2}$$}
+从而
+\begin{align}
+	\mbox{原式}&=\dint\df{(1+t)^2}{4t}\d t
+	=\df14\left(\ln|\tan\df x2|+2\tan\df x2+\df12\tan^2\df x2\right)+C\notag
+\end{align}
 
 {\bf 例：}$\dint\df{1+\sin x}{\sin x(1+\cos x)}\d x$
 
+\bigskip
+
 {\bf 情形二：}
-$$\dint R(\sin^2x,\cos^2x,\sin x,\cos x)\d x$$
-令$t=\tan x$
+{\b$$\dint R(\sin^2x,\cos^2x,\sin x,\cos x)\d x$$}
 
 {\bf 例：}$\dint\df{\d x}{a^2\sin^2x+b^2\cos^2x},\;(ab\ne 0)$
 
+[提示]：{\b 令$t=\tan x$}
+\begin{align}
+	\mbox{原式}&=\dint\df{\d t}{a^2t^2+b^2}=\df1{b}\arctan
+	\df ab\tan x+C\notag
+\end{align}
+
+\bigskip
+
 {\bf 情形三：}
-$$\dint R\left(x,\sqrt[n]{\df{ax+b}{cx+d}}\right),(ad-bc\ne0),$$
-令$t=\sqrt[n]{\df{ax+b}{cx+d}}$
+$${\b\dint R\left(x,\sqrt[n]{\df{ax+b}{cx+d}}\right),(ad-bc\ne0)},$$
+
+[提示]：令{\b$t=\sqrt[n]{\df{ax+b}{cx+d}}$，则
+$$x=\df{d-bt^n}{at^n-c}\quad\Rightarrow\quad
+\d x=\df{bc-ad}{(at^n-c)^n}\d t^n $$
+}
 
 {\bf 例：}$\dint\df1x\sqrt{\df{x+2}{x-2}}\d x$
 
+[提示]：令$t=\sqrt{\df{x+2}{x-2}}$，则$t=\df{2(1+t^2)}{t^2-1}$，
+\begin{align}
+	\mbox{原式}&=-4\dint\df{t^2\d t}{1+t^2}=-4t+4\arctan t+C
+	=-4\sqrt{\df{x+2}{x-2}}+4\arctan\sqrt{\df{x+2}{x-2}}+C\notag
+\end{align}
+
 {\bf 例：}$\dint\df{\d x}{(1+x)\sqrt{2+x-x^2}}$
 
-[提示]： let $t=\sqrt{\df{1+x}{2-x}}$, hence $x=\df{2t^2-1}{1+t^2}$
-$$\dint\df{\d x}{(1+x)\sqrt{2+x-x^2}}=\dint\df2{3t^2}\d t$$
+[提示]： 令$t=\sqrt{\df{1+x}{2-x}}$，则$x=\df{2t^2-1}{1+t^2}$
+$$\dint\df{\d x}{(1+x)\sqrt{2+x-x^2}}=\dint\df2{3t^2}\d t
+=-\df23\sqrt{\df{2-x}{1+x}}+C$$
+
+\bigskip
 
 {\bf 情形四：}
+{\b
 $$\dint R(x,\sqrt{ax^2+bx+c})\d x,\;(a>0,b^2-4ac\ne0)$$
 令$u=x+\df b{2a},k^2=\left|\df{4ac-b^2}{4a^2}\right|$，则$ax^2+bx+c$
 必为如下三种情形之一
@@ -1112,39 +1157,49 @@ $$|a(u^2+k^2)|,\quad a|u^2-k^2|,\quad a|k^2-u^2|,$$
 从而上述无理根式的积分可化为下列三种形式之一
 $$\dint R(u,\sqrt{u^2\pm k^2})\d u,\quad\dint R(u,\sqrt{k^2-u^2})\d u,$$
 分别令$u=k\tan t,u=k\sec t,u=k\sin t$即可。
+}
 
-{\bf 例：}$\dint\df{\d x}{x\sqrt{x^2-2x-3}}=\df2{\sqrt3}
-\arctan\df{\sqrt{x^2-2x-3}}{\sqrt3(x+1)}+C$
+{\bf 例：}$\dint\df{\d x}{x\sqrt{x^2-2x-3}}$
 
-[提示]：let $\sqrt{x^2-2x-3}=x-t$, then $I=\df2{\sqrt3}\arctan
-\df{\sqrt{x^2-2x-3}-x}{\sqrt3}+C$
+[提示]：令$x-1=2\sec t$，则
+\begin{align}
+	\mbox{原式}&=\dint\df{\d t}{2+\cos t}
+	\xlongequal{u=\tan\frac t2}2\dint\df{\d u}{u^2+3}
+	=\df2{\sqrt3}\arctan\df u{\sqrt3}+C\notag\\
+	&=\df2{\sqrt3}\arctan\left[\df1{\sqrt3}\tan
+	\left(\arccos\df2{x-1}\right)\right]+C\notag
+\end{align}
 
-{\bf 注：}$\arctan\df{\sqrt{x^2-2x-3}}{\sqrt3(x+1)}-\df{\pi}3=\arctan
-\df{\sqrt{x^2-2x-3}-x}{\sqrt3}$，若令$\sqrt{x^2-2x-3}=x+t$，会有类似的效果
+% $a\xlongequal[abc]{def}b$
 
-{\bf 例}（一些可以化为有理函数的积分）
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint\df{1+\sin x}{\sin x(1+\cos x)}\d x$ 
-  \item $\dint\df{\sqrt{x-1}}{x}\d x$ 
-  \item $\dint\df{\d x}{1+\sqrt[3]{x+2}}$ 
-  \item $\dint\df{\d x}{(1+\sqrt[3]{x})\sqrt x}$ 
-  \item $\dint\df 1x\sqrt{\df{1+x}{x}}\d x$
-\end{enumerate}
+[又解]：令$\sqrt{x^2-2x-3}=x-t$，\ps{若令$\sqrt{x^2-2x-3}=x+t$，会有类似的效果}
+则
+$$I=\df2{\sqrt3}\arctan
+\df{\sqrt{x^2-2x-3}-x}{\sqrt3}+C$$
+
+% {\bf 注：}
+% $\arctan\df{\sqrt{x^2-2x-3}}{\sqrt3(x+1)}-\df{\pi}3=\arctan
+% \df{\sqrt{x^2-2x-3}-x}{\sqrt3}$，
+
 
 {\bf 例：}计算下列不定积分
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $\dint\df{x^2+\sin^2x}{x^2+1}\sec^2x\d x$
+%   \item $\dint\df{1+\sin x}{\sin x(1+\cos x)}\d x$ 
+  \item $\dint\df{\sqrt{x-1}}{x}\d x$ 
+  \item $\dint\df{\d x}{1+\sqrt[3]{x+2}}$ 
+  \item $\dint\df{\d x}{(1+\sqrt[3]{x})\sqrt x}$ 
+  \item $\dint\df 1x\sqrt{\df{1+x}{x}}\d x$
+%   \item $\dint\df{x^2+\sin^2x}{x^2+1}\sec^2x\d x$
   \item $\dint\df 1{(x^2+1)\sqrt{1-x^2}}\d x$
   \item $\dint\df{3\cos x-4\sin x}{\cos x+2\sin x}\d x$
 \end{enumerate}
 
-\begin{shaded}
+% \begin{shaded}
 
-\section*{特殊的计算方法}
+\subsection{一些特殊的计算方法}
 
-{\bf 【配对】}
+\subsubsection{【配对】}
 
 {\bf 例：}$I=\dint\df{\sin x\d x}{2\sin x+3\cos x}$
 
@@ -1167,7 +1222,7 @@ x\notag\\
 $$M+N=\dint\df{\d\left(x-\df1x\right)}{\left(x-\df1x\right)^2+2}
 =\df1{\sqrt2}\arctan\df{x^2-1}{\sqrt2x}+C$$
 
-{\bf 【递推】}
+\subsubsection{【递推】}
 
 {\bf 例：}$I_n=\dint\df{\d x}{(1+x^2)^n}$
 
@@ -1179,16 +1234,71 @@ I_n&=\dint\df{\d x}{(1+x^2)^n}=\df x{(1+x^2)^n}+2n\dint\df{x^2\d x}
 \df1{(1+x^2)^{n+1}}\right]\d x\notag\\
 &=\df x{(1+x^2)^n}+2nI_n-2nI_{n+1}\notag
 \end{align}
-hence
+故
 $$I_{n+1}=\df1{2n}\df x{(1+x^2)^n}+\left(1-\df1{2n}\right)I_n$$
 
 {\bf 例：}
 $$I(m,n)=\dint\cos^mx\sin^nx\d x=
 \df{\cos^{m-1}x\sin^{n+1}x}{m+n}+\df{m-1}{m+n}I(m-2,n)$$
 
-{\bf 例：}
-$$I_n=\df2{n-2}\sin(n-1)x+I_{n-2}$$
-\end{shaded}
+% {\bf 例：}
+% $$I_n=\df2{n-2}\sin(n-1)x+I_{n-2}$$
+
+\subsubsection{【一题多解】}
+
+{\bf 例：}$I=\dint\df{\d x}{x\sqrt{x^2-1}}$
+
+[解1]：$t=\df1x$
+$$I=\dint\df{\d x}{x^2\sqrt{1-1/x^2}}=-\dint\df{\d t}{\sqrt{1-t^2}}
+=-\arcsin\df1x+C$$
+
+[解2]：
+$$I=\dint\df{x\d x}{x^2\sqrt{x^2-1}}=\dint\df{\d\sqrt{x^2-1}}
+{(\sqrt{x^2-1})^2+1}=\arctan\sqrt{x^2-1}+C$$
+
+[解3]：$x=\sec t$
+$$I=\dint\df{\sec t\tan t}{\sec t\tan t}\d t=\arccos\df1x+C$$
+
+[解4]：$\sqrt{x^2-1}=x-t$，则$x=(t^2+1)/(2t)$
+$$\d x=\df{t^2-1}{2t^2}\d t,\quad \sqrt{x^2-1}=\df{1-t^2}{2t}$$
+$$I=-2\dint{\d t}{1+t^2}=-2\arctan(x-\sqrt{x^2-1})+C$$
+
+[解5]：$\sqrt{x^2-1}=t(x-1)$，从而$x=(t^2+1)/(t^2-1)$,
+$$\d x=-\df{4t\d t}{(t^2-1)^2},\quad \sqrt{x^2-1}=\df{2t}{t^2-1}$$
+$$I=-2\dint\df{\d t}{1+t^2}=-2\arctan\df{\sqrt{x^2-1}}{x-1}+C$$
+
+{\it 解4-5都属于利用Eular变换解决型如$\dint R(x,\sqrt{ax^2+bx+c})\d x$的情形}
+
+{\bf 例：}$I=\dint x^2\sqrt{x^2+1}\d x$
+
+[解1]：$u=x^2$
+\begin{align}
+I&=\df12\dint\sqrt{u^2+u}\d u=\df12\dint\sqrt{\left(u+\df12\right)^2
+-\left(\df12\right)^2}\d\left(u+\df12\right)\notag\\
+&=\df18x(2x^2+1)\sqrt{x^2+1}-\df18\ln(x+\sqrt{x^2+1})+C\notag
+\end{align}
+
+[解2]：$\dint x\sqrt{x^2+1}\d x=\df13(x^2+1)^{\frac32}+C_1$
+\begin{align}
+I&=\df13\dint x\d(x^2+1)^{\frac32}=\df13 x(x^2+1)^{\frac32}
+-\df13\dint(x^2+1)^{\frac32}\d x\notag\\
+&=\df13x(x^2+1)^{\frac32}-\df13I-\df13\dint\sqrt{x^2+1}\d x\notag\\
+&=\df13x(x^2+1)^{\frac32}-\df13I-\df16(x\sqrt{x^2+1}
++\ln(x+\sqrt{x^2+1}))\notag
+\end{align}
+故
+$$I=\df14x(x^2+1)^{\frac32}-\df18(x\sqrt{x^2+1}
++\ln(x+\sqrt{x^2+1}))+C$$
+
+[解3]：因为
+$$(x^3\sqrt{x^2+1})'=3x^2\sqrt{x^2+1}+\df{x^4}{\sqrt{x^2+1}}
+=4x^2\sqrt{x^2+1}-\sqrt{x^2+1}+\df1{\sqrt{x^2+1}},$$
+故
+$$x^2\sqrt{x^2+1}=\df14\left[(x^3\sqrt{x^2+1})'+\sqrt{x^2+1}
+-\df1{\sqrt{x^2+1}}\right]$$
+从而
+$$I=\df14\left[x^3\sqrt{x^2+1}+\df x2\sqrt{x^2+1}
+-\df12\ln(x+\sqrt{x^2+1})\right]+C$$
 
 \section{小结}
 
@@ -1256,68 +1366,15 @@ $$I_n=\df2{n-2}\sin(n-1)x+I_{n-2}$$
 
 \newpage
 
+\section*{不定积分计算的一些典型方法}
+
 \begin{shaded}
 
-\section*{不定积分的一题多解}
+{\bf 思路1：}通过代数恒等变换、三角恒等变换等方法，把所求的积分化为基本积分公式中
+的积分或其他易于积分的形式。为此，需要熟练掌握基本的积分公式，这样才能有针对性地对
+被积函数进行恒等变形。
 
-{\bf 例：}$I=\dint\df{\d x}{x\sqrt{x^2-1}}$
-
-{\bf 解1：}$t=\df1x$
-$$I=\dint\df{\d x}{x^2\sqrt{1-1/x^2}}=-\dint\df{\d t}{\sqrt{1-t^2}}
-=-\arcsin\df1x+C$$
-
-{\bf 解2：}
-$$I=\dint\df{x\d x}{x^2\sqrt{x^2-1}}=\dint\df{\d\sqrt{x^2-1}}
-{(\sqrt{x^2-1})^2+1}=\arctan\sqrt{x^2-1}+C$$
-
-{\bf 解3：}$x=\sec t$
-$$I=\dint\df{\sec t\tan t}{\sec t\tan t}\d t=\arccos\df1x+C$$
-
-{\bf 解4：}$\sqrt{x^2-1}=x-t$, then $x=(t^2+1)/(2t)$
-$$\d x=\df{t^2-1}{2t^2}\d t,\quad \sqrt{x^2-1}=\df{1-t^2}{2t}$$
-$$I=-2\dint{\d t}{1+t^2}=-2\arctan(x-\sqrt{x^2-1})+C$$
-
-{\bf 解5：}$\sqrt{x^2-1}=t(x-1)$, then $x=(t^2+1)/(t^2-1)$,
-$$\d x=-\df{4t\d t}{(t^2-1)^2},\quad \sqrt{x^2-1}=\df{2t}{t^2-1}$$
-$$I=-2\dint\df{\d t}{1+t^2}=-2\arctan\df{\sqrt{x^2-1}}{x-1}+C$$
-
-{\it 解4-5都属于利用Eular变换解决型如$\dint R(x,\sqrt{ax^2+bx+c})\d x$的情形}
-
-{\bf 例：}$I=\dint x^2\sqrt{x^2+1}\d x$
-
-{\bf 解1：}$u=x^2$
-\begin{align}
-I&=\df12\dint\sqrt{u^2+u}\d u=\df12\dint\sqrt{\left(u+\df12\right)^2
--\left(\df12\right)^2}\d\left(u+\df12\right)\notag\\
-&=\df18x(2x^2+1)\sqrt{x^2+1}-\df18\ln(x+\sqrt{x^2+1})+C\notag
-\end{align}
-
-{\bf 解2：}$\dint x\sqrt{x^2+1}\d x=\df13(x^2+1)^{\frac32}+C_1$
-\begin{align}
-I&=\df13\dint x\d(x^2+1)^{\frac32}=\df13 x(x^2+1)^{\frac32}
--\df13\dint(x^2+1)^{\frac32}\d x\notag\\
-&=\df13x(x^2+1)^{\frac32}-\df13I-\df13\dint\sqrt{x^2+1}\d x\notag\\
-&=\df13x(x^2+1)^{\frac32}-\df13I-\df16(x\sqrt{x^2+1}
-+\ln(x+\sqrt{x^2+1}))\notag
-\end{align}
-hence
-$$I=\df14x(x^2+1)^{\frac32}-\df18(x\sqrt{x^2+1}
-+\ln(x+\sqrt{x^2+1}))+C$$
-
-{\bf 解3：}for
-$$(x^3\sqrt{x^2+1})'=3x^2\sqrt{x^2+1}+\df{x^4}{\sqrt{x^2+1}}
-=4x^2\sqrt{x^2+1}-\sqrt{x^2+1}+\df1{\sqrt{x^2+1}},$$
-hence
-$$x^2\sqrt{x^2+1}=\df14\left[(x^3\sqrt{x^2+1})'+\sqrt{x^2+1}
--\df1{\sqrt{x^2+1}}\right]$$
-thus
-$$I=\df14\left[x^3\sqrt{x^2+1}+\df x2\sqrt{x^2+1}
--\df12\ln(x+\sqrt{x^2+1})\right]+C$$
 \end{shaded}
-
-\newpage
-
-\section*{不定积分计算的一些典型方法}
 
 {\bf 例：}计算不定积分
 \begin{enumerate}[(1)]
@@ -1357,9 +1414,9 @@ $$\mbox{原式}=\dint\df{1-\cos x}{2\sin^3x}\d x=\ldots
 
 \begin{shaded}
 
-{\bf 思路1：}通过代数恒等变换、三角恒等变换等方法，把所求的积分化为基本积分公式中
-的积分或其他易于积分的形式。为此，需要熟练掌握基本的积分公式，这样才能有针对性地对
-被积函数进行恒等变形。
+{\bf 思路2：}对于不易观察出微分形式的不定积分，有时需要进行适当的恒等变形，
+凑成$\dint f(\phi(x))\phi'(x)\d x=\dint f(\phi(x))\d\phi(x)$
+的形式，利用凑微分法求出不定积分。
 
 \end{shaded}
 
@@ -1402,11 +1459,27 @@ $$\mbox{原式}=\dint\df{1+\df1{x^2}}{x^2+\df1{x^2}}\d x
 =\df1{\sqrt2}\arctan\df{x^2-1}{\sqrt2x}+C$$
 
 \begin{shaded}
+{\bf 思路3：}对积分
 
-{\bf 思路2：}对于不易观察出微分形式的不定积分，有时需要进行适当的恒等变形，
-凑成$\dint f(\phi(x))\phi'(x)\d x=\dint f(\phi(x))\d\phi(x)$
-的形式，利用凑微分法求出不定积分。
+1)\;$\dint\sin ax\cos bx\d x$\quad 2)$\dint\sin ax\sin bx\d x$\quad
+3)$\dint\cos ax\cos bx\d x$
 
+4)$\dint\sin^mx\cos^nx \d x$\quad 5)$\dint\tan^mx\sec^nx\d x$\quad
+6)$\dint\cot^mx\csc^nx\d x$
+
+主要通过三角变换来凑积分求解。
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 1)-3)，和差化积；
+  \item 4)，当$n$或$m$为奇数时，分离出一个$\cos x$（或$\sin x$），凑出
+  $\d\sin x$（或$\d\cos x$），在利用$\sin^2x+\cos^2x=1$将剩余部分都化为
+  $\cos x$或$\sin x$的多项式；若$m$和$n$均为偶数，利用倍角公式将函数降阶
+  再积分即可；
+  \item 5)，$m$为奇数时，分离出$\sec x\tan x$，可凑出$\d\sec x$，再将
+  剩余部分都化为关于$\sec x$的多项式；当$n$为偶数时，分离出$\sec^2x$，可凑出
+  $\d\tan x$，将剩余部分化为$\tan x$的多项式积分；
+  \item 6)可参考5)的思路。
+\end{enumerate}
 \end{shaded}
 
 {\bf 例：}计算不定积分
@@ -1422,28 +1495,12 @@ $$\mbox{原式}=\dint\df{1+\df1{x^2}}{x^2+\df1{x^2}}\d x
   \item $\dint\cot^3x\csc^5x\d x=\df15\csc^5x-\df17\csc^7x+C$
 \end{enumerate}
 
-
 \begin{shaded}
-{\bf 思路3：}对积分
+{\bf 思路4：}被积函数含根式形式如$\sqrt{a^2\pm x^2}$，$\sqrt{x^2-a^2}$等，
+常采用三角代换、倒代换等，但不要只拘泥于这种代换，应具体问题具体分析，如(5)用凑微分
+法更好。
 
-1)\;$\dint\sin ax\cos bx\d x$\;2)$\dint\sin ax\sin bx\d x$\;
-3)$\dint\cos ax\cos bx\d x$
-
-4)$\dint\sin^mx\cos^nx \d x$\;5)$\dint\tan^mx\sec^nx\d x$\;
-6)$\dint\cot^mx\csc^nx\d x$
-
-主要通过三角变换来凑积分求解。
-\begin{enumerate}[(1)]
-  \item 1)-3)，和差化积；
-  \item 4)，当$n$或$m$为奇数时，分离出一个$\cos x$（或$\sin x$），凑出
-  $\d\sin x$（或$\d\cos x$），在利用$\sin^2x+\cos^2x=1$将剩余部分都化为
-  $\cos x$或$\sin x$的多项式；若$m$和$n$均为偶数，利用倍角公式将函数降阶
-  再积分即可；
-  \item 5)，$m$为奇数时，分离出$\sec x\tan x$，可凑出$\d\sec x$，再将
-  剩余部分都化为关于$\sec x$的多项式；当$n$为偶数时，分离出$\sec^2x$，可凑出
-  $\d\tan x$，将剩余部分化为$\tan x$的多项式积分；
-  \item 6)可参考5)的思路。
-\end{enumerate}
+被积函数含$\sqrt{x^2-a^2}$型时，令$x=a\sec t$或者$x=a\csc t$，视$0<t<\df{\pi}2$。
 \end{shaded}
 
 {\bf 例：}计算不定积分
@@ -1487,11 +1544,7 @@ $$\dint\df{\d x}{\sqrt{x(4-x)}}=\dint\df{\d x}{\sqrt{4-(x-2)^2}}
 =\arcsin\df{x-2}2+C$$
 
 \begin{shaded}
-{\bf 思路：}被积函数含根式形式如$\sqrt{a^2\pm x^2}$，$\sqrt{x^2-a^2}$等，
-常采用三角代换、倒代换等，但不要只拘泥于这种代换，应具体问题具体分析，如(5)用凑微分
-法更好。
-
-被积函数含$\sqrt{x^2-a^2}$型时，令$x=a\sec t$或者$x=a\csc t$，视$0<t<\df{\pi}2$。
+{\bf 思路5：}果断进行代换，将不易处理的部分代换成一个变量。
 \end{shaded}
 
 {\bf 例：}计算不定积分
@@ -1519,7 +1572,8 @@ $$\mbox{原式}=\dint\df{1+\ln x-1}{\sqrt{1+\ln x}}\d(\ln x)
 方法2：$\sqrt{1+\ln x}=t$
 
 \begin{shaded}
-{\bf 思路：}果断进行代换，将不易处理的部分代换成一个变量。
+{\bf 思路6：}被积函数为幂函数（或多项式函数）与指数函数、三角函数、对数函数或反三角函数
+乘积的积分，可考虑分布积分法。
 \end{shaded}
 
 {\bf 例：}计算不定积分
@@ -1545,8 +1599,7 @@ $$\mbox{原式}=\dint\df{1+\ln x-1}{\sqrt{1+\ln x}}\d(\ln x)
 \end{enumerate}
 
 \begin{shaded}
-{\bf 思路：}被积函数为幂函数（或多项式函数）与指数函数、三角函数、对数函数或反三角函数
-乘积的积分，可考虑分布积分法。
+{\bf 思路7：}利用有理函数分解计算有理函数积分
 \end{shaded}
 
 {\bf 例：}计算不定积分
@@ -1562,7 +1615,9 @@ $$\mbox{原式}=\dint\df{1+\ln x-1}{\sqrt{1+\ln x}}\d(\ln x)
 \end{enumerate}
 
 \begin{shaded}
-{\bf 思路：}有理函数积分。
+{\bf 思路8：}三角函数的有理式积分，总可以使用万能公式化为有理函数来计算。但其后的计算
+往往相当复杂，因此，结合三角函数的其他变化公式，进行适当变形寻求积分的途径，往往更加
+简单些。
 \end{shaded}
 
 {\bf 例：}计算不定积分
@@ -1585,9 +1640,8 @@ $$\mbox{原式}=\dint\df{1+\ln x-1}{\sqrt{1+\ln x}}\d(\ln x)
 \end{enumerate}
 
 \begin{shaded}
-{\bf 思路：}三角函数的有理式积分，总可以使用万能公式化为有理函数来计算。但其后的计算
-往往相当复杂，因此，结合三角函数的其他变化公式，进行适当变形寻求积分的途径，往往更加
-简单些。
+{\bf 思路9：}含有$\ds\sqrt[n]{\df{ax+b}{cx+d}}$的无理函数积分，理论上用根式代换
+可以求出其积分。但化为有理函数积分后，往往计算量较大，应优先考虑通过恒等变形凑微分来计算。
 \end{shaded}
 
 {\bf 例：}计算不定积分
@@ -1611,74 +1665,69 @@ $$\mbox{原式}=\dint\df{1+\ln x-1}{\sqrt{1+\ln x}}\d(\ln x)
 
 (5)$\sqrt{e^x+1}=t$
 
-\begin{shaded}
-{\bf 思路：}含有$\ds\sqrt[n]{\df{ax+b}{cx+d}}$的无理函数积分，理论上用根式代换
-可以求出其积分。但化为有理函数积分后，往往计算量较大，应优先考虑通过恒等变形凑微分来计算。
-\end{shaded}
-
-\newpage
-
-% \Large\bf
-
-{\bf 例：}$f(x)$以$2$为周期且处处可导，已知
-$$\lim\limits_{x\to 0}\df{f(1)-f(1-x)}{3x}=1,$$
-则曲线$f(x)$在点$(3,f(3))$的切线斜率为\underline{\hspace{2cm}}
-
-\bigskip
-
-{\bf 例：}$f(x)=\lim\limits_{n\to\infty}\sqrt[n]{1+|x|^{3n}}$在
-$(-\infty,+\infty)$内(\underline{\hspace{2cm}})
-\begin{enumerate}[(A)]
-  \setlength{\itemindent}{1cm}
-  \item 处处可导；
-  \item 恰有一个不可导点；
-  \item 恰有两个不可导点；
-  \item 至少有三个不可导点。
-\end{enumerate}
-
-\bigskip
-
-{\bf 例：}$f(x)$在原点附近有定义，且满足$|f(x)|\leq x^2$，则$x=0$是
-$f(x)$的(\underline{\hspace{2cm}})
-\begin{enumerate}[(A)]
-  \setlength{\itemindent}{1cm}
-  \item 间断点；
-  \item 连续但不可导点；
-  \item 可导点且$f'(0)=0$；
-  \item 可导点但$f'(0)$的值不确定。
-\end{enumerate}
-
-\bigskip
-
-{\bf 例：}$f(x)$在$x=a$可导，且$f(a)\ne 0$，求
-$$\limn\left[\df{f\left(a+\df1n\right)}{f(a)}\right]^n$$
-
-{\bf 例：}$f(x)$是以$5$为周期的连续函数，且在原点附近满足
-$$f(1+\sin x)-3f(1-\sin x)=8x+\circ(x),$$
-已知$f(x)$在$x=1$可导，则$y=f(x)$在$x=6$处的切线斜率为\underline{\hspace{2cm}}
-
-{\bf 例：}$f(x)$在$x=1$连续可导，$f'(1)=2$，则
-$\limx{0}\df1x\df{\d}{\d x}f(\cos^22x)=\underline{\hspace{2cm}}$
-
-{\bf 例：}求$y^{(n)}$
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $y=\df{x+b}{x+a}$
-  \item $y=\df x{\sqrt{1+x}}$
-\end{enumerate}
-
-{\bf 例：}$\left.\left(\sin\df x2+\cos2x\right)^{(99)}\right|_{x=\pi}=$
-(\underline{\hspace{2cm}})
-\begin{enumerate}[(A)]
-  \setlength{\itemindent}{1cm}
-  \item $0$；
-  \item $-\df1{2^{99}}$
-  \item $2^{99}-\df1{2^{99}}$
-  \item $2^{99}$
-\end{enumerate}
-
-{\bf 例：}$f(x)=(x-a)^n\phi(x)$，$\phi(x)$在$x=a$附近有$n-1$阶连续导数，
-求$f^{(n)}(a))$.
+% \newpage
+% 
+% % \Large\bf
+% 
+% {\bf 例：}$f(x)$以$2$为周期且处处可导，已知
+% $$\lim\limits_{x\to 0}\df{f(1)-f(1-x)}{3x}=1,$$
+% 则曲线$f(x)$在点$(3,f(3))$的切线斜率为\underline{\hspace{2cm}}
+% 
+% \bigskip
+% 
+% {\bf 例：}$f(x)=\lim\limits_{n\to\infty}\sqrt[n]{1+|x|^{3n}}$在
+% $(-\infty,+\infty)$内(\underline{\hspace{2cm}})
+% \begin{enumerate}[(A)]
+%   \setlength{\itemindent}{1cm}
+%   \item 处处可导；
+%   \item 恰有一个不可导点；
+%   \item 恰有两个不可导点；
+%   \item 至少有三个不可导点。
+% \end{enumerate}
+% 
+% \bigskip
+% 
+% {\bf 例：}$f(x)$在原点附近有定义，且满足$|f(x)|\leq x^2$，则$x=0$是
+% $f(x)$的(\underline{\hspace{2cm}})
+% \begin{enumerate}[(A)]
+%   \setlength{\itemindent}{1cm}
+%   \item 间断点；
+%   \item 连续但不可导点；
+%   \item 可导点且$f'(0)=0$；
+%   \item 可导点但$f'(0)$的值不确定。
+% \end{enumerate}
+% 
+% \bigskip
+% 
+% {\bf 例：}$f(x)$在$x=a$可导，且$f(a)\ne 0$，求
+% $$\limn\left[\df{f\left(a+\df1n\right)}{f(a)}\right]^n$$
+% 
+% {\bf 例：}$f(x)$是以$5$为周期的连续函数，且在原点附近满足
+% $$f(1+\sin x)-3f(1-\sin x)=8x+\circ(x),$$
+% 已知$f(x)$在$x=1$可导，则$y=f(x)$在$x=6$处的切线斜率为\underline{\hspace{2cm}}
+% 
+% {\bf 例：}$f(x)$在$x=1$连续可导，$f'(1)=2$，则
+% $\limx{0}\df1x\df{\d}{\d x}f(\cos^22x)=\underline{\hspace{2cm}}$
+% 
+% {\bf 例：}求$y^{(n)}$
+% \begin{enumerate}[(1)]
+%   \setlength{\itemindent}{1cm}
+%   \item $y=\df{x+b}{x+a}$
+%   \item $y=\df x{\sqrt{1+x}}$
+% \end{enumerate}
+% 
+% {\bf 例：}$\left.\left(\sin\df x2+\cos2x\right)^{(99)}\right|_{x=\pi}=$
+% (\underline{\hspace{2cm}})
+% \begin{enumerate}[(A)]
+%   \setlength{\itemindent}{1cm}
+%   \item $0$；
+%   \item $-\df1{2^{99}}$
+%   \item $2^{99}-\df1{2^{99}}$
+%   \item $2^{99}$
+% \end{enumerate}
+% 
+% {\bf 例：}$f(x)=(x-a)^n\phi(x)$，$\phi(x)$在$x=a$附近有$n-1$阶连续导数，
+% 求$f^{(n)}(a))$.
 
 % \newpage
 % 
