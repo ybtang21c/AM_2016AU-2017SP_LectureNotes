@@ -787,11 +787,14 @@ $$\int[\alpha f(x)+\beta g(x)]\d x=\alpha\int f(x)\d x+\beta\int g(x)\d x,$$
 
 \subsection{换元法}
 
+\subsubsection{【第一换元法】}
+
 {\bf 定理6.3.1}（第一换元法）设$f(u)$具有原函数，$u=\varphi(x)$可导，则
 $$\dint f[\varphi(x)]\varphi'(x)\d x=\left[\dint f(u)
 \d u\right]_{u=\varphi(x)}$$
-{\bf 注：}设$F(x)$是$f(x)$的一个原函数，则
-$$\dint f[\varphi(x)]\varphi'(x)\d x=F[\varphi(x)]+C$$
+
+% {\bf 注：}设$F(x)$是$f(x)$的一个原函数，则
+% $$\dint f[\varphi(x)]\varphi'(x)\d x=F[\varphi(x)]+C$$
 
 {\bf 例：}计算下列不定积分
 \begin{enumerate}[(1)]
@@ -800,36 +803,44 @@ $$\dint f[\varphi(x)]\varphi'(x)\d x=F[\varphi(x)]+C$$
   \item $\dint\df 1{3+2x}\d x$
   \item $\dint\df{\d x}{x^2-a^2}$
   \item $\dint 2xe^{x^2}\d x$ 
-  \item $\dint\df{x^2}{(x+2)^3}\d x$ 
-  \item $\dint\df 1{a^2+x^2}\d x$ 
-  \item $\dint\df 1{\sqrt{a^2-x^2}}\d x$ 
-  \hfill（令$t=\sqrt{a^2-x^2}$没有直接的效果，但可令$t=\sqrt{\df{a+x}{a-x}}$）
+  \item $\dint\df{x^2}{(x+2)^3}\d x\xlongequal{x+2=t}\ldots$ 
+  \item $\dint\df 1{a^2+x^2}\d x=\df1a\dint\df1{1+(x/a)^2}\d\df xa=\ldots$ 
+  \item $\dint\df 1{\sqrt{a^2-x^2}}\d x=\dint\df1{\sqrt{1-(x/a)^2}}\d\df
+  xa=\ldots$
+%   \hfill（令$t=\sqrt{a^2-x^2}$没有直接的效果，但可令$t=\sqrt{\df{a+x}{a-x}}$）
   \item $\dint \df 1{x(1+2\ln x)}\d x$ 
-  \item $\dint\df {e^{3\sqrt x}}{\sqrt x}\d x$ 
-  \item $\dint \sin^3x\d x$ 
-  \item $\dint \sin^2x\cos^4x\d x$ 
-  \item $\dint\sec^6x\d x$ 
-  \item $\dint\sec x\d x$\hfill（$\dint\df{\sec x(\sec x+\tan x)}{(\sec x+\tan
-  x)}\d x=\ln|\sec x+\tan x|+C$）
+  \item $\dint\df {e^{3\sqrt x}}{\sqrt x}\d x=2\dint e^{\sqrt x}\d\sqrt x=\ldots$ 
+  \item $\dint \sin^3x\d x=-\dint(1-\cos^2x)\d\cos x=\ldots$ 
+  \item $\dint \sin^2x\cos^4x\d x=\df18\dint\sin^22x(1+\cos2x)\d x
+  =\df18\dint\sin^22x\d x+\df1{16}\dint\sin^2x\d\sin^2x=\ldots$ 
+  \item $\dint\sec^6x\d x=\dint(1+\tan^2 x)^2\d\tan x=\ldots$ 
+  \item $\dint\sec x\d x=\dint\df{\cos x\d x}{1-\sin^2x}
+  \xlongequal{t=\sin x}\dint\df{\d t}{1-t^2}=\ldots$
+%   \hfill（$\dint\df{\sec x(\sec x+\tan x)}{(\sec x+\tan
+%   x)}\d x=\ln|\sec x+\tan x|+C$）
 \end{enumerate}
+
+{\bf 注：}{\b 换元的基本原则：优先替换不好处理的部分，即{\it “看谁不顺眼就换谁”！}}
 
 % {\bf 注：}另解
 % $$\dint\sec x\d x=\dint\df{\sec x(\sec x+\tan x)}{(\sec x+\tan x)}\d x
 % =\dint\df{\d(\sec x+\tan x)}{(\sec x+\tan x)}=
 % \ln|\sec x+\tan x|+C$$
 
-\begin{shaded}
-{\bf 【第一换元法的一些常用技巧】}
-\begin{enumerate}
-  \setlength{\itemindent}{1cm}
-  \item {\bf 分项积分：}积化和差，有理分式分解，\ldots 
-  \item {\bf 降低幂次：}倍角公式，万能凑幂公式，\ldots 
-    $$\dint f(x^n)x^{n-1}\d x=\df 1n\dint f(x^n)\d x^n$$ 
-    $$\dint f(x^n)\df 1x\d x=\df 1n\dint f(x^n)\df{1}{x^n}\d x^n$$ 
-  \item {\bf 统一函数：}三角公式，$1=\sin^2x+\cos^2x$，\ldots 
-  \item {\bf 巧妙配元：}加一项减一项，\ldots
-\end{enumerate}
-\end{shaded}
+% \begin{shaded}
+% {\bf 【第一换元法的一些常用技巧】}
+% \begin{enumerate}
+%   \setlength{\itemindent}{1cm}
+%   \item {\bf 分项积分：}积化和差，有理分式分解，\ldots 
+%   \item {\bf 降低幂次：}倍角公式，万能凑幂公式，\ldots 
+%     $$\dint f(x^n)x^{n-1}\d x=\df 1n\dint f(x^n)\d x^n$$ 
+%     $$\dint f(x^n)\df 1x\d x=\df 1n\dint f(x^n)\df{1}{x^n}\d x^n$$ 
+%   \item {\bf 统一函数：}三角公式，$1=\sin^2x+\cos^2x$，\ldots 
+%   \item {\bf 巧妙配元：}加一项减一项，\ldots
+% \end{enumerate}
+% \end{shaded}
+
+\subsubsection{【第二换元法】}
 
 {\bf 定理6.3.2}（第二换元法）设$x=\varphi(t)$可导且可逆，
 $f[\varphi(t)]\varphi'(t)$具有原函数，则
@@ -839,76 +850,26 @@ f[\varphi(t)]\varphi'(t)\d t\right]_{t=\varphi^{-1}(x)}$$
 {\bf 例：}计算下列不定积分
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $\dint \sqrt{a^2-x^2}\d x$ 
-  \item $\dint\df{\d x}{\sqrt{x^2+a^2}}$
-  \item $\dint\df{\d x}{(x^2+a^2)^2}$
-  \item $\dint\df{\d x}{\sqrt{x^2-a^2}}$ 
-  \item $\dint \df{1}{1+\sqrt x}\d x$ 
-  \item $\dint\df{\d x}{1+\sqrt[3]{x+2}}$ 
-  \item $\dint\df{\sqrt{a^2-x^2}}{x^4}\d x$
+  \item $\dint \sqrt{a^2-x^2}\d x\xlongequal{x=|a|\sin t}\dint a^2\cos^2t\d t
+  =\df{a^2}2\dint(1+\cos2t)\d t=\ldots$ 
+  \item $\dint\df{\d x}{\sqrt{x^2+a^2}}\xlongequal{x=|a|\tan t}
+  \dint\sec t\d t=\ldots$
+  \item $\dint\df{\d x}{(x^2+a^2)^2}\xlongequal{x=|a|\tan t}
+  \df1{|a|^3}\dint\cos^3t\d t=\ldots$
+  \item $\dint\df{\d x}{\sqrt{x^2-a^2}}\xlongequal{x=|a|\sec t}
+  \dint\tan t\d t=\ldots$ 
+  \item $\dint \df{1}{1+\sqrt x}\d x\xlongequal{\sqrt x=t}\ldots$ 
+  \item $\dint\df{\d x}{1+\sqrt[3]{x+2}}\xlongequal{x+2=t^3}\ldots$ 
+  \item $\dint\df{\sqrt{a^2-x^2}}{x^4}\d x\xlongequal{x=|a|\sin t}\ldots$
 \end{enumerate}
-
-\begin{shaded}
-{\bf 【第二换元法中的一些特殊变换】}
-
-
-{\bf 【倒代换】}
-当被积函数的分母次数较高，特别是含有无理项时，可尝试令$x=\df 1t$
-
-{\bf 例：}$\dint\df{\d x}{x^3\sqrt{1+x^2}}=-\dint\df{t^2\d t}{\sqrt{1+t^2}}
-=-\df{\sqrt{1+x^2}}{2x^2}+\df12\ln\df{1+\sqrt{1+x^2}}{|x|}+C$
-
-{\bf 例：}$\dint\df{\d x}{x^4\sqrt{1+x^2}}=-\dint\df{t^3\d t}{\sqrt{1+t^2}}
-=-\df{\sqrt{(1+x^2)^3}}{3x^3}+\sqrt{1+x^2}x+C$
-
-利用公式
-$$\dint\df{P_n(x)}y\d x=Q_{n-1}y+\lambda\dint\df{\d x}y$$
-（其中$y=\sqrt{qx^2+rx+s}$，$P_n(x),Q_{n-1}(x)$分别为$n$次和$n-1$次多项式）
-可将倒代换应用于形如
-$$\dint\df{\d x}{x^n\sqrt{ax^2+bx+c}}(n\geq1)$$
-的不定积分。
-
-{\bf 例：}$I=\dint\df{x^3\d x}{\sqrt{1+2x-x^2}}$
-
-[提示]：令
-$$I=(ax^2+bx+c)\sqrt{1+2x-x^2}+\lambda\dint\df{\d x}{\sqrt{1+2x-x^2}}$$
-两边对$x$求导，可解得
-$$a=-\df13,\quad b=-\df56,\quad,c=-\df{19}6,\quad\lambda=4$$
-
-{\bf 例：}$I=\dint\df{\d x}{x^n\sqrt{ax^2+bx+c}},(n\geq 1)$
-
-[提示]：令$x=\df 1t$，则
-$$I=\dint\df{-t^{n-1}\d t}{\sqrt{a+bt+ct^2}}$$
-
-形如
-$$\dint\df{\sqrt{ax^2+bx+c}}{x^n}\d x$$
-的积分
-
-{\bf 【Eular代换】}
-
-主要用于处理形如$\dint(R,\sqrt{ax^2+bx+c})$形式的积分，通过Eular代换可以将其化为
-有理函数积分，具体代换形式如下：
-\begin{enumerate}
-  \setlength{\itemindent}{1cm}
-  \item 当$a>0$时，令$\sqrt{ax^2+bx+c}\pm\sqrt ax=t$，
-  即$x=\df{t^2-c}{b\pm2\sqrt at}$
-  \item 当$c>0$时，令$\sqrt{ax^2+bx+c}\pm\sqrt c=tx$，
-  即$x=\df{b\pm2\sqrt ct}{t^2-a}$
-  \item 当$ax^2+bx+c=0$有两个实根$\alpha$和$\beta$时，
-  令$\sqrt{ax^2+bx+c}=t(x-\alpha)$，
-  即$x=\df{\alpha\beta-\alpha t^2}{a-t^2}$
-\end{enumerate}
-
-{\bf 例：}令$\sqrt{1+x^2}=t-x$，则
-$$\dint\df{x^3}{\sqrt{1+x^2}}\d x=\dint\df{(t^2-1)^3}{8t^4}\d t$$
-
-{\bf 例：}令$\sqrt{1+x^2}=xt-1$，则
-$$\dint\df{x^3}{\sqrt{1+x^2}}\d x=-16\dint\df{t^3}{(t^2-1)^4}\d t$$
-\end{shaded}
 
 \subsection{分部积分法}
 
-$$\dint uv'\d x=uv-\dint u'v\d x$$
+注意到对可导函数$u,v$，有
+$$\d uv=u\d v+v\d u\quad\Leftrightarrow\quad 
+u\d v=\d uv-v\d u,$$
+后一式两边同时不定积分，可得如下的{\it 分部积分公式}：
+$${\b \dint u\d v=uv-\dint v\d u}$$
 
 {\bf 例：}计算下列不定积分
 \begin{enumerate}[(1)]
@@ -931,22 +892,13 @@ $$\dint uv'\d x=uv-\dint u'v\d x$$
   &=\pi\dint\d\left(\df1{2\cos^2t}\right)-I=\df{\pi}2\sec^2t-I\notag
   \end{align}
   故$I=\df{\pi}4\sec^2x+C$}
+  \ps{$\dint\df{t\sin t}{\cos^3t}\d t\ne I$}
   \item $\dint\df{x\ln x}{(1+x^2)^2}\d x$
   \item $\dint\df{x\arctan x}{(1+x^2)^2}\d x$
 \end{enumerate}
 
-\begin{shaded}
-{\bf 【分部积分法处理原则】}
-\begin{center}
-	{\bf “{反对}不要碰，{三指}动一动”} 
-\end{center}
-将被积函数视为两个函数之积，按照{\bf{“三指幂对反”}}的次序将其中某一部分函数放到微分符号后面 
-\begin{enumerate}
-  \item $\sin x,\cos x$ 
-  \item $e^x$ 
-  \item $x^n$
-\end{enumerate}
-\end{shaded}
+{\bf 注：}{\b {\it “{反对}不要碰，{三指}动一动”}——处理分部积分的一个大致原则，即：
+按照{\it {“三指幂对反”}}的次序将被积函数中对应的部分放到微分符号后面}
 
 \subsection{有理函数积分}
 
@@ -1150,13 +1102,13 @@ $$\dint\df{\d x}{(1+x)\sqrt{2+x-x^2}}=\dint\df2{3t^2}\d t
 
 {\bf 情形四：}
 {\b
-$$\dint R(x,\sqrt{ax^2+bx+c})\d x,\;(a>0,b^2-4ac\ne0)$$
+$$\dint R(x,\sqrt{ax^2+bx+c})\d x,\;(a\ne0,b^2-4ac\ne0)$$
 令$u=x+\df b{2a},k^2=\left|\df{4ac-b^2}{4a^2}\right|$，则$ax^2+bx+c$
 必为如下三种情形之一
-$$|a(u^2+k^2)|,\quad a|u^2-k^2|,\quad a|k^2-u^2|,$$
+$$|a|(u^2+k^2),\quad |a|(u^2-k^2),\quad |a|(k^2-u^2),$$
 从而上述无理根式的积分可化为下列三种形式之一
 $$\dint R(u,\sqrt{u^2\pm k^2})\d u,\quad\dint R(u,\sqrt{k^2-u^2})\d u,$$
-分别令$u=k\tan t,u=k\sec t,u=k\sin t$即可。
+根据不同情况分别令$u=k\tan t,u=k\sec t,u=k\sin t$即可。
 }
 
 {\bf 例：}$\dint\df{\d x}{x\sqrt{x^2-2x-3}}$
@@ -1181,6 +1133,12 @@ $$I=\df2{\sqrt3}\arctan
 % $\arctan\df{\sqrt{x^2-2x-3}}{\sqrt3(x+1)}-\df{\pi}3=\arctan
 % \df{\sqrt{x^2-2x-3}-x}{\sqrt3}$，
 
+{\bf 例：}$\dint\df{\d x}{(x+1)\sqrt{1+2x-x^2}}$
+
+[提示]：
+\begin{align}
+	\mbox{原式}&\xlongequal{x+1=\sqrt2\sin t}\dint\df{\d t}{\sqrt2\sin t}\notag
+\end{align}
 
 {\bf 例：}计算下列不定积分
 \begin{enumerate}[(1)]
@@ -1241,10 +1199,83 @@ $$I_{n+1}=\df1{2n}\df x{(1+x^2)^n}+\left(1-\df1{2n}\right)I_n$$
 $$I(m,n)=\dint\cos^mx\sin^nx\d x=
 \df{\cos^{m-1}x\sin^{n+1}x}{m+n}+\df{m-1}{m+n}I(m-2,n)$$
 
-% {\bf 例：}
-% $$I_n=\df2{n-2}\sin(n-1)x+I_{n-2}$$
+\subsubsection{【倒代换】}
+
+当被积函数的分母次数较高，特别是含有无理项时，可尝试令$x=\df 1t$
+
+{\bf 例：}$\dint\df{\d x}{x^3\sqrt{1+x^2}}=-\dint\df{t^2\d t}{\sqrt{1+t^2}}
+=-\df{\sqrt{1+x^2}}{2x^2}+\df12\ln\df{1+\sqrt{1+x^2}}{|x|}+C$
+
+{\bf 例：}$\dint\df{\d x}{x^4\sqrt{1+x^2}}=-\dint\df{t^3\d t}{\sqrt{1+t^2}}
+=-\df{\sqrt{(1+x^2)^3}}{3x^3}+\sqrt{1+x^2}x+C$
+
+利用公式
+$$\dint\df{P_n(x)}y\d x=Q_{n-1}y+\lambda\dint\df{\d x}y$$
+（其中$y=\sqrt{qx^2+rx+s}$，$P_n(x),Q_{n-1}(x)$分别为$n$次和$n-1$次多项式）
+可将倒代换应用于形如
+$$\dint\df{\d x}{x^n\sqrt{ax^2+bx+c}}(n\geq1)$$
+的不定积分。
+
+{\bf 例：}$I=\dint\df{x^3\d x}{\sqrt{1+2x-x^2}}$
+
+[提示]：令
+$$I=(ax^2+bx+c)\sqrt{1+2x-x^2}+\lambda\dint\df{\d x}{\sqrt{1+2x-x^2}}$$
+两边对$x$求导，可解得
+$$a=-\df13,\quad b=-\df56,\quad,c=-\df{19}6,\quad\lambda=4$$
+
+{\bf 例：}$I=\dint\df{\d x}{x^n\sqrt{ax^2+bx+c}},(n\geq 1)$
+
+[提示]：令$x=\df 1t$，则
+$$I=\dint\df{-t^{n-1}\d t}{\sqrt{a+bt+ct^2}}$$
+
+形如
+$$\dint\df{\sqrt{ax^2+bx+c}}{x^n}\d x$$
+的积分
+
+\subsubsection{【Euler代换】}
+
+主要用于处理形如$\dint(R,\sqrt{ax^2+bx+c})$形式的积分，通过Eular代换可以将其化为
+有理函数积分，具体代换形式如下：
+\begin{enumerate}
+  \setlength{\itemindent}{1cm}
+  \item 当$a>0$时，令$\sqrt{ax^2+bx+c}\pm\sqrt ax=t$，
+  即$x=\df{t^2-c}{b\pm2\sqrt at}$
+  \item 当$c>0$时，令$\sqrt{ax^2+bx+c}\pm\sqrt c=tx$，
+  即$x=\df{b\pm2\sqrt ct}{t^2-a}$
+  \item 当$ax^2+bx+c=0$有两个实根$\alpha$和$\beta$时，
+  令$\sqrt{ax^2+bx+c}=t(x-\alpha)$，
+  即$x=\df{\alpha\beta-\alpha t^2}{a-t^2}$
+\end{enumerate}
+
+{\bf 例：}令$\sqrt{1+x^2}=t-x$，则
+$$\dint\df{x^3}{\sqrt{1+x^2}}\d x=\dint\df{(t^2-1)^3}{8t^4}\d t$$
+
+{\bf 例：}令$\sqrt{1+x^2}=xt-1$，则
+$$\dint\df{x^3}{\sqrt{1+x^2}}\d x=-16\dint\df{t^3}{(t^2-1)^4}\d t$$
 
 \subsubsection{【一题多解】}
+
+{\bf 例：}$I=\dint\sec x\d x$
+
+[解1]：
+\begin{align}
+	I&=\dint\df{\cos x}{1-\sin^2x}\d x
+	\xlongequal{t=\sin x}\dint\df{\d u}{1-u^2}
+	=\df12\dint\left(\df1{1+u}+\df1{1-u}\right)\d u\notag\\
+	&=\df12\ln\df{1+\sin x}{1-\sin x}+C\notag
+\end{align}
+
+[解2]：
+\begin{align}
+	I&\xlongequal{t=\tan\frac x2}\dint2{1-t^2}\d t
+	=\ln\left|\df{1+\tan x/2}{1-\tan x/2}\right|+C\notag
+\end{align}
+
+[解3]：
+$$
+I=\dint\df{\sec x(\sec x+\tan x)}{\sec x+\tan x}\d x
+=\dint\df{\d(\sec x+\tan x)}{\sec x+\tan x}=\ln|\sec x+\tan x|+C
+$$
 
 {\bf 例：}$I=\dint\df{\d x}{x\sqrt{x^2-1}}$
 

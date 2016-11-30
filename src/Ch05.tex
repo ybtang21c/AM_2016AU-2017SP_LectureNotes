@@ -908,16 +908,16 @@ $$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1). $$
 \begin{itemize}
   \setlength{\itemindent}{1cm}
   \item $P(x)$是$n$次多项式 
-  \item $y=P(x)$在$x_0$处与$y=f(x)$处至少$n$阶相切 
+  \item $y=P(x)$在$x_0$处与$y=f(x)$处至少{\it $n$阶相切} 
 \end{itemize}
 
-$$P_n(x)=\sum\limits_{k=0}^n\df{f^{\,(k)}(x_0)}{k!}(x-x_0)^k$$
+$${\b P_n(x)=\sum\limits_{k=0}^n\df{f^{\,(k)}(x_0)}{k!}(x-x_0)^k}$$
 \begin{itemize} 
-  \item {给定$f(x)$和$x_0$，$P_n(x)$唯一确定} 
+  \item {\b 给定$f(x)$和$x_0$，$P_n(x)$唯一确定} 
   \item 若$x_0=0$，称为{\it $f(x)$的$n$阶Maclaurin多项式}
 \end{itemize}
 
-{\bf P248-例1-2：}求Maclaurin多项式
+{\bf 教材-例1-2：}求Maclaurin多项式
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $f(x)=e^x$ 
@@ -928,24 +928,27 @@ $$P_n(x)=\sum\limits_{k=0}^n\df{f^{\,(k)}(x_0)}{k!}(x-x_0)^k$$
 
 \subsection{误差估计}
 
-{\bf 定理5.3.1：}设函数$f(x)$在$x_0$处$n$阶可导，$P(x)$是$f(x)$在点$x_0$处
+{\bf 定理5.3.1：}\ps{这个定理说明多项式逼近是比线性逼近更精确的逼近，也就是
+所谓的“以曲代曲”}
+设函数$f(x)$在$x_0$处$n$阶可导，$P(x)$是$f(x)$在点$x_0$处
 的$n$阶Taylor多项式，则当$x\to x_0$时
 $${|f(x)-P_n(x)|=\circ[(x-x_0)^n]}$$
 
 \begin{itemize}
   \setlength{\itemindent}{1cm}
   \item {\it 余项：}$R_n(x)=|f(x)-P_n(x)|$ 
-  \item {\it 带Peano余项的$n$阶Taylor公式：}
-  $${f(x)=P_n(x)+\circ[(x-x_0)^n]}$$
+  \item {\it 带Peano余项的$n$阶Taylor公式：}\ps{\b 阶数是多少，关键看余项！}
+  $${\b f(x)=P_n(x)+\circ[(x-x_0)^n]}$$
 \end{itemize}
 
 {\bf 定理5.3.2}（Taylor中值定理）
 设$f(x)$在$x_0$的某领域内$n+1$阶可导，对该领域内任一点$x$，存在介于
 $x_0$和$x$之间的一点$\xi$，满足
 $${f(x)=P_n(x)+\df{f^{(n+1)}(\xi)}{\,(n+1)!}(x-x_0)^{n+1}}$$
-上式称为{\it 带Lagrange余项的$n$阶Taylor公式}
-$$f(x_0+h)=P_n(x_0+h)+\df{f^{\,(n+1)}(x_0+\theta
-h)}{(n+1)!}h^{n+1},(0<\theta<1)$$
+上式称为{\it 带Lagrange余项的$n$阶Taylor公式}\ps{从这个意义上说，Taylor公式
+是对Lagrange中值定理的推广}
+$${\b f(x_0+h)=P_n(x_0+h)+\df{f^{\,(n+1)}(x_0+\theta
+h)}{(n+1)!}h^{n+1},(0<\theta<1)}$$
 
 {\bf 推论：}若存在常数$C>0$，使当$x\in(a,b)$时，恒有
 $$|f^{\,(n+1)}(x)|\leq C,\;n=0,1,2,\ldots$$
@@ -953,6 +956,7 @@ $$|f^{\,(n+1)}(x)|\leq C,\;n=0,1,2,\ldots$$
 $$\limn [f(x)-P_n(x)]=0.$$
 也即：Taylor多项式的次数越高，逼近精度越高。
 
+{\b
 {\bf 例}（常用的Maclaurin公式）
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
@@ -976,6 +980,7 @@ $$\limn [f(x)-P_n(x)]=0.$$
 	 +\df{\alpha(\alpha-1)\ldots(\alpha-n)}{(n+1)!}\df{x^{n+1}}{(1+\theta
 	x)^{n+1-\alpha}}\quad (0<\theta<1,x\ne -1)$}
 \end{enumerate}
+}
 
 \subsection{函数的Taylor展开}
 
@@ -986,34 +991,37 @@ $$\limn [f(x)-P_n(x)]=0.$$
   \begin{itemize}
     \item 逐个计算Taylor系数，给出相应的公式 
   \end{itemize}
-  \item {\bf 间接法} 
+  \item {\bf 间接法} \ps{能够使用间接法求展开的根本原因是Taylor展开具有唯一性！}
   \begin{itemize}
     \item 利用已知函数的Maclaurin公式 
     \item 利用级数和多项式的性质
   \end{itemize}
 \end{enumerate}
 
-\subsubsection{多项式函数}
+\subsubsection{【多项式函数的展开】}
 
 {\bf 定理}
 多项式函数$P_n(x)=\sum\limits_{k=0}^na_kx^k$的$m$阶Maclaurin多项式为其$m$次
 {\it 截断多项式：} 
 $${P_m(x)=\sum\limits_{k=0}^ma_kx^k}$$
 
-{\bf P259-习题1：}求$f(x)=x^3+3x^2-2x+4$的各阶Maclaurin多项式和在
+{\bf 教材-习题1：}求$f(x)=x^3+3x^2-2x+4$的各阶Maclaurin多项式和在
 $x=1$处的Taylor多项式。
 
-\subsubsection{直接法求Taylor展开式}
+[提示]：{\b$f(x)$自身已经是一个Maclaurin多项式，但若所求展开式是在某个$x_0$处，
+则应该使用形如$t=x-x_0$的变化先求对应的Maclaurin公式，再代回即可。}
 
-{\bf P254-例3：}求$f(x)=\tan x$的$3$阶带有Peano余项的Maclaurin公式。
+\subsubsection{【直接法求Taylor展开式】}
+
+{\bf 教材-例3：}求$f(x)=\tan x$的$3$阶带有Peano余项的Maclaurin公式。
 
 \begin{itemize}
   \setlength{\itemindent}{1cm}
-  \item 直接法 
-  \item 待定系数法
+  \item 直接法：逐阶求导，然后展开
+  \item 待定系数法：利用$\sin x$和$\cos x$的展开式，确定相关的系数
 \end{itemize}
 
-\subsubsection{间接法求Taylor展开式}
+\subsubsection{【间接法求Taylor展开式】}
 
 {\bf 规则一：}若在区间$I$内，$f(x)=\sum\limits_{n=0}^{\infty}a_nx^n$，
 $g(x)=\sum\limits_{n=0}^{\infty}b_nx^n$，则
@@ -1026,9 +1034,13 @@ $g(x)=\sum\limits_{n=0}^{\infty}b_nx^n$，则
   \df{a_{n}}{n+1}x^{n+1}$
 \end{enumerate}
 
-{\bf  P254-例4：}求$f(x)=\df 12\ln\df{1+x}{1-x}$的$n$阶带有Peano余项的Maclaurin公式。
+{\bf 教材-例4：}求$f(x)=\df 12\ln\df{1+x}{1-x}$的$n$阶带有Peano余项的Maclaurin公式。
 
-{\bf P255-例5：}求$f(x)=\df 1{2+x}$在$x=1$处的$7$阶Taylor多项式，并求$f^{(7)}(1)$。
+{\bf 教材-例5：}求$f(x)=\df 1{2+x}$在$x=1$处的$7$阶Taylor多项式，并求$f^{(7)}(1)$。
+
+[提示]：
+$$f(x)=\df13\cdot\df1{(x-1)/3+1}=\df13\sum\limits_{k=0}^n
+\df{(-1)^k}{3^k}(x-1)^{k}+\circ((x-1)^n)$$
 
 {\bf 规则二：}若在区间$I$上，恒有$f(x)=\sum\limits_{n=1}^{\infty}a_nx^n$，
 给定函数$g(x)$，当$g(x)\in I$时，恒有
@@ -1047,18 +1059,18 @@ $$f[g(x)]=\sum\limits_{n=1}^{\infty}a_n[g(x)]^n.$$
 
 \subsection{Taylor公式的应用}
 
-\subsubsection{近似计算}
+\subsubsection{【近似计算】}
 
-{\bf P256-例6：}计算$e$的值，误差不超过$10^{-5}$。
+{\bf 教材-例6：}计算$e$的值，误差不超过$10^{-5}$。
 
 \begin{center}
 	\resizebox{!}{5.5cm}{\includegraphics{./images/ch5/exse1.pdf}}\quad
 	\resizebox{!}{5.5cm}{\includegraphics{./images/ch5/exse2.pdf}}
 \end{center}
 
-\subsubsection{计算不定式极限}
+\subsubsection{【计算不定式极限】}
 
-{\bf P257-例8：}计算以下极限
+{\bf 教材-例8：}计算以下极限\ps{\b 重点！难点！考点！}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\limx{0}\df{\cos x-e^{-x^2/2}}{x^4}$ 
@@ -1080,11 +1092,11 @@ $$\limx{0}\left(1+x+\df{f(x)}{x}\right)^{1/x}=e^3,$$
   \item $\limx{0}\left(1+\df{f(x)}{x}\right)^{1/x}$.
 \end{enumerate}
 
-\subsubsection{证明不等式}
+\subsubsection{【证明不等式】}
 
-{\bf P258-例9：}证明：$x>0$时，$e^x>1+x+\df{x^2}{2}$
+{\bf 教材-例9：}证明：$x>0$时，$e^x>1+x+\df{x^2}{2}$
 
-{\bf P259-例10：}设$f(x)$在$(a,+\infty)$内具有二阶导数，
+{\bf 教材-例10：}设$f(x)$在$(a,+\infty)$内具有二阶导数，
 且$f(x),f\,''(x)$在$(a,+\infty)$
 有界，证明：$f\,'(x)$在$(a,+\infty)$有界。
 
@@ -1103,12 +1115,12 @@ $$|f\,'(0)+f\,'(a)|\leq Ma.$$
 $|f\,''(x)|\leq A$，证明：对任意$x\in[0,1]$，恒有
 $$|f\,'(x)|\leq\df A2.$$
 
-{\bf 用Taylor公式证明等式或不等式} 
+{\b{\bf 用Taylor公式证明等式或不等式} 
 \begin{itemize}
   \item 多使用Lagrange余项
   \item 特殊的点： 区间端点、 极（最）值点、
   区间中点、 距离为常数的点、 已知条件中提到的特殊点
-\end{itemize}
+\end{itemize}}
 
 {\bf 辅导书P153-例37：}
 设$f(x)$在$[a,b]$上二阶连续可导，且$f\,'(a)=f\,'(b)=0$，则至少存在一点
@@ -1290,9 +1302,10 @@ $$
 
 \newpage
 
-\section*{习题与课后思考题}
-
 \section*{课后作业}
+\addcontentsline{toc}{section}{课后作业}
+
+{\bf 【必作题】}
 
 \begin{itemize}
   \item 习题5.1：5,6,7,9,12,14
@@ -1303,7 +1316,14 @@ $$
   \item 习题5.5：5,6,7,8,11
 \end{itemize}
 
-{\bf 【课堂练习与思考题】}
+\bigskip
+
+\hrule
+
+\bigskip
+\bigskip
+
+{\bf 【思考题】}
 
 \begin{itemize}
   \item 习题5.1：10,11,13
