@@ -582,6 +582,8 @@ $$\d y=f\,'(u)\d u=f\,'(u)\varphi'(x)\d x$$
   \item {\ldots\ldots} 
 \end{itemize}
 
+\subsection{例题选讲}
+
 {\bf 教材-例7：}有一深度$8$m，上底直径$8$m的圆锥形容器，
 以$4$m$^3$/min的速率向其中注水，当容器中水深$5$m时，水面上升的速度是多少？
 
@@ -662,6 +664,164 @@ $$\df{s(1)}{s(0)}=\left[\df{V(1)}{V(0)}\right]^{\frac13}=
   \item {{\it 求解：}}整理新的关系式，得出结果
 \end{enumerate}
 \end{shaded}
+
+\subsection{万有引力定律的推导}
+
+关于变化率和相关变化率最好的实例是Newton从Kepler三定律推导出万有引力定律的过程。
+
+在牛顿的工作之前，德国天文学家、物理学家和数学家Johannes Kepler（1571-1630）
+通过多年的天文观察，得到所谓的{\bf 行星运动三大定律：}\ps{这三大定律使Kepler
+赢得了“天空立法者”的美名}
+\begin{enumerate}
+  \item {\it 轨道定律：}所有行星分别都运行在椭圆轨道上，其对应的“太阳”位于
+  椭圆的一个焦点上
+  \item {\it 面积定律：}在同样的时间内，行星{\it 向径（极径）}\ps{即由“太阳”位置
+  指向行星位置的向量}在轨道平面上扫过的面积相等
+  \item {\it 周期定律：}行星的公转周期的平方与它同太阳最远距离的立方成正比 
+\end{enumerate}
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch4/Kepler.pdf}}
+\end{center}
+
+如图，绿色曲线为行星的椭圆轨道，极坐标系的原点$O$表示“太阳”的位置，点$P$为行星的位置。
+椭圆的极坐标方程为
+$$r=\df{p}{1-e\cos\theta},$$
+其中：
+\begin{itemize}
+  \item {\it 焦参数}：$p=\df{b^2}a$
+  \item {\it 离心率}：$e=\sqrt{1-\df{b^2}{a^2}}$
+  \item $a,b$分别为椭圆的半长轴和半短轴长度
+\end{itemize}
+
+在$t$时刻，行星的位置可用其向径来表示\ps{在印刷体中，向量默认使用粗体字母表示，在手写体
+中，则使用在字母上方画箭头的记号来表示}
+$$\bm{r}(t)=r(t)(\cos\theta,\sin\theta),$$
+其中：
+\begin{itemize}
+  \item $r(t)=|\bm{r}(t)|$\ps{$|\bm{r}|$表示向量$\bm{r}$的模，
+  或者说，长度}为向径的长度，也即行星到太阳的{\it 距离}
+  \item $\theta=\theta(t)$如图所示，为当前位置对应的{\it 极角}
+  \item 记$\bm{r}_0=(\cos\theta,\sin\theta)$为$\bm{r}(t)$对应的{\it 单位向量}
+  \ps{单位向量也称为方向向量}
+\end{itemize}
+
+根据Newton第二定律，行星所受的力\ps{对向量求导等价于对其每个分量分别求导，
+例如：$\bm{r}=(x(t),y(t))$，则$\bm{r}'_t=(x'_t,y'_t)$}
+\begin{align}
+	\bm{F}&=m\bm{a}=m\bm{r}''_{tt}\notag\\
+	&=m\left(\df{\d^2(r\cos\theta)}{\d t},\df{\d^2(r\sin\theta)}{\d
+	t}\right)\notag\\
+	&=m((r''-r\omega^2)\cos\theta-(2r'\omega+r\omega')\sin\theta,
+	(2r'\omega+r\omega')\cos\theta+(r''-r\omega^2)\sin\theta)\notag\\
+	&=m(r''-r\omega^2)\bm{r}_0+m\left(\df{2r'\omega+r\omega'}
+	{\omega}\right)\bm{r}'_0\tag{N.1}
+\end{align}
+其中：
+\begin{itemize}
+  \item $m$为{\it 行星质量}
+  \item $\bm{a}$为行星的{\it 加速度向量}\ps{注意加速度是一个向量！}
+  \item {\it 角速度}：$\omega=\theta'_t$
+  \item {\it 径向速度（率）}：$r'=\df{\d r}{\d t}$
+  \item {\it 径向加速度（率）}：$r''=\df{\d^2 r}{\d t^2}$
+\end{itemize}
+
+记$\d A$为向径转过角度$\d\theta$所对应的椭圆面积，则
+$$\d A=\df12r^2\d\theta,$$
+由Kepler第二定律，单位时间内向径扫过的面积为常数（记为$c$），即
+$$c=\df{\d A}{\d t}=\df12r^2\omega.\eqno{(\mbox{N}.2)}$$
+
+记行星的公转周期为$T$，则经过$T$时间向径扫过的面积恰为整个椭圆的面积$\pi ab$，
+也即
+$$\pi ab=\dint_0^T\df{\d A}{\d t}\d t=cT=\df12r^2\omega T,$$
+由此可解出
+$$r^2\omega=\df{2\pi ab}T.$$
+
+式(N.2)两边求导，可得
+% \ps{事实上，若记行星的公转周期为$T$，容易解得$r^2\omega=\df{2\pi ab}T$}
+$$0=(r^2\omega)'=r(2r'\omega+r\omega'),$$
+由此可见(N.1)式中的第二部分恒为零，从而
+$$\bm{a}=\bm{r}''_{tt}=(r''-r\omega^2)\bm{r}_0,$$
+这表明{\it 行星在任一点处的加速度方向（也即受力方向）是沿着其向径方向，或者
+是与其和“太阳”连线相一致的}！
+
+下面回到椭圆方程，其可以改写成
+$$p=r(1-e\cos\theta),$$
+两边求二阶导数，可得
+\begin{align}
+	0&=p''=r''-e(r^2\cos\theta)''\notag\\
+	&=(r''-r\omega^2)(1-e\cos\theta)+r\omega^2\notag\\
+	&=\df{r''-r\omega^2}rp+r\omega^2\notag
+\end{align}
+于是
+$$r''-r\omega^2=-\df{(r^2\omega)^2}{r^2p}=-4\pi^2\df{a^3}{T^2r^2}$$
+
+根据Kepler第三定律，$\df{a^3}{T^2}$为常数，记太阳的质量为$M$，则
+$$\bm{F}=m\bm{a}=m(r''-r\omega^2)\bm{r}_0
+=-\left(\df{4\pi^2a^3}{MT^2}\right)\df{Mm}{r^2}\bm{r}_0,$$
+记{\it 万有引力常数}
+$$G=\df{4\pi^2a^3}{MT^2}\approx 6.67\times 10^{-11}
+(\mbox{m}^3/\mbox{kg}\cdot\mbox{s}^2),
+$$
+也即
+$$\bm{F}=-G\df{Mm}{r^2}\bm{r}_0$$
+
+% \begin{shaded}
+
+万有引力定律说明了宇宙万物之间都存在相互的引力，且引力的作用方向在二者的连线上，
+其大小与二者的质量乘积成正比，与二者的距离平方成反比，比例系数为{\it 绝对常数}
+\ps{即在宇宙范围内为常数，相对而言，前述推导中出现的常数如$c$,$a^3/T^2$都
+是和所处的“太阳-行星”系统相关的}。
+
+% \end{shaded}
+
+以上的论证及其结果，并不就是Newton个人所完整发现的，事实上也不是Newton最初的论证
+\ps{发表在Newton的巨著《自然哲学的数学原理》一书上}。
+Kepler已经证明了，如果行星的轨迹是圆形，则符合万有引力定律。但如果轨道是椭圆形的，
+Kepler由于没能像Newton发明了微积分那样，拥有更合适的数学工具，因此得不出所要的结果。
+
+另一方面，Newton最初的论证，只是说明了以上规律对我们所处的“太阳-行星”系统是正确的，
+是其后的科学家进一步证实了这一规律”放之四海而皆准“，适用于从一切天体运动到微观
+世界的广泛范围，而所有后续论证的基础是大量的实验观测。例如，万有引力常数$G$的值于
+1789年由Henry Cavendish（1731-1810）利用他所发明的{\it 扭称}得出的。
+
+基于万有引力定律，诞生了一些非常著名的天文学成果，例如：
+
+\begin{itemize}
+  \item 计算出哈雷彗星的轨道和运动周期
+  \item 发现了海王星和冥王星
+  \item 解释了潮汐的起因和规律
+  \item 计算出第一、第二和第三宇宙速度，从而开启了人类航天活动的历史
+\end{itemize}
+
+利用万有引力定律，可以反向推导出Kepler的行星运动三定律。其中第二和第三定理
+的推导相对容易，下面给出由万有引力定律推导Kepler第一定律的大致过程。
+
+Newton第二定律的极坐标形式
+$$
+\left\{\begin{array}{l}
+	F(r)=m(r''-r(\theta')^2)\\
+	F(\theta)=m(r\theta''+2r'\theta')
+\end{array}\right.
+$$
+
+Binet公式：\ps{参见Wikipedia关于Binet Equation的条目}
+$$F=-mh^2u^2\left(u''_{\theta\theta}+u\right)$$
+其中：$u=\df1r$，$h=\df Lm=r^2\theta'$，由角动量守恒定律，为常数。
+
+万有引力方程可以写为
+$$F=-mk^2u^2,$$
+其中$k^2=GM$\ps{称为Guass常数，是一个与行星无关，而只与太阳有关的量}。综合以上
+两式，可得
+$$u''_{\theta\theta}+u=\df{k^2}{h^2},$$
+以下解方程。令$u=\xi+\df{k^2}{h^2}$，则方程化为
+$$\xi''_{\theta\theta}+\xi=0,$$
+这是一个波动方程，其解具有如下形式
+$$\xi=A\cos(\theta-\theta_0),$$
+进而
+$$r=\df1u=\df{h^2/k^2}{1+A[\cos(\theta-\theta_0)]h^2/k^2}$$
+这实质上就是椭圆的极坐标方程。
+
 
 \section{不定积分}
 
