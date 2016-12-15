@@ -6,7 +6,8 @@
 
 \subsection{定义}
 
-{\bf 问题：}如何求给定曲线所围平面区域的面积？
+{\bf\b 曲边梯形的面积：}由$x$轴，$x=a,x=b$以及曲线$y=f(x)$
+所围平面区域的面积
 
 \begin{center}
 	\resizebox{!}{5.2cm}{\includegraphics{./images/ch6/integral.pdf}}
@@ -14,23 +15,26 @@
 	$$S=\dint_a^bf(x)\d x$$
 \end{center}
 
-{\bf P301-例1：}求由曲线$y=x^2$以及直线$x=0,x=1$和$y=0$所围成的曲边梯形的面积。
+{\bf 教材-例1：}求由曲线$y=x^2$以及直线$x=0,x=1$和$y=0$所围成的曲边梯形的面积。
 
-\begin{center}
-	{\bf “分割取近似，做和求极限”}
-\end{center}
-
-{\bf 定义6.1.1：}函数$y=f(x)$在区间$[a,b]$上（Riemann）可积：
+{\bf 定义：}函数$y=f(x)$在区间$[a,b]$上（Riemann）可积：
+\ps{重点理解构造思想：{\b\bf “分割取近似，做和求极限”}}
 $$\dint_a^bf(x)\d x=\lim\limits_{\lambda\to
 0}\sum\limits_{k=1}^nf(\xi_k)\Delta x_k$$
+其中，对区间$[a,b]$做任意划分，$\xi_k$取自第$k$个区间的任一点，$\Delta_k$
+为第$k$个区间的长度，$\lambda$为最大的区间的长度，如果以上右侧极限对任意划分和
+任意点的取法都一样，则称$f(x)$在$[a,b]$上（Riemann）{\it 可积}，该极限的值称为
+$f(x)$在$[a,b]$上的{\it 定积分}
 
 {\bf 注：}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
+  \item {\b 定积分是一个数值，不定积分是一个函数}
   \item 两个“任意”
   \begin{itemize}
     \item 对$[a,b]$的任意分法
-    \item 给定分法，$\xi_k$的取法应该是任意的
+    \ps{事实上，等分亦可，因为后一个“任意”已经足够了，参见同济教材的定义}
+    \item {\b 给定分法，$\xi_k$的取法应该是任意的}
   \end{itemize}
   \item $\lambda\to 0$用于保证分割得足够“细”
 \end{enumerate}
@@ -44,9 +48,12 @@ $$\dint_a^bf(x)\d x=\lim\limits_{\lambda\to
 
 {\bf 注：}分段连续（只有有限个第一类间断点）的函数是可积的
 
-{\bf P309-例2：}证明Dirichlet函数在任意区间$[a,b]$上不可积。
+{\bf 教材-例2：}证明Dirichlet函数在任意区间$[a,b]$上不可积。
 
-{\bf P317-习题7：}将下列求和式表示成定积分 
+\subsubsection{【用定积分的定义计算极限】}
+
+{\bf 教材-习题7：}将下列求和式表示成定积分\ps{\b 常考的内容，注意和
+Stolz定理和夹逼定理适用的问题作区分！}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\limn\df 1n\left[\sin\df{\pi}{n}+\sin\df{2\pi}{n}+\ldots
@@ -63,7 +70,7 @@ $$\limn\cos\df x2\cos\df x4\cos\df x8\cdot\cdots\cdot\cos\df x{2^n}
 $$\df2\pi=\df{\sqrt2}2\cdot\df{2+\sqrt2}2\cdot\df{\sqrt{2+\sqrt{2+\sqrt2}}}2
 \cdot\cdots$$
 
-{[hint]:}
+[提示]：
 \begin{align}
 	&\cos\df x2\cos\df x4\cos\df x8\cdots\cos\df x{2^n}\notag\\
 	&=\df12\left(\cos\df34x+\cos\df14x\right)\cos\df x8\cdots\cos\df
@@ -79,7 +86,7 @@ $$\df2\pi=\df{\sqrt2}2\cdot\df{2+\sqrt2}2\cdot\df{\sqrt{2+\sqrt{2+\sqrt2}}}2
 {\bf 例：}$G_n=\sqrt[n]{(n+1)(n+2)\cdots(n+n)},(n=1,2,\ldots)$，求
 $\limn\df{G_n}n$.
 
-{[hint]:}
+[提示]：
 $$\ln\df{G_n}n=\limn\df1n\sum\limits_{k=1}^n\ln\left(1+\df kn\right)
 =\dint_0^1\ln(1+x)\d x=2\ln2-1$$
 
@@ -90,7 +97,7 @@ $$\ln\df{G_n}n=\limn\df1n\sum\limits_{k=1}^n\ln\left(1+\df kn\right)
 	\resizebox{!}{3.12cm}{\includegraphics{./images/ch6/IS2.pdf}} 
 	\resizebox{!}{3.12cm}{\includegraphics{./images/ch6/IS3.pdf}}
 	
-	“带符号的面积” 
+	{\b\it “带符号的面积” }
 \end{center}
 
 {\bf 约定：}
@@ -100,10 +107,12 @@ $$\ln\df{G_n}n=\limn\df1n\sum\limits_{k=1}^n\ln\left(1+\df kn\right)
   \item $\dint_b^af(x)\d x=-\dint_a^bf(x)\d x$ 
 \end{enumerate}
 
+\begin{shaded}
+
 {\bf 例：}$f(x)\in C[0,1]$且严格单调递增，$f(0)=0,f(1)=1$，已知
 $\dint_0^1f(x)\d x=\df23$，求$\dint_0^1f^{-1}(y)\d y$
 
-{[hint]:}作图易知
+[提示]：作图易知
 $$\dint_0^1f(x)\d x+\dint_0^1f^{-1}(y)\d y=1$$
 
 \begin{center}
@@ -112,7 +121,7 @@ $$\dint_0^1f(x)\d x+\dint_0^1f^{-1}(y)\d y=1$$
 
 {\bf 例：}$a>1$，证明：$\dint_1^a\ln x\d x+\dint_0^{\ln a}e^y\d y=a\ln a$
 
-[hint]:与上题同理。
+[提示]：与上题同理。
 
 {\bf 命题：}$f(x)\in C[a,b]$严格单调增加，则
 $$\dint_a^bf(x)\d x+\dint_{f(a)}^{f(b)}f^{-1}(y)\d y=bf(b)-af(a)$$
@@ -123,18 +132,20 @@ $$\dint_0^{\pi/2}\sin x\d x+\dint_0^1\arcsin x\d x=\df{\pi}2$$
 \end{center}
 
 {\bf 例：}$f(x)\in C[0,+\infty)$且严格单调递增，$f(0)=0,a>0,b>0$，则
-成立如下的Young不等式
+成立如下的Young{\it 不等式}
 $$ab\leq\dint_0^af(x)\d x+\dint_0^bf^{-1}(y)\d y$$
 \begin{center}
 	\resizebox{!}{4cm}{\includegraphics{./images/ch6/iff-ab.pdf}}  
 \end{center}
-利用该不等式，可以证明Minkowski不等式：设$p>1,q>1,\df1p+\df1q=1$，则
+利用该不等式，可以证明Minkowski{\it 不等式}：设$p>1,q>1,\df1p+\df1q=1$，则
 $$ab\leq\df{a^p}p+\df{b^q}q$$
-[hint]:令$f(x)=x^{p-1}$，则$x=y^{q-1}$(注意到$\df1{p-1}=q-1$)
+[提示]：令$f(x)=x^{p-1}$，则$x=y^{q-1}$(注意到$\df1{p-1}=q-1$)
 
 {\bf 例：}计算$\dint_0^1\left(\sqrt[3]{1-x^7}-\sqrt[7]{1-x^3}\right)\d x$
 
-[hint]:$y=\sqrt[3]{1-x^7}$和$x=\sqrt[7]{1-y^3}$互为反函数！
+[提示]：$y=\sqrt[3]{1-x^7}$和$x=\sqrt[7]{1-y^3}$互为反函数！
+
+\end{shaded}
 
 \subsection{基本性质}
 
@@ -145,14 +156,14 @@ $$ab\leq\df{a^p}p+\df{b^q}q$$
   f(x)+\beta g(x)]\d x=\alpha\dint_a^bf(x)\d x+\beta\dint_a^bg(x)\d x$$
   \item {\bf 区间可加性：}
   $$\dint_a^bf(x)\d x=\dint_a^cf(x)\d x+\dint_c^bf(x)\d x$$
-  \item {\bf 保号性：}
+  \item {\bf 保号性：}\ps{不定积分不具有保号性！}
   \begin{itemize}
     \item $f(x)$在$[a,b]$上可积，且$f(x)\geq 0$，则$\dint_a^bf(x)\d x\geq 0$ 
     \item $f(x)$在$[a,b]$上连续，非负且不恒为零，则$$\dint_a^bf(x)\d x> 0$$ 
     \item {\bf 保序性：}设$f(x),g(x)$在$[a,b]$上可积，且$f(x)\leq g(x)$，则
     $$\dint_a^bf(x)\d x\leq \dint_a^bg(x)\d x$$
     \item {\bf 绝对值不等式：}$f(x)$在$[a,b]$上可积，则
-    $$\dint_a^bf(x)\d x\leq\dint_a^b|f(x)|\d x$$ 
+    $${\b \dint_a^bf(x)\d x\leq\dint_a^b|f(x)|\d x}$$ 
     \item {\bf 积分估值：}$f(x)$在$[a,b]$上可积，且$m\leq f(x)\leq M$，则
     $$m(b-a)\leq\dint_a^bf(x)\d x\leq M(b-a)$$
   \end{itemize}
@@ -160,13 +171,24 @@ $$ab\leq\df{a^p}p+\df{b^q}q$$
 
 \subsection{定积分中值定理}
 
-{\bf 定理6.1.2：}若函数$f(x)$在区间$[a,b]$上连续，则在$[a,b]$上至少存在一点$\xi$，使得
+{\bf 定理6.1.2：}若函数$f(x)$在区间$[a,b]$上连续，
+则在$[a,b]$上至少存在一点$\xi$，使得
 $$\dint_a^bf(x)\d x=f(\xi)(b-a)$$
 
-{\bf 注：}定积分中值定理与微分中值定理有何联系？
+{\it\b $f(\xi)$相当于函数$f(x)$
+在$[a,b]$上的均值（注意不是中值）}，这一概念在概率统计中得到了广泛应用！
+
+{\bf 注：}由连续函数的变限积分的可导性（参见6.2.2节），利用Lagrange中值
+定理可以证明定积分中值定理，因此{\it 定积分中值定理与微分中值定理本质上是一样的！}
 
 {\bf 例：}计算如下极限
 $$\limx{+\infty}\sqrt[3]x\dint_x^{x+1}\df{\sin t}{t+\cos t}\d t$$
+
+[提示]：不妨设$x>1$，由定积分中值定理，存在$\xi\in(x,x+1)$
+$$\left|\sqrt[3]x\dint_x^{x+1}\df{\sin t}{t+\cos t}\d t\right|
+=\sqrt[3]x\df{|\sin\xi|}{|\xi+\cos\xi|}\leq\sqrt[3]x\df{1}{x-1}
+\to0\;(x\to\infty)$$
+
 
 \section{微积分基本公式与定积分的计算}
 
@@ -175,11 +197,11 @@ $$\limx{+\infty}\sqrt[3]x\dint_x^{x+1}\df{\sin t}{t+\cos t}\d t$$
 {\it 在Newton和Leibniz之前，微分和积分的许多个别结果已经得到，但只有当
 他们发现了这个公式之后，微积分才统计成了一个整体！}
 
-{\bf P319-例6.2.1：}设函数$f(x)$在区间$[a,b]$上可积，$F(x)$是
+{\bf 定理6.2.1}（{\it 微积分基本定理}）设函数$f(x)$在区间$[a,b]$上可积，$F(x)$是
 $f(x)$在$[a,b]$上的一个原函数，则
 $$\dint_a^bf(x)\d x=F(b)-F(a).$$
 
-{\bf P320-例1：}计算定积分
+{\bf 教材-例1：}计算定积分
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\dint_{0}^{1}x^2 \d x$
@@ -195,8 +217,8 @@ $$\dint_0^{3\pi/4}\df{\sin x}{1+\cos^2x}\d x
 =-\dint_0^{3\pi/4}\df{\d\cos x}{1+\cos^2x}=\arctan\df{\sqrt2}2
 +\df{\pi}4$$
 
-{\bf 注：}定积分计算中使用换元法时，必须同时将积分上下限更改为对应的值，且必须保证
-变换后的变量是连续变化的！！
+{\bf 注：}{\b 定积分计算中使用换元法时，必须同时将积分上下限更改为对应的值，且必须保证
+变换后的变量是连续变化的！！}
 
 {\bf 例：}如下的计算过程有什么错误？
 $$\dint_0^{\pi}\df{\d x}{2+\cos2x}=\df1{\sqrt3}\arctan
@@ -211,9 +233,11 @@ $$\dint_0^{\pi}\df{\d x}{2+\cos2x}=\df1{\sqrt3}\arctan
 {\bf 注：}
 \begin{itemize}
   \setlength{\itemindent}{1cm}
-  \item 可积函数未必有原函数，例如，有第一类间断点的函数
-  \item 有原函数的函数未必可积，例如
-  $$f(x)=x^2\sin\df1x,(x\ne0), 0$$
+  \item {\b 可积函数未必有原函数}，例如，有第一类间断点的函数
+  \item {\b 有原函数的函数未必可积}，例如
+  $$f(x)=\left\{\begin{array}{ll}
+  x^2\sin\df1x,& x\ne0,\\ 0,& x=0
+  \end{array}\right.$$
 \end{itemize}
 
 {\bf 例：}设$f(x)$满足方程
