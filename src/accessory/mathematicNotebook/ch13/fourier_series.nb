@@ -1,0 +1,175 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      5338,        166]
+NotebookOptionsPosition[      5050,        152]
+NotebookOutlinePosition[      5389,        167]
+CellTagsIndexPosition[      5346,        164]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"Sign", "[", 
+          RowBox[{"x", "+", "Pi", "-", 
+           RowBox[{"2", " ", "Pi", "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"IntegerPart", "[", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"x", "+", "Pi"}], ")"}], "/", 
+                RowBox[{"(", 
+                 RowBox[{"2", " ", "Pi"}], ")"}]}], "]"}], "+", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Sign", "[", 
+                  RowBox[{"(", 
+                   RowBox[{"x", "+", "Pi"}], ")"}], "]"}], "-", "1"}], ")"}], 
+               "/", "2"}]}], ")"}]}], "-", "Pi"}], "]"}], ")"}], " ", 
+        RowBox[{"Pi", "/", "4"}]}], ",", 
+       RowBox[{"Sum", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Sin", "[", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", "k"}], "-", "1"}], ")"}], " ", "x"}], "]"}], 
+          "/", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", "k"}], "-", "1"}], ")"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"k", ",", "1", ",", "m"}], "}"}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{
+        RowBox[{"-", "2"}], " ", "Pi"}], ",", 
+       RowBox[{"2", " ", "Pi"}]}], "}"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "1"}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "0.002", "]"}], ",", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{"1", ",", "0", ",", "0"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "0.004", "]"}], ",", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", "1", ",", "0"}], "]"}]}], "}"}]}], "}"}]}]}], 
+    "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"m", ",", "1", ",", "9"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4220972941658*^9, 3.4220973099708*^9}, {
+   3.516425019921884*^9, 3.516425038286859*^9}, 3.516425082704492*^9}],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Pi", "/", "2"}], "+", 
+        RowBox[{
+         RowBox[{"2", "/", "Pi"}], "*", 
+         RowBox[{"Sum", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"-", "1"}], ")"}], "^", "k"}], "-", "1"}], ")"}], 
+               "/", 
+               RowBox[{"(", 
+                RowBox[{"k", "^", "2"}], ")"}]}], ")"}], "*", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"k", "*", "x"}], "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"k", ",", "1", ",", "n"}], "}"}]}], "]"}]}]}], ",", 
+       RowBox[{"Abs", "[", 
+        RowBox[{"x", "-", 
+         RowBox[{
+          RowBox[{"Round", "[", 
+           RowBox[{"x", "/", 
+            RowBox[{"(", 
+             RowBox[{"2", " ", "Pi"}], ")"}]}], "]"}], "*", "2", " ", 
+          "Pi"}]}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", 
+       RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Automatic"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "0.005", "]"}], ",", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{"0", ",", "1", ",", "0"}], "]"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Thickness", "[", "0.002", "]"}], ",", 
+          RowBox[{"RGBColor", "[", 
+           RowBox[{"1", ",", "0", ",", "0"}], "]"}]}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"AxesOrigin", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "8"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.4220971986918*^9, 3.4220972426708*^9}}]
+},
+WindowSize->{1264, 678},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 2437, 69, 58, "Input"],
+Cell[2985, 91, 2061, 59, 43, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
