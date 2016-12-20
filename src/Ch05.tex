@@ -421,6 +421,14 @@ $$f'(\xi)+f(\xi)=0.$$
 则：{\b 存在$\xi\in(a,b)$，使得 
 $$f\,'(\xi)=\df{f(b)-f(a)}{b-a}.$$}
 
+[证明概要]：结论即为\ps{\b 从结论出发构造辅助函数是证明中值问题的常用思路}
+$$f'(\xi)(b-a)-[f(b)-f(a)]=0,$$
+考虑
+$$F'(x)=f'(x)(b-a)-[f(b)-f(a)],$$
+从而
+$$F(x)=f(x)(b-a)-[f(b)-f(a)]+C,$$
+不妨令$C=0$，可以验证$F(b)=F(a)$，在利用Rolle定理即可。
+
 {\bf 注：}Lagrange中值定理的几种常见形式
 $${\b f(b)-f(a)=f'(\xi)(b-a)}$$
 $${\b f(x+\Delta x)=f(x)+f'(x+\theta\Delta x)\Delta x,
@@ -452,14 +460,26 @@ $$\gamma=\limn\left(1+\df12+\ldots+\df1n-\ln n\right)$$
 利用与Lagrange中值定理相似的思想，可以证明：
 
 {\bf 例：}设$f(x)$在$[a,b]$上二阶可导，$f(a)=f(b)=0$，证明：对任意
-$x\in(a,b)$，存在$\xi\in(a,b)$，使得
-$$f(x)=\df{f\,''(\xi)}{2}(x-a)(x-b)$$
-{\bf 提示：}构造辅助函数
-$$F(t)=f(t)-\df{(t-a)(t-b)}{(x-a)(x-b)}f(x)$$
-这个辅助函数的右半部分事实上是过$(a,0),(b,0),(x,f(x))$三点的Lagrange插值多项式！
+$c\in(a,b)$，存在$\xi\in(a,b)$，使得
+$$f(c)=\df{f\,''(\xi)}{2}(c-a)(c-b)$$
+[提示]：设
+$$F''(x)=f''(x)-\df{2f(c)}{(c-a)(c-b)},$$
+则可得
+$$F(x)=f(x)-\df{f(c)}{(c-a)(c-b)}x^2+C_1x+C_2,$$
+其中$C_1,C_2$为常数。不妨令$C_1=C_2=0$，以下可以验证：
+$$\df{F(c)-F(a)}{c-a}=\df{F(b)-F(c)}{b-c}
+=-\df{f(c)}{(c-a)(c-b)}(a+b),$$
+由Lagrange中值定理，存在$\xi_1\in(a,c),\xi_2\in(c,b)$，使得
+$$F'(\xi_1)=F'(\xi_2)=-\df{f(c)}{(c-a)(c-b)}(a+b),$$
+进而再由Rolle定理，存在$\xi\in(\xi_1,\xi_2)$，使得$F''(\xi)=0$，即证。
+
+{\bf 注：}直接令辅助函数
+$$F(x)=f(x)-\df{(x-a)(x-b)}{(c-a)(c-b)}f(c)$$
+亦可，这个辅助函数的右半部分事实上是过$(a,0),(b,0),(c,f(c))$
+三点的Lagrange插值多项式！
 
 \begin{shaded}
-{\bf 过给定$n$个点$(x_i,f(x_i))(i=1,2,\ldots,n)$的Lagrange插值多项式}
+{\bf 过$n$个点$(x_i,f(x_i))(i=1,2,\ldots,n)$的Lagrange插值多项式}
 $$L_n(x)=\sum\limits_{i=1}^n\prod_{j=1,j\ne i}^{n}
 \df{x-x_j}{x_i-x_j}f(x_i)$$
 
@@ -487,9 +507,23 @@ $$L(x)=\df{x^3}6-8x^2+\df{41}6x$$
   \item 在$(a,b)$内可导，且$\varphi'(x)\ne 0$ 
 \end{enumerate}
 则：存在$\xi\in(a,b)$， 使得
-$$\df{f(b)-f(a)}{\varphi(b)-\varphi(a)}=\df{f\,'(\xi)}{\varphi'(\xi)}$$
+$$\df{f(b)-f(a)}{\varphi(b)-\varphi(a)}=\df{f'(\xi)}{\varphi'(\xi)}$$
 
-{\bf 注：}Cauchy中值定理可视为参数化的Lagrange中值定理
+[证明概要]：结论即为
+$$[f(b)-f(a)]\varphi'(\xi)-[\varphi(b)-\varphi(a)]f'(\xi)=0,$$
+因此考虑
+$$F'(x)=[f(b)-f(a)]\varphi'(x)-[\varphi(b)-\varphi(a)]f'(x),$$
+从而
+$$F(x)=[f(b)-f(a)]\varphi(x)-[\varphi(b)-\varphi(a)]f(x)+C.$$
+不妨令$C=0$，可以验证$F(b)=F(a)$，利用Rolle定理即可。
+
+{\bf 注：}Cauchy中值定理可视为{\it 参数化}的Lagrange中值定理，即：
+由$\varphi'(x)\ne 0$可知，$\varphi(x)$为单调（可逆）函数，从而设
+$A=\varphi(a),B=\varphi(b)$，故由Lagrange中值定理，存在$\xi\in(a,b)$，
+也即$C=\varphi(\xi)$介于$A,B$之间，使得
+$$\df{f(b)-f(a)}{\varphi(b)-\varphi(a)}
+=\df{f(\varphi^{-1}(B))-f(\varphi^{-1}(A))}{B-A}
+=[f(\varphi^{-1}(x))]'_{x=\xi}=\df{f'(\xi)}{\varphi'(\xi)}.$$
 
 {\bf 例：}设$0<a<b$，$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明：
 \begin{enumerate}[(1)]
@@ -498,23 +532,19 @@ $$\df{f(b)-f(a)}{\varphi(b)-\varphi(a)}=\df{f\,'(\xi)}{\varphi'(\xi)}$$
 	$$f(b)-f(a)=\ln\df ba\cdot \xi f\,'(\xi)$$
   \item 存在$\eta\in(a,b)$，使得：
     $$2\eta[f(b)-f(a)]=(b^2-a^2)f\,'(\eta)$$
+  \item 存在$x_1,x_2,x_3\in(a,b)$，使得
+	$$f\,'(x_1)=(b+a)\df{f\,'(x_2)}{2x_2}=(a^2+ab+b^2)
+	\df{f\,'(x_3)}{3x_3^2}$$ 
+  \item 若$f\,'(x)\ne 0$，则存在$\xi,\eta\in(a,b)$，使得
+	$$\df{f'(\xi)}{f'(\eta)}=\df{e^b-e^a}{b-a}e^{-\eta}$$
+  \item 存在$c\in(a,b)$，使得
+	$$\df{1}{a-b}\left|\begin{array}{cc}
+	a & b\\ f(a) & f(b)
+	\end{array}\right|=f(c)-cf'(c).$$
 \end{enumerate}
 
-{\bf 例：}设$f(x)$在$[a,b]$连续，在$(a,b)$可导，且$a\geq 0$，则存在
-$x_1,x_2,x_3\in(a,b)$，使得
-$$f\,'(x_1)=(b+a)\df{f\,'(x_2)}{2x_2}=(a^2+ab+b^2)\df{f\,'(x_3)}{3x_3^2}$$
-
-{\bf 注：}在使用中值定理前对要证明的等式进行必要的“整理”
-
-{\bf 例：}设$f(x)$在$[a,b]$连续，在$(a,b)$可导，且$f\,'(x)\ne 0$，证明：
-存在$\xi,\eta\in(a,b)$，使得
-$$\df{f'(\xi)}{f'(\eta)}=\df{e^b-e^a}{b-a}e^{-\eta}$$
-
-{\bf 例：}设$\varphi(x)$在$[a,b]$上可导，且$a,b>0$，证明：存在$c\in(a,b)$，
-使得
-$$\df{1}{a-b}\left|\begin{array}{cc}
-a & b\\ \varphi(a) & \varphi(b)
-\end{array}\right|=\varphi(c)-c\varphi'(c).$$
+{\bf 注：}通过对结论适当地变形整理，以上问题都可以使用
+Rolle定理证明。
 
 \subsection{L'Hospital法则}
 
@@ -543,9 +573,22 @@ $$\bm{\df{0}{0}}, \quad \bm{\df{\infty}{\infty}}, \quad
   \item $\limx{a^+}\df{f'(x)}{g'(x)}$存在 （或等于$\infty$） 
 \end{enumerate}
 则
-$$\limx{a^+}\df{f(x)}{g(x)}=\limx{a^+}\df{f\,'(x)}{g'(x)}$$
+$$\limx{a^+}\df{f(x)}{g(x)}=\limx{a^+}\df{f'(x)}{g'(x)}$$
 
-{\bf 注：}以上结论可以直接推广到$\infty/\infty$不定式的情形
+[证明概要]：不妨设$f(a)=g(a)=0$，则由Cauchy中值定理，存在$\xi\in(a,x)$，
+$$\df{f(x)}{g(x)}=\df{f(x)-f(a)}{g(x)-g(a)}
+=\df{f'(\xi)}{g'(\xi)},$$
+注意到{\b$x\to a^+\Leftrightarrow\xi\to a^+$}，故
+$$\limx{a^+}\df{f(x)}{g(x)}=\limx{a^+}\df{f'(\xi)}{g'(\xi)}
+=\lim\limits_{\xi\to a^+}\df{f'(\xi)}{g'(\xi)}
+=\limx{a^+}\df{f'(x)}{g'(x)},$$
+即证。
+
+{\bf 注：}以上结论可以直接推广到$\infty/\infty$不定式的情形，但需要注意的是
+{\b 由$\limx{\Delta}\df{f'(x)}{g'(x)}=A$可以推出
+$\limx{\Delta}\df{f(x)}{g(x)}=A$，但反之不然。}反例如下：
+$\limx{+\infty}\df{x+\sin x}x=1$，
+但$\limx{+\infty}(1+\cos x)$不存在！
 
 参考L'Hospital法则的证明原理，可以证明下面的两个结论：
 
@@ -554,8 +597,8 @@ $$\limx{+\infty}f\,'(x)=0.$$
 
 证：由Lagrange中值定理，对任意$x\in\mathbb{R}$，存在$\xi\in[x,x+1]$，满足
 $$f(x+1)-f(x)=f'(\xi),$$
-注意到$x\to+\infty\Leftrightarrow\xi\to+\infty$，$\limx{+\infty}f(x+1)=
-\limx{+\infty}f(x)$，故
+注意到{\b$x\to+\infty\Leftrightarrow\xi\to+\infty$}，
+$\limx{+\infty}f(x+1)=\limx{+\infty}f(x)$，故
 $$0=\limx{+\infty}[f(x+1)-f(x)]=\limx{+\infty}f'(\xi)
 =\lim\limits_{\xi\to+\infty}f'(\xi)=\limx{+\infty}f'(x)$$
 即证。
@@ -563,7 +606,7 @@ $$0=\limx{+\infty}[f(x+1)-f(x)]=\limx{+\infty}f'(\xi)
 {\bf 例：}设$f(x)$在$U(x_0)$内连续，在$U^0(x_0)$内可导，
 且$\limx{x_0}f\,'(x)=l$，则$$f\,'(x_0)=l.$$
 
-[提示]：由Lagrange中值定理，对任意$\Delta x\in\mathbb{R}$，存在
+证：由Lagrange中值定理，对任意$\Delta x\in\mathbb{R}$，存在
 $\xi\in[x_0,x_0+\Delta x]$，使得
 $$\df{f(x_0+\Delta x)-f(x_0)}{\Delta x}=f'(\xi),$$
 注意到$\Delta x\to 0\Leftrightarrow\xi\to0$，故
@@ -628,18 +671,26 @@ $$\limx{0}\df{\ln(1-x)+f(x)\sin x}{e^{x^2}-1}=0,$$
 
 \subsection{Taylor多项式}
 
-{\bf 定义：}$P(x)$是$f(x)$在点$x_0$处的$n$阶Taylor多项式
+{\bf 定义：}$P_n(x)$称为{\it $f(x)$在点$x_0$处的$n$阶Taylor多项式}
+\ps{注意Taylor多项式、Taylor公式和Taylor级数的区别}，若
 \begin{itemize}
   \setlength{\itemindent}{1cm}
-  \item $P(x)$是$n$次多项式 
-  \item $y=P(x)$在$x_0$处与$y=f(x)$处至少{\it $n$阶相切} 
+  \item $P_n(x)$是$n$次多项式，形如：$\sum\limits_{k=0}^na_k(x-x_0)^k$
+  \item $y=P_n(x)$在$x_0$处与$y=f(x)$处至少{\it $n$阶相切}，即
+  对任意$k=0,1,2,\ldots,n$，有
+  $$P^{(k)}_n(x_0)=f^{(k)}(x_0)$$
+%   \begin{enumerate}[(1)]
+%     \item $P_n(x_0)=f(x_0)$
+%     \item $P'_n(x_0)=f'(x_0)$
+%     \item $P''_n(x_0)=f''(x_0)$
+%     \item \ldots
+%     \item $P^{(n)}_n(x_0)=f^{(n)}(x_0)$
+%   \end{enumerate} 
 \end{itemize}
+若$x_0=0$，称为{\it $f(x)$的$n$阶Maclaurin多项式}
 
+根据以上定义，可推得\ps{\b 给定$f(x)$、$x_0$和$n$，$P_n(x)$唯一确定}
 $${\b P_n(x)=\sum\limits_{k=0}^n\df{f^{\,(k)}(x_0)}{k!}(x-x_0)^k}$$
-\begin{itemize} 
-  \item {\b 给定$f(x)$和$x_0$，$P_n(x)$唯一确定} 
-  \item 若$x_0=0$，称为{\it $f(x)$的$n$阶Maclaurin多项式}
-\end{itemize}
 
 {\bf 教材-例1-2：}求Maclaurin多项式
 \begin{enumerate}[(1)]
@@ -647,32 +698,52 @@ $${\b P_n(x)=\sum\limits_{k=0}^n\df{f^{\,(k)}(x_0)}{k!}(x-x_0)^k}$$
   \item $f(x)=e^x$ 
   $${P_n(x)=1+x+\df{x^2}{2!}+\ldots+\df{x^n}{n!}}$$ 
   \item $f(x)=\cos x$ 
-  $${P_n(x)=1-\df{x^2}{2!}+\df{x^4}{4!}-\ldots+(-1)^m\cdot\df{x^{2m}}{(2m)!}}$$
+  $${P_{2m}(x)=1-\df{x^2}{2!}+\df{x^4}{4!}-\ldots+(-1)^m\cdot\df{x^{2m}}{(2m)!}}$$
 \end{enumerate}
 
 \subsection{误差估计}
 
-{\bf 定理5.3.1：}\ps{这个定理说明多项式逼近是比线性逼近更精确的逼近，也就是
-所谓的“以曲代曲”}
+{\bf 定理5.3.1：}
 设函数$f(x)$在$x_0$处$n$阶可导，$P(x)$是$f(x)$在点$x_0$处
 的$n$阶Taylor多项式，则当$x\to x_0$时
 $${|f(x)-P_n(x)|=\circ[(x-x_0)^n]}$$
 
+{\bf 注：}该定理说明多项式逼近是比线性逼近更精确的逼近，也就是
+用所谓的“以曲代曲”推广了“以直代曲”
+
 \begin{itemize}
   \setlength{\itemindent}{1cm}
   \item {\it 余项：}$R_n(x)=|f(x)-P_n(x)|$ 
-  \item {\it 带Peano余项的$n$阶Taylor公式：}\ps{\b 阶数是多少，关键看余项！}
+  \item {\it 带Peano余项的$n$阶Taylor公式：}
   $${\b f(x)=P_n(x)+\circ[(x-x_0)^n]}$$
 \end{itemize}
 
-{\bf 定理5.3.2}（Taylor中值定理）
-设$f(x)$在$x_0$的某领域内$n+1$阶可导，对该领域内任一点$x$，存在介于
+{\bf 注：}{\b 阶数是多少，关键看余项！}例如$\sin x$的7阶和8阶Maclaurin公式分别为
+$$\sin x=x-\df{x^3}{3!}+\df{x^5}{5!}-\df{x^7}{7!}+{\b\circ(x^7)},$$
+$$\sin x=x-\df{x^3}{3!}+\df{x^5}{5!}-\df{x^7}{7!}+{\b\circ(x^8)}.$$
+
+{\bf 定理5.3.2}（{\it Taylor中值定理}）
+设$f(x)$在$x_0$的某邻域内$n+1$阶可导，对该领域内任一点$x$，存在介于
 $x_0$和$x$之间的一点$\xi$，满足
 $${f(x)=P_n(x)+\df{f^{(n+1)}(\xi)}{\,(n+1)!}(x-x_0)^{n+1}}$$
 上式称为{\it 带Lagrange余项的$n$阶Taylor公式}\ps{从这个意义上说，Taylor公式
 是对Lagrange中值定理的推广}
 $${\b f(x_0+h)=P_n(x_0+h)+\df{f^{\,(n+1)}(x_0+\theta
 h)}{(n+1)!}h^{n+1},(0<\theta<1)}$$
+
+证：\ps{这个证明比教材上的方法更为直观！}
+先考虑$x>x_0$的情况，其余情况可以类似地证明。注意到$P^{(n+1)}(x)=0$，
+$f^{(k)}(x_0)=P^{(k)}_n(x_0),k=0,1,2,\ldots,n$，
+反复利用Cauchy中值定理，存在$x_0<\xi<\xi_n<\xi_{n-1}
+<\ldots<\xi_2<\xi_1<x$，使得
+\begin{align}
+	\df{f(x)-P_n(x)}{(x-x_0)^{n+1}}
+	&=\df{f'(\xi_1)-P'_n(\xi_2)}{(n+1)(\xi_1-x_0)^{n}}
+	=\df{f''(\xi_2)-P''_n(\xi_2)}{(n+1)n(\xi_2-x_0)^{n-1}}\notag\\
+	&=\ldots=\df{f^{(n)}(\xi_n)-P^{(n)}_n(\xi_n)}{(n+1)!(\xi_n-x_0)}
+	=\df{f^{(n+1)}(\xi)}{(n+1)!}\notag
+\end{align}
+即证。
 
 {\bf 推论：}若存在常数$C>0$，使当$x\in(a,b)$时，恒有
 $$|f^{\,(n+1)}(x)|\leq C,\;n=0,1,2,\ldots$$
@@ -760,26 +831,49 @@ $g(x)=\sum\limits_{n=0}^{\infty}b_nx^n$，则
 
 {\bf 教材-例4：}求$f(x)=\df 12\ln\df{1+x}{1-x}$的$n$阶带有Peano余项的Maclaurin公式。
 
-{\bf 教材-例5：}求$f(x)=\df 1{2+x}$在$x=1$处的$7$阶Taylor多项式，并求$f^{(7)}(1)$。
+{\b{\bf 教材-例5：}求$f(x)=\df 1{2+x}$在$x=1$处的$7$阶Taylor多项式，并求$f^{(7)}(1)$。
 
 [提示]：
-$$f(x)=\df13\cdot\df1{(x-1)/3+1}=\df13\sum\limits_{k=0}^n
-\df{(-1)^k}{3^k}(x-1)^{k}+\circ((x-1)^n)$$
+$$f(x)=\df13\cdot\df1{(x-1)/3+1}=\sum\limits_{k=0}^n
+\df{(-1)^{k}}{3^{k+1}}(x-1)^{k}+\circ((x-1)^n)$$
+$${\b f^{(7)}(1)=7!\cdot a_7=-\df{7!}{3^8}}$$
+}
+
+{\bf 例：}设$y=\arctan x$，求$y^{(n)}(0)$\ps{4.2节介绍
+求高阶导数的Leibniz公式时曾做过此题}
+
+[提示]
+$$y'=\df1{1+x^2}=\sum\limits_{k=0}^{\infty}{(-1)^k}x^{2k},\quad (|x|<1),$$
+故（逐项积分）可得
+$$\arctan x=\sum\limits_{k=0}^{\infty}\df{(-1)^k}{2k+1}x^{2k+1},
+\quad (|x|<1),$$
+从而可知
+$$y^{(n)}(0)=\left\{\begin{array}{ll}
+0,& n=2k,\\ {(-1)^k}(2k)!,& x=2k+1
+\end{array}\right.$$
 
 {\bf 规则二：}若在区间$I$上，恒有$f(x)=\sum\limits_{n=1}^{\infty}a_nx^n$，
 给定函数$g(x)$，当$g(x)\in I$时，恒有
 $$f[g(x)]=\sum\limits_{n=1}^{\infty}a_n[g(x)]^n.$$
 
-{\bf 习题5.3-4：}求带有Peano余项的Maclaurin公式
+{\b{\bf 习题5.3-4：}求带有Peano余项的Maclaurin公式\ps{请特别注意高阶无穷小的简化}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $f(x)=\ln(2+x)$ 
-  \item $f(x)=e^{-x^2}$
-  \item $f(x)=x\sin x$ 
-  \item $f(x)=\df{x^2}{1+x}$ 
-  \item $f(x)=\df{1}{\sqrt{1-x^2}}$ 
-  \item $f(x)=\cos^2x$
-\end{enumerate}
+  \item $f(x)=\ln(2+x)=\ln2+\ln\left(1+\df x2\right)
+  =\ln2+\sum\limits_{k=1}^n\df{(-1)^{k-1}}{k2^k}x^k+\circ(x^n)$ 
+  \item $f(x)=e^{-x^2}=\sum\limits_{k=0}^n\df{(-1)^k}{k!}x^{2k}
+  +\circ(x^{2n})$
+  \item $f(x)=x\sin x=\sum\limits_{k=0}^{n}\df{(-1)k}{k!}x^{2k+2}
+  +\circ(x^{2n+2})$ 
+  \item $f(x)=\df{x^2}{1+x}=\sum\limits_{k=0}^n(-1)^kx^{k+2}
+  +\circ(x^{n+2})$ 
+  \item $f(x)=\df{1}{\sqrt{1-x^2}}=\sum\limits_{k=0}^n\left(
+  \begin{array}{c}
+  -\frac12\\ k
+  \end{array}\right)(-1)^kx^{2k}+\circ(x^{2n})$ 
+  \item $f(x)=\cos^2x=\df{1+\cos2x}2=\df12+
+  \sum\limits_{k=0}^{n}\df{(-1)^k2^k}{(2k)!}x^{2k}+\circ(x^{2n})$
+\end{enumerate}}
 
 \subsection{Taylor公式的应用}
 
@@ -797,12 +891,21 @@ $$f[g(x)]=\sum\limits_{n=1}^{\infty}a_n[g(x)]^n.$$
 {\bf 教材-例8：}计算以下极限\ps{\b 重点！难点！考点！}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item $\limx{0}\df{\cos x-e^{-x^2/2}}{x^4}$ 
-  \item $\limx{0}\df{\tan x-\sin x}{x^3}$
-  \item $\limx{0}\df{\df{x^2}{2}+1-\sqrt{1+x^2}}{x^2\sin x^2}$ 
-  \item $\limx{0}\df{e^x-1-x}{\df{1}{\sqrt{1-x}}-\cos\sqrt x}$ 
-  \item $\limx{0}\df{\cos(\sin x)-\cos x}{x^4}$
-  \item $\limx{+\infty}\left[x-x^2\ln\left(1+\df 1x\right)\right]$
+  \item $\limx{0}\df{x-\sin x}{x^3}
+  =\limx0\df{x-[x-\frac{x^3}3!+\circ(x^3)]}{x^3}=\df16$
+  \item $\limx{0}\df{\cos x-e^{-x^2/2}}{x^4}
+  =\limx0\df{1-\frac{x^2}2+\frac{x^4}{4!}-[1-\frac{x^2}2+
+  \frac{x^4}8]+\circ(x^4)}{x^4}=-\df1{12}$ 
+  \item $\limx{0}\df{\df{x^2}{2}+1-\sqrt{1+x^2}}{x^2\sin x^2}
+  =\limx0\df{\frac{x^2}2+1-[1+\frac12{x^2}-\frac18x^4+\circ(x^4)]}{x^4}
+  =\df18$ 
+  \item $\limx{0}\df{e^x-1-x}{\df{1}{\sqrt{1+x}}-\cos\sqrt x}
+  =\limx0\df{\frac{x^2}2+\circ(x^2)}{1-\frac12x+\frac38x^2-[1-\frac{x}2+\frac{x^2}{4!}]+\circ(x^2)}
+  =\df32$ 
+  \item $\limx{0}\df{\cos(\sin x)-\cos x}{x^4}
+  =-2\limx0\df{\sin\frac{\sin x+x}2\sin\frac{\sin x-x}2}{x^4}=\df16$
+  \item $\limx{+\infty}\left[x-x^2\ln\left(1+\df 1x\right)\right]
+  \xlongequal{u=1/x}\lim\limits_{u\to0}\df{u-\ln(1+u)}{u^2}$
 \end{enumerate}
 
 {\bf 注：}不知道该展开到多少阶时，先进行试探性展开
@@ -816,6 +919,28 @@ $$\limx{0}\left(1+x+\df{f(x)}{x}\right)^{1/x}=e^3,$$
   \item $\limx{0}\left(1+\df{f(x)}{x}\right)^{1/x}$.
 \end{enumerate}
 
+{\bf 解：}注意到$1/x\to\infty\;(x\to0)$，故已知极限存在，当且仅当
+$$\limx0\left(1+x+\df{f(x)}x\right)=1
+\quad\Rightarrow\quad f(0)=\limx0f(x)=0.$$
+又原式即为
+$$\left\{\limx0\left(1+x+\df{f(x)}{x}\right)
+^{\frac{x}{x^2+f(x)}}\right\}^{\limx0\frac{x^2+f(x)}{x^2}}=e^3,$$
+故必有
+$$\limx0\frac{x^2+f(x)}{x^2}=3\quad\Rightarrow\quad
+\limx0\df{f(x)}{x^2}=2,$$
+进而
+$$f'(0)=\limx0\df{f(x)-f(0)}x=\limx0\df{f(x)}{x^2}\limx0x=0.$$
+至此，由Taylor公式，可设$f(x)=\df{f''(0)}2x^2+\circ(x^2)$，于是
+$$2=\limx0\df{f(x)}{x^2}=\df{f''(0)}2\quad\Rightarrow\quad
+f''(0)=4.$$
+综上，$f(x)=2x^2+\circ(x^2)$，
+\begin{align}
+	\limx{0}\left(1+\df{f(x)}{x}\right)^{1/x}
+	&=\limx0(1+2x+\circ(x))^{\frac1x}\notag\\
+	&=\left\{\limx0(1+2x+\circ(x))^{\frac1{2x+\circ(x)}}\right\}
+	^{\limx0{[2+\circ(1)]}}=e^2.\notag	
+\end{align}
+
 \subsubsection{【证明不等式】}
 
 {\bf 教材-例9：}证明：$x>0$时，$e^x>1+x+\df{x^2}{2}$
@@ -827,6 +952,17 @@ $$\limx{0}\left(1+x+\df{f(x)}{x}\right)^{1/x}=e^3,$$
 {\bf 例：}证明：若在$(a,b)$内，$f''(x)>0$，则对任意$a<x_1<x_2<b$，恒有
 $$f\left(\df{x_1+x_2}{2}\right)<\df{f(x_1)+f(x_2)}{2}.$$
 
+证：记$c=\df{x_1+x_2}2$，则由Taylor公式，存在$\xi_1\in(x_1,c),
+\xi_2\in(c,x_2)$，使得
+$$f(x_1)=f(c)+f'(c)\df{x_1-x_2}2+f''(\xi_1)
+\left(\df{x_1-x_2}2\right)^2$$
+$$f(x_2)=f(c)+f'(c)\df{x_2-x_1}2+f''(\xi_2)
+\left(\df{x_2-x_1}2\right)^2$$
+两式相加，且由$f''(x)>0$，可得
+$$f(x_1)+f(x_2)=2f(c)+[f''(\xi_1)+f''(\xi_2)]
+\left(\df{x_2-x_1}2\right)^2>2f(c),$$
+即证。
+
 {\bf 思考：}以上结论能否进一步推广？
 $${f(\lambda x_1+(1-\lambda)x_2)<\lambda
 f(x_1)+(1-\lambda)f(x_2),\;0<\lambda<1}$$
@@ -836,8 +972,18 @@ $|f\,''(x)|\leq M$，且$|f(x)|$在$(0,a)$内可取到最大值，证明：
 $$|f\,'(0)+f\,'(a)|\leq Ma.$$
 
 {\bf 例：}设$f(x)$在$[0,1]$上二阶连续可导，且$f(0)=f(1)$，
-$|f\,''(x)|\leq A$，证明：对任意$x\in[0,1]$，恒有
-$$|f\,'(x)|\leq\df A2.$$
+$|f\,''(x)|\leq A$，证明：对任意$x\in(0,1)$，恒有
+$$|f\,'(x)|\leq\df A4.$$
+
+证：由Taylor公式，对任意$x\in(0,1)$，存在$\xi_1\in(0,x),
+\xi_2\in(x,1)$，使得
+$$f(0)=f(x)+f'(x)(-x)+\df{f''(\xi_1)}2x^2,$$
+$$f(1)=f(x)+f'(x)(1-x)+\df{f''(\xi_2)}2(1-x)^2,$$
+两式相减，且由$f(0)=f(1)$，可得
+$$0=f'(x)+\df12\left[f''(\xi_2)(1-x)^2-f''(\xi_1)x^2\right],$$
+由$|f''(x)|\leq A$，故
+$$|f'(x)|\leq\df A2[(1-x)^2+x^2],$$
+注意到当$x\in(0,1)$时，$(1-x)^2+x^2\leq1$，故$|f'(x)|\leq\df A2$，即证。
 
 {\b{\bf 用Taylor公式证明等式或不等式} 
 \begin{itemize}
@@ -849,10 +995,18 @@ $$|f\,'(x)|\leq\df A2.$$
 {\bf 例：}设$f(x)\in C^3[-1,1]$，且$f(-1)=0,f(1)=1,f'(0)=0$，
 证明：存在$\xi\in(-1,1)$，使得$f'''(\xi)=3$.
 
+[提示]：将$f(-1),f(1)$在$x=0$处展开到三阶带Lagrange余项的Taylor公式，
+然后利用介值定理。
+
 {\bf 辅导书P153-例37：}
-设$f(x)$在$[a,b]$上二阶连续可导，且$f\,'(a)=f\,'(b)=0$，则至少存在一点
+设$f(x)$在$[a,b]$上二阶连续可导，且$f_+'(a)=f_-'(b)=0$，则至少存在一点
 $c\in(a,b)$，使得
 $$|f\,''(c)|\geq \df 4{(b-a)^2}|f(b)-f(a)|.$$
+
+[提示]：将$f\left(\df{a+b}2\right)$在$x=a,b$展开，取绝对值放缩后，
+利用介值定理。
+
+
 
 \section{函数的单调性、凹凸性}
 
@@ -1001,17 +1155,50 @@ $$xf\,''(x)+3x[f\,'(x)]^2=1-e^{-x}$$
 
 {\bf 例：}已知$x>0$时，
 $$kx+\df1{x^2}=1$$
-有且仅有一个根，求$k$的取值范围。（$k<0$或$k=\df29\sqrt 3$）
+有且仅有一个根，求$k$的取值范围。\ps{此类题目的叙述一定要注意逻辑表达，
+既要避免过于繁琐，也要防止遗漏重要的论证}
 
-{\bf 例：}设$f(x)\in C[a,b]$，在$(a,b)$内$f\,''(x)>0$，试讨论
-$$F(x)=\df{f(x)-f(a)}{x-a}$$
-在$(a,b)$内的单调性。
+解：令$f(x)=kx^3-x^2+1\;(x>0)$。显然原方程在$x>0$内有且仅有一个根，
+当且仅当$f(x)$在$x>0$内有唯一零点。
+
+（1）$k\leq 0$时，$f(+\infty)=-\infty$，注意到$f(0+0)=1$，
+故由介值定理，$f(x)$在$x>0$上至少有一个零点。又当$x>0$时，
+$f'(x)=(3kx-2)x<0$，故$f(x)$严格单调递减，从而以上零点唯一；
+
+（2）$k>0$时，$f(+\infty)=+\infty$，令$f'(x)=0$，可得$x=\df2{3k}$
+为$f(x)$的在$x>0$内的唯一驻点，又$f''\left(\df2{3k}\right)=2>0$，
+故$x=\df2{3k}$为$f(x)$的最小值点。$f_{\min}=f\left(\df2{3k}\right)=1
+-\df4{27k^2}$，由此可知：
+
+若$k<\df29\sqrt3$，则$f_{\min}<0$，由介值定理，$f(x)$至少有两个零点；
+
+若$k>\df29\sqrt3$，则$f_{\min}>0$，则当$x>0$时$f(x)>0$，无零点；
+
+若$k=\df29\sqrt3$，则$x=\df2{3k}$为$f(x)$的唯一零点。
+
+综上，当$k\leq 0$或$k=\df29\sqrt3$即为所求。
+
+% {\bf 例：}$f(x)\in C[a,b]$，且在$(a,b)$内$f''(x)>0$，试讨论
+% $$F(x)=\df{f(x)-f(a)}{x-a}$$
+% 在$(a,b)$内的单调性。
+% 
+% 解：对任意$x\in(a,b)$，由Lagrange中值定理，存在$\xi\in(a,x)$，
+% 使得$f(x)-f(a)=f'(\xi)(x-a)$，又由已知，$f''(x)>0$，
+% 故$f'(x)$在$(a,b)$上严格单调递增，从而$f'(x)>f'(\xi)$，于是
+% $$F'(x)=\df{f'(x)(x-a)+f(x)-f(a)}{(x-a)^2}=\df{f'(x)+f'(\xi)}{x-a},$$
 
 {\bf 例：}设$a,b$均为正数，证明：$a(1-b)$和$b(1-a)$不可能同时大于$\df14$。
 
 [提示]：令$f(x)=x(1-x)$，可求得其最大值为$\df14$。若以上两数都大于$1/4$，则
 $$a(1-b)b(1-a)>\df1{16},$$
 这与前述最大值的性质矛盾。
+
+{\bf 注：}更直观的解法是，假设结论不成立，则
+$$a>\df14+ab,b>\df14+ab\quad\Rightarrow\quad
+ab>\left(\df14+ab\right)^2,$$
+进而可得
+$$\left(\df14-ab\right)^2<0,$$
+出现错误，故假设不成立。
 
 {\bf 例：}当$a$取何值时，$a^x\geq1+x$恒成立。
 
@@ -1024,7 +1211,7 @@ $$a(1-b)b(1-a)>\df1{16},$$
 {\bf 例：}证明：$\df{x_1+x_2+\ldots+x_n}n\geq\sqrt[n]{x_1x_2\ldots x_n}$，
 其中$x_1,x_2,\ldots,x_n$均为正数。
 
-{\bf 证：}$n=2$时，设$f(x)=\df{x_1+x}2-\sqrt{x_1x}$，则
+证：$n=2$时，设$f(x)=\df{x_1+x}2-\sqrt{x_1x}$，则
 $$f'(x)=\df12\left(1-\sqrt{x_1}x\right),$$
 $x=x_1$为唯一驻点，又$f''(x_1)>0$，故$f(x_1)$为最小值点。
 
@@ -1049,7 +1236,7 @@ $$f(x_0)=\df1{k+1}(x_1+x_2+\ldots+x_k-k\sqrt[k]{x_1x_2\ldots x_k})\geq 0$$
 $$f[\lambda x_1+(1-\lambda)x_2]\leq\lambda f(x_1)+(1-\lambda)f(x_2)$$
 则称$f(x)$是区间$I$上的{\it 凹函数}。若上式中的等号严格成立，则称其为{\it 严格凹函数}。
 
-{\bf 注：}几何特征：任意两点间的割线都不会位于两点间曲线的下方
+{\bf 注：}几何特征：{\it 任意两点间的割线都不会位于两点间曲线的下方}
 
 {\bf 定理5.4.4}（可导凹函数的充要条件）
 设$f(x)$在$(a,b)$内可导，则$f(x)$为$(a,b)$内的凹函数，当且仅当：
@@ -1057,7 +1244,30 @@ $$f[\lambda x_1+(1-\lambda)x_2]\leq\lambda f(x_1)+(1-\lambda)f(x_2)$$
 $$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1). $$
 不等号严格成立时，对应于严格凹函数的情形。
 
-{\bf 注：}{任意点处的切线总位于曲线下方}
+{\bf 注：}{\it 任意点处的切线总位于曲线下方}
+
+证：若$f(x)$为凹函数，对任意$x_1,x_2\in[a,b]$和任意$t\in[x_1,x_2]$，有
+$$f(t)\leq\df{x_2-t}{x_2-x_1}f(x_1)+\df{t-x_1}{x_2-x_1}f(x_2)
+=f(x_1)+\df{f(x_2)-f(x_1)}{x_2-x_1}(t-x_1),$$
+从而
+$$\df{f(t)-f(x_1)}{t-x_1}\leq\df{f(x_2)-f(x_1)}{x_2-x_1},$$
+由极限的保号性，令$t\to x_1^+$，可得
+$$f'(x_1)\leq\df{f(x_2)-f(x_1)}{x_2-x_1},$$
+也即
+$$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1).$$
+
+另一方面，由Lagrange中值定理，存在
+$\xi\in(a,b)$，使得
+$$\df{f(x_2)-f(x_1)}{x_2-x_1}=f'(\xi),$$
+也即
+$$f(x_2)=f(x_1)+f'(\xi)(x_2-x_1).$$
+
+于是由
+$$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1)$$
+可得
+$$f'(x_1)\leq\df{f(x_2)-f(x_1)}{x_2-x_1}=f'(\xi).$$
+从而
+$$f(x_2)\geq f(x_1)+f'(x_1)(x_2-x_1).$$
 
 {\bf 定理5.4.4}（充分条件）
 设$f(x)$在$(a,b)$二阶可导，则
@@ -1067,17 +1277,57 @@ $$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1). $$
   \item 若$f\,''(x)$恒不大于零，$f(x)$为凸函数
 \end{enumerate}
 
-{\bf 注：}两侧$f\,''(x)$反号的点，{\it 拐点}
+{\bf 注：}{\b{\it 拐点}即函数凹凸性发生改变的点，特别地，若函数二阶可导，则
+为两侧二阶导数反号的点}\ps{拐点和极值点是“互斥”的，也即：拐点必不是极值点，反之亦然}
+
+{\bf 讨论：}由$f''(x_0)=0$是否可以推出$x=x_0$为拐点？
+
+答：不能！例如$y=x^3$和$y=x^4$，在$x=0$处，前者为拐点，后者是极值点！
+具体可参照如下的分析方法：
+\begin{center}
+\begin{tabular}{c||c|c|c|c}
+	\hline 
+	$f(x)=x^3$ & $x<0$ & $x=0$ & $x>0$ & \\ 
+	\hline 
+	$f(x)$ & - & 0 & + & \\ 
+	\hline 
+	$f'(x)$ & + & 0 & + & 拐点\\ 
+	\hline 
+	$f''(x)$ & - & 0 & + & \\ 
+	\hline 
+	$f'''(x)$ & + & + & + & \\ 
+	\hline 
+	 &  &  &  &  \\ 
+	\hline 
+\end{tabular} 
+\begin{tabular}{c||c|c|c|c}
+	\hline 
+	$f(x)=x^4$ & $x<0$ & $x=0$ & $x>0$ & \\ 
+	\hline 
+	$f(x)$ & + & 0 & + & 极小值\\ 
+	\hline 
+	$f'(x)$ & - & 0 & + & \\ 
+	\hline 
+	$f''(x)$ & + & 0 & + & \\ 
+	\hline 
+	$f'''(x)$ & - & 0 & + & \\ 
+	\hline 
+	$f^{(4)}(x)$ & + & + & + & \\ 
+	\hline 
+\end{tabular} 
+\end{center}
+
+{\b 事实上，$f''(x)=0$的点只能作为可能的拐点，此外，拐点也可能出现在不可导点处！}
 
 {\bf 例：}已知多项式函数$f(x)$恰有两个极大值点和一个极小值点
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item 画出$f(x)$一个可能的图像
-  \item 它最多有几个零点
-  \item 最少呢？
-  \item $f(x)$是奇数次还是偶数次的？
-  \item 至少是多少次的？最多能有几个拐点？
-  \item 试给出一个它的表达式。
+  \item 它最多有几个零点\hfill(4)
+  \item 最少呢？\hfill(0)
+  \item $f(x)$是奇数次还是偶数次的？\hfill(偶)
+  \item 至少是多少次的？此时最多能有几个拐点？\hfill(4，4)
+  \item 试给出一个它的表达式。\hfill($f(x)=(x-1)(x-2)(x-3)(x-4)$)
 \end{enumerate}
 
 \begin{shaded}
@@ -1115,13 +1365,13 @@ $$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1). $$
 	  \end{itemize}
 	\end{enumerate}
 	
-	综上，对于前述的多项式函数，可以得出这样一些常用的{\it 判定准则}：
+	综上，对于前述的多项式函数，可以得出这样一些常用的{\it 判定准则}：{\b
 	\begin{enumerate}[(1)]
   	  \setlength{\itemindent}{1cm}
 	  \item {\bf 所有二次以上的重根均为驻点，其中偶数次的为极值点，奇数次的为拐点}
 	  \item {\bf 两个相邻零点之间有且仅有一个极值点}
 	  \item {\bf 两个相邻驻点之间有且仅有一个拐点}
-	\end{enumerate}
+	\end{enumerate}}
 	
 	{\bf 例：}$y=(x-1)(x-2)^2(x-3)^3$有几个极值点和拐点？
 	
@@ -1212,19 +1462,24 @@ $$f(x_2)\geq f(x_1)+f\,'(x_1)(x_2-x_1). $$
 
 \section{曲率}
 
-{\bf 问题：}如何刻画一条平面曲线的几何特征？
+% {\bf 问题：}如何刻画一条平面曲线的几何特征？
+% 
+% \begin{itemize}
+%   \setlength{\itemindent}{1cm}
+%   \item {\bf 切线斜率：}一阶导数
+%   \item {\bf 凹凸性：}二阶导数
+%   \item {\bf 长度：}弧微分
+%   \item {\bf 弯曲程度：}曲率
+% \end{itemize}
 
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item {\bf 切线斜率：}一阶导数
-  \item {\bf 凹凸性：}二阶导数
-  \item {\bf 长度：}弧微分
-  \item {\bf 弯曲程度：}曲率
-\end{itemize}
+导数和二阶导数能够用于刻画曲线的倾斜程度和弯曲方向，进而可以研究曲线的极值、最值、
+拐点等重要的几何特征。本节要介绍的弧微分和曲率是对以上刻画方式的补充，前者用于
+计算曲线的长度，后者则是曲线弯曲程度的度量（量化）。特别要指出的是，这两个重要
+的概念是“纯几何”的，也就是说其计算所得到的结果（弧长和曲率）都和坐标的选取无关！
 
 \subsection{弧微分}
 
-曲线$y=f(x)$的弧长关于自变量$x$的微分 
+曲线$y=f(x)$的弧长关于自变量$x$的微分\ps{严谨的推导过程请参考同济教材第三章第七节}
 $$\d s=\sqrt{1+(y')^2}\d x =\sqrt{(\d x)^2+(\d y)^2}$$ 
 \begin{itemize}
   \setlength{\itemindent}{1cm}
@@ -1234,16 +1489,23 @@ $$\d s=\sqrt{1+(y')^2}\d x =\sqrt{(\d x)^2+(\d y)^2}$$
   \item 极坐标形式 
   $$\d s=\sqrt{\rho^2(\theta)+[\rho'(\theta)]^2}\d\theta$$
 \end{itemize}
+不难想到，如果给定积分的区间，对弧微分进行积分，可以得到对应的弧长（曲线长度）。
+
+% {\bf 例：}求$y=x^2$对应于$x\in[0,1]$的曲线长度。
 
 \subsection{曲率}
 
 \begin{center}
 	\resizebox{!}{7cm}{\includegraphics{./images/ch5/rw1.pdf}}
 	
-	铁路的设计问题
+	{\it 铁路设计中的问题：列车从直线轨道进入圆弧轨道时，在转换的瞬间，
+	
+	离心力由零变为一个常数，如果车速较快，会车体和乘客产生很大的冲击。
+	
+	能否/如何通过更合理的设计，减缓冲击，保证列车运行的安全、舒适？}
 \end{center}
 
-\subsubsection{概念}
+\subsubsection{【概念】}
 
 {\bf 问题：}如何刻画曲线的弯曲程度？
 
@@ -1275,10 +1537,10 @@ $${K=\lim\limits_{\Delta s\to
 % $$K=\df{|y''|}{(1+(y')^2)^{\frac32}}$$
 
 设$y=f(x)$在$x_0$的某邻域内二阶可导，则
-{$$K=\left|\df{\d\alpha}{\d s}\right|
+{\b $$K=\left|\df{\d\alpha}{\d s}\right|
  =\df{|y''_{xx}|}{[1+(y'_x)^2]^{3/2}}$$}
  
-{\bf P286-例2：}求直线与圆的曲率。
+{\bf 教材-例2：}求直线与圆的曲率。
 
 {\bf 例：}求椭圆$x=3\cos t,y=2\sin t\,(0\leq t\leq 2\pi)$
 上任意点处的曲率，并指出其中曲率最大的点。
@@ -1293,24 +1555,38 @@ $${K=\df{|x'_ty''_{tt}-x''_{tt}y'_t|}
 
 {\bf 思考：}如何给出极坐标下的曲率公式？
 
-\subsubsection{曲率圆与曲率的应用}
+\subsubsection{【曲率圆与曲率的应用】}
 
-{\bf 曲率圆：}与给定曲线在凹侧相切，且曲率相同的圆
-
-\begin{center}
-	\resizebox{!}{3cm}{\includegraphics{./images/ch5/curSphere.pdf}}
-\end{center}
-
-{\bf 思考：}与已知曲线在给定点处二阶相切的圆一定是其曲率圆吗？(${\bm{\surd}}$)
+{\it 曲率圆：}与给定曲线在凹侧相切，且曲率相同的圆
+\ps{曲率圆的圆心称为{\it 曲率中心}}
 
 {\bf 定理：}曲率圆与给定曲线二阶相切。
 
-{\bf 例}(加工问题)已知某工件内侧的截痕曲线为椭圆$\df{x^2}9+\df{y^2}4=1$，
-若用圆形砂轮对其进行打磨，问该如何选择砂轮的尺寸？
+{\bf 思考：}{\b 与已知曲线在给定点处二阶相切的圆一定是其曲率圆吗？(${\bm{\surd}}$)}
+
+{\bf 例：}求曲率圆的方程
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch5/curveSphere.pdf}}
+\end{center}
+
+[提示]：如图，设曲率圆的圆心为$(a,b)$，$(x,y)$处的导数和二阶导数记为$y',y''$，
+显然曲率半径$R=\df1K=\df{[1+(y')^2]^{3/2}}{|y''|}$，为了保持和曲线的凹向一致，
+我们将曲率半径定义为有方向的$R=\df{[1+(y')^2]^{3/2}}{y''}$\ps{凹侧的半径为正，
+凸侧为负！}。记$(x,y)$处的切线与$x$轴夹角为$A$，则
+\begin{align}
+	a&=x-R\sin A=x-\df{[1+(y')^2]^{3/2}}{y''}\df{y'}{[1+(y')^2]^{1/2}}
+	=x-\df{y'[1+(y')^2]}{y''}\notag\\
+	b&=y+R\cos A=y+\df{[1+(y')^2]^{3/2}}{y''}\df1{[1+(y')^2]^{1/2}}
+	=y+\df{1+(y')^2}{y''}\notag
+\end{align}
 
 \begin{center}
 	\resizebox{!}{5.5cm}{\includegraphics{./images/ch5/SE/S01.pdf}}
 \end{center}
+
+{\bf 例}(加工问题)已知某工件内侧的截痕曲线为椭圆$\df{x^2}9+\df{y^2}4=1$，
+若用圆形砂轮对其进行打磨，问该如何选择砂轮的尺寸？
 
 {\bf 注：}利用砂轮磨削一般工件的内表面时，砂轮的半径不应超过工件内表面
 的截线上各点处的曲率半径的最小值
@@ -1347,20 +1623,12 @@ $$
 \subsubsection{【铁路中的缓和曲线】}
 
 \begin{center}
-	\resizebox{!}{4.5cm}{\includegraphics{./images/ch5/rc02.pdf}}
+	\resizebox{!}{9cm}{\includegraphics{./images/ch5/railway.pdf}}
 \end{center}
 
 {\bf 设计要求：}为了确保列车行驶安全，尽可能保证列车运行时所受离心力的平稳变化
 
-{\bf 常用的缓和曲线：}
-
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item {三次多项式}
-  \item {渐开螺旋线}
-  \item {双纽线}
-  \item {\ldots}
-\end{itemize}
+{\bf 常用的缓和曲线：}三次多项式、渐开螺旋线、双纽线、\ldots
 
 {\bf 例：}如图，列车匀速行进，经过一段直线轨道后，将进入半径为$R$的圆弧轨道。为
 尽量减少列车行驶中所受的离心力冲击，试确定一个三次多项式函数实现两段轨道的连接。
@@ -1382,6 +1650,33 @@ $$
 \end{center}
 
 类似的问题广泛存在于高速公路、过山车，甚至是飞行器表面的设计中。
+
+\section{小结}
+
+导数为我们提供了研究函数和平面曲线的新的工具。Newton正是因为发明了{\it 流数法
+\ps{导数的前身}}，才从Kepler三定律推导出了万有引力定律。
+
+本章的内容包含两个大的方面：一是对函数几何形态的研究，涉及：{\it 单调性、最值、极值、
+凹凸性、弧长、曲率等}多个方面，由此最终可以对给定的函数给出一个相对
+全面的几何刻画，其中很多是在大学之前所不曾接触的；二是{\it 中值定理与Taylor公式}，特别是
+后者，可以说是微分学中的集大成者，其中蕴含了几乎所有的微分学理论与技巧，从Rolle定理、
+Lagrange中值定理、Cauchy中值定理到Taylor中值定理，以及L'Hospital法则，其
+内在的统一是学习中需要把握的重点。
+
+在极值、最值、凹凸性等问题中，涉及一些相近而不同的概念，例如：极值点、最值点、拐点、
+驻点等，这些概念既相互联系，又有重要的区别，琢磨弄懂它们的异同，能够结合实例有效
+地加以区分和应用，是学习的关键。当然，既然是讨论几何问题，对于几何意义和几何特征
+的正确把握也是非常重要的。
+
+中值定理的证明问题是本章的难点，从结论出发，构造辅助函数，再验证条件应用中值定理，
+是解题的一般思路，但有时如何将结果转换成可以还原的形式，会是相当大的挑战，
+为此，有必要掌握一些特定形式（例如：$f'(\xi)+\lambda f(x)$）所对应的辅助函数。
+此外，本章两个部分的内容本身并不是相互独立的，事实上，很多结论的推导和证明都需要
+同时应用两个部分的结果，特别是从几何上看，中值定理也通常有自身明确的含义，而能够
+结合几何意义解决中值问题，可以说才是本章解题的最高境界。
+
+最后，提醒一句，不要迷恋Taylor公式，还是那句话，万能工具虽然万能，但往往不是
+效率最高和用起来最简单的一个。
 
 \newpage
 
@@ -1427,7 +1722,7 @@ $$
 \newpage
 
 \section*{补充例题}
-\addcontentsline{toc}{section}{补充例题}
+% \addcontentsline{toc}{section}{补充例题}
 
 {\bf 例：}$a$取何值时，$f(x)=2x^3-9x^2+12-a$恰有两个零点（B）
 
@@ -1557,3 +1852,206 @@ $\df{f(x)}x$在$(0,1]$上严格单调递减
 2）
 $$\df{f'(\theta(x)x)-f'(0)}{x}=\df{f(x)-f(0)-xf'(0)}{x^2}\to\df12f''(0),(x\to0)$$
 $$\df{f'(\theta(x)x)-f'(0)}{x}=f''(0)\limx{0}\theta(x)$$
+
+\newpage
+
+\section*{习题5.3参考解答}
+\addcontentsline{toc}{section}{习题5.3参考解答}
+
+1. 将$f(x)=x^3+3x^2-2x+4$在$x_0=-1$处展开成Taylor公式。
+
+解：因为
+$$f(x)=[(x+1)-1]^3+3[(x+1)-2]^2-2[(x+1)-1]+4
+=(x+1)^3-11(x+1)+17,$$
+故$f(x)$在$x_0=-1$处的各阶带Peano余项的Taylor公式依次为
+\begin{align}
+	P_1(x)&=17-11(x+1)+\circ(x+1)\notag\\
+	P_2(x)&=17-11(x+1)+\circ((x+1)^2)\notag\\
+	P_3(x)&=17-11(x+1)+(x+1)^3+\circ((x+1)^3)\notag\\
+	P_k(x)&=17-11(x+1)+(x+1)^3+\circ((x+1)^k),\;k>3.\notag
+\end{align}
+
+\bigskip
+
+2. 已知$f(x)$是四次多项式，且$f(2)=-1,f'(2)=0,f''(2)=-2,f'''(2)=-12,
+f^{(4)}(x)=24$，求$f(-1)$.
+
+解：由已知，$f(x)$在$x=2$处的Taylor多项式的各阶系数依次为
+\begin{align}
+	a_0&=f(2)=-1\notag\\
+	a_1&={f'(2)}=0\notag\\
+	a_2&=\df{f''(2)}2=-1\notag\\
+	a_3&=\df{f'''(2)}{3!}=-2\notag\\
+	a_4&=\df{f^{(4)}(2)}{4!}=1\notag
+\end{align}
+因为$f(x)$为四阶多项式，故其四阶Taylor多项式即为其自身，从而
+$$f(x)=-1-(x-2)^2-2(x-2)^3+(x-2)^4,$$
+由此易得$f(-1)=125$.
+
+\bigskip
+
+4. 写出下列函数带Peano余项的Maclaurin公式
+
+(1) $f(x)=\ln(2+x)$
+\begin{align}
+	\ln(2+x)&=\ln2+\ln\left(1+\df x2\right)\notag\\
+	&=\ln2+\sum\limits_{k=1}^n\df{(-1)^{k-1}}{k}\left(
+	\df{x}2\right)^k+\circ\left(\left(\df x2\right)^n\right)\notag\\
+	&=\ln2+\sum\limits_{k=1}^n\df{(-1)^{k-1}}{2^kk}x^k+\circ(x^n)\notag
+\end{align}
+
+(2) $f(x)=e^{-x^2}$
+\begin{align}
+	e^{-x^2}&=\sum\limits_{k=0}^n\df{(-x^2)^k}{k!}+\circ((-x^2)^n)\notag\\
+	&=\sum\limits_{k=0}^n\df{(-1)^k}{k!}x^{2k}+\circ(x^{2n})\notag
+\end{align}
+
+(3) $f(x)=x\sin x$
+\begin{align}
+	x\sin x&=x\left[\sum\limits_{k=0}^n\df{(-1)^k}{(2k+1)!}x^{2k+1}
+	+\circ(x^{2n+1})\right]\notag\\
+	&=\sum\limits_{k=0}^n\df{(-1)^k}{(2k+1)!}x^{2k+2}
+	+\circ(x^{2n+2})\notag
+\end{align}
+
+(4) $f(x)=\df{x^2}{1+x}$
+\begin{align}
+	\df{x^2}{1+x}&=x^2\left[\sum\limits_{k=0}^n(-x)^k
+	+\circ((-x)^n)\right]\notag\\
+	&=\sum\limits_{k=0}^n(-1)^kx^{k+2}+\circ(x^{n+2})\notag
+\end{align}
+
+(5) $f(x)=\df1{\sqrt{1-x^2}}$
+\begin{align}
+	\df1{\sqrt{1-x^2}}&=[1+(-x^2)]^{-\frac12}
+	=\sum\limits_{k=0}^n\left(\begin{array}{c}
+	-\frac12 & k\end{array}\right)(-x^2)^k+\circ((-x^2)^n)\notag\\
+	&=\sum\limits_{k=0}^n\left(\begin{array}{c}
+	-\frac12 & k\end{array}\right)(-1)^kx^{2k}+\circ(x^{2n})
+	=\sum\limits_{k=0}^n\frac{(2k-1)!!}{2^kk!}x^{2k}
+	+\circ(x^{2n})\notag
+\end{align}
+
+(6) $f(x)=\cos^2x$
+\begin{align}
+	\cos^2x&=\df{1+\cos2x}2\notag\\
+	&=\df12+\df12\left[\sum\limits_{k=0}^n\df{(-1)^k}{(2k)!}(2x)^{2k}
+	+\circ(x^{2n})\right]\notag\\
+	&=\df12+\sum\limits_{k=0}^n\df{(-1)^k2^{2k-1}}{(2k)!}(x)^{2k}
+	+\circ(x^{2n})\notag
+\end{align}
+
+\bigskip
+
+5. 求函数$f(x)=\df1x$在$x=-1$处带Lagrange余项的$n$阶Taylor公式
+
+解：$f^{(n)}(x)=\df{(-1)^nn!}{x^{n+1}}$，故存在$\xi$介于$x$和$-1$之间，使得
+\begin{align}
+	f(x)&=\df1{-1+(x+1)}=-\df1{1-(x+1)}\notag\\
+	&=-\sum\limits_{k=0}^n(x+1)^k
+	+\df{(-1)^{n+1}(n+1)!}{\xi^{n+2}}(x+1)^{n+1},\notag
+\end{align}
+即为所求。
+
+\bigskip
+
+6. 将函数$f(x)=\ln x$按$x-2$的幂展开成带Peano余项的$n$阶Taylor公式。
+
+解：
+\begin{align}
+	f(x)&=\ln(2+(x-2))=\ln2+\ln\left(1+\df{x-2}2\right)\notag\\
+	&=\ln2+\sum\limits_{k=1}^n\df{(-1)^{k-1}}{k}
+	\left(\df{x-2}2\right)^k+\circ\left(\left(\df{x-2}2\right)^n\right)\notag\\
+	&=\ln2+\sum\limits_{k=1}^n\df{(-1)^{k-1}}{2^kk}
+	(x-2)^k+\circ((x-2)^n)\notag
+\end{align}
+
+\bigskip
+
+10. 利用Taylor公式求下列极限
+
+(1)
+\begin{align}
+	\limx0\df{xe^x-\ln(1+x)}{x^2}
+	&=\limx0\df{x+x^2+\circ(x^2)-[x-\frac{x^2}2+\circ(x^2)]}{x^2}\notag\\
+	&=\df32+\limx0\circ(1)=\df32\notag
+\end{align}
+
+(2)
+\begin{align}
+	\limx{+\infty}&\left[\left(x^3-x^2+\df x2\right)e^{\frac1x}
+	-\sqrt{x^6+1}\right]
+	\xlongequal{u=1/x}\lim\limits_{u\to0^+}
+	\df{(1-u+2u^2)e^u-\sqrt{1+u^6}}{u^3}\notag\\
+	&=\lim\limits_{u\to0^+}\df{\left(1-u+\frac{u^2}2\right)
+	\left(1+u+\frac{u^2}2+\frac{u^3}6+\circ(x^3)\right)
+	-[1+\frac12u^6+\circ(u^6)]}{u^3}\notag\\
+	&=\lim\limits_{u\to0^+}\df{\frac{u^3}6+\circ(u^3)}{u^3}
+	=\df16+\lim\limits_{u\to0^+}\circ(1)=\df16\notag
+\end{align}
+
+(3)
+\begin{align}
+	\limx{+\infty}&\left[x-x^2\ln\left(1+\df1x\right)\right]
+	\xlongequal{u=1/x}\lim\limits_{u\to0^+}
+	\df{u-\ln(1+u)}{u^2}\notag\\
+	&=\lim\limits_{u\to0^+}\df{u-[u-\frac{u^2}2+\circ(u^2)]}{u^2}
+	=\df12+\lim\limits_{u\to0^+}\circ(1)=\df12\notag
+\end{align}
+
+(4)
+\begin{align}
+	\limx0&\df{\frac{x^2}2+1-\sqrt{1+x^2}}{x^2\sin x^2}
+	=\limx0\df{\frac{x^2}2+1-[1+\frac12x^2-\frac18x^4+\circ(x^4)]}{x^4}\notag\\
+	&=\df18+\limx0\circ(1)=\df18\notag
+\end{align}
+
+\bigskip
+
+12. 常数$a,b$为何值时，成立$\limx0\left[\df{\ln(1+2x)}{x}+a
++\df bx\right]=0$？
+
+解：
+$$\df{\ln(1+2x)+ax+b}{x}=\df{2x+\circ(x)+ax+b}x=(a+2)+\circ(1)+\df bx,$$
+显然以上函数若当$x\to0$时极限存在，则必有$b=0$；又由极限值为$0$，可知$a+2=0$，
+故$a=-2$。
+
+\bigskip
+
+13. 设$f(x)$在$x=0$附近二次可导，且
+$$\limx0\left(\df{\sin x}{x^3}+\df{f(x)}{x^2}\right)=0,$$
+(1) 求$f(0).f'(0),f''(0)$；(2)计算$\limx0\df{1+f(x)}{x^2}$.
+
+解：由已知
+$$0=\limx0\left(\df{\sin x}{x^3}+\df{f(x)}{x^2}\right)
+=\limx0\df{x-\frac{x^3}6+\circ(x^3)+xf(x)}{x^3}
+=\limx0\df{1+f(x)}{x^2}-\df16,$$
+故$\limx0\df{1+f(x)}{x^2}=\df16$。
+$$\limx0[1+f(x)]=\limx0\df{1+f(x)}{x^2}\limx0x^2=0,$$
+从而$f(0)=\limx0f(x)=-1$。又
+$$f'(0)=\limx0\df{f(x)-f(0)}{x-0}=\limx0\df{f(x)+1}{x}
+=\limx0\df{f(x)+1}{x^2}\limx0x=0,$$
+于是由Taylor公式，可设$f(x)=-1+\df{f''(0)}2x^2+\circ(x^2)$，进而
+$$\df16=\limx0\df{1+f(x)}{x^2}=\df{f''(0)}2+\limx0\circ(1)
+=\df{f''(0)}2\quad\Rightarrow\quad f''(0)=\df13.$$
+以上即为所求。
+
+\bigskip
+
+14. 设函数$f(x)$在$[0,1]$上二次可导，且$f(0)=f(1)$，$|f''(x)|\leq2$，
+证明：$x\in[0,1]$时，有$|f'(x)|\leq 1$.
+
+证：对任意$x\in[0,1]$，由Taylor公式，存在$\xi_1\in(0,x),\xi_2\in(x,1)$，
+使得
+$$f(0)=f(x)+f'(x)(-x)+\df{f''(\xi_1)}2x^2,$$
+$$f(2)=f(x)+f'(x)(1-x)+\df{f''(\xi_2)}2(1-x)^2,$$
+以上两式相减，整理后可得
+$$f'(x)=-\df12\left[f''(\xi_2)(1-x)^2-f''(\xi_1)x^2\right],$$
+从而
+\begin{align}
+	|f'(x)|&=\df12\left|f''(\xi_2)(1-x)^2-f''(\xi_1)x^2\right|\notag\\
+	&\leq\df12\left[|f''(\xi_2)|(1-x)^2+|f''(\xi_1)|x^2\right]\notag\\
+	&\leq(1-x)^2+x^2\notag
+\end{align}
+注意到，当$x\in[0,1]$时，$(1-x)^2+x^2$最大值为$1$，故由上式可得$|f'(x)|\leq1$，
+即证。
