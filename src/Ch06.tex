@@ -192,7 +192,7 @@ $$\left|\sqrt[3]x\dint_x^{x+1}\df{\sin t}{t+\cos t}\d t\right|
 
 \section{微积分基本公式与定积分的计算}
 
-\subsection{微积分基本公式}
+\subsection{微积分基本定理}
 
 {\it 在Newton和Leibniz之前，微分和积分的许多个别结果已经得到，但只有当
 他们发现了这个公式之后，微积分才统计成了一个整体！}
@@ -259,10 +259,10 @@ $$\Phi'(x)=f(x)$$
 
 {\bf 思考：}为什么$\Phi(x)$是$f(x)$的“一个”原函数？
 
-$${\left[\dint_{\varphi(x)}^{\psi(x)}f(t)\d t\right]'_x
+$${\b\left[\dint_{\varphi(x)}^{\psi(x)}f(t)\d t\right]'_x
 	=f[\psi(x)]\psi'(x)-f[\varphi(x)]\varphi'(x)}$$
 
-{\bf P325-例6：}求下列函数的导函数
+{\bf 教材-例6：}求下列函数的导函数
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $y=\dint_0^{x}e^{-t^2}\d t$
@@ -270,11 +270,11 @@ $${\left[\dint_{\varphi(x)}^{\psi(x)}f(t)\d t\right]'_x
   \item $y=\dint_{-x}^{\sqrt x}\sin t^2\d t$
 \end{enumerate}
 
-{\bf P329-例13：}设$f(x)$在$[0,+\infty)$内连续，且$f(x)>0$，证明：
+{\bf 教材-例13：}设$f(x)$在$[0,+\infty)$内连续，且$f(x)>0$，证明：
 $$F(x)=\df{\dint_0^xtf(t)\d t}{\dint_0^xf(t)\d t}$$
 在$(0,+\infty)$内单调递增。
 
-{\bf P330-例14：}设$f(x)$在$[0,+\infty)$上可导，$f(0)=0$，且存在反函数$g(x)$，已知
+{\bf 教材-例14：}设$f(x)$在$[0,+\infty)$上可导，$f(0)=0$，且存在反函数$g(x)$，已知
 $$\dint_0^{f(x)}g(t)\d t=(x-1)e^x+x^2+1,$$
 求$f(x)$。
 
@@ -307,14 +307,14 @@ $$\left|\cos x-\sum\limits_{k=0}^n(-1)^k\df{x^{2k}}{(2k)!}\right|
 	$\xi\in(a,b)$，使得
 	$$\dint_a^bf(x)g(x)\d x=f(\xi)\dint_a^bg(x)\d x$$
 	
-	{\bf [hint]:}let $F(t)=\dint_a^tf(x)\d x,\;G(t)=\dint_a^tg(x)\d x$，则
+	[提示]：令$F(t)=\dint_a^tf(x)\d x,\;G(t)=\dint_a^tg(x)\d x$，则
 	由Cauchy中值定理
 	$$\df{F(b)-F(a)}{G(b)-G(a)}=\df{F'(\xi)}{G'(\xi)}=f(\xi)$$
 	
 	{\bf 例：}计算极限$\limn f(n)\sin\df 1n$，其中
 	  $$f(x)=\dint_x^{x^2}\left(1+\df 1{2t}\right)^t\sin\df{1}{\sqrt t}\d t$$
 	
-	{\bf [hint]：}
+	[提示]：
 	\begin{align}
 		\limn f(n)\sin\df 1n&=\limn\df1n\dint_n^{n^2}\left(1+\df
 		1{2t}\right)^t\sin\df{1}{\sqrt t}\d t\notag\\
@@ -349,6 +349,7 @@ $$\left|\cos x-\sum\limits_{k=0}^n(-1)^k\df{x^{2k}}{(2k)!}\right|
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\varphi(\alpha)=a,\;\varphi(\beta)=b$;
+  \ps{换元后一定要将积分上下限做对应的修改}
   \item $\varphi(t)$在$[\alpha,\beta]$上连续可导，且$\varphi(t)\in[a,b]$，则
 \end{enumerate}
 $${\dint_a^bf(x)\d
@@ -377,11 +378,11 @@ $${\dint_a^bu(x)\d v(x)=u(x)v(x)|_a^b-\dint_a^bv(x)\d u(x)}$$
 \begin{shaded}
 	{\bf 用定积分的性质证明不等式}
 	
-	{\bf P317-习题10}(Schwarz积分不等式)设$f(x),g(x)$均在$[a,b]$上连续，证明：
+	{\bf 教材-习题10}({\it Schwarz积分不等式})设$f(x),g(x)$均在$[a,b]$上连续，证明：
 	$$\left[\dint_a^bf(x)g(x)\d x\right]^2
 	\leq\dint_a^bf\,^2(x)\d x\dint_a^bg^2(x)\d x$$
 	
-	[hint]:不妨设$\dint_a^bf^2(x)\d x>0$，对任意$t\in\mathbb{R}$
+	[提示]：不妨设$\dint_a^bf^2(x)\d x>0$，对任意$t\in\mathbb{R}$
 	$$\dint_a^b(tf-g)^2\d x=t^2\dint_a^bf^2\d x-2t\dint_a^bfg\d x
 	+\dint_a^bg^2\d x\geq 0$$
 	故必有
@@ -391,7 +392,7 @@ $${\dint_a^bu(x)\d v(x)=u(x)v(x)|_a^b-\dint_a^bv(x)\d u(x)}$$
 	$$\left|\dint_a^bfg\d x\right|\leq\dint_a^b|fg|\d x
 	\leq\dint_a^b\df12(f^2+g^2)\d x=0$$
 	
-	{\bf 注：}利用该结论可证明Cauchy不等式
+	{\bf 注：}类似地方法可证明{\it Cauchy不等式}
 	$$\left(\sum\limits_{i=1}^na_ib_i\right)\leq
 	\sum\limits_{i=1}^na_i^2\sum\limits_{i=1}^nb_i^2$$
 	
@@ -406,16 +407,15 @@ $${\dint_a^bu(x)\d v(x)=u(x)v(x)|_a^b-\dint_a^bv(x)\d u(x)}$$
 $$\dint_1^af\left(x^2+\df{a^2}{x^2}\right)\df{\d x}{x}
 =\dint_1^af\left(x+\df{a^2}{x}\right)\df{\d x}{x}$$
 
-{\bf [hint]:}let $y=\df ax$, then
+[提示]：令$y=\df ax$，则
 $$\mbox{left}=\df12\dint_1^{a^2}f\left(y+\df{a^2}y\right)\df{\d y}y$$
-let $y=\df{a^2}x$, then
+令$y=\df{a^2}x$，则
 $$\dint_a^{a^2}f\left(x+\df{a^2}x\right)\df{\d x}x
 =\dint_1^af\left(y+\df{a^2}y\right)\df{\d y}y$$
-that is it.
 
 \subsection{定积分的一些特殊计算方法}
 
-\subsubsection{对称区间上的定积分}
+\subsubsection{【对称区间上的定积分】}
 
 {\bf 命题：}$f(x)$连续，则
 $$\dint_0^af(x)\d x=\dint_0^af(a-x)\d x$$
@@ -436,7 +436,7 @@ $$\dint_0^af(x)\d x=\dint_0^af(a-x)\d x$$
   \item $\dint_0^{\pi}\df{x\sin x\d x}{1+\cos^2x}=\df{\pi^2}4$
   \item $\dint_0^1\df{\ln(1+x)\d x}{1+x^2}=\dint_0^{\pi/4}\ln(1+\tan x)\d x$
   
-  [hint]:
+  [提示]:
   $$\ln\left[1+\tan\left(\df{\pi}4-t\right)\right]=\ln2-\ln(1+\tan t)$$
   故$\ln(1+\tan t)-\df{\ln2}2$是以$\df{\pi}8$为中心的奇函数。于是$I=\df{\pi}8\ln2$
 \end{enumerate}
@@ -450,16 +450,16 @@ $$\dint_0^af(x)\d x=\dint_0^af(a-x)\d x$$
   \item $\dint_{-2}^2x\ln(1+e^x)\d x$
 \end{enumerate}
 
-\subsubsection{周期函数的定积分}
+\subsubsection{【周期函数的定积分】}
 
 $$\dint_a^{a+T}f(x)\d x=\dint_0^{T}f(x)\d x$$
 
-\subsubsection{用几何意义计算定积分}
+\subsubsection{【用几何意义计算定积分】}
 
 {\bf 例：}$2\dint_{-1}^1\sqrt{1-x^2}\d x=
 \dint_{-1}^1\df{\d x}{\sqrt{1-x^2}}$
 
-[hint]:左边是面积，右边为周长
+[提示]：左边是面积，右边为周长
 
 \begin{shaded}
 	{\bf 勾股定理的推广}
@@ -473,14 +473,6 @@ $$\dint_a^{a+T}f(x)\d x=\dint_0^{T}f(x)\d x$$
 		\resizebox{!}{5cm}{\includegraphics{./images/ch6/ggNew.pdf}}  
 	\end{center}
 \end{shaded}
-
-% \subsubsection{正弦、余弦的转换}
-% 
-% $$\dint_0^{\pi/2}f(\sin
-% 	  x)\d x=\dint_0^{\pi/2}f(\cos x)\d x$$
-	  
-{\bf 例：}
-$$I=\dint_0^{\pi/2}\df{\cos x}{\sin x+\cos x}\d x$$
 
 \section{定积分的应用}
 
@@ -499,7 +491,7 @@ $$I=\dint_0^{\pi/2}\df{\cos x}{\sin x+\cos x}\d x$$
 
 \subsection{用定积分求解几何问题}
 
-\subsubsection{面积}
+\subsubsection{【面积】}
 
 {\bf 例：}计算两条抛物线$y^2=x$和$y=x^2$所围图形的面积。
 
@@ -507,7 +499,7 @@ $$I=\dint_0^{\pi/2}\df{\cos x}{\sin x+\cos x}\d x$$
 
 {\bf 例：}推导圆和扇形的面积公式。
 
-\subsubsection{极坐标下的面积}
+\subsubsection{【极坐标下的面积】}
 
 {\bf 例：}计算Archimedes螺线$\rho=a\theta\;(a>0)$
 相应于$\theta$从$0$变到$2\pi$的一段弧与极轴所围的图形面积。
@@ -525,7 +517,7 @@ $$I=\dint_0^{\pi/2}\df{\cos x}{\sin x+\cos x}\d x$$
   \item 在草场中央围一个半径为$a$的区域，要使内外的老羊吃到的草面积一样，$k$如何取
 \end{enumerate}
 
-[hint]:(1)
+[提示]：(1)
 $$A=\pi k^2a^2-2\dint_{\arccos\frac k2}^{\pi}\df12(2a\cos\varphi)^2
 \d\varphi$$
 $$A=a^2\left[(k^2-1)\pi+(2-k^2)\arccos\df k2+\df k2
@@ -536,7 +528,7 @@ $$A=\df{\pi k^2a^2}2+2\dint_0^k\df12(ka-a\varphi)^2\d\varphi=k^2a^2
 以上的$\varphi$为小园的圆心角
 (3)$k=1.26$
 
-\subsubsection{平面曲线的弧长}
+\subsubsection{【平面曲线的弧长】}
 
 {\bf 例：}求以下曲线的弧长 
 \begin{enumerate}[(1)]
@@ -546,7 +538,7 @@ $$A=\df{\pi k^2a^2}2+2\dint_0^k\df12(ka-a\varphi)^2\d\varphi=k^2a^2
   \item $\rho=a\theta\;(a>0,\;0\leq t\leq 2\pi)$
 \end{enumerate}
 
-\subsubsection{旋转体的体积}
+\subsubsection{【旋转体的体积】}
 
 圆盘法：曲线$y=f(x)\;(x\in[a,b])$与$x=a,x=b,y=0$所围区域绕$x$轴旋转一周：
 $$V=\dint_a^b\pi[f(x)]^2\d x$$
@@ -559,7 +551,7 @@ $$V=2\pi\dint_a^bx|f(x)|\d x$$
 {\bf 例：}计算由圆滚线$$x=a(t-\sin t),y=a(1-\cos t)\;(0\leq t\leq 2\pi)$$
 和直线$y=0$所围图形分别绕$x$轴、$y$轴旋转一周所得立体的体积。
 
-\subsubsection{旋转体的表面积}
+\subsubsection{【旋转体的表面积】}
 曲线$y=f(x)\;(x\in[a,b])$绕$x$轴旋转一周：
 $$A=2\pi \dint_a^by\d s=2\pi \dint_a^by\sqrt{1+(y')^2}\d x$$
 
@@ -569,7 +561,7 @@ $$A=\pi(r_1+r_2)l$$
 $$\Delta A=2\pi(y+(y+\Delta y))\sqrt{(\Delta x)^2+(\Delta y)^2}
 =2\pi y\sqrt{1+(y')^2}\Delta x+\circ(\Delta x)$$
 
-\subsubsection{已知截面积的立体体积}
+\subsubsection{【已知截面积的立体体积】}
 
 {\bf 例：}一平面经过半径为$R$的圆柱体的底面圆心，并与底面交角为$\alpha$
 （如图所示），求该平面所截圆柱体
@@ -598,7 +590,7 @@ $$\df{\d V}{\d t}=S\df{\d h}{\d t}$$
 
 \subsection{物理问题}
 
-\subsubsection{平面物体的质心}
+\subsubsection{【平面物体的质心】}
 $y=f(x)(a<x<b)$密度均匀，其质心的横坐标为
 $$\bar{x}=\df{\dint_a^bxf(x)\d x}{\dint_a^bf(x)\d x}$$
 
@@ -621,7 +613,7 @@ $$\left(x-\df{a+b}2\right)\left(f(x\right)-f\left(
 	&=[f(\xi_1)-f(\xi_2)]\df{(b-a)^2}2\geq0
 \end{align}
 
-\subsubsection{变力沿直线做功}
+\subsubsection{【变力沿直线做功】}
 
 {\bf 例：}一圆柱形的水桶高$5m$，底半径$3$m，桶内装满水，问要将桶内的水全部抽出，
 需要做多少功（设重力加速度$g=10N/kg$）。
@@ -632,17 +624,17 @@ $a$移动到距离$b$的位置，问在该过程中，电场力共对该电荷�
 {\bf 电场力：}
 $$F=k\df{q_1q_2}{r^2}$$
 
-\subsubsection{水压}
+\subsubsection{【水压】}
 
 {\bf 例：}某个圆柱形油桶底半径为$R$，所装油密度为$\rho$，
 现将其装满油后横放，求其端面承受的压力。
 
-\subsubsection{万有引力}
+\subsubsection{【万有引力】}
 
 {\bf 例：}设有一长度为$l$，线密度为$\mu$的均匀细直棒，在其中垂线上距离棒$a$
 处有一质量为$m$的质点$M$，求该棒对质点$M$的引力。
 
-{\bf 计算结果：}
+[提示]：
 \begin{align}
 	F&=-\dint_{-\frac l2}^{\frac l2}\df{Gam\mu}{(a^2+y^2)^{\frac32}}\d y
 	=-\dint_{-\arctan\frac l{2a}}^{\arctan\frac l{2a}}\df{Gam\mu}{(a^2+(a\tan
@@ -682,14 +674,14 @@ Newton-Leibnitz公式
   $$\dint_a^{+\infty}f(x)\d x=F(x)|_{a}^{+\infty}
   =\limx{+\infty}F(x)-F(a)$$
   
-{\bf P381-例1：}计算以下无穷积分
+{\bf 教材-例1：}计算以下无穷积分
 $$\dint_{-\infty}^{+\infty}\df{1}{1+x^2}\d x$$
 
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch6/infint.pdf}}
 \end{center}
 
-{\bf P382-例3，P384-例5：}
+{\bf 教材-例3-5：}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item 讨论$\dint_a^{+\infty}\df{\d x}{x^p},\;a>0, p>0$的敛散性； 
@@ -711,7 +703,7 @@ $$\dint_{-\infty}^{+\infty}\df{1}{1+x^2}\d x$$
 	  \item 有前面的结论应该可以推论出这样的结果：Gabriel喇叭的内部可以被有限数量
 	  的油漆填满，但同时，任何有限数量的漆都无法刷遍其内表面！该如何解释这个悖论呢？
 	\end{enumerate}
-	[hint]:
+	[提示]:
 	(1)体积为
 	$$V=\dint_1^{+\infty}\pi\left(\df1x\right)^2\d x=\pi$$
 	(2)表面积
@@ -733,10 +725,10 @@ $$\dint_{-\infty}^{+\infty}\df{1}{1+x^2}\d x$$
   $$\dint_a^bf(x)\d x=\limx{a^+}\dint_t^bf(x)\d x$$
 \end{enumerate}
 
-{\bf P386-例6：}计算
+{\bf 教材-例6：}计算
 $$\dint_0^a\df{1}{\sqrt{a^2-x^2}}\d x,\;a>0$$
 
-{\bf P387-例7：}讨论瑕积分的收敛性
+{\bf 教材-例7：}讨论瑕积分的收敛性
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\dint_{-1}^1\df{\d x}{x^2}$ 
@@ -758,7 +750,7 @@ $$0\leq f(x)\leq g(x),\quad x\in[a,+\infty)$$
   \item $\dint_a^{+\infty}f(x)\d x$发散$\Rightarrow\dint_a^{+\infty}g(x)\d x$发散
 \end{enumerate}
 
-{\bf P388-例1：}讨论以下无穷积分的敛散性
+{\bf 教材-例1：}讨论以下无穷积分的敛散性
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\dint_2^{+\infty}\df{1+\sin x}{x^2}\d x$ 
@@ -813,307 +805,38 @@ $${\Gamma(s)=\dint_0^{+\infty}e^{-x}x^{s-1}\d x\;(s>0)}$$
   \item $2\dint_0^{+\infty}e^{-x^2}\d x=\Gamma\left(\df 12\right)=\sqrt{\pi}$
 \end{enumerate}
 
-
 \newpage
-
-\section*{习题与课后思考题}
 
 \section*{课后作业}
+\addcontentsline{toc}{section}{课后作业}
+
+{\bf 【必作题】}
 
 \begin{itemize}
-  \item 习题6.1：3(1,3),4,5(4,5,6),6
-  \item 习题6.2：1(5-8),2,3(3,4),4,6,7,8,13,15
-  \item 习题6.3：4-6
-  \item 习题6.4：2,5,6(1),8,10,11,15,16,19
-  \item 习题6.5：1(4-6),2(1,4,6),5,8
+  \item 习题6.1：3(2,4)，4，5(4,5,6)，7
+  \item 习题6.2：1(5-8)，4，6，8，11，12，13
+  \item 习题6.3：4(3,4,5,11,12,15,16)，5，6(6,7,8,9)，7(5,8,12,16)，
+  8，11，12(3,4)，16
+  \item 习题6.4：2，5，6(1)，8，10，11，15，16，19
+  \item 习题6.5：1(4-6)，2，3，6，8
 \end{itemize}
 
-{\bf 【课堂练习与思考题】}
+\bigskip
+
+\hrule
+
+\bigskip
+\bigskip
+
+{\bf 【思考题】}
 
 \begin{itemize}
-  \item 习题6.1：7,8,9,10
-  \item 习题6.3：8,9,12,14,18
+  \item 习题6.1：9，10
+  \item 习题6.2：3，7，9，10
+  \item 习题6.3：9，17，18
   \item 习题6.4：1-30其余各题
+  \item 习题6.5：4，5
 \end{itemize}
 
-{\bf 例：}$a>0,c\in(0,e^a)$，证明：
-$$\dint_0^a|e^x-c|\dx\geq(e^{\frac a2}-1)^2$$
-
-\newpage
-
-\section[不定积分计算的一些典型方法]{不定积分计算的一些典型方法}
-
-{\bf 例：}计算不定积分
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint\df1{x^4(1+x^2)}\d x$
-  \item $\dint(\tan x+\cot x)^2\d x$
-  \item $\dint\df1{1+\sin x}\d x$
-  \item $\dint\df1{\sin2x+2\sin x}\d x$
-\end{enumerate}
-
-% [hint]:
-% (1) 方法1：
-% $$\mbox{原式}=\dint\df{(1+x^2)-x^2}{x^4(1+x^2)}\d x
-% =-\df1{3x^3}+\df1x+\arctan x+C$$
-% 
-% 方法2：
-% $$\mbox{原式}=\dint\df{(1-x^4)+x^4}{x^4(1+x^2)}\d x$$
-% 
-% (2)
-% $$\tan x-\cot x+C$$
-% 
-% (3)方法1：
-% $$\mbox{原式}=\dint\df1{1+\cos\left(x-\df{\pi}2\right)}\d x=\ldots
-% =\tan\df{2x-\pi}4+C$$
-% 
-% 方法2：
-% $$\mbox{原式}=\dint\df{1-\sin x}{\cos^2x}\d x=\ldots=\tan x-\sec x+C$$
-% 
-% (4)方法1：
-% $$\mbox{原式}=\df14\dint1{\sin\df x2\cos x2\cos^2\df x2}\d\df x2
-% =\df14\dint\df{1+\tan^2\df x2}{\tan\df x2}\d\tan\df x2
-% =\df14\ln\left|\tan\df x2\right|+\df18\tan^2\df x2+C$$
-% 
-% 方法2：
-% $$\mbox{原式}=\dint\df{1-\cos x}{2\sin^3x}\d x=\ldots
-% =\df14\ln|\csc x-\cot x|-\df14\csc x\cot x+\df14\csc^2x+C$$
-
-\begin{shaded}
-
-{\bf 提示：}通过代数恒等变换、三角恒等变换等方法，把所求的积分化为基本积分公式中
-的积分或其他易于积分的形式。为此，需要熟练掌握基本的积分公式，这样才能有针对性地对
-被积函数进行恒等变形。
-
-\end{shaded}
-
-{\bf 例：}计算不定积分
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint\df{2x+3}{\sqrt{1+2x-x^2}}\d x$
-  \item $\dint\df1{1+e^x}\d x$
-  \item $\dint\df1{x(x^n+a)}\d x,\;(a\ne 0,n\in\mathbb{Z}_+)$
-  \item $\dint\df{x^2+1}{x^4+1}\d x$
-\end{enumerate}
-
-% [hint]:
-% (1)方法1：
-% $$\mbox{原式}=\dint\df{5-(2-2x)}{\sqrt{1+2x-x^2}}\d x
-% =5\dint\df{\d(x-1)}{\sqrt{2-(x-1)^2}}-\dint\df{\d(1+2x-x^2)}
-% {\sqrt{1+2x-x^2}}$$
-% $$=5\arcsin\df{x-1}{\sqrt 2}-2\sqrt{1+2x-x^2}+C$$
-% 
-% 方法2：令$x-1=\sqrt 2\sin t$
-% 
-% (2)方法1：
-% $$\mbox{原式}=\dint\df{1+e^x-e^x}{1+e^x}\d x=x-\ln(1+e^x)+C$$
-% 
-% 方法2：
-% $$\mbox{原式}=\dint\df{e^x}{e^x(1+e^x)}\d x$$
-% 
-% 方法3：
-% $$\mbox{原式}=\dint\df{e^{-x}}{1+e^{-x}}\d x$$
-% 
-% (3)方法1：
-% $$\mbox{原式}=\dint\df{x^{n-1}}{x^n(x^n+a)}\d x
-% =\ldots=\df1{na}\ln\left|\df{x^n}{x^n+a}\right|+C$$
-% 
-% 方法2：
-% $$\mbox{原式}=\df1a\dint\df{a+x^n-x^n}{x(x^n+a)}\d x$$
-% 
-% (4)
-% $$\mbox{原式}=\dint\df{1+\df1{x^2}}{x^2+\df1{x^2}}\d x
-% =\df1{\sqrt2}\arctan\df{x^2-1}{\sqrt2x}+C$$
-
-\begin{shaded}
-
-{\bf 提示：}对于不易观察出微分形式的不定积分，有时需要进行适当的恒等变形，
-凑成$\dint f(\phi(x))\phi'(x)\d x=\dint f(\phi(x))\d\phi(x)$
-的形式，利用凑微分法求出不定积分。
-
-\end{shaded}
-
-{\bf 例：}计算不定积分
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint\cos3x\cos2x\d x$
-  \item $\dint\sin^4x\cos^2x\d x$
-  \item $\dint\sin^3x\cos^3x\d x$
-  \item $\dint\tan^3x\sec^4x\d x$
-  \item $\dint\tan^3x\cos x\d x$
-  \item $\dint\cot^3x\csc^5x\d x$
-\end{enumerate}
-
-
-\begin{shaded}
-{\bf 提示：}对积分
-
-1)\;$\dint\sin ax\cos bx\d x$\;2)$\dint\sin ax\sin bx\d x$\;
-3)$\dint\cos ax\cos bx\d x$
-
-4)$\dint\sin^mx\cos^nx \d x$\;5)$\dint\tan^mx\sec^nx\d x$\;
-6)$\dint\cot^mx\csc^nx\d x$
-
-主要通过三角变换来凑积分求解。
-\begin{enumerate}[(1)]
-  \item 1)-3)，和差化积；
-  \item 4)，当$n$或$m$为奇数时，分离出一个$\cos x$（或$\sin x$），凑出
-  $\d\sin x$（或$\d\cos x$），在利用$\sin^2x+\cos^2x=1$将剩余部分都化为
-  $\cos x$或$\sin x$的多项式；若$m$和$n$均为偶数，利用倍角公式将函数降阶
-  再积分即可；
-  \item 5)，$m$为奇数时，分离出$\sec x\tan x$，可凑出$\d\sec x$，再将
-  剩余部分都化为关于$\sec x$的多项式；当$n$为偶数时，分离出$\sec^2x$，可凑出
-  $\d\tan x$，将剩余部分化为$\tan x$的多项式积分；
-  \item 6)可参考5)的思路。
-\end{enumerate}
-\end{shaded}
-
-{\bf 例：}计算不定积分
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint\ds\df2{x+\sqrt{1-x^2}}\d x$
-  \item $\dint\ds\df1{x\sqrt{x^2-1}}\d x$
-  \item $\dint\ds\df{\sqrt{1+x^2}}{x^2}\d x$
-  \item $\dint\ds\df1{\sqrt{(9x^2-6x-1)^3}}\d x$
-  \item $\dint\ds\df{1-x}{\sqrt{x(4-x)}}\d x$
-\end{enumerate}
-% 
-% [hint]:
-% (1)$x=\sin t$,
-% $$\mbox{原式}=\arcsin x+\ln\left|x+\sqrt{1-x^2}\right|+C$$
-% 
-% (2)方法1：$x=\sec t$
-% $$\mbox{原式}=\arccos\df1x+C$$
-% 
-% 方法2：$x>1$时，令$x=\df1t$；$x<-1$时，令$x=-\df1t$
-% 
-% 方法3：$t=\sqrt{x^2-1}$，
-% $$\mbox{原式}=\arctan\sqrt{x^2-1}+C$$
-% 
-% 方法4：
-% $$\mbox{原式}=\dint\df{1}{x^2}\d\sqrt{x^2-1}
-% =\dint\df1{1+(\sqrt{x^2-1})^2}\d\sqrt{x^2-1}$$
-% 
-% (3)$x=\tan t$
-% $$\mbox{原式}=\ln\left|x+\sqrt{1+x^2}\right|
-% -\df{\sqrt{1+x^2}}{x}+C$$
-% 
-% (4)$x=\df{\sqrt2}3\sec t+\df13$
-% $$\mbox{原式}=-\df16\df{3x-1}{\sqrt{9x^2-6x-1}}+C$$
-% 
-% (5)方法1：
-% $$\mbox{原式}=\df12\dint\df{4-2x-2}{\sqrt{x(4-x)}}\d x
-% =\dint\df{\d [x(4-x)]}{2\sqrt{x(4-x)}}-\dint\df{\d x}{\sqrt{x(4-x)}}
-% =\sqrt{x(4-x)}-2\arcsin\df{\sqrt x}2+C$$
-% $$\dint\df{\d x}{\sqrt{x(4-x)}}=\dint\df{\d x}{\sqrt{4-(x-2)^2}}
-% =\arcsin\df{x-2}2+C$$
-
-\begin{shaded}
-{\bf 提示：}被积函数含根式形式如$\sqrt{a^2\pm x^2}$，$\sqrt{x^2-a^2}$等，
-常采用三角代换、倒代换等，但不要只拘泥于这种代换，应具体问题具体分析，如(5)用凑微分
-法更好。
-
-被积函数含$\sqrt{x^2-a^2}$型时，令$x=a\sec t$或者$x=a\csc t$，视$0<t<\df{\pi}2$。
-\end{shaded}
-
-{\bf 例：}计算不定积分
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint\df{e^x(1+e^x)}{\sqrt{1-e^{2x}}}\d x$
-  \item $\dint\df{\ln x}{x\sqrt{1+\ln x}}\d x$
-\end{enumerate}
-
-% [hint]:(1)方法1：$e^x=\sin t$,
-% $$\mbox{原式}=\arcsin e^x-\sqrt{1-e^{2x}}+C$$
-% 
-% 方法2：$\sqrt{1-e^{2x}}=t$
-% 
-% $$\mbox{原式}=\arccos\sqrt{1-e^{2x}}-\sqrt{1-e^{2x}}+C$$
-% 
-% 方法3：
-% $$\mbox{原式}=\dint\df{e^x\d x}{\sqrt{1-e^{2x}}}
-% +\dint\df{e^{2x}\d x}{\sqrt{1-e^{2x}}}$$
-% 
-% (2)方法1：
-% $$\mbox{原式}=\dint\df{1+\ln x-1}{\sqrt{1+\ln x}}\d(\ln x)
-% =\df23(1+\ln x)^{\frac32}-2\sqrt{1+\ln x}+C$$
-% 
-% 方法2：$\sqrt{1+\ln x}=t$
-
-\begin{shaded}
-{\bf 提示：}果断进行代换，将不易处理的部分代换成一个变量。
-\end{shaded}
-
-{\bf 例：}计算不定积分
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint x^3e^{-x^2}\d x$
-  \item $\dint (x+1)\sin^2x\d x$
-  \item $\dint x\ln(1+x^2)\d x$
-  \item $\dint\arctan\sqrt x\d x$
-  \item $\dint\ln\left(1+x+\sqrt{2x+x^2}\right)\d x$
-  \item $\dint\df{\sin^2x}{e^x}\d x$
-  \item $\dint e^{2x}(\tan x+1)^2\d x$
-  \item $\dint\df{xe^x}{(1+x)^2}\d x$
-  \item $\dint(1-2x^2)e^{-2x^2}\d x$
-  \item $\dint\df{x+\sin x}{1+\cos x}\d x$
-  \item $\dint\df{1+\sin x}{1+\cos x}e^x\d x$
-  \item $\dint\df{e^{\arctan x}}{(1+x^2)^{3/2}}$
-  \item $\dint\df{\ln x\d x}{(1+x^2)^{3/2}}$
-\end{enumerate}
-
-\begin{shaded}
-{\bf 提示：}被积函数为幂函数（或多项式函数）与指数函数、三角函数、对数函数或反三角函数
-乘积的积分，可考虑分布积分法。
-\end{shaded}
-
-{\bf 例：}计算不定积分
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint\df{x^5}{1+x^3}\d x$
-  \item $\dint\df1{1+x^4}\d x$
-  \item $\dint\df{1-x^7}{x(1+x^7)}\d x$
-  \item $\dint\df{x^{11}\d x}{x^8-4x^4+3}$
-\end{enumerate}
-
-\begin{shaded}
-{\bf 提示：}有理函数积分。
-\end{shaded}
-
-{\bf 例：}计算不定积分
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint\df{\cos x\d x}{1+\cos x}$
-  \item $\dint\df1{2+\sin x}\d x$
-  \item $\dint\df1{\sin x+\cos x}\d x$
-  \item $\dint\df{\sin x\d x}{\sin x+\cos x}$
-  \item $\dint\df{\sin2x\d x}{\sin^2x+\cos x}$
-  \item $\dint\df{\cos^2x\d x}{1+\cos^2x}$
-\end{enumerate}
-
-\begin{shaded}
-{\bf 提示：}三角函数的有理式积分，总可以使用万能公式化为有理函数来计算。但其后的计算
-往往相当复杂，因此，结合三角函数的其他变化公式，进行适当变形寻求积分的途径，往往更加
-简单些。
-\end{shaded}
-
-{\bf 例：}计算不定积分
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item $\dint\df{\sqrt[3]x}{x(\sqrt x-\sqrt[3]x)\d x}$
-  \item $\dint\df{\d x}{x\sqrt{1+\sqrt{x^3}}}$
-  \item $\dint\sqrt{\df{x+1}{x-1}}\d x$
-  \item $\dint\df{\d x}{\sqrt(x-1)^3(x-2)}$
-  \item $\dint\df{xe^x\d x}{\sqrt{e^x+1}}$
-\end{enumerate}
-
-% [hint]:(3)$\sqrt{\df{x+1}{x-1}}=t$或直接分子有理化后凑微分
-% 
-% (4)$\sqrt{\df{x-2}{x-1}}=t$
-% 
-% (5)$\sqrt{e^x+1}=t$
-
-\begin{shaded}
-{\bf 提示：}含有$\ds\sqrt[n]{\df{ax+b}{cx+d}}$的无理函数积分，理论上用根式代换
-可以求出其积分。但化为有理函数积分后，往往计算量较大，应优先考虑通过恒等变形凑微分来计算。
-\end{shaded}
+% {\bf 例：}$a>0,c\in(0,e^a)$，证明：
+% $$\dint_0^a|e^x-c|\dx\geq(e^{\frac a2}-1)^2$$
