@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.26pt}
+\beamer@sectionintoc {1}{问题讨论}{2}{0}{1}
+\beamer@sectionintoc {2}{补充例题}{10}{0}{2}
+\beamer@sectionintoc {3}{微分方程的应用}{45}{0}{3}

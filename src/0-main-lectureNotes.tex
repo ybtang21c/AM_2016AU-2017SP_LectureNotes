@@ -98,6 +98,11 @@
 
 \input{macros.tex}
 
+%用\newif来定义一个判断变量\ifabc，初始值一律为false，
+%则除了\ifabc外，还自动生成两个控制序列\abctrue和\abcfalse；
+%用\abctrue来设置为true，还可以用\abcfalse来设置为false
+\newif\ifvisible
+
 \begin{document}
 
 \definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
@@ -138,8 +143,8 @@
 % \input{IntegralTable.tex}
 
 % \input{Ch05.tex}
-% 
-\input{Ch06.tex}
+
+% \input{Ch06.tex}
 
 % \input{onLimits.tex}
 
@@ -147,7 +152,7 @@
 
 % \input{exam-AU-summery.tex}
 
-% \input{Ch07.tex}
+\input{Ch07.tex}
 % 
 % \input{Ch08.tex}
 % 

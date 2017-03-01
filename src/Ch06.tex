@@ -329,7 +329,7 @@ $$\left|\cos x-\sum\limits_{k=0}^n(-1)^k\df{x^{2k}}{(2k)!}\right|
 	{\bf 例：}设$f(x)$在$[0,2\pi]$上连续，证明：
 	$$\limn\dint_0^{2\pi}f(x)|\sin nx|\d x=\df 2{\pi}\dint_0^{2\pi}f(x)\d x$$
 	
-	{\bf [hint]:}
+	{\bf [提示]:}
 	\begin{align}
 	\dint_0^{2\pi}f(x)|\sin nx|\d x
 	&=\sum\limits_{k=1}^n\dint_{2(k-1)\pi/n}^{2k\pi/n}f(x)|\sin nx|\d x\notag\\
@@ -489,7 +489,7 @@ $$\dint_a^{a+T}f(x)\d x=\dint_0^{T}f(x)\d x$$
 	\resizebox{!}{5.5cm}{\includegraphics{./images/ch6/sumSSS.pdf}}
 \end{center}
 
-\subsection{用定积分求解几何问题}
+\subsection{几何应用}
 
 \subsubsection{【面积】}
 
@@ -555,7 +555,7 @@ $$V=2\pi\dint_a^bx|f(x)|\d x$$
 曲线$y=f(x)\;(x\in[a,b])$绕$x$轴旋转一周：
 $$A=2\pi \dint_a^by\d s=2\pi \dint_a^by\sqrt{1+(y')^2}\d x$$
 
-[hint]:圆台的侧面积
+[提示]:圆台的侧面积
 $$A=\pi(r_1+r_2)l$$
 其中$r_1,r_2$为上下底的半径，$l$为斜高（或母线长度）
 $$\Delta A=2\pi(y+(y+\Delta y))\sqrt{(\Delta x)^2+(\Delta y)^2}
@@ -573,7 +573,7 @@ $$\Delta A=2\pi(y+(y+\Delta y))\sqrt{(\Delta x)^2+(\Delta y)^2}
 {\bf 例：}半径不等的两个木质球体，分别中间凿去一个以直径为轴的正圆柱体以及柱体下方的球冠，
 剩下的环状部分高度均为$h$，问哪一个环状物体的体积更大。
 
-[hint]:
+[提示]:
 $$V=\dint_{\sqrt{R^2-h^2}}^R2\pi x\sqrt{R^2-x^2}\d x=\df23\pi h^3$$
 结果表明：剩余部分的体积与球半径无关！
 
@@ -582,13 +582,13 @@ $$V=\dint_{\sqrt{R^2-h^2}}^R2\pi x\sqrt{R^2-x^2}\d x=\df23\pi h^3$$
 {\bf 例：}开口容器内的水在单位时间内的蒸发量与水的表面积成正比，证明：水的深度以常速率
 下降且与容器形状无关。
 
-[hint]:设水的表面积为$S$，则
+[提示]：设水的表面积为$S$，则
 $$\Delta V\approx S\Delta h\Rightarrow
 \df{\Delta V}{\Delta t}\approx S\df{\Delta h}{\Delta t}$$
 即
 $$\df{\d V}{\d t}=S\df{\d h}{\d t}$$
 
-\subsection{物理问题}
+\subsection{物理应用}
 
 \subsubsection{【平面物体的质心】}
 $y=f(x)(a<x<b)$密度均匀，其质心的横坐标为
@@ -598,12 +598,14 @@ $$\bar{x}=\df{\dint_a^bxf(x)\d x}{\dint_a^bf(x)\d x}$$
 
 {\bf 例：}$f(x)\in C[a,b]$且单调递增，证明：
 $$\dint_a^bxf(x)\d x\geq\df{a+b}2\dint_a^bf(x)\d x$$
-[hint]:物理意义：递增函数的形成的曲边梯形质心位于右侧。
+[提示]：物理意义：递增函数的形成的曲边梯形质心位于右侧。
 
 证1：由$f(x)$单增，
-$$\left(x-\df{a+b}2\right)\left(f(x\right)-f\left(
-\df{a+b}2\right)\geq0$$
+$$\left(x-\df{a+b}2\right)\left[f(x)-f\left(
+\df{a+b}2\right)\right]\geq0$$
 两边积分即得。
+
+注：$f\left(\df{a+b}2\right)\dint_a^b\left(x-\df{a+b}2\right)=0$
 
 证2：记$c=\df{a+b}2$
 \begin{align}
@@ -691,10 +693,16 @@ $$\dint_{-\infty}^{+\infty}\df{1}{1+x^2}\d x$$
 \end{enumerate}
 
 \begin{shaded}
-	{\bf Gabriel's Horn Paradox}（加百利喇叭的悖论）
+	{\bf Gabriel's Horn Paradox}
 	
-	Gabriel是圣经故事中的天使，他吹奏一支长喇叭让魔鬼坠入地狱。关于长喇叭有如下的一个悖论
-	（据说由Torricelli（托里拆利）提出）：设Gabriel喇叭由区县$y=\df1x(x\geq 1)$
+	\begin{center}
+		\resizebox{!}{5cm}{\includegraphics{./images/ch6/gabrielshorn.jpg}}
+	\end{center}
+	
+	Gabriel是圣经故事中的大天使（Saint Gabriel the Archangel）之一
+	（其他的还有Michael、Raphael等）
+	，他吹奏一支长喇叭让魔鬼坠入地狱。关于长喇叭有如下的一个悖论
+	（据说由Torricelli提出）：设Gabriel喇叭由曲线$y=\df1x(x\geq 1)$
 	围绕$x$轴旋转而成，证明：
 	\begin{enumerate} [(1)]
   	  \setlength{\itemindent}{1cm}
@@ -707,11 +715,11 @@ $$\dint_{-\infty}^{+\infty}\df{1}{1+x^2}\d x$$
 	(1)体积为
 	$$V=\dint_1^{+\infty}\pi\left(\df1x\right)^2\d x=\pi$$
 	(2)表面积
-	$$A=\dint_1^{+\infty}2\pi y\d s=2\pi\dint_1^{+\infty}
-	\df{\sqrt{x^4+1}\d x}{x^3}>\dint_1^{+\infty}\df1x\d x=+\infty$$
+	$$A=2\pi\dint_1^{+\infty}y\sqrt{1+(y')^2}\d x=2\pi\dint_1^{+\infty}
+	\df{\sqrt{x^4+1}\d x}{x^3}>2\pi\dint_1^{+\infty}\df1x\d x=+\infty$$
 	(3)如果涂在表面上的漆的厚度可以是任意小，则任意有限数量的漆都可以刷遍整个喇叭。
 	
-	一个类似的假定：对于平面区域$D:x\geq0,y\in[0,1]$，给定一个单位质量的金箔，
+	一个类似的论题：对于平面区域$D:x\geq0,y\in[0,1]$，给定一个单位质量的金箔，
 	只要我们允许金珀铺的任意薄（厚度$h(x)=e^{-x}$），则可以将整个区域$D$铺满。
 \end{shaded}
 
@@ -804,6 +812,22 @@ $${\Gamma(s)=\dint_0^{+\infty}e^{-x}x^{s-1}\d x\;(s>0)}$$
   \item $\Gamma(s)\Gamma(1-s)=\df{\pi}{\sin \pi s}\;(0<s<1)$ 
   \item $2\dint_0^{+\infty}e^{-x^2}\d x=\Gamma\left(\df 12\right)=\sqrt{\pi}$
 \end{enumerate}
+
+{\bf 例：}证明$\Gamma(s)=\dint_0^{+\infty}e^{-x}x^{s-1}\d x\;(s>0)$是收敛的。
+
+[证]：显然$s=1$时，积分收敛。
+
+当$s\ne1$时，$e^{-x}x^{s-1}<x^{s-1}\;(x>0)$，又$\dint_0^1x^{s-1}\d x=\df1s$，
+故由比较判别法，$I_1=\dint_0^1e^{-x}x^{s-1}\d x$收敛。
+
+由$\limx{+\infty}e^{-\frac x2}x^{s-1}=0$，存在$X>1$，对任意$x>X$，有
+$e^{-\frac x2}x^{s-1}<1$，进而$e^{-x}x^{s-1}<e^{-\frac x2}$，又
+$\dint_X^{+\infty}e^{-\frac x2}\d x=2e^{\frac X2}$，故由比较判别法，
+$I_3=\dint_X^{+\infty}e^{-x}x^{s-1}\d x$收敛。
+
+$I_2=\dint_1^Xe^{-x}x^{s-1}\d x$为定积分。
+
+综上，$\Gamma(s)=I_1+I_2+I_3$收敛。
 
 \newpage
 
