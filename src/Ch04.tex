@@ -1936,3 +1936,44 @@ $$\mbox{原式}=\dint\df{1+\ln x-1}{\sqrt{1+\ln x}}\d(\ln x)
 %   \item $\left[e^x(x^2-1)\right]''$
 %   \item $\left(\ln\df{1+x}{1-x}\right)'$
 % \end{enumerate}
+
+\newpage
+
+{\bf 例：}证明：$\dint\df{\d x}{x^2\sqrt{ax+b}}=-\df{\sqrt{ax+b}}{bx}
+-\df{a}{2b}\dint\df{\d x}{x\sqrt{ax+b}}$
+
+证：
+\begin{align*}
+	\dint\df{\d x}{x^2\sqrt{ax+b}}&=\df2a\dint\df{\d\sqrt{ax+b}}{x^2}
+	=2a\dint\df{\d\sqrt{ax+b}}{[(\sqrt{ax+b})^2-b]^2}\\
+	&\xlongequal{t=\sqrt{ax+b}}2a\dint\df{\d t}{(t^2-b)^2}
+	=\df{a}{2b}\dint\left(\df1{t+\sqrt b}-\df1{t-\sqrt b}\right)^2\d t\\
+	&=\df{a}{2b}\left[\dint\df{\d t}{(t+\sqrt b)^2}
+	-\dint\df{2\d t}{(t+\sqrt b)(t-\sqrt b)}
+	+\dint\df{\d t}{(t-\sqrt b)^2}\right]\\
+	&=\df{a}{2b}\left[-\df1{t+\sqrt b}-\df1{\sqrt b}
+	\dint\left(\df1{t+\sqrt b}-\df1{t-\sqrt b}\right)\d t
+	-\df1{t-\sqrt b}\right]\\
+	&=-\df{at}{(t^2-b)b}-\df{a}{2b\sqrt b}
+	\ln\left|\df{t+\sqrt b}{t-\sqrt b}\right|+C\\
+	&=-\df{\sqrt{ax+b}}{bx}-\df{a}{2b\sqrt b}
+	\ln\left|\df{\sqrt{ax+b}+\sqrt b}{\sqrt{ax+b}-\sqrt b}\right|+C
+\end{align*}
+
+类似的方法：
+\begin{align*}
+	\dint\df{\d x}{x\sqrt{ax+b}}&=\df2a\dint\df{\d\sqrt{ax+b}}{x}
+	=2\dint\df{\d\sqrt{ax+b}}{(\sqrt{ax+b})^2-b}\\
+	&\xlongequal{t=\sqrt{ax+b}}\dint\df{\d t}{t^2-b}
+	=\df2{\sqrt b}\dint\left(\df1{t+\sqrt b}-\df1{t-\sqrt b}\right)\d t\\
+	&=\df2{\sqrt b}\ln\left|\df{t+\sqrt b}{t-\sqrt b}\right|+C
+	=\df2{\sqrt b}\ln\left|\df{\sqrt{ax+b}+\sqrt b}{\sqrt{ax+b}-\sqrt b}\right|+C
+\end{align*}
+代入等式验证即证。
+
+{\bf 注：}以上的方法可以推广用于计算形如$\dint\df{\d x}{x^n\sqrt{ax+b}}$的
+所有积分。下面是另一种解法：
+
+\begin{center}
+	\resizebox{!}{11cm}{\includegraphics{./images/ch4/intExWHN.jpg}}
+\end{center}

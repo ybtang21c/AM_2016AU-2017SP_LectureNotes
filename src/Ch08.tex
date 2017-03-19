@@ -815,7 +815,7 @@ $${\left\{\begin{array}{l}
 	F(x,y,z)=0,\\ G(x,y,z)=0
 \end{array}\right.}$$
 
-{\bf P59-例3：}以下方程对应何种曲线
+{\bf 教材-例3：}以下方程对应何种曲线
 
 $$\left\{\begin{array}{l}
 	z=\sqrt{R^2-x^2-y^2},\\ x^2+y^2-Rx=0
@@ -827,7 +827,7 @@ $$\left\{\begin{array}{l}
 
 \subsection{空间曲线的投影}
 
-{\bf P60-例5：}求空间曲线$C:\left\{\begin{array}{l}
+{\bf 教材-例5：}求空间曲线$C:\left\{\begin{array}{l}
 	x^2+y^2+z^2=1\\ x^2+(y-1)^2+(z-1)^2=1
 \end{array}\right.$
 在$xOy$平面上的投影曲线方程。
@@ -858,7 +858,7 @@ $$x=x(t),\;y=y(t),\;{z=0}\;(t\in[t_0,t_1])$$
 {\bf 思考：}如果直接在曲线的一般式方程中令$z=0$，所得是否即为其在$xOy$平面内的投影曲线？
 (${\times}$)
 
-{\bf P59-例4：}圆柱螺旋线在三个坐标面上的投影分别是什么曲线？
+{\bf 教材-例4：}圆柱螺旋线在三个坐标面上的投影分别是什么曲线？
 
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch8/cylinderCurve.pdf}}
@@ -866,7 +866,7 @@ $$x=x(t),\;y=y(t),\;{z=0}\;(t\in[t_0,t_1])$$
 
 $$x=R\sin t, y=R\cos t, z=at,(t\in\mathbb{R})$$
 
-{\bf P61-例6：}求Viviani曲线在各坐标面上的投影曲线，并由此写出Viviani曲线的参数方程。
+{\bf 教材-例6：}求Viviani曲线在各坐标面上的投影曲线，并由此写出Viviani曲线的参数方程。
 
 \begin{center}
 	\resizebox{!}{6.5cm}{\includegraphics{./images/ch8/vivianiPara.pdf}}
@@ -976,10 +976,6 @@ $$L:\left\{\begin{array}{l}
 \end{array}\right.$$
 的{\bf 平面束}。
 
-前例可用平面束求解，首先求直线的一般式方程：
-$$\left\{\begin{array}{l}x-5y-4=0\\ y-2z+3=0\end{array}\right.$$
-然后给出平面束方程，带入$M$的坐标确定$\lambda=8,\mu=-9$
-
 {\bf 辅导书（上）-P277-5-11：}过点$M(3,1,-2)$和直线$\df{x-4}5=\df{y+3}2=\df z1$
 的平面
 
@@ -987,6 +983,10 @@ $$\left\{\begin{array}{l}x-5y-4=0\\ y-2z+3=0\end{array}\right.$$
 $$\bm{n}=\bm{s}\times\bm{MM_1}=(-8,9,22)$$
 所求平面
 $$8x-9y-22x-59=0$$
+
+该例亦可用平面束求解，首先求直线的一般式方程：
+$$\left\{\begin{array}{l}x-5y-4=0\\ y-2z+3=0\end{array}\right.$$
+然后给出平面束方程，带入$M$的坐标确定$\lambda=8,\mu=-9$
 
 {\bf 例：}求过$z$轴，且与$yOz$的夹角为$\df{\pi}4$的平面方程。
 
@@ -1141,9 +1141,12 @@ $$x=x(t)+mu,y=y(t)+nu,\;z=z(t)+pu,\;(t,u\in\mathbb{R})$$
 \hrule
 
 \bigskip
-\bigskip
+% \bigskip
 
 {\bf 【思考题】}
+
+{\it\b 本章内容欢迎大家自学完成。如果能够搞定下面的所有题，可以免交
+本章所有必作题！}
 
 % \begin{itemize}
 %   \setlength{\itemindent}{1cm}
@@ -1152,19 +1155,22 @@ $$x=x(t)+mu,y=y(t)+nu,\;z=z(t)+pu,\;(t,u\in\mathbb{R})$$
 % \end{itemize}
 
 1、设$\bm{a},\bm{b}$均为非零向量，且$|\bm{b}|=1$，二者夹角为$\pi/3$，求
+\ps{\b 会作这种题算是向量运算的基本要求}
 $$\limx{0}\df{|\bm{a}+x\bm{b}|-|\bm{a}|}{x}$$
 
 2、已知$\bm{a},\bm{b}$均为非零向量，向量$\bm{a}+3\bm{b}$与$7\bm{a}-5\bm{b}$垂直，
 $\bm{a}-4\bm{b}$与$7\bm{a}-2\bm{b}$垂直，求$\bm{a}$和$\bm{b}$的夹角。
+\ps{\b 基础题！}
 
-3、求过直线
+3、求过直线\ps{\b 空间解析几何考题的基本款}
 $$\left\{\begin{array}{l}
 	x+y=0\\
 	x-y=0
 \end{array}\right.$$
 且与平面$\pi:x-4y-8z+12=0$的夹角为$\pi/4$的平面方程。
 
-4、叙述如何求空间曲线$$\left\{\begin{array}{l}
+4、叙述如何求空间曲线\ps{\b 适合用来检验对空间旋转曲面方程的理解，给出思路即可}
+$$\left\{\begin{array}{l}
 F(x,y,z)=0\\ G(x,y,z)=0
 \end{array}\right.$$绕直线
 $$\df{x-a}m=\df{y-b}n=\df{z-c}p$$
@@ -1172,12 +1178,12 @@ $$\df{x-a}m=\df{y-b}n=\df{z-c}p$$
 
 5、设柱面的母线平行于直线$x=y=z$，准线为$x+y-z=1,x-y+z=0$，求柱面的方程。
 
-6、求母线平行于$x=y=z$，准线为
+6、求母线平行于$x=y=z$，准线为\ps{\b 柱面方程作到这个程度完全够了}
 $\left\{\begin{array}{l}
 	x^2+y^2+z^2=1\\ x+y+z=0
 \end{array}\right.$的柱面方程。
 
-7、已知直线
+7、已知直线\ps{\b 综合性比较强的一道题，适合用来检验对平面与直线方程掌握的程度，辅导书上有解答}
 $$L_1:\left\{\begin{array}{l}
 	x+y+z+1=0\\
 	2x-y+3z+4=0
@@ -1196,60 +1202,211 @@ $$
   \item 求二者的公垂线方程。
 \end{enumerate}
 
-\ifvisible
+8、计算由以下平面所围成的立体体积：\ps{\b 能搞定这道题向量运算部分应该是没有什么可担心的了}
+$$a_ix+b_iy+c_iz=\pm h_i,\;i=1,2,3,$$
+其中：$a_i,b_i,c_i$为常数，$h_i\ne0(i=1,2,3)$，且
+$$\Delta=\left|\begin{array}{ccc}
+a_1 & b_1 & c_1\\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3
+\end{array}\right|\ne 0$$
 
 \newpage
 
-\section*{第八章习题课课后作业（上交题）}
+\section*{习题参考解答}
+\addcontentsline{toc}{section}{习题参考解答}
 
-{\it （注：本次作业请务必抄题！）}
+{\bf 习题8.1-24：}
 
-\bigskip
+\begin{center}
+	\resizebox{12.5cm}{!}{\includegraphics{./images/ch8/abcd-briAn.jpg}}
+	
+	{\it 非常精妙，具有很好的几何想象和分析能力！}
+	
+	\bigskip\bigskip
 
-1、设$\bm{a},\bm{b}$均为非零向量，且$|\bm{b}|=1$，二者夹角为$\pi/3$，求
-$$\limx{0}\df{|\bm{a}+x\bm{b}|-|\bm{a}|}{x}$$
+	\resizebox{12.5cm}{!}{\includegraphics{./images/ch8/abcd-briAn-2.jpg}}
+	
+	{\it 用纯代数方法求解，十分巧妙！}
+\end{center}
 
-2、已知$\bm{a},\bm{b}$均为非零向量，向量$\bm{a}+3\bm{b}$与$7\bm{a}-5\bm{b}$垂直，
-$\bm{a}-4\bm{b}$与$7\bm{a}-2\bm{b}$垂直，求$\bm{a}$和$\bm{b}$的夹角。
+{\bf 思考题}
 
-3、求过直线
-$$\left\{\begin{array}{l}
-	x+y=0\\
-	x-y=0
-\end{array}\right.$$
-且与平面$\pi:x-4y-8z+12=0$的夹角为$\pi/4$的平面方程。
+1.\;解：
+\begin{align*}
+	\limx{0}\df{|\bm{a}+x\bm{b}|-|\bm{a}|}{x}
+	&=\limx{0}\df{|\bm{a}+x\bm{b}|^2-|\bm{a}|^2}{x(|\bm{a}+x\bm{b}|+|\bm{a}|)}\\
+	&=\limx{0}\df{(\bm{a}+x\bm{b})\cdot(\bm{a}+x\bm{b})
+	-\bm{a}\cdot\bm{a}}{2x|\bm{a}|}\\
+	&=\limx{0}\df{2x\bm{a}\cdot\bm{b}+x^2|\bm{b}|^2}{2x|\bm{a}|}\\
+	&=\df{\bm{a}\cdot\bm{b}}{|\bm{a}|}=|\bm{b}|\cos\df{\pi}3=\df12
+\end{align*}
 
-4、叙述如何求空间曲线$$\left\{\begin{array}{l}
-F(x,y,z)=0\\ G(x,y,z)=0
-\end{array}\right.$$绕直线
-$$\df{x-a}m=\df{y-b}n=\df{z-c}p$$
-旋转一周所得曲面的方程。（要求：写出思路和大致的解题步骤）
+2.\;解：设$\bm{a},\bm{b}$的夹角为$\theta$，由已知，
+$$(\bm{a}+3\bm{b})\cdot(7\bm{a}-5\bm{b})=0,$$
+$$(\bm{a}-4\bm{b})\cdot(7\bm{a}-2\bm{b})=0,$$
+也即
+$$7|\bm{a}|^2-15|\bm{b}|^2+16|\bm{a}||\bm{b}|\cos\theta=0,$$
+$$7|\bm{a}|^2+8|\bm{b}|^2-30|\bm{a}||\bm{b}|\cos\theta=0.$$
 
-5、设柱面的母线平行于直线$x=y=z$，准线为$x+y-z=1,x-y+z=0$，求柱面的方程。
+由此可得
+$$|\bm{a}|^2=|\bm{b}|^2=2|\bm{a}||\bm{b}|\cos\theta,$$
+从而
+$$\cos\theta=\df12\quad\Rightarrow\quad\theta=\df{\pi}3.$$
 
-6、求母线平行于$x=y=z$，准线为
-$\left\{\begin{array}{l}
-	x^2+y^2+z^2=1\\ x+y+z=0
-\end{array}\right.$的柱面方程。
+3.解：过已知直线的平面束方程为
+$$\lambda(x+y)+\mu(x-y)=0,\quad(\lambda,\mu\in\mathbb{R})$$
+也即
+$$(\lambda+\mu)x+(\lambda-\mu)y=0,\quad(\lambda,\mu\in\mathbb{R})$$
+其法向量为$(\lambda+\mu,\lambda-\mu,0)$。根据已知，
+$$(\lambda+\mu,\lambda-\mu,0)\cdot(1,-4,-8)
+=9\sqrt{2(\lambda^2+\mu^2)}\cos\df{\pi}4=9\sqrt{(\lambda^2+\mu^2)},$$
+也即$8\lambda-15\mu=0$。令$\lambda=15,\mu=8$，带回平面束方程，化简即得
+$$36\left(\df{\lambda}{\mu}\right)^2+15\df{\lambda}{\mu}+28=0,$$
+该方程无解，故所求平面不存在。
 
-7、已知直线
-$$L_1:\left\{\begin{array}{l}
-	x+y+z+1=0\\
-	2x-y+3z+4=0
-\end{array}\right.
-\quad
-L_2:\left\{\begin{array}{l}
-	x=-1+2t\\
-	y=-t\quad(t\in\mathbb{R})\\
-	z=2-2t
-\end{array}\right.
+4.\;解：如图
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch8/randomRotate.pdf}}
+\end{center}
+
+设$P(x,y,z)$为所求曲面上任一点，由题意，必存在已知曲线上一点$Q(x_0,y_0,z_0)$，
+使得$P$恰处于$Q$绕已知曲线($L$)旋转所产生的轨迹上，有此可知$PQ$与$L$的方向向量
+垂直，也即
+$$m(x-x_0)+p(y-y_0)+q(z-z_0)=0.\eqno{(1)}$$
+
+由旋转曲面的性质，$P$和$Q$到$L$上任一点的距离相等，$M(a,b,c)$为$L$上一点，
+从而有
+$$(x-a)^2+(y-b)^2+(z-c)^2=(x_0-a)^2+(y_0-b)^2+(z_0-c)^2.\eqno{(2)}$$
+
+$Q$为已知曲线上一点，故满足
+$$F(x_0,y_0,z_0)=0,\eqno{(3)}$$
+$$G(x_0,y_0,z_0)=0.\eqno{(4)}$$
+
+以上方程(1)(2)(3)(4)联立，消去$x_0,y_0,z_0$即得所求曲面方程（关于$x,y,z$的方程）。
+
+5.\;解：设$P(x,y,z)$为所求柱面上一点，由题意，必存在母线上一点$Q(x_0,y_0,z_0)$，使得
+$P$位于$Q$沿准线运动所得轨迹上，从而可知$PQ$与$\bm{s_2}$平行，准线的方向向量为
+$\bm{s}_2=(0,1,1)$，故有
+$$\df{x-x_0}0=\df{y-y_0}1=\df{z-z_0}1.$$
+将该方程与母线方程
+$$x_0=y_0=z_0$$
+联立，消去$x_0,y_0,z_0$即得所求柱面方程
+$$y+z=2x.$$
+
+6.\;解：设$P(x,y,z)$为所求柱面上任一点。由柱面的几何特征，过$P$
+做直线平行于$x=y=z$，其必与准线有交点$Q(x_0,y_0,z_0)$。综合以上描述，
+显然有
 $$
-\begin{enumerate}[(1)]
-  \setlength{\itemindent}{1cm}
-  \item 证明两直线异面；
-  \item 求两直线间的距离；
-  \item 求二者的公垂线方程。
-\end{enumerate}
+	\left\{\begin{array}{l}
+		x_0^2+y_0^2+z_0^2=1\\
+		x_0+y_0+z_0=0\\
+		\df{x-x_0}1=\df{y-y_0}1=\df{z-z_0}1
+	\end{array}
+	\right.
+$$
+由此消去方程组中的$x_0,y_0,z_0$可得
+$$x^2+y^2+z^2-xy-yz-zx=\df32,$$
+即为所求。
+
+7.\;参考辅导书（上）P280-例5-16.
+
+8.\;解：如图
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch8/6Pi.pdf}}
+\end{center}
+
+记$\bm{s}_i=(a_i,b_i,c_i),i=1,2,3$。记已知的六个平面分别为
+$$\pi_{i\pm}:\;a_ix+b_iy+c_iz=\pm h_i,\;i=1,2,3.$$
+显然，所求体积
+$$V=|(\bm{s}_{12}\times\bm{s}_{23})\cdot\bm{s}_{31}|.$$
+设$\bm{s}_{12}$的起点和终点坐标分别为$(x_1,y_1,z_1),(x_2,y_2,z_2)$，则必有
+$$
+	\left\{\begin{array}{l}
+		a_1x_1+b_1y_1+c_1z_1=h_1\\
+		a_2x_1+b_2y_1+c_2z_1=h_2\\
+		a_3x_1+b_3y_1+c_3z_1=-h_3
+	\end{array}\right.
+	\quad\quad\quad
+	\left\{\begin{array}{l}
+		a_1x_2+b_1y_2+c_1z_2=h_1\\
+		a_2x_2+b_2y_2+c_2z_2=h_2\\
+		a_3x_2+b_3y_2+c_3z_2=h_3
+	\end{array}\right.
+$$
+从而
+$$
+	\left\{\begin{array}{l}
+		a_1(x_2-x_1)+b_1(y_2-y_1)+c_1(z_2-z_1)=0\\
+		a_2(x_2-x_1)+b_2(y_2-y_1)+c_2(z_2-z_1)=0\\
+		a_3(x_2-x_1)+b_3(y_2-y_1)+c_3(z_2-z_1)=2h_3
+	\end{array}\right.
+$$
+由此可解得
+\begin{align*}
+	\bm{s}_{12}&=(x_2-x_1,y_2-y_1,z_2-z_1)\\
+	&=\df1{\Delta}\left(
+		\left|\begin{array}{ccc}
+			0 & b_1 & c_1\\ 0 & b_2 & c_2 \\ 2h_3 & b_3 & c_3
+		\end{array}\right|,
+		\left|\begin{array}{ccc}
+			a_1 & 0 & c_1\\ a_2 & 0 & c_2 \\ a_3 & 2h_3 & c_3
+		\end{array}\right|,
+		\left|\begin{array}{ccc}
+			a_1 & b_1 & 0\\ a_2 & b_2 & 0 \\ a_3 & b_3 & 2h_3
+		\end{array}\right|
+	\right)\\
+	&=\df{2h_3}{\Delta}\left(
+		\left|\begin{array}{cc}
+			b_1 & c_1 \\ b_2 & c_2
+		\end{array}\right|,
+		-\left|\begin{array}{cc}
+			a_1 & c_1 \\ a_2 & c_2
+		\end{array}\right|,
+		\left|\begin{array}{cc}
+			b_1 & b_1 \\ a_2 & b_2
+		\end{array}\right|
+	\right)\\
+	&=\df{2h_3}{\Delta}\left|\begin{array}{ccc}
+		\bm{i} & \bm{j} & \bm{k} \\
+		a_1 & b_1 & c_1 \\
+		a_2 & b_2 & c_2
+	\end{array}\right|
+	=\df{2h_3}{\Delta}(\bm{s_1}\times\bm{s}_2)
+\end{align*}
+同理，可得
+$$\bm{s}_{23}=\df{2h_1}{\Delta}(\bm{s}_2\times\bm{s}_3),\quad
+\bm{s}_{31}=\df{2h_2}{\Delta}(\bm{s}_3\times\bm{s}_1).$$
+故所求体积
+\begin{align*}
+	V&=|(\bm{s}_{12}\times\bm{s}_{23})\cdot\bm{s}_{31}|\\
+	&=\df{8|h_1h_2h_3|}{|\Delta|^3}|[(\bm{s}_1\times\bm{s}_2)\times(\bm{s}_2\times\bm{s}_3)]
+	\cdot(\bm{s}_3\times\bm{s}_1)|\\
+	&=\df{8|h_1h_2h_3|}{|\Delta|^3}
+	\left|[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3]^2\right|
+	=\df{8|h_1h_2h_3|}{|\Delta|^3}\Delta^2\\
+	&=\df{8|h_1h_2h_3|}{|\Delta|}
+\end{align*}
+
+
+\begin{shaded}
+	{\bf 命题：}$\bm{s}_1,\bm{s}_2,\bm{s}_3\in\mathbb{R}^3$，则：
+	$\left[(\bm{s}_1\times\bm{s}_2)\times(\bm{s}_2\times\bm{s}_3)\right]
+	\cdot(\bm{s}_3\times\bm{s}_1)=
+	\left[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3\right]^2$
+	
+	证：利用三维向量的坐标表示可以证明
+	$$\bm{s}_1\times(\bm{s}_2\times\bm{s}_3)
+	=(\bm{s}_1\cdot\bm{s}_3)\bm{s}_2
+	-(\bm{s}_1\cdot\bm{s}_2)\bm{s}_3,$$
+	故
+	$$(\bm{s}_1\times\bm{s}_2)\times(\bm{s}_2\times\bm{s}_3)
+	=[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3]\bm{s}_2
+	-[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_2]\bm{s}_3
+	=[(\bm{s}_1\times\bm{s}_2)\cdot\bm{s}_3]\bm{s}_2$$
+	由此结论易证。
+\end{shaded}
+
+\ifvisible
 
 \newpage
 

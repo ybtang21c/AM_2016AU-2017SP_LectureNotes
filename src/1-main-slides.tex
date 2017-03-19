@@ -8,7 +8,7 @@
 %option: red, brown, blue
 % \documentclass[14pt,mathserif]{beamer}
 % \documentclass[14pt]{beamer}
-\documentclass[usepdftitle=false, 14pt]{beamer}
+\documentclass[usepdftitle=false, 14pt, handout]{beamer}
 
 \usepackage{amsmath,amsfonts,amssymb,amsthm,bm}
 % \usepackage{txfonts} %another style of math fonts
@@ -60,8 +60,8 @@
 
 %============beamer theme setting #2============
 \mode<presentation>{
-	\usetheme{Copenhagen} %Copenhagen, Warsaw, CambridgeUS
-  	\usecolortheme{seahorse} %rose, seahorse, lily, crane
+	\usetheme{CambridgeUS} %Copenhagen, Warsaw, CambridgeUS
+  	\usecolortheme{crane} %rose, seahorse, lily, crane
   	\usefonttheme{serif}
   	\usefonttheme{structurebold}
   	\useoutertheme{infolines}
@@ -135,54 +135,17 @@
 %===============title setting====================
 
 \title{Advanced Mathematics II}
-\author[NUDT]{唐扬斌\\
+\author[ybtang@nudt.edu.cn]{唐扬斌\\
 \texttt{\small ybtang21c@gmail.com\\tangyangbin@gfkd.mtn\\CP: 18374857376}}
 \institute[NUDT]{National University of Defense Technology}
-\date[Spring 2016]{Spring 2016}
+\date[Spring 2017]{Spring 2017}
 
 %===============document begins here==============
 
 \begin{document}
 
-%L-1.tex：2010秋季学期考试讲评
-%L01.tex：常微分方程的概念与一阶微分方程的解法
-%L04-Ch07-1orderDE-HW：一阶微分方程求解的课堂思考题
-%L02.tex：二阶微分方程的解法
-%L03_ch7ex1.tex：常微分方程习题课
-%L04.tex：向量运算与空间直线、平面的方程
-%L05.tex：空间平面与直线
-%L05-Ch08-ex1.tex
-%L06.tex：空间曲面
-%L07.tex：空间曲线
-%L08_ch8ex2.tex：空间曲面与曲线习题课
-%L09.tex：向量值函数
-%L10.tex：多元函数极限、连续与偏导数
-%L11.tex：全微分与复合函数求导
-%L12.tex：多元复合函数与隐函数的偏导数
-%L13_ch9ex1：多元函数的偏导数习题课
-%L14.tex：方向导数与梯度、Hessian矩阵及Taylor公式
-%L15.tex：多元函数的极值与条件极值
-%L16_ch10ex2.tex：多元函数微分的应用
-%L16_ch10ex3.tex：多元函数微分学及其应用（All）
-%L17.tex：重积分的概念与性质
-%L18.tex：重积分的计算
-%L19.tex：坐标变换与重积分的计算
-%L20.tex：重积分的应用
-%L21.tex：重积分习题课
-%L22.tex：曲线积分
-%L23.tex：Green公式与保守场
-%L24.tex：曲面积分
-%L25.tex：Gauss公式与Stokes公式
-%L26_ch12ex.tex：曲线与曲面积分习题课
-% L26_ch12ex-1.tex：曲线与曲面积分习题课，2016春
-%L27_ch12ex.tex：对称性在积分计算中的应用
-%L28.tex：幂级数及其应用
-%L29.tex：Fourier级数
-%L30.tex：《高等数学(下)》复习
 
-%fontTest.tex：各种字体的演示
-
-%    \input{L21.tex}
-   \input{Ch07-ex-slides.tex} %常微分方程习题课
+%    \input{Ch07-ex-slides.tex} %常微分方程习题课
+   \input{Ch08-ex1-slides.tex} %常微分方程习题课
 
 \end{document}

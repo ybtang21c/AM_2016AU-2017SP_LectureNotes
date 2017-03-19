@@ -864,3 +864,28 @@ $I_2=\dint_1^Xe^{-x}x^{s-1}\d x$为定积分。
 
 % {\bf 例：}$a>0,c\in(0,e^a)$，证明：
 % $$\dint_0^a|e^x-c|\dx\geq(e^{\frac a2}-1)^2$$
+
+\newpage
+
+\section*{习题参考解答}
+\addcontentsline{toc}{section}{习题参考解答}
+
+{\bf 习题6.5-8.} 长度为$l$的细杆，均匀带电，总电量为$q\,(q<0)$，若在杆的延长线上，
+距离杆一端$x_0$处有一单位正电荷。现将单位正电荷从$x_0$处移动到无穷远，试求克服
+电场力所作的功。
+
+解：如图，
+\begin{center}
+	\resizebox{!}{2cm}{\includegraphics{./images/ch6/eMove.pdf}}
+\end{center}
+
+当单位正电荷位于$x(x>l)$处时，细杆上位置$t$处长度为$\d t$的一段对其产生的电场（吸引）力为
+$$\d F=\df{kq\d t}{l(x-t)^2},\quad t\in[0,l]$$
+故此时单位正电荷所受的总电场力为
+$$F=\dint_0^l\df{kq\d t}{l(x-t)^2}=\df{kq}l\left(\df1{x-l}-\df1x\right).$$
+克服该力的作用，单位正电荷向远处移动$\d x$，需要做的功为
+$$\d W=F\d x=\df{kq}l\left(\df1{x-l}-\df1x\right)\d x,
+\quad x\in[l+x_0,+\infty)$$
+故所求克服电场力所需做的总功为
+$$W=\dint_{l+x_0}^{+\infty}\df{kq}l\left(\df1{x-l}-\df1x\right)\d x
+=\df{kq}l\ln\left(1+\df{l}{x_0}\right).$$
