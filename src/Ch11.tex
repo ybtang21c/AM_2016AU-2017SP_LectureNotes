@@ -1,23 +1,28 @@
 \setcounter{chapter}{10}
 
-\chapter{重积分（{\it 及其应用}）}
+\chapter{重积分及其应用}
 
-{\it （多）重积分就是多元函数的积分，就好像多重极限就是多元函数的极限一样}
+（多）重积分就是多元函数的积分，就好像多重极限就是多元函数的极限一样。然而，正如我们发现
+多元函数的微分学比一元函数微分学要繁复得多一样，重积分带来的“麻烦”也可能会比简单想象起来
+要多得多。
 
-\begin{description}
-	\item[{\bf 二重积分：}] 
-		$$\iint_Df(x,y)\d\sigma$$ 
-	\item[{\bf 三重积分：}] 
-		$$\iiint_{\Omega}f(x,y,z)\d V$$ 
-\end{description}
+现代数学中，出现了“数学技术”一词\ps{据说是国内某位数学家的发明}，大意是数学用于分析
+和解决问题的手段常常也会体现出技术的味道，甚至有时本质上就是技术性的（例如一些构造性
+很强的方法），而不必或者说不会去关心理论的严谨和完备，通过本章的学习相信很多人会对此有所体会。
 
-{\bf Keyword：}积分区域、被积函数、面积（体积）微元
+% \begin{description}
+% 	\item[{\bf 二重积分：}] 
+% 		$$\iint_Df(x,y)\d\sigma$$ 
+% 	\item[{\bf 三重积分：}] 
+% 		$$\iiint_{\Omega}f(x,y,z)\d V$$
+% \end{description}
+
+% {\bf Keyword：}积分区域、被积函数、面积（体积）微元
 
 \section{概念与性质}
 
-{\bf Insight：}{\it “分割取近似，做和求极限”}
-
-{\bf P176-例：}求立体体积
+{\bf 例：}求如下立体的体积\ps{很多时候，完全可以把重积分看作是定积分的一种应用，
+事实上，从方法的角度来看，完全可以这么说}
 $$\Omega:0\leq x\leq 1,0\leq y\leq 1,0\leq z\leq 3-x^2-y^2$$
 
 \begin{center}
@@ -27,22 +32,24 @@ $$\Omega:0\leq x\leq 1,0\leq y\leq 1,0\leq z\leq 3-x^2-y^2$$
 	\resizebox{!}{4.2cm}{\includegraphics{./images/ch11/volX.pdf}}
 \end{center}
 
-{\bf 微元法：}体积微元
-$$dV=S(x)dx$$
-截面积：
-$$S(x)=\dint_0^1(3-x^2-y^2)dy=\df 83-x^2$$
-$$V=\dint_0^1S(x)dx=\df 73$$
+[解]：如图，垂直于$x$轴切割该立体，则体积微元
+$$\d V=S(x)\d x,\quad x\in([0,1]$$
+其中截面积：
+$$S(x)=\dint_0^1(3-x^2-y^2)\d y=\df 83-x^2,\quad x\in([0,1]$$
 
-{\bf 例}（立体的质量）设以上$\Omega$内部任一点$(x,y,z)$处的密度为$\rho=1+z$，
+故所求体积
+$$V=\dint_0^1S(x)\d x=\df 73$$
+
+对于这类体积问题，看来使用定积分是完全可以的。然而，如果是下面的问题：
+
+{\bf 例：}设以上$\Omega$内部任一点$(x,y,z)$处的密度为$\rho=1+z$，
 求$\Omega$的质量。
 
-{\bf 微元法：}体积微元
-$$dV=S(x)dx$$
-截面积：
-$$S(x)=\dint_0^1(3-x^2-y^2)dy=\df 83-x^2$$
-$$V=\dint_0^1S(x)dx=\df 73$$
+[分析]：因为$\Omega$是“处处不均匀”的，因此简单由以上的方法就很难求得所要的结果了。
 
-{\bf 定义：}
+
+{\bf 定义：}{\it “分割取近似，做和求极限”}
+\ps{通过与定积分的类比，理解、记忆重积分的概念与性质}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item {\bf 二重积分：} 
@@ -53,80 +60,101 @@ $$V=\dint_0^1S(x)dx=\df 73$$
   0}\sum_{i=1}^nf(\xi_i,\eta_i,\zeta_i)\Delta V_i$$
 \end{enumerate}
 
-{\bf 基本性质：}
+{\bf 基本性质：}\ps{以二重积分为例，但类似的性质同样适用于任意维度的积分}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item {\bf 线性性} 
-  \item {\bf 区域可加性} 
-  \item {\bf 保号性I：} 若在$D$上，$f(x,y)\geq 0$，则
+  \item {\it 线性性}：线性运算可以和重积分交换次序 
+  \item {\it 区域可加性} ：两个不相重叠的趋于上的重积分的和
+  等于这个区域的并集上的重积分
+  \item {\it 保号性I：} 若在$D$上，$f(x,y)\geq 0$，则
   $$\iint_Df(x,y)\d\sigma\geq 0$$ 
-  \item {\bf 保号性II：} 若$f(x,y)$在$D$上连续，则
+  即：重积分不改变不等号的方向！
+  \item {\it 保号性II：} 若$f(x,y)$在$D$上连续，则
   $$\iint_Df(x,y)\d\sigma=0$$
   当且仅当在$D$上恒有$f(x,y)=0$
     \begin{itemize}
 	  \item 若在$D$上，$f(x,y)\leq g(x,y)$，则
 	  $$\iint_Df(x,y)\d\sigma\leq\iint_Dg(x,y)\d\sigma$$ 
-	  \item $$\left|\iint_Df(x,y)\d\sigma\right|\leq\iint_D|f(x,y)|\d\sigma$$ 
+	  \item 推论
+	  $$\left|\iint_Df(x,y)\d\sigma\right|\leq\iint_D|f(x,y)|\d\sigma$$ 
 	  \item 设$M,m$分别为$f(x,y)$在$D$上的最大和最小值，$D$的面积为$A$，则
 	  $$mA\leq\iint_Df(x,y)\d\sigma\leq MA$$
 	\end{itemize}
-  \item {\bf 积分中值定理：}设函数$f(x,y)$在有界闭区域$D$上连续非负，$D$的面积为$A$，则存在
+  \item {\it 积分中值定理：}设函数$f(x,y)$在有界闭区域$D$上连续非负，$D$的面积为$A$，则存在
 	$(\xi,\eta)\in D$，使得
 	$$\iint_Df(x,y)\d\sigma=f(\xi,\eta)A$$
+  即：有界闭区域上的重积分存在均值点
 \end{enumerate}
-
-{\bf 注：通过与定积分的类比，理解、记忆重积分的概念与性质}
 
 \section{重积分的计算}
 
-{\bf Keyword：}积分次序
+% {\bf Keyword：}积分次序
+
+重积分的概念实际上给了我们一种进行重积分数值计算（近似计算）的方法，与本节所
+介绍的重积分的计算方法并无太大关联。如果说在现代科学中计算与数学已经成为并立
+的两大领域，那么重积分的概念与计算也具有这样的关系。
+
+重积分的计算，或者说从代数的角度计算重积分（从而得到精确的代数表示或数值结果），
+我们的基本思路是将其转化为一系列相关联（更准确地说，是相互嵌套）的定积分，
+然后分步加以处理。因此，其实质还是用定积分来解决问题，只是问题本身的维度更高了。
+
+也正因为如此，接下来的内容是具有较强“技术性”的。
 
 \subsection{二重积分}
 
-$${\iint_Df(x,y)\d\sigma=\lim_{d(T)\to
-  0}\sum_{i=1}^nf(\xi_i,\eta_i)\Delta\sigma_i}$$
- 令$\d\sigma=\d y\d x$\ps{相当于对积分区域进行水平和竖直的分割}， 且
+$$\iint_Df(x,y)\d\sigma
+% =\lim_{d(T)\to0}\sum_{i=1}^nf(\xi_i,\eta_i)\Delta\sigma_i
+$$
+
+从抽象形式上看，如果对积分区域采用平行于$x$轴和$y$轴的直线进行分割，则可以记
+面积微元
+$$\d\sigma=\d y\d x,$$
+其中$\d x$和$\d y$可视为直线间的水平和垂直间距对应的微元（因为分割足够细密）。
+
+另一方面，积分区域可以表示为
 $$D=\{x_1\leq x\leq x_2,\varphi_1(x)\leq y\leq \varphi_2(x)\}$$
- 则二重积分可化为{\bf 累次积分：}
+则二重积分可化为如下的{\it 累次积分：}
 $${\iint_Df(x,y)\d\sigma=\int_{x_1}^{x_2}
 \int_{\varphi_1(x)}^{\varphi_2(x)}f(x,y)\d y\d x}$$
+累次积分本质上就是多个定积分的嵌套，计算时按照从内至外的次序进行。
 
-{\bf 计算步骤：}
-
-\begin{enumerate}
+{\bf 注：}重积分计算的一般步骤
+\begin{enumerate}[Step-1]
   \setlength{\itemindent}{1cm}
-  \item {\bf 画图：}描绘积分区域$D$的图形 
-  \item {\bf 定限：}确定累次积分的积分限 
-  \item {\bf 求积分：}依次计算累次积分的值 
+  \item {\it 画图：}描绘积分区域$D$的图形 
+  \item {\it 定限：}确定累次积分的积分限\ps{定限是重积分计算中的关键点！}
+  \item {\it 求积分：}依次计算累次积分的值 
 \end{enumerate}
 
 {\bf 积分区域与累次积分的次序：}
-将二重积分化为累次积分时，不同的积分次序，对应于不同的积分区域表示方法
+将二重积分化为累次积分时，不同的积分次序，对应于不同的积分区域表示方法；或者也可以
+说，不同的积分区域表示方法，决定了最终的积分次序。
 
-{\bf P187-例1：}计算
+{\bf 教材-例1：}计算
 $$\iint_Dxy\d\sigma,$$
 其中$D$为抛物线$y=x^2$和$x=y^2$所围区域。
 
 \begin{itemize}
+  \setlength{\itemindent}{1cm}
   \item {先$x$后$y$：}$D:y^2\leq x\leq\sqrt y,\,0\leq y\leq 1$ 
   \item {先$y$后$x$：}$D:x^2\leq y\leq\sqrt x,\,0\leq x\leq 1$
 \end{itemize}
 
-{\bf P187-例2：}计算
+{\bf 教材-例2：}计算
 $$\iint_D\df{x^2}{y^2}\d\sigma,$$
 其中$D$由直线$y=2,\,y=x$和$xy=1$围成。
 
 {\bf 注：}合理选择积分次序，简化累次积分的计算
 
-{\bf P188-例3：}计算
+{\bf 教材-例3：}计算
 $$\iint_D\df{\sin y}{y}\d\sigma,$$
 其中$D$由$x=y^2$和$y=x$所围成。
 
-{\bf P190-例5：}计算累次积分
+{\bf 教材-例5：}计算累次积分
 $$I=\int_{1/4}^{1/2}\int_{1/2}^{\sqrt y}e^{y/x}\d x\d y+
 \int_{1/2}^1\int_y^{\sqrt y}e^{y/x}\d x\d y$$
 
-{\bf P189-例4：}求两柱面$x^2+y^2=R^2,\, x^2+z^2=R^2$
+{\bf 教材-例4：}求两柱面$x^2+y^2=R^2,\, x^2+z^2=R^2$
 相交所围成的立体体积。
 
 \begin{center}
@@ -136,6 +164,11 @@ $$I=\int_{1/4}^{1/2}\int_{1/2}^{\sqrt y}e^{y/x}\d x\d y+
 \subsection{三重积分}
 
 $${I=\iiint_{\Omega}f(x,y,z)\d V}$$
+
+如果说二重积分的计算思路是把“$2$”化成“$1+1$”形式的定积分，那么三重积分显然就应该
+是先将“$3$”化成“$1+2$”或者“$2+1$”，然后将其中的$2$分解为“$1+1$”，最终得到
+可以分步加以计算的“$1+1+1$”。
+
 \begin{enumerate}
   \item {\bf 微元法（投影法）：}
   $$I=\iint_D\int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)\d z\d\sigma$$
@@ -155,7 +188,7 @@ $$\Omega=\{z_1(x,y)\leq z\leq z_2(x,y), (x,y)\in D\}$$
 $${I=\iiint_{\Omega}f(x,y,z)\d
 V=\iint_D\int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)\d z\d\sigma}$$
 
-{\bf P193-例7：}计算三重积分
+{\bf 教材-例7：}计算三重积分
 $$I=\iiint_{\Omega}\df 1{(1+x+y+z)^3}\d V,$$
 其中$\Omega$为平面$x+y+z=1$与三个坐标面所围成的空间区域。
 
@@ -176,13 +209,14 @@ V=\int_{z_1}^{z_2}\iint_{D(z)}f(x,y,z)\d\sigma \d z}$$
 $$I=\iiint_{\Omega}z^2\d V,$$
 其中$\Omega:\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}\leq 1$。
 
-{\bf 注：}如果被积函数只与$z$有关，用截面法会比较容易计算。
+{\bf 注：}{\b 如果被积函数只与$z$（或者，准确地说，只与一个变量）有关，
+推荐使用截面法！}
 
-{\bf P194-例8：}将三重积分
+{\bf 教材-例8：}将三重积分
 $$I=\iiint_{\Omega}f(x,y,z)\d V,$$
 化为累次积分，其中$\Omega$为曲面$z=1-x,y=1-z^2$及三个坐标平面所围空间闭区域。
 
-{\bf P195-例9：}计算三重积分
+{\bf 教材-例9：}计算三重积分
 $$I=\iiint_{\Omega}(x+y+2z)\d V,$$
 其中$\Omega$为球体$x^2+y^2+z^2\leq R^2\,(R>0)$在第一卦限中的部分。
 
@@ -219,7 +253,7 @@ $$\iint_D(x^2+y^2)\d x\d y,$$
 其中$D$由圆$x^2+y^2=2y,\,x^2+y^2=4y$及直线
 $x=\sqrt 3y,\,y=\sqrt 3x$围成。
 
-{\bf P202-例1：}计算二重积分
+{\bf 教材-例1：}计算二重积分
 $$\iint_D\arctan\df yx\d\sigma,$$
 其中$D$为双扭线
 $$(x^2+y^2)^2=a^2(x^2-y^2)\;(a>0)$$
@@ -232,17 +266,43 @@ $$(x^2+y^2)^2=a^2(x^2-y^2)\;(a>0)$$
 	\resizebox{!}{5cm}{\includegraphics{./images/ch10/viviani.pdf}}
 \end{center}
 
-{\bf P203-例2：}计算椭圆抛物面$z=x^2+2y^2$与抛物柱面$z=2-x^2$所围成
+{\bf 教材-例2：}计算椭圆抛物面$z=x^2+2y^2$与抛物柱面$z=2-x^2$所围成
 的立体体积。
 
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch11/ub.pdf}}
 \end{center}
 
-{\bf P204-例4：}计算
+{\bf 教材-例4：}计算
 $$\iint_De^{-x^2-y^2}\d x\d y,$$
 其中$D:x^2+y^2\leq a^2$。利用该计算结果求
 $$\dint_{-\infty}^{+\infty}e^{-x^2}\d x.$$
+
+\begin{shaded}
+	{\bf 一般形式的坐标变换与重积分}
+	
+	设$f(x,y)$在区域$D\subset\mathbb{R}^2(x,y)$上连续，坐标变换
+	$$T:\;x=x(u,v),\;y=y(u,v)$$
+	满足：
+	\begin{enumerate}[(1)]
+	  \item $T$将区域$D'\subset\mathbb{R}^2(u,v)$一一映射为$D$
+	  \item $x(u,v),y(u,v)$在$D'$上一阶偏导连续
+	  \item 对任意$(u,v)\in D'$，总有
+	  $$J(u,v)=\df{\p(x,y)}{\p(u,v)}=\left|\begin{array}{cc}
+	  	x'_u & x'_v \\ y'_u & y'_v
+	  \end{array}\right|\ne 0$$
+	\end{enumerate}
+	则
+	$$\iint_Df(x,y)\d x\d y=\iint_{D'}f[x(u,v),y(u,v)]|J(u,v)|\d u\d v$$
+	
+	{\bf 注：}关于Jacobi行列式，具有如下的性质
+	$$\left|\begin{array}{cc}
+	  	x'_u & x'_v \\ y'_u & y'_v
+	  \end{array}\right|
+	  =\left|\begin{array}{cc}
+	  	u'_x & u'_y \\ v'_x & v'_y
+	  \end{array}\right|^{-1}$$
+\end{shaded}
 
 \subsection{三重积分与柱坐标}
 
@@ -275,7 +335,7 @@ $$\theta_1\leq\theta\leq\theta_2,\;
 \rho_1(\theta)\leq\rho\leq\rho_2(\theta),\;
 z_1(\rho,\theta)\leq z\leq z_2(\rho,\theta)$$
 
-{\bf P209-例6：}计算三重积分
+{\bf 教材-例6：}计算三重积分
 $$\iiint_{\Omega}z\sqrt{x^2+y^2}\d V,$$
 其中$\Omega$为柱面$x^2+y^2=2x\,(y>0)$与平面
 $z=0,\,z=h\,(h>0)$所围立体。
@@ -302,11 +362,11 @@ $$x=r\sin\varphi\cos\theta,\;y=r\sin\varphi\sin\theta,\;z=r\cos\varphi
 
 $$\d V=r^2\sin\varphi \d r\d\theta \d\varphi$$
 
-{\bf P211-例7：}计算三重积分
+{\bf 教材-例7：}计算三重积分
 $$\iiint_{\Omega}(x^2+y^2+z^2)\d V,$$
 其中$\Omega$由$z=\sqrt{x^2+y^2}$与$x^2+y^2+z^2=R^2$所围成。
 
-{\bf P212-例8：}计算三重积分
+{\bf 教材-例8：}计算三重积分
 $$\iiint_{\Omega}(x^2+y^2)\d V,$$
 其中$\Omega$由$x^2+y^2+z^2=2az$与$x^2+y^2+z^2=2bz$所围成$(0<a<b)$。
 
@@ -335,7 +395,7 @@ $${\bar{x}=\df{\displaystyle\iint_Dx\mu(x,y)\d\sigma}
 {\bar{y}=\df{\displaystyle\iint_Dy\mu(x,y)\d\sigma}
 {\displaystyle\iint_D\mu(x,y)\d\sigma}}$$
 
-{\bf P222-例2}
+{\bf 教材-例2}
 设半径为$R$的半圆形薄片上每一点的面密度与该点到圆心的距离成正比，
 求该薄片的质心。
 
@@ -347,7 +407,7 @@ $$\bar{x}=\df{\displaystyle\iiint_{\Omega}x\mu(x,y,z)\d V}
 $${\bar{z}=\df{\displaystyle\iiint_{\Omega}z\mu(x,y,z)dV}
 {\displaystyle\iiint_{\Omega}\mu(x,y,z)dV}}
 $$
-{\bf P223-例3：}求均匀半球壳$\Omega:a^2\leq x^2+y^2+z^2\leq b^2$
+{\bf 教材-例3：}求均匀半球壳$\Omega:a^2\leq x^2+y^2+z^2\leq b^2$
 的形心。
 
 \subsection{转动惯量}
@@ -361,9 +421,9 @@ $$
 {\bf 空间物体绕$z$轴旋转：}密度函数$\mu(x,y,z),(x,y,z)\in\Omega$
 $${I=\iiint_{\Omega}(x^2+y^2)\mu(x,y,z)\d V}$$
 
-{P225-例7：}求半径为$R$的均匀半圆形薄片绕其平分线转动的转动惯量和旋转半径。
+{教材-例7：}求半径为$R$的均匀半圆形薄片绕其平分线转动的转动惯量和旋转半径。
 
-{P225-例8：}(平行轴定理)设$L_c$为通过物体$\Omega$质心的直线，直线$L_t$平行于$L_c$，
+{教材-例8：}(平行轴定理)设$L_c$为通过物体$\Omega$质心的直线，直线$L_t$平行于$L_c$，
 两者距离为$d$。试证：$\Omega$关于轴$L_t$的转动惯量$I_t$与物体关于轴
 $L_c$的转动惯量$I_c$之间存在关系如下：
 $$I_t=I_c+Md\,^2,$$
@@ -377,7 +437,7 @@ $${F_x=\iiint_{\Omega}Km\mu\df{x-a}{r^3}\d V,} $$
 $${F_y=\iiint_{\Omega}Km\mu\df{y-b}{r^3}\d V,} $$
 $${F_z=\iiint_{\Omega}Km\mu\df{z-c}{r^3}\d V} $$
 
-{\bf P227-例9：}求高为$H$，底半径为$R$且密度均匀的圆柱体，对其底面中心
+{\bf 教材-例9：}求高为$H$，底半径为$R$且密度均匀的圆柱体，对其底面中心
 一单位质量质点的引力。
 
 \begin{center}
@@ -547,47 +607,51 @@ $${\Gamma(\alpha)=\dint_0^{+\infty}x^{\alpha-1}e^{-x}dx,\;(\alpha>0)}$$
 
 $${V_n=\df{2\pi^{n/2}}{n\Gamma(n/2)}}$$
 
+\section{小结}
+
+这是充满“技术”的一章，而不是很偏重理论的一章，重点是掌握各种计算二重、三重积分的方法，
+正确地加以运用。
+
+本质上，重积分与定积分在概念上没有什么不同，都遵从“分割取近似，做和求极限”的思想来构造，
+所不同的是，在计算的过程中，需要巧妙地将重积分分解成一系列相互嵌套的定积分，而这种分解
+成功的关键，是正确给定每个积分变量的积分区间，或者说，定限。
+
+定限，从技术上说，存在两种看起来截然不同的思路，一种依赖于对图形的分析，这时能够正确地
+作图就显得很重要了，另一种则几乎是纯“代数”的，从已知的不等式出发，逐步分解（分析）出每个变量
+的变化范围，这种情况下，正确描述出各变量变化范围的依存关系既是解题的关键，也是难点。
+
+至于积分的计算，是一个容易被忽视，却常常成为无法求得结果的主要障碍的问题。从这个意义上
+说，重积分计算的技术很大程度上还是要依赖于对定积分的掌握，事实上，本学期大多数的章节都
+可以看到一元函数微积分的影子，这一点对于我们更深入地理解整个高等数学的知识体系其实也是
+至关重要的。
+
+接下来，进入曲线和曲面积分前，请不要忘记这样的思想，它会是我们真正克服各种理解障碍的有力
+工具。
+
 \newpage
 
 \section*{课后作业}
+\addcontentsline{toc}{section}{课后作业}
 
-{\bf 【基本题】}
-
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item 习题11.1：1，7
-  \item 习题11.2：1(3,4)，3(1,3)，6(2,3)，9，10，13，15
-  \item 习题11.3：1，4，12，16
-  \item 习题11.4：1，2，4
-\end{itemize}
-
-{\bf 【上交题】}
+{\bf 【必作题】}
 
 \begin{itemize}
   \setlength{\itemindent}{1cm}
-  \item 习题11.1：10
-  \item 习题11.2：4(2,3)，5，7(1)，11，17，19，24
-  \item 习题11.3：5(2)，7，10，13，14，19
-  \item 习题11.4：6，7，10，12，14，15，16
+  \item 习题11.1：7，10
+  \item 习题11.2：1(3,4)，4(2,3)，5，6(2)，7(1)，9，11，13(1)，15(2)，17，19，24
+  \item 习题11.3：3(3)，7(3,4)，8(2)，10，11(3,4)，12，13，14，16，19
+  \item 习题11.4：2，4，7，8，12，14，15
 \end{itemize}
-
-{\bf 【思考题】}
-
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item 习题11.2：7(2,3)，12，16，22，25
-  \item 习题11.3：15，18
-\end{itemize}
-
-\newpage
-
-{\Large\bf 第11章习题课作业}
-
-{\it （请抄题）}
 
 \bigskip
 
-1、改变下列累次积分的次序
+\hrule
+
+\bigskip
+
+{\bf 【思考题】}
+
+1、改变下列累次积分的次序\ps{常见考点}
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item $\dint_0^{2a}\dint_{\sqrt{2ax-x^2}}^{\sqrt{2ax}}
@@ -595,35 +659,31 @@ $${V_n=\df{2\pi^{n/2}}{n\Gamma(n/2)}}$$
   \item $\dint_0^{2\pi}\dint_0^{\sin x}f(x,y)\d y\d x$
 \end{enumerate}
 
-2、设$f(x)$在$[a,b]$上单调递增且恒非负，证明
+2、设$f(x)$在$[a,b]$上单调递增且恒非负，证明\ps{参考Cauchy-Schwarz不等式的证明}
 $${\dint_a^b xf\,^2(x)\d x}{\dint_a^b f(x)\d x}\geq
 {\dint_a^b f\,^2(x)\d x}{\dint_a^b xf(x)\d x}$$
 
-3、设$f(x)$可微，$f(0)=0,\,f\,'(0)=1$，求
-$$\lim\limits_{t\to 0^+}\df 1{\pi t^3}
+3、设$f(x)$可微，$f(0)=0,\,f\,'(0)=1$，求\ps{常考的类型}
+$\lim\limits_{t\to 0^+}\df 1{\pi t^3}
 \iint_{x^2+y^2\leq t^2}f\left(
-\sqrt{x^2+y^2}\right)\d x\d y$$
+\sqrt{x^2+y^2}\right)\d x\d y$
 
-4、计算二重积分$\ds\iint_D xy\d\sigma$，其中$D$由$xy=1,xy=2,y=x,y=4x$围成。 
+4、计算二重积分$\ds\iint_D xy\d\sigma$，其中$D$由$xy=1,xy=2,y=x,y=4x$围成。
+\ps{利用一般的坐标变换计算重积分} 
 
-5、设$f(z)$连续，证明：
+5、设$f(z)$连续，证明：\ps{常见类型}
 $$\iiint_{x^2+y^2+z^2\leq 1}f(z)\d V=\pi\dint_{-1}^1f(u)(1-u^2)\d u$$
 
-6、按先$x$后$z$后$y$的积分次序重写累次积分
+6、按先$x$后$z$后$y$的积分次序重写累次积分\ps{三重积分定限练手的好题目}
 $$\dint_0^1\dint_0^x\dint_0^{xy}f(x,y,z)\d z\d y\d x$$
 
-7、计算积分
+7、计算积分\ps{注意对称性的应用！}
 $$\iiint_{\Omega}(x+y+z)^2\d V,$$
 其中$\Omega:\;\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}\leq 1$。
-\quad{\it （提示：由对称性，原式$=\ds\iiint_{\Omega}(x^2+y^2+z^2)\d V$）}
+% \quad{\it （提示：由对称性，原式$=\ds\iiint_{\Omega}(x^2+y^2+z^2)\d V$）}
 
-\bigskip
-
-{\bf 以下题目选作：}
-
-\bigskip
-
-8、计算由以下平面所围成的立体体积：
+8、计算由以下平面所围成的立体体积：\ps{利用一般的坐标变换计算重积分，相对于纯的几何方法
+——参见第八章——可展示出极大的简便性！}
 $$a_ix+b_iy+c_iz=\pm h_i,\;i=1,2,3,$$
 其中：$a_i,b_i,c_i(i=1,2,3)$为常数，且
 $$\Delta=\left|\begin{array}{ccc}
@@ -632,14 +692,19 @@ a_1 & b_1 & c_1\\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3
 
 9、求$n$维单纯形$T_n:\; x_i\geq 0\,(i=1,2,\ldots,n),\;
 \sum\limits_{i=1}^nx_i\leq a$
-的体积$(a>0)$。
+的体积$(a>0)$。\ps{检验对纯代数的定限方法的掌握}
 
 10、证明：
 $$\dint_0^t\d t_1\dint_0^{t_1}\d t_2\ldots
 \dint_0^{t_{n-1}}\prod\limits_{i=1}^nf(t_i)\d t_n
 =\df 1{n!}\left[\dint_0^tf(s)\d s\right]^n$$
 
+\ifvisible
+
 \newpage
+
+\section*{关于$n$重积分}
+\addcontentsline{toc}{section}{关于$n$重积分}
 
 {\bf 例：}求$n$维单位球的体积。
 
@@ -1147,3 +1212,5 @@ $$\dint_0^1\dint_0^x\dint_0^{xy}f(x,y,z)\d z\d y\d x$$
 \begin{center}
 	\resizebox{!}{5cm}{\includegraphics{./images/ch11/xyzC.pdf}}
 \end{center}
+
+\fi
