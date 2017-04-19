@@ -78,7 +78,23 @@ $${\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=a}
 
 {\bf 教材-例3：}证明$\lim\limits_{(x,y)\to(0,0)}\df{x^2-y^2}{x^2+y^2}$不存在。
 
-{\bf 注：}若沿不同路径所得极限不同，则二重极限不存在
+{\bf 套路1：}若累次极限
+$$\lim\limits_{y\to y_0}\lim\limits_{x\to x_0}f(x,y),
+\quad \lim\limits_{x\to x_0}\lim\limits_{y\to y_0}f(x,y)$$
+不相同，或者某个累次极限不存在，则二重极限不存在。
+
+{\bf 注：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 二重极限相当于从$(x,y)$出发，沿着$(x,y)\to(x_0,y)\to(x_0,y_0)$
+  或$(x,y)\to(x,y_0)\to(x_0,y_0)$的“折线”路径趋于$(x_0,y_0)$
+  \item 二重极限与累次极限的关系：
+  \begin{itemize}
+    \item 若三者都存在，则相等
+    \item 二重极限存在，累次极限必存在 
+    \item 两个累次极限均存在且相等，二重极限未必存在
+  \end{itemize}
+\end{enumerate}
 
 \begin{center}
 	\resizebox{!}{4cm}{\includegraphics{./images/ch10/noLimEx.pdf}}
@@ -88,81 +104,133 @@ $${\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=a}
 	教材-图10.1.13\hspace{2cm} 教材-图10.1.14\hspace{2cm} 教材-图10.1.15
 \end{center}
 
+{\bf 教材-例5：}证明极限$\lim\limits_{(x,y)\to(0,0)}\df{xy}{x^2+y^2}$不存在
+
+{\bf 套路2：}若极限
+$$\lim\limits_{{x\to x_0}\atop{y=y_0+k(x-x_0)}}f(x,y)$$
+与$k$有关，则二重极限不存在。
+
+套路2中的极限相当于从$(x,y)$出发，沿着直线趋于$(x_0,y_0)$。
+
+无论套路1还是套路2，其中所涉及的都只是各种可能的趋近路线中的一部分，并能代表全面的情况，
+因此，这两种套路只能用于证明二重极限不存在。
+
 {\bf 教材-例4：}$\lim\limits_{(x,y)\to(0,0)}\df{x^2y}{x^2+y^2}$
 
-{\bf 教材-例5：}$\lim\limits_{(x,y)\to(0,0)}\df{xy}{x^2+y^2}$
+{\bf 套路3：}令$x=x_0+\rho\cos\theta,y=y_0+\rho\sin\theta$，则
+$$(x,y)\to(x_0,y_0)\quad\Leftrightarrow\quad\rho\to0$$
+此时若极限
+$$\lim\limits_{\rho\to{0^+}}f(\rho\cos\theta,\rho\sin\theta)$$
+{\it 一致收敛}，则对应二重极限存在。
 
-{\bf 思考：}如何证明某个二重极限存在？
+{\bf 注：}
+\begin{enumerate}[(1)]
+  \setlength{\itemindent}{1cm}
+  \item 所谓前述极限一致收敛，是指：存在常数$A$，对任意$\e>0$，存在
+  $\delta>0$\ps{$\delta$的取值与$\theta$无关}，
+  对任意$\rho\in(0,\delta)$，恒有$|f(\rho\cos\theta,\rho\sin\theta)-A|<\e$
+  \item 讨论前述极限时，不能简单地将$\theta$视为常数（相当于令$y=y_0+k(x-x_0)$）,
+  而是要求即使$\theta$为任意与$\rho$相关的函数，亦可保证极限的收敛
+\end{enumerate}
 
-$$(x,y)\to(x_0,y_0)\Leftrightarrow\rho\to0,\;(\rho=\sqrt{(x-x_0)^2+(y-y_0)^2})$$
+{\bf 例：}证明：$\lim\limits_{(x,y)\to(0,0)}\df{x^2y^2}{x^2+y^2}=0$
+	
+[证]：令$\rho=\sqrt{x^2+y^2}$，$\tan\theta=\df yx$，则	
+$$\lim\limits_{(x,y)\to(0,0)}\df{x^2y^2}{x^2+y^2}
+=\lim\limits_{\rho\to{0^+}}\rho^2\cos^2\theta\sin^2\theta$$
+对任意$\e>0$，令$\delta=\sqrt{\e}$，则对任意$\rho\in(0,\delta)$，总有
+$$|\rho^2\cos^2\theta\sin^2\theta|<\e,$$
+从而可知原二重极限存在，且为$0$。
 
-\begin{shaded}
-	{\bf 二重极限与累次极限}
-	
-	{\bf 二重极限：}
-	
-	$$\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)$$
-	
-	{\bf 累次极限：}
-	
-	$$\lim\limits_{y\to y_0}\lim\limits_{x\to
-	x_0}f(x,y),\quad \lim\limits_{x\to x_0}\lim\limits_{y\to y_0}f(x,y)$$
-	
-	\begin{enumerate}[(1)]
-  	  \setlength{\itemindent}{1cm}
-	  \item 若三者都存在，则值相等
-	  \item 二重极限存在，累次极限必存在 
-	  \item 两个累次极限均存在且相等，二重极限未必存在
-	\end{enumerate}
-	
-	{\bf 思考：}如何从几何上解释三者之间的关系？
-	
-	\bigskip
-	
-	{\bf 关于用极坐标变换判定二重极限的存在性}
-	
-	讨论$\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)$
-	的存在性时，可以令
-	$$\rho=\sqrt{(x-x_0)^2+(y-y_0)^2},\quad \tan\theta=\df {y-y_0}{x-x_0},$$
-	则
-	$$(x,y)\to(x_0,y_0)\;\Leftrightarrow\;\rho\to0^+,$$
-	从而
-	$$\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=\lim\limits_{\rho\to{0^+}}
-	f(\rho\cos\theta,\rho\sin\theta).$$
-	若右侧极限在$\rho\to{0^+}$的过程中与$\theta$的取值无关，则可以判定原极限存在。但
-	要注意的是，这里不仅要求对任何固定的$\theta$（相当于沿着某条直线$y-y_0=k(x-x_0)$
-	趋近$(x_0,y_0)$）	在$\rho\to{0^+}$时的极限与$\theta$无关，
-	{\it 而且要求在$\rho\to{0^+}$过程中$\theta$可以随$\rho$的改变而取不同的值的情况
-	下（例如沿着某条曲线$\rho=\rho(\theta)$趋近$(x_0,y_0)$）仍然无关，
-	才能说明原极限存在。}
-	
-	{\bf 例：}证明：$\lim\limits_{(x,y)\to(0,0)}\df{xy}{x+y}$不存在
-	
-	{\bf 证：}令$\rho=\sqrt{x^2+y^2}$，$\tan\theta=\df yx$，则
-	$$\lim\limits_{(x,y)\to(0,0)}\df{xy}{x+y}
-	=\lim\limits_{\rho\to{0^+}}\df{\rho\cos\theta\sin\theta}
-	{\cos\theta+\sin\theta}
-	$$
-	\begin{center}
-		\resizebox{!}{6cm}{\includegraphics{./images/ch10/xy-xy.pdf}}
-	\end{center}
-	如图，考虑$(x,y)$沿$\rho=k(\cos\theta+\sin\theta)$趋于$(0,0)$，则
-	当$\theta\to-\df{\pi}4$时，$\rho\to 0^+$，若原极限存在，则
-	$$\lim\limits_{(x,y)\to(0,0)}\df{xy}{x+y}
-	=\lim\limits_{\rho\to{0^+}}\df{\rho\cos\theta\sin\theta}
-	{\cos\theta+\sin\theta}=\lim\limits_{\theta\to-\frac{\pi}4}
-	k\cos\theta\sin\theta=-\df k2$$
-	也即对应于不同的$k$值，极限计算的结果是不同的，故原极限不存在。
-	
-	{\bf 例：}证明：$\lim\limits_{(x,y)\to(0,0)}\df{x^2y^2}{x^2+y^2}=0$
-	
-	{\bf 证：}令$\rho=\sqrt{x^2+y^2}$，$\tan\theta=\df yx$，则	
-	$$\lim\limits_{(x,y)\to(0,0)}\df{x^2y^2}{x^2+y^2}
-	=\lim\limits_{\rho\to{0^+}}\rho^2\cos^2\theta\sin^2\theta$$	
-	因为$\cos^2\theta\sin^2\theta\leq1$，故易知右侧极限与$\theta$无关且等于$0$，
-	从而原极限等于$0$。
+{\bf 辅导书（下）-P12-例6-6：}讨论极限
+$$\lim\limits_{(x,y)\to(0,0)}\df{xy^2}{x^2+y^4}$$
+的存在性。
 
-\end{shaded}
+[证]：令$x=\rho\cos\theta,y=\rho\sin\theta$，则
+$$\lim\limits_{(x,y)\to(0,0)}\df{xy^2}{x^2+y^4}
+=\lim\limits_{\rho\to0^+}\df{\rho\cos\theta\sin^2\theta}
+{\cos^2\theta+\rho^2\sin^4\theta}$$
+我们可以证明，右端的极限不是一致收敛的。
+
+显然，$\cos\theta=0$时，右端极限为$0$。
+
+设$\cos\theta\ne 0$，则
+$$\lim\limits_{\rho\to0^+}\df{\rho\cos\theta\sin^2\theta}
+{\cos^2\theta+\rho^2\sin^4\theta}
+=\lim\limits_{\rho\to0^+}\df{\rho\sin^2\theta}{\cos\theta},$$
+对任意$k\in\mathbb{R}，$若$\rho$和$\theta$满足
+$\df{\rho\sin^2\theta}{\cos\theta}=k$，也即
+$\rho^2\sin^2\theta=k\rho\cos\theta$，也即$ky^2=x$时，
+则有
+$$\lim\limits_{\rho\to0^+}\df{\rho\sin^2\theta}{\cos\theta}=k,$$
+极限值与$k$有关，由此可见，原二重极限不存在。
+
+% \begin{shaded}
+% 	{\bf 二重极限与累次极限}
+% 	
+% 	{\bf 二重极限：}
+% 	
+% 	$$\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)$$
+% 	
+% 	{\bf 累次极限：}
+% 	
+% 	
+% 	
+% 	\begin{enumerate}[(1)]
+%   	  \setlength{\itemindent}{1cm}
+% 	  \item 若三者都存在，则值相等
+% 	  \item 二重极限存在，累次极限必存在 
+% 	  \item 两个累次极限均存在且相等，二重极限未必存在
+% 	\end{enumerate}
+% 	
+% 	{\bf 思考：}如何从几何上解释三者之间的关系？
+% 	
+% 	\bigskip
+% 	
+% 	{\bf 关于用极坐标变换判定二重极限的存在性}
+% 	
+% 	讨论$\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)$
+% 	的存在性时，可以令
+% 	$$\rho=\sqrt{(x-x_0)^2+(y-y_0)^2},\quad \tan\theta=\df {y-y_0}{x-x_0},$$
+% 	则
+% 	$$(x,y)\to(x_0,y_0)\;\Leftrightarrow\;\rho\to0^+,$$
+% 	从而
+% 	$$\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=\lim\limits_{\rho\to{0^+}}
+% 	f(\rho\cos\theta,\rho\sin\theta).$$
+% 	若右侧极限在$\rho\to{0^+}$的过程中与$\theta$的取值无关，则可以判定原极限存在。但
+% 	要注意的是，这里不仅要求对任何固定的$\theta$（相当于沿着某条直线$y-y_0=k(x-x_0)$
+% 	趋近$(x_0,y_0)$）	在$\rho\to{0^+}$时的极限与$\theta$无关，
+% 	{\it 而且要求在$\rho\to{0^+}$过程中$\theta$可以随$\rho$的改变而取不同的值的情况
+% 	下（例如沿着某条曲线$\rho=\rho(\theta)$趋近$(x_0,y_0)$）仍然无关，
+% 	才能说明原极限存在。}
+% 	
+% 	{\bf 例：}证明：$\lim\limits_{(x,y)\to(0,0)}\df{xy}{x+y}$不存在
+% 	
+% 	{\bf 证：}令$\rho=\sqrt{x^2+y^2}$，$\tan\theta=\df yx$，则
+% 	$$\lim\limits_{(x,y)\to(0,0)}\df{xy}{x+y}
+% 	=\lim\limits_{\rho\to{0^+}}\df{\rho\cos\theta\sin\theta}
+% 	{\cos\theta+\sin\theta}
+% 	$$
+% 	\begin{center}
+% 		\resizebox{!}{6cm}{\includegraphics{./images/ch10/xy-xy.pdf}}
+% 	\end{center}
+% 	如图，考虑$(x,y)$沿$\rho=k(\cos\theta+\sin\theta)$趋于$(0,0)$，则
+% 	当$\theta\to-\df{\pi}4$时，$\rho\to 0^+$，若原极限存在，则
+% 	$$\lim\limits_{(x,y)\to(0,0)}\df{xy}{x+y}
+% 	=\lim\limits_{\rho\to{0^+}}\df{\rho\cos\theta\sin\theta}
+% 	{\cos\theta+\sin\theta}=\lim\limits_{\theta\to-\frac{\pi}4}
+% 	k\cos\theta\sin\theta=-\df k2$$
+% 	也即对应于不同的$k$值，极限计算的结果是不同的，故原极限不存在。
+% 	
+% 	{\bf 例：}证明：$\lim\limits_{(x,y)\to(0,0)}\df{x^2y^2}{x^2+y^2}=0$
+% 	
+% 	{\bf 证：}令$\rho=\sqrt{x^2+y^2}$，$\tan\theta=\df yx$，则	
+% 	$$\lim\limits_{(x,y)\to(0,0)}\df{x^2y^2}{x^2+y^2}
+% 	=\lim\limits_{\rho\to{0^+}}\rho^2\cos^2\theta\sin^2\theta$$	
+% 	因为$\cos^2\theta\sin^2\theta\leq1$，故易知右侧极限与$\theta$无关且等于$0$，
+% 	从而原极限等于$0$。
+% 
+% \end{shaded}
 
 \subsection{多元函数的连续性}
 

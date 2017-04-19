@@ -86,7 +86,7 @@ $$V=\dint_0^1S(x)\d x=\df 73$$
   即：有界闭区域上的重积分存在均值点
 \end{enumerate}
 
-\section{重积分的计算}
+\section{二重重积分的计算}
 
 % {\bf Keyword：}积分次序
 
@@ -100,7 +100,7 @@ $$V=\dint_0^1S(x)\d x=\df 73$$
 
 也正因为如此，接下来的内容是具有较强“技术性”的。
 
-\subsection{二重积分}
+\subsection{在直角坐标系下计算}
 
 $$\iint_Df(x,y)\d\sigma
 % =\lim_{d(T)\to0}\sum_{i=1}^nf(\xi_i,\eta_i)\Delta\sigma_i
@@ -118,117 +118,155 @@ $${\iint_Df(x,y)\d\sigma=\int_{x_1}^{x_2}
 \int_{\varphi_1(x)}^{\varphi_2(x)}f(x,y)\d y\d x}$$
 累次积分本质上就是多个定积分的嵌套，计算时按照从内至外的次序进行。
 
-{\bf 注：}重积分计算的一般步骤
-\begin{enumerate}[Step-1]
+{\bf 例：}计算区域
+$$D:0\leq x\leq 1,\;x^2\leq y\leq 1$$
+的面积。
+
+\begin{center}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch11/2DI-1-1.pdf}}
+\end{center}
+
+[解1]（定积分）由定积分的几何意义，所求面积
+$$S=\dint_0^1(1-x^2)\d x=\df23.$$
+
+[解2]（二重积分，先$y$后$x$）如图，由已知，所求面积
+$$S=\iint_D\d\sigma=\dint_0^1\dint_{x^2}^1\d y\d x
+=\dint_0^1(1-x^2)\d x=\df23.$$
+
+[解3]（二重积分，先$x$后$y$）如图，
+
+\begin{center}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch11/2DI-1-2.pdf}}
+\end{center}
+
+区域$D$可以表示为
+$$D:0\leq y\leq 1,\;0\leq x\leq\sqrt y,$$
+故所求面积
+$$S=\iint_D\d\sigma=\dint_0^1\dint_0^{\sqrt y}\d x\d y
+=\dint_0^1\sqrt y\d y=\df23.$$
+
+{\bf 注：}%关于二重积分的计算
+\begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
-  \item {\it 画图：}描绘积分区域$D$的图形 
-  \item {\it 定限：}确定累次积分的积分限\ps{定限是重积分计算中的关键点！}
-  \item {\it 求积分：}依次计算累次积分的值 
+  \item 重积分计算的一般步骤：{\it 画图$\to$定限$\to$积分}
+  \item 定限的次序决定了累次积分的次序，且二者正好是相反的
+  \item 定限过程的抽象描述\ps{使用这种抽象描述的意义在于便于相更多不同的情形推广}
+  \begin{itemize}
+    \item 对于当前要定限的积分变量（例如$x$），首先将积分区域向其对应的
+    坐标轴（$x$轴或$y=0$）投影，得到其最大变化范围（$[x_1,x_2]$）
+    \item 为了确定其他积分变量的变化范围，在刚刚得到的范围内任取一个值
+    （$x\in[x_1,x_2]$），垂直于其所在坐标轴（$x$轴）作射线，穿过积分区域
+    \item 射线的入射和出射点即为剩余积分变量的变化范围，由于已事先确定了
+    一部分变量（$x$），这个新的变化范围是和已经确定的变量相关的（$y_1(x)
+    \leq y\leq y_2(x)$）
+  \end{itemize}
+  \item 将二重积分写成累次积分，必须确保每个累次积分的上限大于下限，正是为了便于
+  判断各种大小关系，我们才需要画图
+  \item 计算累次积分时，按照从内至外的次序依次进行，计算内层的积分时，外层积分
+  的积分变量均视为常数
 \end{enumerate}
 
-{\bf 积分区域与累次积分的次序：}
-将二重积分化为累次积分时，不同的积分次序，对应于不同的积分区域表示方法；或者也可以
-说，不同的积分区域表示方法，决定了最终的积分次序。
+\begin{shaded}
 
-{\bf 教材-例1：}计算
-$$\iint_Dxy\d\sigma,$$
-其中$D$为抛物线$y=x^2$和$x=y^2$所围区域。
+{\bf 讨论：}二重积分一定比定积分更好吗？
 
-\begin{itemize}
-  \setlength{\itemindent}{1cm}
-  \item {先$x$后$y$：}$D:y^2\leq x\leq\sqrt y,\,0\leq y\leq 1$ 
-  \item {先$y$后$x$：}$D:x^2\leq y\leq\sqrt x,\,0\leq x\leq 1$
-\end{itemize}
+对比不同的解答过程来，似乎用定积分的方法解答最为简明，计算最方便。那么是不是说
+使用定积分的方法求解二重积分会比将二重积分化为累次积分计算更好呢？答案是否定的，
+来看如下的例子
+
+{\bf 例：}已知面密度$\mu=x^2+y^2$，求区域$D$所对应的平面薄片的质量。
+
+[分析]：如果使用二重积分的方法，则所求质量
+$$M=\iint_D(x^2+y^2)\d\sigma.$$
+如果使用先$y$后$x$的积分次序，则
+$$M=\dint_0^1\dint_{x^2}^1(x^2+y^2)\d y\d x,$$
+对于右侧的累次积分，按照从内至外的次序进行计算，计算内层积分时，外层的积分变量（$x$）
+应视为常数，故
+$$M=\dint_0^1\dint_{x^2}^1(x^2+y^2)\d y\d x
+=\dint_0^1\left[x^2y+\df13y^3\right]_{x^2}^1\d x=\ldots$$
+
+如果用定积分来计算质量，过程应该是怎样的呢？请自行思考。
+
+对比之下，我们可以发现，在与平面区域相关的众多应用问题中，使用二重积分的方式
+进行求解会更加直观，计算也是比较方便的。前述例题中，定积分之所以会“显得”更为
+简便，更多地是因为我们考虑的是面积问题（被积函数恒为$1$）。
+
+\end{shaded}
+% 
+% {\bf 积分区域与累次积分的次序：}
+% 将二重积分化为累次积分时，不同的积分次序，对应于不同的积分区域表示方法；或者也可以
+% 说，不同的积分区域表示方法，决定了最终的积分次序。
+
+% {\bf 教材-例1：}计算
+% $$\iint_Dxy\d\sigma,$$
+% 其中$D$为抛物线$y=x^2$和$x=y^2$所围区域。
+% 
+% \begin{itemize}
+%   \setlength{\itemindent}{1cm}
+%   \item {先$x$后$y$：}$D:y^2\leq x\leq\sqrt y,\,0\leq y\leq 1$ 
+%   \item {先$y$后$x$：}$D:x^2\leq y\leq\sqrt x,\,0\leq x\leq 1$
+% \end{itemize}
+
+显然，将二重积分化成累次积分计算，根据累次积分次序的不同，解题过程会有所不同。
+通过对题目的分析，选择合适的积分次序，从而使得解题更为简便，是解题中的一个重要
+技巧。
 
 {\bf 教材-例2：}计算
 $$\iint_D\df{x^2}{y^2}\d\sigma,$$
 其中$D$由直线$y=2,\,y=x$和$xy=1$围成。
 
-{\bf 注：}合理选择积分次序，简化累次积分的计算
+\begin{center}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch11/2DI-2.pdf}}
+\end{center}
+
+[分析]：如图，按照先$y$后$x$的次序定限，可得
+$$D:1\leq y\leq 2,\;\df1y\leq x\leq y,$$
+从而积分可化为
+$$\iint_D\df{x^2}{y^2}\d\sigma
+=\dint_1^2\dint_{1/y}^y\df{x^2}{y^2}\d x\d y.$$
+
+如果按先$x$后$y$的次序定限，则如图
+
+\begin{center}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch11/2DI-2-1.pdf}}
+\end{center}
+
+需要将区域$D$沿$x=1$分割为两个子区域$D_1$和$D_2$，然后定限
+$$D_1:\df12\leq x\leq 1,\;\df1x\leq y\leq 2,$$
+$$D_2:1\leq x\leq 2,\;x\leq y\leq 2,$$
+于是，所求积分应改写为
+\begin{align*}
+	\iint_D\df{x^2}{y^2}\d\sigma&
+	\left(\iint_{D_1}+\iint_{D_2}\right)\df{x^2}{y^2}\d\sigma\\
+	&=\dint_{1/2}^1\dint_{1/x}^2\df{x^2}{y^2}\d y\d x
+	+\dint_1^2\dint_x^2\df{x^2}{y^2}\d y\d x
+\end{align*}
+
+{\bf 例：}已知$D:0\leq x\leq 1,1\leq x+y\leq 2$，计算二重积分
+$$\iint_D\df1{x+y}\d\sigma$$
 
 {\bf 教材-例3：}计算
 $$\iint_D\df{\sin y}{y}\d\sigma,$$
 其中$D$由$x=y^2$和$y=x$所围成。
 
+这个例子说明，有些时候选择不同的积分次序不仅仅是计算是否方便的问题，
+甚至可能是能不能算的问题。
+
 {\bf 教材-例5：}计算累次积分
 $$I=\int_{1/4}^{1/2}\int_{1/2}^{\sqrt y}e^{y/x}\d x\d y+
 \int_{1/2}^1\int_y^{\sqrt y}e^{y/x}\d x\d y$$
+
+累次积分交换积分次序是非常常见的一类题目。
 
 {\bf 教材-例4：}求两柱面$x^2+y^2=R^2,\, x^2+z^2=R^2$
 相交所围成的立体体积。
 
 \begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch11/intersectV.pdf}}
+% 	\resizebox{!}{5cm}{\includegraphics{./images/ch11/intersectV.pdf}}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch11/3DI-1.pdf}}
 \end{center}
 
-\subsection{三重积分}
-
-$${I=\iiint_{\Omega}f(x,y,z)\d V}$$
-
-如果说二重积分的计算思路是把“$2$”化成“$1+1$”形式的定积分，那么三重积分显然就应该
-是先将“$3$”化成“$1+2$”或者“$2+1$”，然后将其中的$2$分解为“$1+1$”，最终得到
-可以分步加以计算的“$1+1+1$”。
-
-\begin{enumerate}
-  \item {\bf 微元法（投影法）：}
-  $$I=\iint_D\int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)\d z\d\sigma$$
-  \item {\bf 截面法：}
-  $$I=\int_{z_1}^{z_2}\iint_{D(z)}f(x,y,z)\d\sigma \d z$$
-\end{enumerate}
-
-\subsubsection{微元法（投影法）}
-
-设$\Omega$在$xOy$平面上的投影区域为$D$， $\d V=\d z\d\sigma$， \ps{先投影，再定$z$}
-$$\Omega=\{z_1(x,y)\leq z\leq z_2(x,y), (x,y)\in D\}$$
-
-\begin{center}
-	\resizebox{!}{4.5cm}{\includegraphics{./images/ch11/DxyZ.pdf}} 
-\end{center}
-
-$${I=\iiint_{\Omega}f(x,y,z)\d
-V=\iint_D\int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)\d z\d\sigma}$$
-
-{\bf 教材-例7：}计算三重积分
-$$I=\iiint_{\Omega}\df 1{(1+x+y+z)^3}\d V,$$
-其中$\Omega$为平面$x+y+z=1$与三个坐标面所围成的空间区域。
-
-\subsubsection{截面法}
-
-取$\Omega$的水平截面，其在$xOy$平面上的投影区域为$D(z)$，
-$\d V=\d\sigma \d z$，\ps{先定$z$，再投影}
-$$\Omega=\{(x,y)\in D(z),z_1\leq z\leq z_2\}$$
-
-\begin{center}
-	\resizebox{!}{4.5cm}{\includegraphics{./images/ch11/Dzxy.pdf}}
-\end{center}
-
-$${I=\iiint_{\Omega}f(x,y,z)\d
-V=\int_{z_1}^{z_2}\iint_{D(z)}f(x,y,z)\d\sigma \d z}$$
-
-{\bf 例：}计算三重积分
-$$I=\iiint_{\Omega}z^2\d V,$$
-其中$\Omega:\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}\leq 1$。
-
-{\bf 注：}{\b 如果被积函数只与$z$（或者，准确地说，只与一个变量）有关，
-推荐使用截面法！}
-
-{\bf 教材-例8：}将三重积分
-$$I=\iiint_{\Omega}f(x,y,z)\d V,$$
-化为累次积分，其中$\Omega$为曲面$z=1-x,y=1-z^2$及三个坐标平面所围空间闭区域。
-
-{\bf 教材-例9：}计算三重积分
-$$I=\iiint_{\Omega}(x+y+2z)\d V,$$
-其中$\Omega$为球体$x^2+y^2+z^2\leq R^2\,(R>0)$在第一卦限中的部分。
-
-{\bf 思考题：}讨论数列$a_n=\ds\iiint_{\Omega_n}z^n\d V$的敛散性，其中
-$\Omega_n$由$(x^2+y^2+z^2)^n=a^{2n-1}z\;(a>0)$所围。\hfill $a\in(0,1]$收敛；
-反之发散。
-
-\section{坐标变换与重积分的计算}
-
-{\bf Keyword：}坐标变换、Jacobi行列式
-
-\subsection{二重积分与极坐标}
+\subsection{在极坐标系下计算}
 
 {\bf 思考：}极坐标系下的“矩形”有哪些可能的形状？
 
@@ -304,7 +342,135 @@ $$\dint_{-\infty}^{+\infty}e^{-x^2}\d x.$$
 	  \end{array}\right|^{-1}$$
 \end{shaded}
 
-\subsection{三重积分与柱坐标}
+\subsection{对称性的应用}
+
+{\bf 例：}已知$D:0\leq x\leq1,0\leq y\leq1$，计算二重积分
+$$\iint_D(x+y)\mathrm{sgn}(x-y)\d\sigma$$
+
+通过本例体会对称性在重积分计算中的应用。进而推广得到如下命题：
+
+{\bf 定理：}已知区域$D$关于直线$L$对称，若对任意关于$L$对称的两点
+$P$、$Q$，总有
+$$f(P)=-f(Q),$$
+则
+$$\iint_Df(x,y)\d\sigma=0.$$
+
+又若$D_1$表示区域$D$位于$L$一侧的子区域，且
+$$f(P)=f(Q),$$
+则
+$$\iint_Df(x,y)\d\sigma=2\iint_{D_1}f(x,y)\d\sigma.$$
+
+该定理有一些常用的推论：
+
+{\bf 推论：}设区域$D$关于$x=0$对称，且对任意$(x,y)\in D$，有
+\ps{可称之为$f$是关于$x$的奇函数}
+$$f(x,y)=-f(-x,y),$$
+则
+$$\iint_Df(x,y)\d\sigma=0.$$
+
+又若$D_1$表示$D$中对应$x\geq0$的子区域，且
+$$f(x,y)=f(-x,y),$$
+则
+$$\iint_Df(x,y)\d\sigma=2\iint_{D_1}f(x,y)\d\sigma.$$
+
+{\bf 例：}$D:x^2+y^2\leq 1$，不难验证
+$\ds\iint_D\df{3x-4\sin y}{x^2+2y^2}\d\sigma=0$
+
+{\bf 推论：}设区域$D$关于$y=x$对称，且对任意$(x,y)\in D$，有
+$$f(x,y)=-f(y,x),$$
+则
+$$\iint_Df(x,y)\d\sigma=0.$$
+
+{\bf 例：}$$\iint_{x^2+y^2\leq 1}\df{(x+2y)^2}{1+x^2+y^2}d\sigma$$
+
+{\bf 定理：}设区域$D_1$和$D_2$关于$y=x$对称，则
+$$\iint_{D_1}f(x,y)\d\sigma=\iint_{D_1}f(y,x)\d\sigma.$$
+
+{\bf 推论}（轮换对称性）设区域$D$关于$y=x$对称，则
+$$\iint_Df(x,y)\d\sigma=\iint_Df(y,x)\d\sigma.$$
+
+{\bf 例：}区域$D$为第一象限内的四分之一单位圆，求
+$$\iint_D\df{2x^2+x-y+1}{\sqrt{1-x^2-y^2}}d\sigma$$
+
+% {\bf 例：}设$D:\df{x^2}{a^2}+\df{y^2}{b^2}\leq1$，求
+% $$\iint_D(x+y)^2\d\sigma$$
+
+{\bf 例：}区域$D$为第一象限内半径为$2$的圆，$f(x)$恒不为零，求
+$$\iint_D\df{\sqrt{f(x)}}{\sqrt{f(x)}+\sqrt{f(y)}}d\sigma$$
+
+{\bf 思考：}若该例子中的区域改为椭圆$\df{x^2}{a^2}+\df{y^2}{b^2}\leq 1$，
+结果会怎样？
+
+\section{三重积分的计算}
+
+\subsection{在直角坐标系下计算}
+
+$${I=\iiint_{\Omega}f(x,y,z)\d V}$$
+
+如果说二重积分的计算思路是把“$2$”化成“$1+1$”形式的定积分，那么三重积分显然就应该
+是先将“$3$”化成“$1+2$”或者“$2+1$”，然后将其中的$2$分解为“$1+1$”，最终得到
+可以分步加以计算的“$1+1+1$”。
+
+\begin{enumerate}
+  \item {\bf 微元法（投影法）：}
+  $$I=\iint_D\int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)\d z\d\sigma$$
+  \item {\bf 截面法：}
+  $$I=\int_{z_1}^{z_2}\iint_{D(z)}f(x,y,z)\d\sigma \d z$$
+\end{enumerate}
+
+\subsubsection{【微元法（投影法）】}
+
+设$\Omega$在$xOy$平面上的投影区域为$D$， $\d V=\d z\d\sigma$， \ps{先投影，再定$z$}
+$$\Omega=\{z_1(x,y)\leq z\leq z_2(x,y), (x,y)\in D\}$$
+
+\begin{center}
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch11/DxyZ.pdf}} 
+\end{center}
+
+$${I=\iiint_{\Omega}f(x,y,z)\d
+V=\iint_D\int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)\d z\d\sigma}$$
+
+{\bf 教材-例7：}计算三重积分
+$$I=\iiint_{\Omega}\df 1{(1+x+y+z)^3}\d V,$$
+其中$\Omega$为平面$x+y+z=1$与三个坐标面所围成的空间区域。
+
+\subsubsection{【截面法】}
+
+取$\Omega$的水平截面，其在$xOy$平面上的投影区域为$D(z)$，
+$\d V=\d\sigma \d z$，\ps{先定$z$，再投影}
+$$\Omega=\{(x,y)\in D(z),z_1\leq z\leq z_2\}$$
+
+\begin{center}
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch11/Dzxy.pdf}}
+\end{center}
+
+$${I=\iiint_{\Omega}f(x,y,z)\d
+V=\int_{z_1}^{z_2}\iint_{D(z)}f(x,y,z)\d\sigma \d z}$$
+
+{\bf 例：}计算三重积分
+$$I=\iiint_{\Omega}z^2\d V,$$
+其中$\Omega:\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}\leq 1$。
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch11/3DI-2.pdf}}
+\end{center}
+
+{\bf 注：}{\b 如果被积函数只与$z$（或者，准确地说，只与一个变量）有关，
+推荐使用截面法！}
+
+{\bf 教材-例8：}将三重积分
+$$I=\iiint_{\Omega}f(x,y,z)\d V,$$
+化为累次积分，其中$\Omega$为曲面$z=1-x,y=1-z^2$及三个坐标平面所围空间闭区域。
+
+{\bf 教材-例9：}计算三重积分
+$$I=\iiint_{\Omega}(x+y+2z)\d V,$$
+其中$\Omega$为球体$x^2+y^2+z^2\leq R^2\,(R>0)$在第一卦限中的部分。
+
+{\bf 思考题：}讨论数列$a_n=\ds\iiint_{\Omega_n}z^n\d V$的敛散性，其中
+$\Omega_n$由$(x^2+y^2+z^2)^n=a^{2n-1}z\;(a>0)$所围。\hfill $a\in(0,1]$收敛；
+反之发散。
+
+\subsection{在柱坐标下计算}
 
 {\bf 从直角坐标到柱坐标：}$M:\;(x,y,z)\;\to(\rho,\theta,z)$，其中
 $$x=\rho\cos\theta,\;y=\rho\sin\theta,\;z=z\quad (\rho\geq 0,0\leq\theta\leq
@@ -344,7 +510,7 @@ $z=0,\,z=h\,(h>0)$所围立体。
 $$\iiint_{\Omega}\df 1{1+x^2+y^2}\d V,$$
 其中$\Omega$由$x^2+y^2=4z$与$z=h\,(h>0)$所围成。
 
-\subsection{三重积分与球坐标}
+\subsection{在球坐标下计算}
 
 {\bf 直角坐标到球坐标：}$M:\;(x,y,z)\;\to(r,\theta,\varphi)$，其中
 $$x=r\sin\varphi\cos\theta,\;y=r\sin\varphi\sin\theta,\;z=r\cos\varphi
@@ -763,6 +929,8 @@ $$0<V_n<\left(\df12\right)^{\left[\frac{n-N}2\right]}V_N,$$
 显然$\left(\df12\right)^{\left[\frac{n-N}2\right]}V_N\to0(n\to\infty)$，利用夹逼定理，
 即证。
 
+% \fi
+
 \newpage
 
 \begin{center}
@@ -1141,16 +1309,18 @@ $$0<V_n<\left(\df12\right)^{\left[\frac{n-N}2\right]}V_N,$$
     \item $\dint_0^1\d x\dint_{0}^{x-1}f(x,y)\d y
     +\dint_{-1}^0\d x\dint_0^{\sqrt{1-x^2}}f(x,y)\d y$
     \item $\dint_0^1\d x\dint_{0}^{1-x}f(x,y)\d y
-    +\dint_{-1}^0\d x\dint_{-\sqrt{1-x^2}^0}f(x,y)\d y$
+    +\dint_{-1}^0\d x\dint_{-\sqrt{1-x^2}}^0f(x,y)\d y$
     \item $\dint_0^{\frac{\pi}2}\d\theta\dint_0^{\frac1{\cos\theta+\sin\theta}}
-    f(r\cos\theta,f\sin\theta)\d r+\dint_{\frac{\pi}2}^{\pi}\d\theta
-    \dint_0^{\frac1{\cos\theta+\sin\theta}}f(r\cos\theta,f\sin\theta)\d r$
+    f(r\cos\theta,r\sin\theta)\d r+\dint_{\frac{\pi}2}^{\pi}\d\theta
+    \dint_0^1f(r\cos\theta,r\sin\theta)\d r$
     \item $\dint_0^{\frac{\pi}2}\d\theta\dint_0^{\frac1{\cos\theta+\sin\theta}}
-    f(r\cos\theta,f\sin\theta)r\d r+\dint_{\frac{\pi}2}^{\pi}\d\theta
-    \dint_0^{\frac1{\cos\theta+\sin\theta}}f(r\cos\theta,f\sin\theta)r\d r$
+    f(r\cos\theta,r\sin\theta)r\d r+\dint_{\frac{\pi}2}^{\pi}\d\theta
+    \dint_0^1f(r\cos\theta,r\sin\theta)r\d r$
   \end{enumerate}
   
 \end{enumerate}
+
+% \ifvisible
 
 \newpage
 
