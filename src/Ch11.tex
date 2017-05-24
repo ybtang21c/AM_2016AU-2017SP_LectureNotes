@@ -64,7 +64,7 @@ $$V=\dint_0^1S(x)\d x=\df 73$$
 \begin{enumerate}[(1)]
   \setlength{\itemindent}{1cm}
   \item {\it 线性性}：线性运算可以和重积分交换次序 
-  \item {\it 区域可加性} ：两个不相重叠的趋于上的重积分的和
+  \item {\it 区域可加性} ：两个不相重叠的区域上的重积分的和
   等于这个区域的并集上的重积分
   \item {\it 保号性I：} 若在$D$上，$f(x,y)\geq 0$，则
   $$\iint_Df(x,y)\d\sigma\geq 0$$ 
@@ -83,10 +83,10 @@ $$V=\dint_0^1S(x)\d x=\df 73$$
   \item {\it 积分中值定理：}设函数$f(x,y)$在有界闭区域$D$上连续非负，$D$的面积为$A$，则存在
 	$(\xi,\eta)\in D$，使得
 	$$\iint_Df(x,y)\d\sigma=f(\xi,\eta)A$$
-  即：有界闭区域上的重积分存在均值点
+  即：连续函数在有界闭区域上的重积分存在均值点
 \end{enumerate}
 
-\section{二重重积分的计算}
+\section{二重积分的计算}
 
 % {\bf Keyword：}积分次序
 
@@ -106,17 +106,17 @@ $$\iint_Df(x,y)\d\sigma
 % =\lim_{d(T)\to0}\sum_{i=1}^nf(\xi_i,\eta_i)\Delta\sigma_i
 $$
 
-从抽象形式上看，如果对积分区域采用平行于$x$轴和$y$轴的直线进行分割，则可以记
+从抽象形式上看，对积分区域采用平行于$x$轴和$y$轴的直线进行分割，则可以记
 面积微元
 $$\d\sigma=\d y\d x,$$
-其中$\d x$和$\d y$可视为直线间的水平和垂直间距对应的微元（因为分割足够细密）。
+其中$\d x$和$\d y$可视为直线间的水平和垂直间距对应的微元（假设分割足够细密）。
 
 另一方面，积分区域可以表示为
 $$D=\{x_1\leq x\leq x_2,\varphi_1(x)\leq y\leq \varphi_2(x)\}$$
 则二重积分可化为如下的{\it 累次积分：}
 $${\iint_Df(x,y)\d\sigma=\int_{x_1}^{x_2}
 \int_{\varphi_1(x)}^{\varphi_2(x)}f(x,y)\d y\d x}$$
-累次积分本质上就是多个定积分的嵌套，计算时按照从内至外的次序进行。
+累次积分是多个定积分的嵌套，按照从内至外的次序进行计算。
 
 {\bf 例：}计算区域
 $$D:0\leq x\leq 1,\;x^2\leq y\leq 1$$
@@ -150,19 +150,18 @@ $$S=\iint_D\d\sigma=\dint_0^1\dint_0^{\sqrt y}\d x\d y
   \setlength{\itemindent}{1cm}
   \item 重积分计算的一般步骤：{\it 画图$\to$定限$\to$积分}
   \item 定限的次序决定了累次积分的次序，且二者正好是相反的
-  \item 定限过程的抽象描述\ps{使用这种抽象描述的意义在于便于相更多不同的情形推广}
-  \begin{itemize}
-    \item 对于当前要定限的积分变量（例如$x$），首先将积分区域向其对应的
-    坐标轴（$x$轴或$y=0$）投影，得到其最大变化范围（$[x_1,x_2]$）
-    \item 为了确定其他积分变量的变化范围，在刚刚得到的范围内任取一个值
-    （$x\in[x_1,x_2]$），垂直于其所在坐标轴（$x$轴）作射线，穿过积分区域
-    \item 射线的入射和出射点即为剩余积分变量的变化范围，由于已事先确定了
-    一部分变量（$x$），这个新的变化范围是和已经确定的变量相关的（$y_1(x)
-    \leq y\leq y_2(x)$）
-  \end{itemize}
-  \item 将二重积分写成累次积分，必须确保每个累次积分的上限大于下限，正是为了便于
-  判断各种大小关系，我们才需要画图
-  \item 计算累次积分时，按照从内至外的次序依次进行，计算内层的积分时，外层积分
+  \item 定限过程（以先$x$后$y$为例）\ps{使用这种描述的意义在于便于向不同的情形推广}
+  \begin{enumerate}[Step-1:]
+    \setlength{\itemindent}{1cm}
+    \item 将积分区域沿着$x$的等值线（也即$x$轴的垂线）方向向$x$轴投影，
+    所得区间即为$x$的最大变化范围（$[x_1,x_2]$）
+    \item 任取$x\in[x_1,x_2]$，作$x$的等值线，自下而上穿过积分区域
+    \item 等值线的入射和出射点即为与该$x$值对应的$y$的变化范围，这个
+    变化范围一般是和$x$相关的（$y_1(x)\leq y\leq y_2(x)$）
+  \end{enumerate}
+  \item 将二重积分写成累次积分，必须确保{\it 每个累次积分的上限大于下限}。为了便于
+  判断各种大小关系，一般需要画图
+  \item 计算累次积分，按照从内至外的次序依次进行，计算内层的积分时，外层积分
   的积分变量均视为常数
 \end{enumerate}
 
@@ -170,9 +169,8 @@ $$S=\iint_D\d\sigma=\dint_0^1\dint_0^{\sqrt y}\d x\d y
 
 {\bf 讨论：}二重积分一定比定积分更好吗？
 
-对比不同的解答过程来，似乎用定积分的方法解答最为简明，计算最方便。那么是不是说
-使用定积分的方法求解二重积分会比将二重积分化为累次积分计算更好呢？答案是否定的，
-来看如下的例子
+对比上例中不同的解答过程，用定积分的方法最为简明。那么是不是说
+使用定积分的方法求解二重积分会比将二重积分化为累次积分计算更好呢？
 
 {\bf 例：}已知面密度$\mu=x^2+y^2$，求区域$D$所对应的平面薄片的质量。
 
@@ -185,11 +183,12 @@ $$M=\dint_0^1\dint_{x^2}^1(x^2+y^2)\d y\d x,$$
 $$M=\dint_0^1\dint_{x^2}^1(x^2+y^2)\d y\d x
 =\dint_0^1\left[x^2y+\df13y^3\right]_{x^2}^1\d x=\ldots$$
 
-如果用定积分来计算质量，过程应该是怎样的呢？请自行思考。
+如果用定积分来计算质量，则需将以上内层的积分视为关于$x$或$y$的函数（视定限的次序），
+计算更为复杂。从实际的物理意义上看，也没有二重积分清晰。
 
-对比之下，我们可以发现，在与平面区域相关的众多应用问题中，使用二重积分的方式
-进行求解会更加直观，计算也是比较方便的。前述例题中，定积分之所以会“显得”更为
-简便，更多地是因为我们考虑的是面积问题（被积函数恒为$1$）。
+事实上，在与平面区域相关的众多应用问题中，使用二重积分的方式
+进行求解是更加直观，也比较方便计算的。前上例中，定积分之所以会“显得”
+简便，是因为我们考虑的是面积问题（被积函数恒为$1$）。
 
 \end{shaded}
 % 
@@ -207,9 +206,8 @@ $$M=\dint_0^1\dint_{x^2}^1(x^2+y^2)\d y\d x
 %   \item {先$y$后$x$：}$D:x^2\leq y\leq\sqrt x,\,0\leq x\leq 1$
 % \end{itemize}
 
-显然，将二重积分化成累次积分计算，根据累次积分次序的不同，解题过程会有所不同。
-通过对题目的分析，选择合适的积分次序，从而使得解题更为简便，是解题中的一个重要
-技巧。
+将二重积分化成累次积分计算，根据累次积分次序的不同，解题过程会有所不同。
+通过对题目的分析，选择合适的积分次序，从而使得解题更为简便，是一个重要的技巧。
 
 {\bf 教材-例2：}计算
 $$\iint_D\df{x^2}{y^2}\d\sigma,$$
@@ -231,7 +229,7 @@ $$\iint_D\df{x^2}{y^2}\d\sigma
 	\resizebox{!}{6cm}{\includegraphics{./images/ch11/2DI-2-1.pdf}}
 \end{center}
 
-需要将区域$D$沿$x=1$分割为两个子区域$D_1$和$D_2$，然后定限
+须将$D$沿$x=1$分割为两个子区域$D_1$和$D_2$，然后分别定限
 $$D_1:\df12\leq x\leq 1,\;\df1x\leq y\leq 2,$$
 $$D_2:1\leq x\leq 2,\;x\leq y\leq 2,$$
 于是，所求积分应改写为
@@ -249,14 +247,17 @@ $$\iint_D\df1{x+y}\d\sigma$$
 $$\iint_D\df{\sin y}{y}\d\sigma,$$
 其中$D$由$x=y^2$和$y=x$所围成。
 
-这个例子说明，有些时候选择不同的积分次序不仅仅是计算是否方便的问题，
-甚至可能是能不能算的问题。
+这个例子说明，选择不同的积分次序有时不仅仅是计算是否方便的问题，
+甚至可能是能不能计算的问题。
 
 {\bf 教材-例5：}计算累次积分
 $$I=\int_{1/4}^{1/2}\int_{1/2}^{\sqrt y}e^{y/x}\d x\d y+
 \int_{1/2}^1\int_y^{\sqrt y}e^{y/x}\d x\d y$$
 
-累次积分交换积分次序是非常常见的一类题目。
+累次积分交换积分次序是非常典型的一类题目。需要注意的是，并不是每个累次积分
+都可以直接改写成二重积分，例如：
+$$\dint_0^{2\pi}\dint_0^{\sin x}f(x,y)\d y\d x$$
+由于内层积分不能确定总是上限大于下限，因此不能简单地将其化成{\it 一个}二重积分。
 
 {\bf 教材-例4：}求两柱面$x^2+y^2=R^2,\, x^2+z^2=R^2$
 相交所围成的立体体积。
@@ -268,14 +269,66 @@ $$I=\int_{1/4}^{1/2}\int_{1/2}^{\sqrt y}e^{y/x}\d x\d y+
 
 \subsection{在极坐标系下计算}
 
+有时候积分区域在直角坐标系下进行定限，没有在极坐标系下那么方便。
+
+{\bf 例：}已知区域$D$为单位圆的右半部分，求
+$$\iint_D(x^2+y^2)\d\sigma$$
+
+[分析]：区域$D$可表示为
+$$D:\;0\leq x\leq 1,\;-\sqrt{1-x^2}\leq y\leq\sqrt{1-x^2}.$$
+故
+\begin{align*}
+	\iint_D(x^2+y^2)\d\sigma
+	&=\dint_0^1\dint_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}}(x^2+y^2)\d y\d x\\
+	&=\dint_0^1\left[2x^2\sqrt{1-x^2}+\df13(1-x^2)^{3/2}\right]\d x\\
+	&=\ldots
+\end{align*}
+定限的结果繁琐，导致积分的计算也比较复杂。
+
+之所以会这样，因为采用垂直、水平的直线对区域进行分割、定限，对于圆弧围成的区域，
+远不如对矩形那么简便。
+
+使用极坐标变换计算二重积分，主要适用于边界包含圆弧（准确地说是以原点为圆心的圆弧）
+的区域。例如该例中的积分区域完全可以表示成：
+$$D:\;-\df{\pi}2\leq\theta\leq\df{\pi}2,
+\;0\leq\rho\leq1.$$
+
+如果扩展矩形的定义为由变量的{\it 等值线}——也即在该曲线上对应变量的值不变——所围成的区域，
+那么类似以上的区域即为极坐标系下的“矩形”。对任何一种坐标系来说，矩形都是最
+容易定限的积分区域。
+
+在极坐标系下，一般的“矩形”形如下图：
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch11/PolarRectangle.pdf}}
+\end{center}
+
+阴影部分分别由$\rho$的等值线$\rho=\rho_1,\rho=\rho_2$和$\theta$的
+等值线$\theta=\theta_1,\theta=\theta_2$围成。
+
 {\bf 思考：}极坐标系下的“矩形”有哪些可能的形状？
 
-$$I=\iint_Df(x,y)\d\sigma=\iint_Df(x,y)\d x\d y$$
-在极坐标系下，面积微元${\d\sigma=\rho \d\rho \d\theta}$， 
-从而
-$${I=\iint_Df(x,y)\d\sigma=\iint_Df(\rho\cos\theta,\rho\sin\theta)
-\rho \d\rho \d\theta}$$
-{\bf 注意：}微元形式的改变意味着积分区域表示方式的变化
+相应地，极坐标系下的面积微元也采用$\rho$和$\theta$的等值线分割而成，形如下图：
+
+\begin{center}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch11/PolarDD.pdf}}
+\end{center}
+
+将其近似地视为矩形，从而可得
+$$\d\sigma=\rho\d\rho\d\theta\quad
+\mbox{或}\quad\d\sigma=\rho\d\theta\d\rho$$
+
+于是，根据定限的不同结果，可得在极坐标系下计算二重积分的公式为
+
+\begin{align*}
+	\iint_Df(x,y)\d\sigma
+	&=\int_{\theta_1}^{\theta_2}\int_{\rho_1(\theta)}^{\rho_2(\theta)}
+	f(\rho\cos\theta,\rho\sin\theta)\rho \d\rho \d\theta\\
+	&=\int_{\rho_1}^{\rho_2}\int_{\theta_1(\rho)}^{\theta_2(\rho)}
+	f(\rho\cos\theta,\rho\sin\theta)\rho\d\theta\d\rho 
+\end{align*}
+
+其中的定限方式如下图：
 
 \begin{center}
 	\resizebox{!}{4.2cm}{\includegraphics{./images/ch11/tr.pdf}}\hspace{2cm}
@@ -285,6 +338,31 @@ $${I=\iint_Df(x,y)\d\sigma=\iint_Df(\rho\cos\theta,\rho\sin\theta)
 	\hspace{2cm}
 	$D:\rho_1\leq\rho\leq\rho_2,\theta_1(\rho)\leq\theta\leq\theta_2(\rho)$
 \end{center}
+
+以先定$\theta$后定$\rho$为例，过程可以描述如下：\ps{注意理解等值线的意义：坐标变换的
+主要目的就是利用变换后新变量的等值线，实现对积分区域更好的切割，从而便于定限}
+
+\begin{enumerate}[Step-1:]
+  \setlength{\itemindent}{1cm}
+  \item 将积分区域沿着$\theta$的等值线（从原点出发的射线）方向投影到单位圆上，其中得到的
+  弧长范围即为$\theta$对应的最大变化范围（$[\theta_1,\theta_2]$）
+  \item 任取$\theta\in[\theta_1,\theta_2]$，从原点出发作$\theta$的等值线穿过积分区域
+  \item 等值线的入射点和出射点对应的$\rho$值即为与选定的$\theta$值相对应的$\rho$的
+  变化范围（$[\rho_1(\theta),\rho_2(\theta)]$）
+\end{enumerate}
+
+在极坐标系下，前述例题的解题过程：
+
+[解]：令$x=\rho\cos\theta,y=\rho\sin\theta$，在极坐标系下：
+$$D:\;-\df{\pi}2\leq\theta\leq\df{\pi}2,
+\;0\leq\rho\leq1.$$
+故
+$$\iint_D(x^2+y^2)\d\sigma
+=\dint_{-\pi/2}^{\pi/2}\dint_0^1\rho^2\rho\d\rho\d\theta
+=\df{\pi}4
+$$
+
+过程大大简化了。
 
 {\bf 例：}计算二重积分
 $$\iint_D(x^2+y^2)\d x\d y,$$
@@ -297,6 +375,10 @@ $$\iint_D\arctan\df yx\d\sigma,$$
 $$(x^2+y^2)^2=a^2(x^2-y^2)\;(a>0)$$
 与$x$轴正向围成图形在第一象限中的部分。
 
+\begin{center}
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch11/2TwistRT.pdf}}
+\end{center}
+
 {\bf 例：}求球体$x^2+y^2+z^2\leq 4a^2$包含在圆柱$x^2+y^2=2ax\,(a>0)$
 内的体积。
 
@@ -308,7 +390,7 @@ $$(x^2+y^2)^2=a^2(x^2-y^2)\;(a>0)$$
 的立体体积。
 
 \begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch11/ub.pdf}}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch11/surface-ud.pdf}}
 \end{center}
 
 {\bf 教材-例4：}计算
@@ -420,7 +502,8 @@ $${I=\iiint_{\Omega}f(x,y,z)\d V}$$
 
 \subsubsection{【微元法（投影法）】}
 
-设$\Omega$在$xOy$平面上的投影区域为$D$， $\d V=\d z\d\sigma$， \ps{先投影，再定$z$}
+设$\Omega$在$xOy$平面上的投影区域为$D$， $\d V=\d z\d\sigma$， 
+\ps{先投影，再定$z$，化成“2+1”}
 $$\Omega=\{z_1(x,y)\leq z\leq z_2(x,y), (x,y)\in D\}$$
 
 \begin{center}
@@ -430,14 +513,10 @@ $$\Omega=\{z_1(x,y)\leq z\leq z_2(x,y), (x,y)\in D\}$$
 $${I=\iiint_{\Omega}f(x,y,z)\d
 V=\iint_D\int_{z_1(x,y)}^{z_2(x,y)}f(x,y,z)\d z\d\sigma}$$
 
-{\bf 教材-例7：}计算三重积分
-$$I=\iiint_{\Omega}\df 1{(1+x+y+z)^3}\d V,$$
-其中$\Omega$为平面$x+y+z=1$与三个坐标面所围成的空间区域。
-
 \subsubsection{【截面法】}
 
 取$\Omega$的水平截面，其在$xOy$平面上的投影区域为$D(z)$，
-$\d V=\d\sigma \d z$，\ps{先定$z$，再投影}
+$\d V=\d\sigma \d z$，\ps{先定$z$，再投影，化成“1+2”}
 $$\Omega=\{(x,y)\in D(z),z_1\leq z\leq z_2\}$$
 
 \begin{center}
@@ -446,6 +525,26 @@ $$\Omega=\{(x,y)\in D(z),z_1\leq z\leq z_2\}$$
 
 $${I=\iiint_{\Omega}f(x,y,z)\d
 V=\int_{z_1}^{z_2}\iint_{D(z)}f(x,y,z)\d\sigma \d z}$$
+
+{\bf 教材-例7：}计算三重积分
+$$I=\iiint_{\Omega}\df1{(1+x+y+z)^3}\d V,$$
+其中$\Omega$为平面$x+y+z=1$与三个坐标面所围成的空间区域。
+
+\begin{center}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch11/3DTri21.pdf}} 
+	\resizebox{!}{6cm}{\includegraphics{./images/ch11/3DTri12.pdf}} 
+\end{center}
+
+[分析]：采用两种不同的定限方法，所得结果分别为
+$$\Omega:(x,y)\in D,\;0\leq z\leq 1-x-y$$
+$$\Omega:-1\leq z\leq 1,(x,y)\in D(z)$$
+进而得到
+$$\Omega:0\leq x\leq 1,\;0\leq y\leq 1-x,\;0\leq z\leq 1-x-y$$
+$$\Omega:0\leq z\leq 1,\;0\leq x\leq 1-z,\;0\leq y\leq 1-z-x$$
+对应的累次积分别为
+$$\dint_0^1\dint_0^{1-x}\dint_0^{1-x-y}\df1{(1+x+y+z)^3}\d x\d y\d z$$
+$$\dint_0^1\dint_0^{1-z}\dint_0^{1-z-x}\df1{(1+x+y+z)^3}\d z\d x\d y$$
+
 
 {\bf 例：}计算三重积分
 $$I=\iiint_{\Omega}z^2\d V,$$
@@ -477,7 +576,9 @@ $$x=\rho\cos\theta,\;y=\rho\sin\theta,\;z=z\quad (\rho\geq 0,0\leq\theta\leq
 2\pi,z\in\mathbb{R})$$
 
 \begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch11/bucket.pdf}}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch11/cylinCs.pdf}}
+	\quad
+	\resizebox{!}{5cm}{\includegraphics{./images/ch11/cylinCT.pdf}}
 \end{center}
 
 柱坐标系下的体积微元
@@ -510,6 +611,17 @@ $z=0,\,z=h\,(h>0)$所围立体。
 $$\iiint_{\Omega}\df 1{1+x^2+y^2}\d V,$$
 其中$\Omega$由$x^2+y^2=4z$与$z=h\,(h>0)$所围成。
 
+{\bf 例：}计算三重积分
+$$\iiint_{\Omega}z\d V,$$
+其中$\Omega$由$z=x^2+y^2$和$z=4$所围。
+
+[解]：在柱坐标系下，积分区域可表示为
+$$\Omega:\;0\leq\theta\leq2\pi,\;0\leq\rho\leq2,\;\rho^2\leq z\leq4,$$
+故
+$$\iiint_{\Omega}z\d V=
+\dint_0^{2\pi}\dint_0^2\dint_{\rho^2}^4z\rho\d z\d\rho\d\theta
+=\df{64}3\pi$$
+
 \subsection{在球坐标下计算}
 
 {\bf 直角坐标到球坐标：}$M:\;(x,y,z)\;\to(r,\theta,\varphi)$，其中
@@ -517,7 +629,9 @@ $$x=r\sin\varphi\cos\theta,\;y=r\sin\varphi\sin\theta,\;z=r\cos\varphi
 \quad(r\geq 0,0\leq\theta\leq 2\pi,0\leq\varphi\leq\pi)$$
 
 \begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch11/sphereP.pdf}}
+	\resizebox{!}{5cm}{\includegraphics{./images/ch11/sphereXYZ.pdf}}
+	\quad
+	\resizebox{!}{5cm}{\includegraphics{./images/ch11/sphereEL.pdf}}
 \end{center}
 
 球坐标系下的体积微元
@@ -528,6 +642,8 @@ $$x=r\sin\varphi\cos\theta,\;y=r\sin\varphi\sin\theta,\;z=r\cos\varphi
 
 $$\d V=r^2\sin\varphi \d r\d\theta \d\varphi$$
 
+{\bf 例：}推导球的体积公式。
+
 {\bf 教材-例7：}计算三重积分
 $$\iiint_{\Omega}(x^2+y^2+z^2)\d V,$$
 其中$\Omega$由$z=\sqrt{x^2+y^2}$与$x^2+y^2+z^2=R^2$所围成。
@@ -536,13 +652,19 @@ $$\iiint_{\Omega}(x^2+y^2+z^2)\d V,$$
 $$\iiint_{\Omega}(x^2+y^2)\d V,$$
 其中$\Omega$由$x^2+y^2+z^2=2az$与$x^2+y^2+z^2=2bz$所围成$(0<a<b)$。
 
-{\bf 注：}根据积分区域和被积函数的特点灵活选择坐标系
+{\bf 例：}求半径为$a$的球面与半顶角为$\alpha$的内接锥面所围成的立体体积。
+
+[提示]：在球坐标系下定限：
+$$\Omega:\;0\leq\theta2\pi,\;0\leq\phi\leq\alpha,\;0\leq r\leq2a\cos\theta,$$
+故所求体积
+$$V=\dint_0^{2\pi}\dint_0^{\alpha}\dint_0^{2a\cos\phi}r^2\sin^2\phi\d r
+=\df{4\pi a^3}3(1-\cos^4\alpha)$$
 
 \section{重积分的应用}
 
 \subsection{质量}
 
-{P218-例1：}设一平面三角形薄片以$O(0,0),A(1,0),B(0,1)$为顶点，
+{\bf P218-例1：}设一平面三角形薄片以$O(0,0),A(1,0),B(0,1)$为顶点，
 其上任一点$(x,y)$处的面密度$\mu(x,y)=x^2+y^2$，
 求该平面薄片的质量。
 
@@ -561,11 +683,11 @@ $${\bar{x}=\df{\displaystyle\iint_Dx\mu(x,y)\d\sigma}
 {\bar{y}=\df{\displaystyle\iint_Dy\mu(x,y)\d\sigma}
 {\displaystyle\iint_D\mu(x,y)\d\sigma}}$$
 
-{\bf 教材-例2}
+{\bf 教材-例4}
 设半径为$R$的半圆形薄片上每一点的面密度与该点到圆心的距离成正比，
 求该薄片的质心。
 
-{\bb 空间物体的质心：} 密度函数$\mu(x,y,z)$，$(x,y,z)\in\Omega$
+{\bf 空间物体的质心：} 密度函数$\mu(x,y,z)$，$(x,y,z)\in\Omega$
 $$\bar{x}=\df{\displaystyle\iiint_{\Omega}x\mu(x,y,z)\d V}
 {\displaystyle\iiint_{\Omega}\mu(x,y,z)\d V},\;
 {\bar{y}=\df{\displaystyle\iiint_{\Omega}y\mu(x,y,z)dV}
@@ -573,8 +695,8 @@ $$\bar{x}=\df{\displaystyle\iiint_{\Omega}x\mu(x,y,z)\d V}
 $${\bar{z}=\df{\displaystyle\iiint_{\Omega}z\mu(x,y,z)dV}
 {\displaystyle\iiint_{\Omega}\mu(x,y,z)dV}}
 $$
-{\bf 教材-例3：}求均匀半球壳$\Omega:a^2\leq x^2+y^2+z^2\leq b^2$
-的形心。
+{\bf 教材-例6：}求均匀半球壳$\Omega:a^2\leq x^2+y^2+z^2\leq b^2$，
+$(0<a<b)$，$z\geq 0$的形心。
 
 \subsection{转动惯量}
 
@@ -587,21 +709,33 @@ $$
 {\bf 空间物体绕$z$轴旋转：}密度函数$\mu(x,y,z),(x,y,z)\in\Omega$
 $${I=\iiint_{\Omega}(x^2+y^2)\mu(x,y,z)\d V}$$
 
-{教材-例7：}求半径为$R$的均匀半圆形薄片绕其平分线转动的转动惯量和旋转半径。
+{\bf 例：}求半径为$R$的均匀半圆形薄片绕其平分线转动的转动惯量和旋转半径。
 
-{教材-例8：}(平行轴定理)设$L_c$为通过物体$\Omega$质心的直线，直线$L_t$平行于$L_c$，
+{\bf 教材-例8：}(平行轴定理)设$L_c$为通过物体$\Omega$质心的直线，直线$L_t$平行于$L_c$，
 两者距离为$d$。试证：$\Omega$关于轴$L_t$的转动惯量$I_t$与物体关于轴
 $L_c$的转动惯量$I_c$之间存在关系如下：
 $$I_t=I_c+Md\,^2,$$
 其中$M$为$\Omega$的质量。
 
+{\bf 例：}\ps{同济}求半径为$R$密度为$\mu$的球体绕其直径的转动惯量。
+
+[提示]：不妨以$z$轴为转动轴，则
+\begin{align*}
+	I_z&=\iiint_{\Omega}(x^2+y^2)\mu\d V\\
+	&=\mu\dint_0^{2\pi}\dint_0^{\pi}\dint_0^Rr^4\sin^3\phi\d r
+	\d\phi\d\theta\\
+	&=\df8{15}\pi\mu R^5
+\end{align*}
+
 \subsection{万有引力}
 
-物体$\Omega$的点密度为$\mu(x,y,z)$，质量为$m$的质点位于
-$(a,b,c)$，$\Omega$对$m$的引力为：
-$${F_x=\iiint_{\Omega}Km\mu\df{x-a}{r^3}\d V,} $$
-$${F_y=\iiint_{\Omega}Km\mu\df{y-b}{r^3}\d V,} $$
-$${F_z=\iiint_{\Omega}Km\mu\df{z-c}{r^3}\d V} $$
+已知占据空间趋于$\Omega$的物体点密度为$\mu(x,y,z)$，质量为$m$的质点位于
+$(a,b,c)$，$G$为万有引力常数，则物体对质点的引力为：
+$$\bm{F}=(F_x,F_y,F_z),$$
+其中
+$${F_x=Gm\iiint_{\Omega}\mu\df{x-a}{r^3}\d V,} $$
+$${F_y=Gm\iiint_{\Omega}\mu\df{y-b}{r^3}\d V,} $$
+$${F_z=Gm\iiint_{\Omega}\mu\df{z-c}{r^3}\d V} $$
 
 {\bf 教材-例9：}求高为$H$，底半径为$R$且密度均匀的圆柱体，对其底面中心
 一单位质量质点的引力。
@@ -610,13 +744,54 @@ $${F_z=\iiint_{\Omega}Km\mu\df{z-c}{r^3}\d V} $$
 	\resizebox{!}{5cm}{\includegraphics{./images/ch11/cg.pdf}}
 \end{center}
 
+{\bf 例：}\ps{同济}求球心在原点，半径为$R$的均质（密度$\mu$）对位于$(0,0,a)\;(a>R)$
+处的单位质量的质点的引力。
+
+[提示]：由对称性，显然$F_x=F_y=0$，
+\begin{align*}
+	F_z&=\iiint_{\Omega}G\mu\df{z-a}{[x^2+y^2+(z-a)^2]^{3/2}}\d V\\
+	&=G\mu\dint_{-R}^R(z-a)\iint_{x^2+y^2\leq R^2-z^2}
+	\df{1}{[x^2+y^2+(z-a)^2]^{3/2}}
+	\d\sigma_{xy}\d z\\
+	&=G\mu\dint_{-R}^R(z-a)
+	\left(\df1{a-z}-\df1{\sqrt{R^2-2az+a^2}}\right)\d z\\
+	&=-G\df M{a^2}
+\end{align*}
+其中$M=\df43\pi R^3\mu$为球的质量。
+
+该结果表明：{\it 均质球对球外一质点的引力等于球的质量集中于球心时两质点间的引力。}
+
 \subsection{空间曲面的表面积}
 
-已知函数$z=f(x,y)\,(x,y)\in D$，求其对应曲面的表面积。
+{\bf 例：}已知函数$z=f(x,y)\;(x,y)\in D$，求其对应曲面的表面积。
 
-$${S=\iint_D\sqrt{1+(f\,'_x)^2+(f\,'_y)^2}\d\sigma}$$
+[分析]：在空间曲面$\Sigma:z=f(x,y)\;(x,y)\in D$上任一点$(x,y,f(x,y))$
+处取面积微元$\d S$，设该微元在$xOy$平面上的投影为$\d\sigma_{xy}$，则
+$$\d\sigma_{xy}=|\cos\gamma|\d S,$$
+其中$\gamma$为$\d S$的法向量关于$z$轴的方向角。注意到$\d S$处的法向量为
+$$\bm{n}=(f'_x,f'_y,-1),$$
+故
+$$|\cos\theta|=\df1{\sqrt{1+(f\,'_x)^2+(f\,'_y)^2}},$$
+综上，所求面积
+$${S=\iint_D\sqrt{1+(f\,'_x)^2+(f\,'_y)^2}\d\sigma_{xy}}$$
 
-{\bf 例：}求半径为$a$的球的表面积。
+{\bf 例：}求半径为$R$的球的表面积。
+
+[解]：上半球可表示为
+$$z=\sqrt{R^2-x^2-y^2},\;(x^2+y^2\leq R^2),$$
+注意到
+$$z'_x=-\df xz,\quad z'_y=-\df yz,$$
+故
+$$\d S=\sqrt{1+(z'_x)^2+(z'_y)^2}\d\sigma_{xy}=\df Rz\d\sigma_{xy},$$
+于是所求球的表面积为
+\begin{align*}
+	S&=2\iint_{x^2-y^2\leq R^2}\df Rz\d\sigma_{xy}\\
+	&=2\dint_0^{2\pi}\dint_0^R\df R{\sqrt{R^2-\rho^2}}\rho\d\rho\d\theta
+	=4\pi R^2
+\end{align*}
+
+{\bf 注：}掌握了求曲面面积的方法，我们将可以进一步得到求曲面质量、转动惯量、质心和
+万有引力的方法。这些恰好就是下一章所要学习的第一型曲面积分的基本思想。
 
 \section{习题课}
 
@@ -678,19 +853,52 @@ $$\iint_Df(x,y)dxdy=\iint_D f(x,y)\left|\df{\p(x,y)}{\p(u,v)}\right|
   \setlength{\itemindent}{1cm}
   \item $\ds\iint_{|x|+|y|\leq 1}f(x+y)\d\sigma$ 
   \item $\ds\iint_Df(xy)\d\sigma$，$D$由$xy=1,xy=2,y=x,y=4x,(x>0,y>0)$围成 
-  \item $\ds\iint_{x^2+y^2\leq 1} f(ax+by+c)\d\sigma,\;(a^2+b^2\ne 0)$
+%   \item $\ds\iint_{x^2+y^2\leq 1} f(ax+by+c)\d\sigma,\;(a^2+b^2\ne 0)$
 \end{enumerate}
 
 {\bf 例：}设$a^2+b^2=1,\, D:x^2+y^2\leq 1$，证明
-$$\iint_Df(ax+by)\d x\d y=2\dint_{-1}^1f(u)\sqrt{1-u^2}\d u.$$
+$$\iint_Df(ax+by)\d\sigma_{xy}=2\dint_{-1}^1f(u)\sqrt{1-u^2}\d u.$$
+
+[提示]：令$u=ax+by,\;v=bx-ay$，则
+$$x^2+y^2\leq 1\quad\Leftrightarrow\quad u^2+v^2\leq 1.$$
+且
+$$\left|\df{\p(x,y)}{\p(u,v)}\right|=1,$$
+于是
+\begin{align*}
+	\iint_{x^2+y^2\leq 1}&f(ax+by)\d\sigma_{xy}
+	=\iint_{u^2+v^2\leq 1}f(u)\d\sigma_{uv}\\
+	&=\dint_{-1}^1\dint_{-\sqrt{1-u^2}}^{\sqrt{1-u^2}}f(u)\d u
+	=\dint_{-1}^1f(u)\sqrt{1-u^2}\d u
+\end{align*}
 
 \subsection{三重积分的计算}
 
 {\bf 例：}设$f(z)$连续，证明：
 $$\iiint_{x^2+y^2+z^2\leq 1}f(z)\d V=\pi\dint_{-1}^1f(u)(1-u^2)\d u$$
 
-{\bf 例：}计算三重积分
-$$\iiint_{\Omega}z^2\d V,\;\Omega:x^2+y^2+z^2\leq 1,\,z\geq 0$$
+[提示]：使用“1+2”的方法。
+
+{\bf 例：}计算积分
+$$\iiint_{\Omega}(x+y+z)^2\d V,$$
+其中$\Omega:\;\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}\leq 1$
+
+[提示]：注意到$\Omega$关于三个坐标面均对称，故
+$$\iiint_{\Omega}xy\d V=\iiint_{\Omega}yz\d V=\iiint_{\Omega}zx\d V=0,$$
+从而
+$$\iiint_{\Omega}(x+y+z)^2\d V=\iiint_{\Omega}(x^2+y^2+z^2)\d V.$$
+
+使用“1+2”计算积分，可得
+$$\iiint_{\Omega}x^2\d V=\df4{15}\pi a^3bc,$$
+注意到$\df xa,\df yb,\df zc$在$\Omega$内具有轮换对称性，故
+$$\iiint_{\Omega}y^2\d V=\df4{15}\pi ab^3c,\quad
+\iiint_{\Omega}z^2\d V=\df4{15}\pi abc^3.$$
+
+综上，
+$$\iiint_{\Omega}(x+y+z)^2\d V=\df4{15}\pi abc(a^2+b^2+c^2).$$
+
+
+% {\bf 例：}计算三重积分
+% $$\iiint_{\Omega}z^2\d V,\;\Omega:x^2+y^2+z^2\leq 1,\,z\geq 0$$
 
 {\bf 例：}按给定的积分次序重写累次积分
 $$\dint_0^1\dint_0^x\dint_0^{xy}f(x,y,z)\d z\d y\d x$$
@@ -701,8 +909,59 @@ $$\dint_0^1\dint_0^x\dint_0^{xy}f(x,y,z)\d z\d y\d x$$
 \end{enumerate}
 
 \begin{center}
-	\resizebox{!}{5cm}{\includegraphics{./images/ch11/xyzC.pdf}}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch11/xyz2zxy.pdf}}
 \end{center}
+
+[提示]（纯“代数”的定限方法）本例的积分区域可以描述为
+$$\Omega:\;0\leq x\leq1,\;0\leq y\leq x,\;0\leq z\leq xy$$
+
+（2）（先定$y$后定$z$再定$x$）首先考虑和$y$相关的不等式（对于包含$x,z$的部分，须
+放缩至常数），有
+$$0\leq y\leq x\leq 1,\quad 0\leq \df zx\leq y,$$
+二者合并（取交集）可得$y$的变化范围
+$$0\leq y\leq 1.$$
+
+然后假设$y$给定，考虑和$z$相关的不等式（对于包含$x$的部分，须放缩至常数或与$y$有关的表示）
+$$0\leq z\leq xy\leq y,$$
+故$z$的变化范围为
+$$0\leq z\leq y.$$
+
+最后，与$x$相关的不等式包括：
+$$y\leq x\leq 1,\quad \df zy\leq x,$$
+注意到以$z=y^2$为分界线，以上两个不等式的左端大小关系可能反转，因此需要讨论。
+
+最终定限结果为
+$\Omega=\Omega_1+\Omega_2$，其中
+$$\Omega_1:\;0\leq y\leq 1,\;0\leq z\leq y^2,\; y\leq x\leq 1,$$
+$$\Omega_2:\;0\leq y\leq 1,\;y^2\leq z\leq 1,\; \df zy\leq x\leq 1.$$
+
+{\bf 例：}求以下曲面在第一卦限中所围立体体积
+$$\left(\df xa+\df yb\right)^2+\left(\df zc\right)^2=1,$$
+其中$a,b,c>0$。
+
+\begin{center}
+	\resizebox{!}{6cm}{\includegraphics{./images/ch11/xy2z2.pdf}}
+\end{center}
+
+[提示]：\ps{本例的图形用手工方法很难描绘，故使用“代数”定限方法}积分区域可表示为
+$$\Omega:\;\left(\df xa+\df yb\right)^2+\left(\df zc\right)^2\leq1,\;
+x\geq0,\;y\geq0,\;z\geq0.$$
+
+先定$z$。与之相关的不等式为
+$$0\leq z\leq c\sqrt{1-\left(\df xa+\df yb\right)^2}\leq c,$$
+故有$0\leq z\leq c$。
+
+再定$(x,y)$。设$z$给定，则有
+$$0\leq\df xa+\df yb\leq\sqrt{1-\left(\df zc\right)^2},
+\;x\geq0,\;y\geq0,$$
+对其定限可得
+$$0\leq x\leq a\sqrt{1-\left(\df zc\right)^2},\;
+0\leq y\leq b\left[\sqrt{1-\left(\df zc\right)^2}-\df xa\right],$$
+
+至此，所求体积
+$$V=\dint_0^c\dint_0^{a\sqrt{1-\left(\frac zc\right)^2}}
+\dint_0^{b\left[\sqrt{1-\left(\frac zc\right)^2}-\frac xa\right]}
+\d y\d x\d z=\df{abc}3.$$
 
 \subsection{三重积分与坐标变换}
 
@@ -712,16 +971,20 @@ $$\dint_0^1\dint_{-\sqrt{y-y^2}}^{\sqrt{y-y^2}}
 \sqrt{x^2+y^2+z^2}\right)\d z\d x\d y$$
 分别化为柱坐标和球坐标下的三重积分。
 
-{\bf 例：}计算积分
-$$\iiint_{\Omega}(x+y+z)^2\d V,$$
-其中$\Omega:\;\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}\leq 1$
-
 {\bf 例：}计算由以下平面所围成的立体体积：
 $$a_ix+b_iy+c_iz=\pm h_i,\;i=1,2,3,$$
 其中：$a_i,b_i,c_i(i=1,2,3)$为常数，且
 $$\Delta=\left|\begin{array}{ccc}
 a_1 & b_1 & c_1\\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3
 \end{array}\right|\ne 0$$
+
+[提示]：设
+$$u=a_1x+b_1y+c_1z,\;v=a_2x+b_2y+c_2z,\;w=a_3x+b_3y+c_3z,$$
+则
+$$\left|\df{\p(x,y,z)}{\p(u,v,w)}\right|=\df1{|\Delta|},$$
+所求体积
+$$V=\dint_{-|h_1|}^{|h_1|}\dint_{-|h_2|}^{|h_2|}\dint_{-|h_3|}^{|h_3|}
+\df1{|\Delta|}\d w\d v\d u=\df{8|h_1h_2h_3|}{|\Delta|}.$$
 
 {\bf 例：}计算极限
 $$\lim\limits_{n\to\infty}\df 1{n^4}\iiint_{r\leq n}[r]\d V,$$
@@ -733,20 +996,15 @@ $${\df 43\pi\left[n^4-\sum\limits_{k=1}^nk^3\right]}$$
 $$F(t)=\iiint_{x^2+y^2+z^2\leq t^2}f(x^2+y^2+z^2)\d V,$$
 求$F\,'(t)$。
 
-{\bf 例：}设$f(x)$可微，
-$$F(x)=\dint_0^x\d v\dint_0^v\d u\dint_0^uf(t)\d t,$$
-求$F\,'(x)$。
-
-\subsection{三重积分与坐标变换*}
-
-求以下曲面在第一卦限中所围立体体积
-$$\left(\df xa+\df yb\right)^2+\left(\df zc\right)^2=1,$$
-其中$a,b,c>0$。
+% {\bf 例：}设$f(x)$可微，
+% $$F(x)=\dint_0^x\d v\dint_0^v\d u\dint_0^uf(t)\d t,$$
+% 求$F\,'(x)$。
 
 \subsection{重积分的应用}
 
-{\bf 例：}在一半径为$R$的球内，以某条直径为轴打一个半径为$r(r<R)$的
-圆孔，求打孔后球内剩余部分的体积。
+{\bf 例：}在一半径为$R$的球内，以某条直径为轴打一个高度为$2H(H<R)$的
+圆孔，求打孔后球内剩余部分的体积。\ps{由此题可以得到一个有趣的结论：不论球的半径多大，
+打孔后剩余的部分体积都是一样的！}
 
 {\bf 例：}求锥面$3(x^2+y^2)=(z-3)^2$与$z=0$所围的内切球面
 与该锥面所围成的立体的体积。
@@ -756,9 +1014,29 @@ $$\left(\df xa+\df yb\right)^2+\left(\df zc\right)^2=1,$$
 {\bf 例：}求$n$维单纯形
 $$T_n:\; x_i\geq 0\,(i=1,2,\ldots,n),\;
 \sum\limits_{i=1}^nx_i\leq a$$
-的体积$(a>0)$。\ps{单纯性是三角形在高维空间中的推广}
+的体积$(a>0)$。\ps{单纯形是三角形在高维空间中的推广}
 
-$$\df{a^n}{n!}$$
+[解]：定限\ps{使用纯“代数”的定限方法}
+$$T_n:\;0\leq x_1\leq a,\;0\leq x_2\leq a-x_1,\;
+0\leq x_3\leq a-x_1-x_2,$$
+$$\ldots,\;0\leq x_n\leq a-x_1-x_2-\ldots-x_{n-1}$$
+故所求体积
+\begin{align*}
+	V_n(a)&=\dint_0^a\dint_0^{a-x_1}\dint_0^{a-x_1-x_2}\ldots
+	\dint_0^{a-x_1-x_2-\ldots-x_{n-1}}\d x_{n}\ldots\d x_3\d x_2\d x_1\\
+	&=\dint_0^aV_{n-1}(a-x_1)\d x_1
+\end{align*}
+注意到
+$$V_2(a)=\df12a^2,\quad V_3(a)=\df16a^3,$$
+由数学归纳法，假设$V_{n-1}(a)=\df1{(n-1)!}a^{n-1}$，则
+\begin{align*}
+	V_n(a)&=\dint_0^aV_{n-1}(a-x_1)\d x_1\\
+	&=\dint_0^a\df1{(n-1)!}(a-x_1)^{n-1}\d x_1=\df1{n!}a^n
+\end{align*}
+由此可知，假设成立，故
+$$V_n(a)=\df1{n!}a^n.$$
+
+用类似的方法可以证明：
 
 {\bf 例：}证明：
 $$\dint_0^t\d t_1\dint_0^{t_1}\d t_2\ldots
@@ -766,12 +1044,63 @@ $$\dint_0^t\d t_1\dint_0^{t_1}\d t_2\ldots
 =\df 1{n!}\left[\dint_0^tf(s)\d s\right]^n$$
 
 {\bf 例：}求$n$维单位球
-$$\sum\limits_{k=1}^nx_k^2\leq 1$$
+$$S_n:\;\sum\limits_{k=1}^nx_k^2\leq 1$$
 的体积。
 
-$${\Gamma(\alpha)=\dint_0^{+\infty}x^{\alpha-1}e^{-x}dx,\;(\alpha>0)}$$
+[解]：作$n$维球坐标变换
+$$
+\left\{\begin{array}{rl}
+	x_1&=r\sin\theta_{n-1}\sin\theta_{n-2}\ldots\sin\theta_{2}\sin\theta_1\\
+	x_2&=r\sin\theta_{n-1}\sin\theta_{n-2}\ldots\sin\theta_{2}\cos\theta_1\\
+	x_3&=r\sin\theta_{n-1}\sin\theta_{n-2}\ldots\cos\theta_{2}\\
+	\ldots&\ldots\\
+	x_{n-1}&=r\sin\theta_{n-1}\cos\theta_{n-2}\\
+	x_n&=r\cos\theta_{n-1}
+\end{array}\right.
+$$
+对应的Jacobi行列式取绝对值后可表示为
+$$\left|\df{\p(x_1,x_2,\ldots,x_n)}{\p(r,\theta_1,\ldots,\theta_{n-1})}\right|
+=r^{n-1}J(\theta_1,\theta_2,\ldots,\theta_{n-1})$$
+在球坐标系下，$S_n$可表示为
+$$S_n:
+\;(\theta_1,\theta_2,\ldots,\theta_{n-1})\in\Sigma_{n-1},
+\;0\leq r\leq 1,$$
+于是
+\begin{align*}
+	V_n&=\dint_{S_n}\d V_n\\
+	&=\int\ldots\int_{\Sigma_{n-1}}\dint_0^1
+	r^{n-1}\d rJ(\theta_1,\theta_2,\ldots,\theta_{n-1})
+	\d\theta_{n-1}\ldots\d\theta_1\\
+	&=\df1n\int\ldots\int_{\Sigma_{n-1}}
+	J(\theta_1,\theta_2,\ldots,\theta_{n-1})\d\theta_{n-1}\ldots\d\theta_1
+	=\df1nI_{n-1}
+\end{align*}
 
-$${V_n=\df{2\pi^{n/2}}{n\Gamma(n/2)}}$$
+以下来计算$I_{n-1}$。
+
+\begin{align*}
+	\pi^{n/2}&=\left(\dint_{-\infty}^{+\infty}e^{-x^2}\d x\right)^n\\
+	&=\dint_{-\infty}^{+\infty}\dint_{-\infty}^{+\infty}\ldots
+	\dint_{-\infty}^{+\infty}e^{-(x_1^2+x_2^2+\ldots+x_n^2)}\d x_n\ldots
+	\d x_2\d x_1\\
+	&=\int\ldots\int_{\Sigma_{n-1}}\dint_0^{+\infty}
+	e^{-r^2}r^{n-1}J(\theta_1,\theta_2,\ldots,\theta_{n-1})
+	\d r\d\theta_{n-1}\ldots\d\theta_1\\
+	&=I_{n-1}\dint_0^{+\infty}e^{-r^2}r^{n-1}\d r
+	=\df12I_{n-1}\dint_0^{+\infty}e^{-r^2}(r^2)^{n/2-1}\d r^2\\
+	&=\df12I_{n-1}\dint_0^{+\infty}x^{n/2-1}e^{-x}\d x
+	=\df12I_{n-1}\Gamma(n/2)
+\end{align*}
+从而
+$$I_{n-1}=\df{2\pi^{n/2}}{\Gamma(n/2)},$$
+进而可得
+$$V_n=\df{2\pi^{n/2}}{n\Gamma(n/2)}.$$
+
+{\bf 注：}注意到$\Gamma(n)=(n-1)!$，从以上的结果可以看到，随着维度的增加，
+每增加一维，分子增大约$\sqrt{n}$倍，而分子固定地增大$\sqrt{\pi}$倍，这意味着$V_n$
+是随着$n$的增大而不断递减的，且递减的速率越来越大。因此，可以很容易地得到如下的结论
+$$\limn V_n=0.$$
+换句话说，$n$维球的维度越高，则体积越小，并最终趋于零！
 
 \section{小结}
 
@@ -791,7 +1120,7 @@ $${V_n=\df{2\pi^{n/2}}{n\Gamma(n/2)}}$$
 可以看到一元函数微积分的影子，这一点对于我们更深入地理解整个高等数学的知识体系其实也是
 至关重要的。
 
-接下来，进入曲线和曲面积分前，请不要忘记这样的思想，它会是我们真正克服各种理解障碍的有力
+接下来，进入曲线和曲面积分前，请不要忘记以上的思想，它会是我们真正克服各种理解障碍的有力
 工具。
 
 \newpage
@@ -865,6 +1194,7 @@ $$\dint_0^t\d t_1\dint_0^{t_1}\d t_2\ldots
 \dint_0^{t_{n-1}}\prod\limits_{i=1}^nf(t_i)\d t_n
 =\df 1{n!}\left[\dint_0^tf(s)\d s\right]^n$$
 
+% \visibletrue
 \ifvisible
 
 \newpage
@@ -970,7 +1300,7 @@ $$0<V_n<\left(\df12\right)^{\left[\frac{n-N}2\right]}V_N,$$
   \item 函数$f(x,y)=x^2-ay^2$（$a$为常数）在$(0,0)$处(\underline{\hspace{1cm}})
   %\ps{D}
   
-  (A) 不取极值\quad{1cm}(B)取极小值\quad (C)取极大值\quad
+  (A) 不取极值\quad(B)取极小值\quad (C)取极大值\quad
   (D)是否取极值取决于$a$的值
 %   \begin{enumerate}[(A)]
 %     \item 不取极值

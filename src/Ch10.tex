@@ -78,6 +78,10 @@ $${\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=a}
 
 {\bf 教材-例3：}证明$\lim\limits_{(x,y)\to(0,0)}\df{x^2-y^2}{x^2+y^2}$不存在。
 
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceLim-2-2.pdf}}
+\end{center}
+
 {\bf 套路1：}若累次极限
 $$\lim\limits_{y\to y_0}\lim\limits_{x\to x_0}f(x,y),
 \quad \lim\limits_{x\to x_0}\lim\limits_{y\to y_0}f(x,y)$$
@@ -96,15 +100,23 @@ $$\lim\limits_{y\to y_0}\lim\limits_{x\to x_0}f(x,y),
   \end{itemize}
 \end{enumerate}
 
-\begin{center}
-	\resizebox{!}{4cm}{\includegraphics{./images/ch10/noLimEx.pdf}}
-	\quad
-	\resizebox{!}{4cm}{\includegraphics{./images/ch10/limEx.pdf}}
-	
-	教材-图10.1.13\hspace{2cm} 教材-图10.1.14\hspace{2cm} 教材-图10.1.15
-\end{center}
+% \begin{center}
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch10/noLimEx.pdf}}
+% 	\quad
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch10/limEx.pdf}}
+% 	
+% 	教材-图10.1.13\hspace{2cm} 教材-图10.1.14\hspace{2cm} 教材-图10.1.15
+% \end{center}
 
 {\bf 教材-例5：}证明极限$\lim\limits_{(x,y)\to(0,0)}\df{xy}{x^2+y^2}$不存在
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceLim-1-1.pdf}}
+	\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceLim-1-3.pdf}}
+	\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceLim-1-2.pdf}}
+\end{center}
 
 {\bf 套路2：}若极限
 $$\lim\limits_{{x\to x_0}\atop{y=y_0+k(x-x_0)}}f(x,y)$$
@@ -116,6 +128,12 @@ $$\lim\limits_{{x\to x_0}\atop{y=y_0+k(x-x_0)}}f(x,y)$$
 因此，这两种套路只能用于证明二重极限不存在。
 
 {\bf 教材-例4：}$\lim\limits_{(x,y)\to(0,0)}\df{x^2y}{x^2+y^2}$
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceLim-3-1.pdf}}
+	\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceLim-3-2.pdf}}
+\end{center}
 
 {\bf 套路3：}令$x=x_0+\rho\cos\theta,y=y_0+\rho\sin\theta$，则
 $$(x,y)\to(x_0,y_0)\quad\Leftrightarrow\quad\rho\to0$$
@@ -145,6 +163,12 @@ $$|\rho^2\cos^2\theta\sin^2\theta|<\e,$$
 {\bf 辅导书（下）-P12-例6-6：}讨论极限
 $$\lim\limits_{(x,y)\to(0,0)}\df{xy^2}{x^2+y^4}$$
 的存在性。
+
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceLim-4-1.pdf}}
+	\quad
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceLim-4-2.pdf}}
+\end{center}
 
 [证]：令$x=\rho\cos\theta,y=\rho\sin\theta$，则
 $$\lim\limits_{(x,y)\to(0,0)}\df{xy^2}{x^2+y^4}
@@ -352,9 +376,13 @@ $$f''_{xy}(x_0,y_0)=f''_{yx}(x_0,y_0)$$
 {\bf 教材-例11：}求椭圆抛物面$S:z=2x^2+3y^2$在点$P(1,1,5)$处的切平面方程。
 
 \begin{center}
-	\resizebox{!}{4.7cm}{\includegraphics{./images/ch10/tangentFxy.pdf}}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceDeri-1-1.pdf}}
+	\quad\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceDeri-1-2.pdf}}
 	
-	教材-图10.2.4：切平面：$z=4x+6y-5$或$z-5=4(x-1)+6(y-1)$
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceDeri-1-3.pdf}}
+	\quad\resizebox{!}{4cm}{\includegraphics{./images/ch10/3DSurfaceDeri-1-4.pdf}}
+	
+	{\it 越靠近切点，切平面与曲面的近似程度越高}
 \end{center}
 
 {\bf 教材-例12：}讨论函数$f(x,y)=\left\{\begin{array}{cc}
@@ -364,9 +392,10 @@ $$f''_{xy}(x_0,y_0)=f''_{yx}(x_0,y_0)$$
 在原点处的切平面。
 
 \begin{center}
-	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/tangentNFxy.pdf}}
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DSurfaceDeri-2-1.pdf}}
+	\quad\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DSurfaceDeri-2-2.pdf}}
 	
-	参见教材-图10.1.14
+	{\it 候选的“切平面”未必就是真正的切平面！}
 \end{center}
 
 {\bf 切平面：}两条特定方向的切线所张成的平面：
@@ -889,11 +918,11 @@ $$f(x,y)=1+2y+(xy+y^2)+\circ(x^2+y^2)$$
 $f(\bm{x}_0)$有定义，且对$\bm{x}_0$某去心邻域内的任意点
 $\bm{x}$，恒有$f(\bm{x})>f(\bm{x}_0)$
 
-\begin{center}
-	\resizebox{!}{4cm}{\includegraphics{./images/ch10/valley.pdf}}
-	
-	\resizebox{!}{4cm}{\includegraphics{./images/ch10/hill.pdf}}
-\end{center}
+% \begin{center}
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch10/valley.pdf}}
+% 	
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch10/hill.pdf}}
+% \end{center}
 
 \subsection{极值的判定}
 
@@ -902,10 +931,10 @@ $\bm{x}$，恒有$f(\bm{x})>f(\bm{x}_0)$
   \item {\bf 二元函数的极值点：}(二维)驻点、边界或“不可导”点 
 \end{itemize}
 
-\begin{center}
-	\resizebox{!}{4cm}{\includegraphics{./images/ch10/stayP.pdf}}\hspace{3cm}
-	\resizebox{!}{4cm}{\includegraphics{./images/ch10/undevable.pdf}}
-\end{center}
+% \begin{center}
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch10/stayP.pdf}}\hspace{3cm}
+% 	\resizebox{!}{4cm}{\includegraphics{./images/ch10/undevable.pdf}}
+% \end{center}
 
 {\bf 定理10.5.1}（必要条件）若可微函数$f(\bm{x})$在$\bm{x}_0$处取极值，则$\bm{x}_0$
 为$f(\bm{x})$的{\bf 驻点}，即：$\bigtriangledown f(\bm{x}_0)=0$
@@ -913,19 +942,24 @@ $\bm{x}$，恒有$f(\bm{x})>f(\bm{x}_0)$
 {\bf 推论：}若$f(\bm{x})$在$\bm{x}_0$处偏导连续且取极值，则对应曲面
 在该点处有水平切面。
 
-\begin{shaded}
-	{\bf 关于驻点：}
+{\bf 关于驻点：}
+
+\begin{center}
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DLim-1-1.pdf}}\quad
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DLim-1-2.pdf}}
 	
-	\begin{itemize}
-	  \item 可微函数的极值点必是驻点
-	  \item 驻点未必是极值点 
-	\end{itemize}
+	{\it 可微函数的极值点必为驻点}
 	
-	\begin{center}
-		\resizebox{!}{4cm}{\includegraphics{./images/ch10/mhill.pdf}}\quad
-		\resizebox{!}{4cm}{\includegraphics{./images/ch10/anhill.pdf}}
-	\end{center}
-\end{shaded}
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DLim-3-1.pdf}}\quad
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DLim-3-2.pdf}}
+	
+	{\it 极值点未必是驻点}
+	
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DLim-2-1.pdf}}\quad
+	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DLim-2-2.pdf}}
+	
+	{\it 驻点未必是极值点}
+\end{center}
 
 {\bf 定理10.5.2}（充分条件）设$f(\bm{x})$在$\bm{x}_0$处存在二阶连续偏导数，
 $\bigtriangledown f(\bm{x}_0)=0$，则由
@@ -948,6 +982,11 @@ $f(x,y)$在$(x_0,y_0)$二阶偏导数连续，$\bigtriangledown f(x_0,y_0)=0$，
 \end{enumerate}
 
 {\bf 例：}求$z=-xye^{-(x^2+y^2)}$的极值。
+
+% \begin{center}
+% 	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DLim-1-1.pdf}}\quad
+% 	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DLim-1-2.pdf}}
+% \end{center}
 
 \subsection{条件极值}
 

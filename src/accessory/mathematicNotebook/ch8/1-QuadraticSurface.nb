@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     34185,        980]
-NotebookOptionsPosition[     32650,        924]
-NotebookOutlinePosition[     33003,        940]
-CellTagsIndexPosition[     32960,        937]
+NotebookDataLength[     35469,       1007]
+NotebookOptionsPosition[     33933,        951]
+NotebookOutlinePosition[     34286,        967]
+CellTagsIndexPosition[     34243,        964]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -822,15 +822,23 @@ Cell[BoxData[
      RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
    RowBox[{"{", 
     RowBox[{"t", ",", "0", ",", 
-     RowBox[{"2", "Pi"}]}], "}"}], ",", 
+     RowBox[{"2", "Pi"}]}], "}"}], ",", "\[IndentingNewLine]", 
    RowBox[{"Mesh", "\[Rule]", 
     RowBox[{"{", 
-     RowBox[{"5", ",", "10"}], "}"}]}], ",", 
+     RowBox[{"10", ",", "20"}], "}"}]}], ",", 
+   RowBox[{"MeshStyle", "\[Rule]", 
+    RowBox[{"{", "Black", "}"}]}], ",", "\[IndentingNewLine]", 
    RowBox[{"PlotStyle", "\[Rule]", 
-    RowBox[{"FaceForm", "[", 
-     RowBox[{"Red", ",", "Yellow"}], "]"}]}], ",", 
-   RowBox[{"PlotTheme", "->", "\"\<Detailed\>\""}]}], "]"}]], "Input",
- CellChangeTimes->{3.636799690081109*^9}]
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"FaceForm", "[", 
+       RowBox[{"LightGreen", ",", "Red"}], "]"}], ",", 
+      RowBox[{"Opacity", "[", "0.5", "]"}]}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Boxed", "\[Rule]", "False"}], ",", 
+   RowBox[{"Axes", "\[Rule]", "False"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{3.636799690081109*^9, 3.70364716522185*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -888,8 +896,17 @@ Cell[BoxData[{
       RowBox[{"u", ",", "0", ",", "Pi"}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"v", ",", "0", ",", 
-       RowBox[{"2", "Pi"}]}], "}"}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+       RowBox[{"2", "Pi"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Mesh", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"10", ",", "20"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"LightBlue", ",", 
+        RowBox[{"Opacity", "[", "0.5", "]"}]}], "}"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"lh", "=", 
    RowBox[{"ParametricPlot3D", "[", 
@@ -911,14 +928,24 @@ Cell[BoxData[{
        RowBox[{"2", "Pi"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"v", ",", "0", ",", 
-       RowBox[{"2", "Pi"}]}], "}"}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+       RowBox[{"2", "Pi"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Axes", "\[Rule]", "False"}], ",", 
+     RowBox[{"Boxed", "\[Rule]", "False"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Mesh", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"10", ",", "20"}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"LightBlue", ",", 
+        RowBox[{"Opacity", "[", "0.5", "]"}]}], "}"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{"Show", "[", 
   RowBox[{"rh", ",", "lh", ",", 
    RowBox[{"PlotRange", "->", "All"}]}], "]"}]}], "Input",
  CellChangeTimes->{{3.667212021011059*^9, 3.667212103555801*^9}, {
   3.667212194724297*^9, 3.66721225239327*^9}, {3.667212322707059*^9, 
-  3.667212494115028*^9}, {3.667212582990121*^9, 3.667212591955002*^9}}]
+  3.667212494115028*^9}, {3.667212582990121*^9, 3.667212591955002*^9}, {
+  3.703647145927827*^9, 3.703647153382805*^9}}]
 }, Open  ]]
 }, Open  ]]
 },
@@ -975,11 +1002,11 @@ Cell[25630, 705, 1705, 44, 114, "Input"],
 Cell[27338, 751, 1240, 38, 63, "Input"],
 Cell[CellGroupData[{
 Cell[28603, 793, 147, 2, 51, "Subtitle"],
-Cell[28753, 797, 1137, 35, 63, "Input"]
+Cell[28753, 797, 1471, 43, 114, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[29927, 837, 146, 2, 51, "Subtitle"],
-Cell[30076, 841, 2546, 79, 131, "Input"]
+Cell[30261, 845, 146, 2, 51, "Subtitle"],
+Cell[30410, 849, 3495, 98, 267, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
