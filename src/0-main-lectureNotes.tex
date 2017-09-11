@@ -58,6 +58,9 @@
 
 \usepackage{ifthen}
 
+\usepackage{tikz}
+\usetikzlibrary{arrows,snakes,backgrounds,petri}
+
 % \usepackage{picins}%实现图文混排
 
 \usepackage{flushend,cuted}
@@ -110,73 +113,78 @@
 
 \definecolor{shadecolor}{rgb}{0.9,0.9,0.9}
 
-% 123 你好
+% \thispagestyle{empty}
+% % \input{cover-I.tex}
+% \input{cover-II.tex}
 
-% \input{cover.tex}
-
+%==========table of Content=============
 \setcounter{tocdepth}{3}%控制目录显示的层级
 \tableofcontents
-
 \newpage
+%=======================================
 
 \setcounter{page}{1}
 
 % \input{testTikz.tex}
 
-% \input{selfTest/st-ch1.tex}
+\input{Ch0-1.tex}
 
-% \input{Ch0-1.tex}
+\newpage
 
+\input{selfTest/st-ch1.tex}
+% 
 % \input{Ch02.tex}
-
-% \input{Ch02-limnTest.tex}
-
-% \input{Ch02-seriesTest.tex}
-
+% 
+% % \input{Ch02-limnTest.tex}
+% 
+% % \input{Ch02-seriesTest.tex}
+% 
 % \input{Ch03.tex}
 % 
-% \input{Ch1-3-midTest.tex}
-
+% % \input{Ch1-3-midTest.tex}
+% 
 % \input{Ch04.tex}
-
-% \input{Ch04-selfTest.tex}
-
-% \input{dxy-test-50min.tex}
-
-% \input{IntegralTable.tex}
-
+% 
+% % \input{Ch04-selfTest.tex}
+% 
+% % \input{dxy-test-50min.tex}
+% 
+% % \input{IntegralTable.tex}
+% 
 % \input{Ch05.tex}
-
+% 
 % \input{Ch06.tex}
-
-% \input{onLimits.tex}
-
-% \input{AM-AU-review.tex}
-
-% \input{exam-AU-summery.tex}
-
+% 
+% % \input{onLimits.tex}
+% 
+% % \input{AM-AU-review.tex}
+% 
+% % \input{exam-AU-summery.tex}
+% 
 % \input{Ch07.tex}
 % 
 % \input{Ch08.tex}
 % 
 % \input{Ch09.tex}
-
-% \input{Ch7-9-UT.tex}
-
+% 
+% % \input{Ch7-9-UT.tex}
+% 
 % \input{Ch10.tex}
-
-% \input{Ch10-UT.tex}
+% 
+% % \input{Ch10-UT.tex}
 % 
 % \input{Ch11.tex}
 % 
-% \input{Ch11-UT.tex}
+% % \input{Ch11-UT.tex}
 % 
-\input{Ch12.tex}
+% \input{Ch12.tex}
 % 
 % \input{Ch13.tex}
 
 % \input{testABCD-AMII.tex}
 
 % \input{exam-SP-summery.tex}
+
+% \input{tikzBase.tex}
 
 \end{document}

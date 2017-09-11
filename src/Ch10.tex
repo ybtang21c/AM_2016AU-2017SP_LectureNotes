@@ -924,6 +924,18 @@ $\bm{x}$，恒有$f(\bm{x})>f(\bm{x}_0)$
 % 	\resizebox{!}{4cm}{\includegraphics{./images/ch10/hill.pdf}}
 % \end{center}
 
+{\bf 例：}判断$(1,\pm1)$是否为$f(x,y)=(y-x^2)(y-x^4)$的极值点，若是，
+是极大值点还是极小值点。
+
+
+[解]：如图，
+\begin{center}
+	\resizebox{!}{4cm}{\includegraphics{./images/ch10/yx2yx4.pdf}}
+\end{center}
+$(\pm1,1)$恰为曲线$y=x^2$和$y=x^4$的交点，且$f(\pm1,1)=0$。注意到，在图中
+的阴影区域$f(x,y)\leq0$，在阴影之外的区域$f(x,y)\geq0$，故可知$(\pm1,1)$附近
+的取值均是有正有负的，所以它们不可能是$f(x,y)$的极值点。
+
 \subsection{极值的判定}
 
 \begin{itemize}
@@ -982,6 +994,39 @@ $f(x,y)$在$(x_0,y_0)$二阶偏导数连续，$\bigtriangledown f(x_0,y_0)=0$，
 \end{enumerate}
 
 {\bf 例：}求$z=-xye^{-(x^2+y^2)}$的极值。
+
+极值的判定问题比求最值往往更加困难。
+
+{\bf 例：}已知$\lim\limits_{(x,y)\to(0,0)}\df{f(x,y)-xy}{3x^2+2y^2}=1$，
+判断$(0,0)$是否为$f(x,y)$的极值点，若是，是极大值还是极小值？
+
+[解]：由已知极限可得
+$$\lim\limits_{(x,y)\to(0,0)}\df{f(x,y)-xy-3x^2-2y^2}{3x^2+2y^2}=0,$$
+从而
+$$f(x,y)=3x^2+2y^2+xy+\circ(3x^2+2y^2),$$
+又由于
+$$\df{\circ(3x^2+2y^2)}{3x^2+2y^2}\leq\df{\circ(3x^2+2y^2)}{x^2+y^2}
+\leq\df{\circ(3x^2+2y^2)}{x^2+2/3y^2},$$
+由夹逼定理可知：
+$$\lim\limits_{(x,y)\to(0,0)}\df{\circ(3x^2+2y^2)}{x^2+y^2}=0,$$
+故
+$$f(x,y)=3x^2+2y^2+xy+\circ(x^2+y^2).$$
+该式可视为$f(x,y)$在$(0,0)$处的Taylor展开，从而可知
+$$f''_{xx}(0,0)=3,\quad f''_{yy}(0,0)=2,
+\quad f''_{xy}(0,0)=f''_{yx}(0,0)=1/2,$$
+于是
+$$\bigtriangledown^2f(0,0)=\left[\begin{array}{cc}
+f''_{xx}(0,0) & f''_{xy}(0,0) \\ f''_{yx}(0,0) & f''_{yy}(0,0)
+\end{array}\right]
+=\left[\begin{array}{cc}
+3 & 1/2 \\ 1/2 &2
+\end{array}\right],$$
+这是一个正定矩阵，由可微函数极值的充分条件，可知$(0,0)$为$f(x,y)$的极小值点。
+
+利用类似的方法可以解答下例：
+
+{\bf 例：}已知$\lim\limits_{(x,y)\to(0,0)}\df{f(x,y)-4xy}{x^2+y^2}=1$，
+判断$(0,0)$是否为$f(x,y)$的极值点，若是，是极大值还是极小值？
 
 % \begin{center}
 % 	\resizebox{!}{4.5cm}{\includegraphics{./images/ch10/3DLim-1-1.pdf}}\quad

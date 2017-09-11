@@ -328,41 +328,86 @@ $$\bm{v}(x,y)=\left(\df{x}{x^2+y^2},
   \item $L_3$：$\df{x^2}{a^2}+\df{y^2}{b^2}=1\,(a>0,b>0)$
 \end{enumerate}
 
-{\bf 注：}“挖”什么形状的“洞”需要根据题目的特点来决定，例如下面的例子，“挖”
-一个圆形的“洞”，就不如“挖”一个椭圆形的“洞”
+\begin{shaded}
+	{\bf 关于“挖洞”问题}
+	
+	“挖”什么形状的“洞”需要根据题目的特点来决定，例如下面的例子，“挖”
+	一个圆形的“洞”，就不如“挖”一个椭圆形的“洞”
+	
+	{\it\b NUDT的命题习惯：第一型曲线（曲面）积分一般考直接计算，
+	第二型曲线积分常考Green公式的使用，特别是“挖洞”，第二型曲面积分常考Gauss公式
+	的使用，特别是“补全”}
+	
+	{\bf NUDT-2015春}：已知$C$为不经过原点的简单光滑闭曲线，取逆时针方向为正向，
+	$a>b>0$，计算曲线积分
+	$$\oint_C\df{y\d x-x\d y}{ax^2+by^2}$$
+	
+	[提示]：记$P=\df{y}{ax^2+by^2},Q=\df{-x}{ax^2+by^2}$，可以验证
+	在原点之外均有
+	$$\df{\p P}{\p y}=\df{\p Q}{\p x}.$$
+	
+	根据原点是否在$C$内部进行讨论。
+	
+	1）若原点位于$C$的外部，利用Green公式，可得结果为零；
+	
+	2）若原点位于$C$的内部，则在$C$内“挖洞”，洞的边界为
+	$$C_{\e}:\;ax^2+by^2=\e,\quad(\e>0),$$
+	进而可得在$C$上的积分，等于在$C_{\e}$上的积分，后者利用第二型曲线
+	积分的计算公式计算，结果为$-\df{2\pi}{\sqrt{ab}}$。
+	
+	{\bf NUDT-2016春}：已知$C$为不经过原点的简单光滑闭曲线，取逆时针方向，
+	计算曲线积分
+	$$\oint_C\df{(x+y)\d x-(x-y)\d y}{(x^2+y^2)}$$
+	
+	[提示]：常规的“挖洞”问题，若原点不在$C$内，结果为零；若在$C$内，结果为$-3\pi$.
+	
+	{\bf NUDT-2012春}：计算曲线积分
+	$$\oint_L\left(x-\df{y}{x^2+y^2}\right)\d x
+	+\left(y+\df{x}{x^2+y^2}\right)\d y,$$
+	其中$L:\df{x^2}9+\df{y^2}4=1$为逆时针方向。
+	
+	[提示]：利用“挖洞”简化计算，结果为$2\pi$。根据被积函数的特点，所挖“洞”
+	的形状应为圆形。
+	
+	{\bf 例：}$L$为逆时针的单位圆，计算积分
+	$$\oint_L\df{(x-y)\d x+(x+4y)\d y}
+	{x^2+4y^2}$$
+	
+	[提示]：利用“挖洞”简化计算，根据被积函数的特点，“洞”的边界为
+	$$C_{\e}:x^2+4y^2=\e^2\quad(0<\e<<1)$$
+	
+	{\bf 例：}计算积分
+	$$I=\oint_C\df{\cos(\bm{r},\bm{n})}{r}\d s,$$
+	其中$C$为不包含原点的分段光滑闭曲线，$\bm{r}=(x,y)$，$r=|\bm{r}|$，
+	$\bm{n}$为$C$的外侧单位法向量
+		
+	[提示]：
+	$$I=\oint_C\df{\bm{r}\cdot\bm{n}}{r^2}\d s
+	=\oint_C\df{x\d y-y\d x}{x^2+y^2}$$
+	根据原点是否在$C$内部讨论。
+	原点不在$C$内时为$0$，直接使用Green公式，结果为$0$；
+	原点在$C$内时，“挖洞”处理，结果为$2\pi$
+	
+	{\bf 命题：}{\b 若$ac-b^2>0$，则
+	$\df{x\d y-y\d x}{ax^2+2bxy+cy^2}$
+	为全微分。}
+	
+	[提示]：记$p=\df{c}{\sqrt{ac-b^2}}$，
+	\begin{align*}
+		\df{x\d y-y\d x}{ax^2+2bxy+cy^2}
+		&=\df{\frac1x\d y-\frac y{x^2}\d x}{a+2b\frac yx+c\left(\frac yx\right)^2}
+		=\df{\d\frac yx}{c\left[\frac yx-\frac bc\right]^2+\frac{ac-b^2}{c}}\\
+		&=\df{\d\left(\frac yx-\frac bc\right)}{c\left[\frac yx-\frac
+		bc\right]^2+\frac{ac-b^2}{c}}
+		=p\df{\d p\left(\frac yx-\frac bc\right)}{\left[p\left(\frac yx-\frac
+		bc\right)\right]^2+1}\\
+		&=\d\left[p\arctan p\left(\df yx-\df bc\right)\right]
+	\end{align*}
+	
+	{\bf 注：}椭圆$ax^2+2bxy+cy^2=1$的面积为$\df{\pi}{\sqrt{ac-b^2}}$
+\end{shaded}
 
-{\bf NUDT-2015春}：\ps{NUDT的命题习惯：第一型曲线（曲面）积分一般考直接计算，
-第二型曲线积分常考Green公式的使用，特别是“挖洞”，第二型曲面积分常考Gauss公式
-的使用，特别是“补全”}
-已知$C$为不经过原点的简单光滑闭曲线，取逆时针方向为正向，
-$a>b>0$，计算曲线积分
-$$\oint_C\df{y\d x-x\d y}{ax^2+by^2}$$
 
-[提示]：记$P=\df{y}{ax^2+by^2},Q=\df{-x}{ax^2+by^2}$，可以验证
-在原点之外均有
-$$\df{\p P}{\p y}=\df{\p Q}{\p x}.$$
-
-根据原点是否在$C$内部进行讨论。
-
-1）若原点位于$C$的外部，利用Green公式，可得结果为零；
-
-2）若原点位于$C$的内部，则在$C$内“挖洞”，洞的边界为
-$$C_{\e}:\;ax^2+by^2=\e,\quad(\e>0),$$
-进而可得在$C$上的积分，等于在$C_{\e}$上的积分，后者利用第二型曲线
-积分的计算公式计算，结果为$-\df{2\pi}{\sqrt{ab}}$。
-
-{\bf NUDT-2016春}：已知$C$为不经过原点的简单光滑闭曲线，取逆时针方向，
-计算曲线积分
-$$\oint_C\df{(x+y)\d x-(x-y)\d y}{(x^2+y^2)}$$
-
-[提示]：常规的“挖洞”问题，若原点不在$C$内，结果为零；若在$C$内，结果为$-3\pi$.
-
-{\bf NUDT-2012春}：计算曲线积分
-$$\oint_L\left(x-\df{y}{x^2+y^2}\right)\d x
-+\left(y+\df{x}{x^2+y^2}\right)\d y,$$
-其中$L:\df{x^2}9+\df{y^2}4=1$为逆时针方向。
-
-[提示]：利用“挖洞”简化计算，结果为$2\pi$
 
 \subsection{向量场与Green公式}
 
@@ -555,6 +600,10 @@ $$S=2\pi\dint_Lf(x)\d s$$
   \item 半球壳关于$z$轴的转动惯量。
 \end{enumerate}
 
+{\bf 例：}求上半球面$z=\sqrt{1-x^2-y^2}$被$x^2+y^2=x$所截取的部分的面积与形心。
+
+[提示]：面积$\pi-2$，形心$\left(\df{2}{3(\pi-2)},0,\df{\pi}{4(\pi-2)}\right)$
+
 \subsection{对坐标的曲面积分}
 
 {\bf 例：}已知曲面$\Sigma:\,z=f(x,y),\,(x,y)\in D$和流速场
@@ -701,6 +750,12 @@ $$\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}=1$$
 
 [提示]：{\it 电场强度：}${E=\df{ke}{r^2}}$
 
+{\bf 例：}设$\Sigma$为曲面$z=\sqrt{x^2+y^2}$及平面$z=1$和$z=2$
+所围立体的外表面，求
+$$\oiint\limits_{\Sigma}\sqrt{x^2+y^2}e^z(\d y\d z+\d z\d x+\d x\d y)$$
+
+[提示]：使用Gauss公式，结果为$\df43\pi e(e+1)$.
+
 \begin{shaded}
 	{\bf Gauss公式 vs. NUDT}
 	
@@ -822,19 +877,41 @@ $${\mathrm{div}\,\bm{v}=0}$$
   +\bm{v}\cdot\bigtriangledown u}$
 \end{enumerate}
 
-{\bf 教材-例4：}(Gauss积分)计算
-$$I(\xi,\eta,\zeta)=\oiint\limits_{\Sigma}
-\df{\cos(\bm{r},\bm{n})}{|\bm{r}|^2}\d S,$$
-其中：$\Sigma$为不经过点$P(\xi,\eta,\zeta)$的光滑闭曲面，
-$\bm{n}$为$\Sigma$上任一点$M$处指向外侧的单位法向量，
-$\bm{r}=\bm{MP}$。
+\begin{shaded}
+	{\bf Gauss公式的“挖洞”问题}
+	
+	和Green公式类似，Gauss公式也有需要“挖洞”处理的问题。具体的处理方法
+	参见Green公式的“挖洞”处理。
+	
+	{\bf 教材-例4：}(Gauss积分)计算
+	$$I(\xi,\eta,\zeta)=\oiint\limits_{\Sigma}
+	\df{\cos(\bm{r},\bm{n})}{|\bm{r}|^2}\d S,$$
+	其中：$\Sigma$为不经过点$P(\xi,\eta,\zeta)$的光滑闭曲面，
+	$\bm{n}$为$\Sigma$上任一点$M$处指向外侧的单位法向量，
+	$\bm{r}=\bm{MP}$。
+	
+	几何意义：曲面在以$P$为球心的单位球上的投影面积（内侧为正）。
+	
+	{\bf 例：}设$\Sigma$为$2x^2+2y^2+z^2=4$的外侧，求
+	$$\oiint\limits_{\Sigma}\df{x\d y\d z+y\d z\d x+z\d x\d
+	y}{(x^2+y^2+z^2)^{3/2}}$$
+	
+	[提示]：可以验证，在原点之外旋度为零，“挖洞”后使用Gauss公式！
+	
+	{\bf 思考：}上例中的积分改成
+	$$\oiint\limits_{\Sigma}\df{x\d y\d z+y\d z\d x+z\d x\d y}
+	{(x^2+2y^2+2z^2)^{3/2}}$$
+	该如何计算？
+	
+	[提示]：挖一个椭球形状的“洞”：$x^2+2y^2+2z^2=\e$
+\end{shaded}
 
-几何意义：曲面在以$P$为球心的单位球上的投影面积（内侧为正）。
 
-{\it 二维形式的Gauss积分：}
-$$I=\int_L\df{\cos(\bm{r},\bm{n})}{|\bm{r}|}\d s,$$
 
-几何意义：曲线在以$P$为圆心的单位圆上的投影弧长（顺时针方向为正）。
+% {\it 二维形式的Gauss积分：}
+% $$I=\int_L\df{\cos(\bm{r},\bm{n})}{|\bm{r}|}\d s,$$
+% 
+% 几何意义：曲线在以$P$为圆心的单位圆上的投影弧长（顺时针方向为正）。
 
 \subsection{Green公式环量形式的三维推广——Stokes公式}
 
@@ -977,6 +1054,49 @@ $$\ds\oiint\limits_{\Sigma}\df{x^3}{r^3}\d
   \item $\mathrm{div}(\bigtriangledown\,r)=\df 2r$
   \item $\mathrm{rot}(\bigtriangledown\,r)=0$
 \end{enumerate}
+
+\begin{shaded}
+	{\bf 关于原函数的计算}	
+	
+	{\bf 习题12.2-8}（2）计算如下微分形式的原函数
+	$$yz(2x+y+z)\d x+xz(x+2y+z)\d y+xy(x+y+2z)\d z.$$
+	
+	[方法一]：（{\it 折线法}）考虑积分路径$(0,0,0)\to(x,0,0)\to(x,y,0)\to(x,y,z)$
+	(注：类似的路径应该共有6条！）
+	，则
+	\begin{align*}
+		u(x,y,z)&=\int_{(0,0,0)}^{(x,y,z)}P\d x+Q\d y+R\d z+C\\
+		&=\dint_{(0,0,0)}^{(x,0,0)}yz(2x+y+z)\d x
+		+\dint_{(x,0,0)}^{(x,y,0)}xz(x+2y+z)\d y\\
+		&\quad+\dint_{(x,y,0)}^{(x,y,z)}xy(x+y+2z)\d z+C\\
+		&=0+0+\dint_{(x,y,0)}^{(x,y,z)}xy(x+y+2z)\d z+C\\
+		&=x^2yz+xy^2z+xyz^2+C
+	\end{align*}
+	
+	[方法二]：（{\it “凑”微分}）（注：以下用到了微分公式：$\d(uvw)=uv\d w+uw\d v+vw\d u$）
+	\begin{align*}
+		yz&(2x+y+z)\d x+xz(x+2y+z)\d y+xy(x+y+2z)\d z\\
+		&=yz\d x^2+y^2z\d x+yz^2\d x\\
+		&+x^2z\d y+xz\d y^2+xz^2\d y\\
+		&+x^2y\d z+xy^2\d z+xy\d z^2\\
+		&=\d(x^2yz+xy^2z+xyz^2)
+	\end{align*}
+	故$u=xyz(x+y+z)+C$
+	
+	[方法三]：（{\it 逐项积分}）由本题条件$u'_x=yz(2x+y+z)$，两边关于$x$积分（视
+	$y,z$为常数），可得$u=x^2yz+xyz(y+z)+v(y,z)$，其中$v(y,z)$待定。进而
+	$$u'_y=x^2z+2xyz+xz^2+v'_y.$$	
+	
+	又由题意，$u'_y=xz(x+2y+z)$，故$v'_y=0$，
+	两边关于$y$积分（视$z$为常数），从而$v=w(z)$，其中$w(z)$待定。进而
+	$$u'_z=x^2y+xy^2+2xyz+v'_z=x^2y+xy^2+2xyz+w'_z.$$
+	
+	再由$u'_z=xy(x+y+2z)$，故$w'_z=0$，从而$w=C\;(C\in\mathbb{R})$。
+	
+	综上，
+	$$u=x^2yz+xyz(y+z)+v(y,z)=x^2yz+xyz(y+z)+w(z)=x^2yz+xyz(y+z)+C.$$
+	
+\end{shaded}
 
 \newpage
 
@@ -1197,6 +1317,10 @@ $$\ds\oiint\limits_{\Sigma}x^2\d S
 进而可得
 $$\ds\oiint\limits_{\Sigma}(x^2+3y^2)\d S=\df{16}{3}\pi R^4.$$
 
+例如：设$S$为第一卦限中的半径为$a(a>0)$的球面，则
+$$\oiint\limits_S xyz(y^2z^2+z^2x^2+x^2y^2)\d S
+=3\oiint\limits_S x^3y^3z\d S=\ldots=\df{a^9}{32}$$
+
 \bigskip
 
 {\color{red}\hrule
@@ -1357,6 +1481,10 @@ $${\color{red}\iint\limits_{\Sigma}f(x,y,z)\d x\d y=\left\{\begin{array}{ll}
 
 例如：$\ds\oiint\limits_{x^2+y^2+z^2=R^2}\df{z^2}{x^2+3y^2+1}\d x\d y=0$
 
+例如：设$\Sigma$为$x^2+y^2=R^2$及平面$z=\pm R\,(R>0)$所围立体的外表面，则
+$$\oiint\limits_{\Sigma}\df{x\d y\d z+y^2\d z\d x+z^2\d x\d y}{x^2+y^2+z^2}
+=\oiint\limits_{\Sigma}\df{x\d y\d z}{x^2+y^2+z^2}$$
+
 {\bf （2）轮换对称}
 
 {\it\color{red} $x,y$的轮换}：\ps{\color{red}
@@ -1373,20 +1501,33 @@ $$\iint\limits_{\Sigma}f(x,y,z)\d x\d y=\iint\limits_{\Sigma}f(y, x,z)\d x\d y$$
 {\bf 例：}设$L$为曲线$x=\df{3at}{1+t^3},y=\df{3at^2}{1+t^3}$上$t$由
 $0$到$+\infty$的一段，$a>0$，则$\dint_Lx\d y-y\d x=3a^2$
 
+[提示]：记$y=tx$，带入可以化简积分。
+
 {\bf 例：}$f(x)$连续可导，$L$为$(3,2/3)$到$(1,2)$的直线，
 则$\dint_L\df{1+y^2f(xy)}y\d x+\df x{y^2}[y^2f(xy)-1]\d y=-4$
 
+[提示]：积分与路径无关！
+
 {\bf 例：}$\ds\iint_{z=\sqrt{a^2-x^2-y^2}}(x+y+z)\d S=\pi a^3$
+
+[提示]：利用对称性化简积分。
 
 {\bf 例：}设$\Sigma$为平面$x+y+z=1$在第一卦限的上侧，$f(x,y,z)$连续，则
 $\ds\iint_{\Sigma}[f(x,y,z)+x]\d y\d z-[2f(x,y,z)-y]\d z\d x+
 [f(x,y,z)+z]\d x\d y=\df12$
 
+[提示]：化成对面积（第一型）的曲面积分计算。
+
 {\bf 例：}设$\Sigma$为锥面$z=\sqrt{x^2+y^2}(0\leq z\leq 1)$的下侧，则
 $\ds\iint_{\Sigma}x\d y\d z+2y\d z\d x+3(z-1)\d x\d y=2\pi$
 
+[提示]：“补全”曲面，用Gauss公式计算！
+
 {\bf 例：}设$L$是摆线$x=t-\sin t-\pi,y=1-\cos t$从$t=0$
-到$t=2\pi$的一段，则$\dint_L\df{(x-y)\d x+(x+y)\d y}{x^2+y^2}=\pi$
+到$t=2\pi$的一段，则$\dint_L\df{(x-y)\d x+(x+y)\d y}{x^2+y^2}=-\pi$
+
+[提示]：添加路径$L_1:x^2+y^2=\pi^2,\;y\geq 0$，使用Green公式计算。
+注意，不能使用路径$y=0$，因为被积函数在原点处无定义！
 
 {\bf 例：}设$L_1:\df{x^2}{4}+\df{y^2}{9}=1,L_2:\df{x^2}{9}+\df{y^2}{4}=1$，
 二者所围封闭区域分别为$D_1,D_2$，则下列正确的是\;
@@ -1435,6 +1576,48 @@ $\ds\iint_{\Sigma}x\d y\d z+2y\d z\d x+3(z-1)\d x\d y=2\pi$
   \end{enumerate}
   以上$C_1,C_2$为任意常数
 
+{\bf 注：}$\mathrm{div}(\bigtriangledown\,u)=u''_{xx}+u''_{yy}+u''_{zz}$
+
+{\bf 例：}计算第一型曲线积分（设$a>0$）
+\begin{enumerate}[(1)]
+  \item $\ds\int\limits_{x^{2/3}+y^{2/3}=a^{2/3}}
+  \left(x^{4/3}+y^{4/3}\right)\d s$
+  \item $\ds\int\limits_{(x^2+y^2)^2=a^2(x^2-y^2)}|y|\d s$
+  \item $\ds\int_Cz\d s$
+  其中$C$为$x^2+y^2=z^2$与$y^2=ax$的交线上从原点到$(a,a,\sqrt2a)$的一段
+\end{enumerate}
+
+[提示]：（1）令$x=a\cos^3t,y=a\sin^3t,t\in[0,2\pi]$
+
+（2）曲线的极坐标方程：$\rho=a\sqrt{\cos2\theta},\theta\in\left[-\df{\pi}4,
+\df{\pi}4\right]\cup\left[\df{3\pi}4,\df{5\pi}4\right]$，然后利用
+$$\d s=\sqrt{\rho^2+(\rho')^2}\d\theta$$
+计算弧长微元
+
+（3）以$y$为参数建立曲线的参数方程。
+
+{\bf 例：}计算积分
+$$I=\int_Ly^2\d x+z^2\d y+x^2\d z,$$
+其中$C$为曲线$\left\{\begin{array}{l}
+x^2+y^2+z^2=1 \\ x^2+y^2=x
+\end{array}\right.$
+上$z\geq 0$的部分，从$x$轴正向看去为逆时针方向。
+
+[提示]：方法一：直接计算，曲线的参数方程为 
+$$x=\cos^2\theta,y=a\cos\theta\sin\theta, z=a|\sin\theta|\;
+(\theta\in[-\pi/2,\pi/2])$$
+方法二：Stokes公式。
+
+{\bf 例：}设$L$为平面上的简单光滑闭曲线，$D$为$L$所围成的有界闭区域，$\bm{n}$
+为$L$的外法向，$\df{\p u}{\p\bm{n}}$表示函数$u(x,y)$沿$\bm{n}$的方向导数
+\begin{enumerate}[(1)]
+  \item 将$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$化为对坐标的曲线积分；
+  \item 设$u=x^2+y^2$，$L:x^2+y^2=6x$，计算
+  $$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$$
+\end{enumerate}
+
+[提示]：辅导书-P137-例3
+
 {\bf 例：}设$f(x)$当$x>0$时可导，$f(1)=2$，对右半平面内的任意封闭曲线$C$，
 有$\ds\oint_C4x^3y\d x+xf(x)\d y=0$
 \begin{enumerate}[(1)]
@@ -1444,11 +1627,17 @@ $\ds\iint_{\Sigma}x\d y\d z+2y\d z\d x+3(z-1)\d x\d y=2\pi$
   $$\dint_L4x^3y\d x+xf(x)\d y$$
 \end{enumerate}
 
+[提示]：由全微分方程的条件，得到关于$f(x)$的微分方程，可解得$f(x)=\df{x^4+1}x$
+
 {\bf 例：}已知曲线$L:\left\{\begin{array}{l}
 	x^2+y^2+z^2=R^2\\ x+y+z=0
 \end{array}\right.$，
 计算曲线积分
 $$\oint_Lz^2\d s$$
+
+[提示]：利用轮换对称性
+$$\oint_Lz^2\d s=\df13\oint_L(x^2+y^2+z^2)\d s
+=\df13\oint_LR^2\d s=\df23\pi R^3.$$
 
 {\bf 例：}函数$u(x,y),v(x,y)$在单位圆内存在一阶连续偏导数，
 $$\bm{f}(x,y)=(v(x,y),u(x,y)),$$
@@ -1456,19 +1645,114 @@ $$\bm{g}(x,y)=\left(u'_x-u'_y,v'_x-v'_y\right),$$
 在单位圆上，$u(x,y)=x,v(x,y)=1$，求
 $$\iint_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma$$
 
-{\bf 例：}设$\Sigma$为曲面$z=\sqrt{x^2+y^2}$及平面$z=1$和$z=2$
-所围立体的外表面，求
-$$\oiint_{\Sigma}\sqrt{x^2+y^2}e^z(\d y\d z+\d z\d x+\d x\d y)$$
-
-{\bf 例：}设$\Sigma$为$x^2+y^2=R^2$及平面$z=\pm R\,(R>0)$所围立体的外表面，求
-$$\oiint_{\Sigma}\df{x\d y\d z+y^2\d z\d x+z^2\d x\d y}{x^2+y^2+z^2}$$
-
-{\bf 例：}设$\Sigma$为$2x^2+2y^2+z^2=4$的外侧，求
-$$\oiint_{\Sigma}\df{x\d y\d z+y\d z\d x+z\d x\d y}{(x^2+y^2+z^2)^{3/2}}$$
+[提示]：
+\begin{align}
+	&\iint\limits_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma\notag
+    =\iint\limits_{x^2+y^2\leq 1}\left[(vu'_x+uv'_x)-
+	(vu'_y+uv'_y)\right]\d\sigma\notag\\
+	&=\iint\limits_{x^2+y^2\leq 1}\left[(uv)'_x-(uv)'_y\right]
+	\d\sigma\notag\\
+	&=\oint_{x^2+y^2=1}(uv)\d x+(uv)\d y
+	=\oint_{x^2+y^2=1}x\d x+x\d y\notag\\
+	&=\iint\limits_{x^2+y^2\leq 1}\d\sigma=\pi\notag
+\end{align}
 
 {\bf 例：}在变力$\bm{F}=(yz,zx,xy)$的作用下，质点由原点沿直线运动到椭球面
 $\df{x^2}{a^2}+\df{y^2}{b^2}+\df{z^2}{c^2}=1$上第一卦限
 中的某点$M$，问$M$在何位置时，$\bm{F}$所做的功最大，并求出功的最大值。
+
+[提示]：首先验证$\bm{F}$为保守场，再根据$M$在椭球面的位置，求功的最大值
+
+\section{小结}
+
+能够正确理解这张图里每个概念和公式，这张应该就没什么大问题了，嘿\ldots
+
+\bigskip
+
+\tikzstyle{int}=[ultra thick, rounded corners,
+	draw=black!40,fill=red!10!white,
+ 	inner sep=1ex,
+	text width=2.5cm,
+% 	text height=5ex,
+	minimum height=1.8cm,
+	text centered]
+\tikzstyle{mint}=[ultra thick, rounded corners,
+	draw=black!40,fill=yellow!10!green!10,
+ 	inner sep=1ex,
+	minimum width=3.5cm,
+% 	text height=5ex,
+	minimum height=1.5cm,
+	text centered]
+\tikzstyle{arrow}=[thick,blue!80]
+\begin{tikzpicture}
+ 	[node distance=4cm, >=stealth', thick, bend angle=45, auto]
+	\node [int] (iiint) 
+		{\large 三重积分\\
+		\small$\ds\iiint\limits_{\Omega}f(x,y,z)\d V$
+	};
+	\node [int, below of=iiint] (iint) 
+		{\large 二重积分\\
+		\small$\ds\iint\limits_Df(x,y)\d\sigma$
+	};
+	\node [int, below of=iint] (int) 
+		{\large 定积分\\
+		\small$\ds\int_a^bf(x)\d x$
+	};
+	\node [mint, right of = int, xshift=2.5cm] (NL)
+% 		{\color{red}Netwon-Lebniz\it 公式};
+		{\small $\dint_A^Bf(\bm{x})\d\bm{x}=F(\bm{x})|_A^B$};
+% 	\node [right of = int, xshift = 3cm, minimum width=5cm,
+% 		minimum height = 1.5cm] (NL)
+% 		{\small$\ds\int_a^bf(x)\d x=F(b)-F(a)$};
+	\begin{scope}[xshift=5.5cm]
+		\node [int] (sint) 
+			{\large 曲面积分
+			};
+		\node [int, below of = sint] (cint)
+			{\large 曲线积分
+			};
+	\end{scope}
+	\begin{scope}[xshift=11cm,yshift=1.6cm]
+		\node [mint] (sint1) 
+			{\small$\ds\iint\limits_{\Sigma}f(x,y,z)\d S$};
+		\node [mint, below of = sint1, yshift=1.5cm] (sint2)
+			{\small$\ds\iint\limits_{\Sigma}f(x,y,z)\d x\d y$};
+		\node [mint, below of = sint2, yshift=2cm] (cint1)
+			{\small$\ds\int_Lf(\bm{x})\d s$};
+		\node [mint, below of = cint1, yshift=1.5cm] (cint2)
+			{\small$\ds\int_LP\d x+Q\d y+R\d z$};
+	\end{scope}
+	\path (iiint) edge[arrow,<->]
+		node [text width=3em]{\it 柱坐标 球坐标} 
+		node[swap, text width=3em,text centered] {“1+2”  “2+1”} (iint)
+		edge[arrow,<->] 
+		node {\color{red}Gauss\it 公式}(sint);
+	\path (iint) edge[arrow,<->] 
+		node[swap, text width=3em,text centered] {“1+1”  \it 定限} 
+		node[text width=4em] {\it 极坐标} (int)
+		edge[arrow,<->] 
+		node {\color{red}Green\it 公式} (cint);
+	\path (sint) edge [arrow,->] 
+		node [sloped,pos=0.2,swap]{\it 投影/曲面方程}(iint)
+		edge[arrow,<->] 
+		node {\color{red}Stokes\it 公式}(cint)
+		edge[arrow] node[sloped,pos=0.8]{\it 对面积} (sint1)
+		edge[arrow] node[sloped,pos=0.2]{\it 对坐标}(sint2);
+	\path (cint) edge [arrow, ->] 
+		node [sloped,near start,swap]{\it 曲线参数化} (int)
+		edge [arrow] node[sloped,pos=0.8]{\it 对弧长}(cint1)
+		edge [arrow] node[sloped,pos=0.2]{\it 对坐标}(cint2);
+	\path (sint1) edge[arrow, <->] 
+		node {\color{red}$\d\sigma_{xy}=|\cos\gamma|\d S$} (sint2);
+	\path (cint1) edge[arrow, <->] 
+		node {\color{red}$\d s=|\bm{r}'(t)|\d t$} (cint2);
+	\path (cint2) edge [arrow, ->, out=-90, in=0, dashed] 
+		node {\it 积分与路径无关条件} (NL);
+	\path (int) edge [arrow, ->, dashed]
+		node {{\color{red}Netwon-Lebniz}}
+		node [swap]{\color{red}\it 公式} (NL);
+% 	\path (int) edge[<->] (NL);
+\end{tikzpicture}
 
 \newpage
 
@@ -1499,7 +1783,7 @@ $0$到$+\infty$的一段，$a>0$，求$\dint_Lx\d y-y\d x$
 2.\;$f(x)$连续可导，$L$为$(3,2/3)$到$(1,2)$的直线，
 求$\dint_L\df{1+y^2f(xy)}y\d x+\df x{y^2}[y^2f(xy)-1]\d y$
 
-3.\;计算$\ds\iint_{z=\sqrt{a^2-x^2-y^2}}(x+y+z)\d S=\pi a^3$
+3.\;计算$\ds\iint\limits_{z=\sqrt{a^2-x^2-y^2}}(x+y+z)\d S=\pi a^3$
 
 4.\;设$\Sigma$为平面$x+y+z=1$在第一卦限的上侧，$f(x,y,z)$连续，求
 $\ds\iint_{\Sigma}[f(x,y,z)+x]\d y\d z-[2f(x,y,z)-y]\d z\d x+

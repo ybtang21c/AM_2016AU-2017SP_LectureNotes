@@ -1925,15 +1925,17 @@ $$f(x)=-1-(x-2)^2-2(x-2)^3+(x-2)^4,$$
 \end{align}
 
 (5) $f(x)=\df1{\sqrt{1-x^2}}$
-\begin{align}
+\begin{align*}
 	\df1{\sqrt{1-x^2}}&=[1+(-x^2)]^{-\frac12}
 	=\sum\limits_{k=0}^n\left(\begin{array}{c}
-	-\frac12 & k\end{array}\right)(-x^2)^k+\circ((-x^2)^n)\notag\\
+	-\frac12 \\ k\end{array}\right)
+	(-x^2)^k+\circ((-x^2)^n) \\
 	&=\sum\limits_{k=0}^n\left(\begin{array}{c}
-	-\frac12 & k\end{array}\right)(-1)^kx^{2k}+\circ(x^{2n})
+	-\frac12 \\ k\end{array}\right)
+	(-1)^kx^{2k}+\circ(x^{2n})
 	=\sum\limits_{k=0}^n\frac{(2k-1)!!}{2^kk!}x^{2k}
-	+\circ(x^{2n})\notag
-\end{align}
+	+\circ(x^{2n})
+\end{align*}
 
 (6) $f(x)=\cos^2x$
 \begin{align}

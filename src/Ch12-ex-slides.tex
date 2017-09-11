@@ -55,7 +55,7 @@
 % 	\pause\pause
 	\ba{6、}设$L$是摆线$x=t-\sin t-\pi,y=1-\cos t$从$t=0$
 	到$t=2\pi$的一段，则$\dint_L\df{(x-y)\d x+(x+y)\d y}{x^2+y^2}=$
-	\underline{\uncover<4->{\;\b{$\pi$}}\;}.\\[1em]
+	\underline{\uncover<4->{\;\b{$-\pi$}}\;}.\\[1em]
 \end{frame}
 
 \begin{frame}{选择}
@@ -172,6 +172,117 @@
 
 \begin{frame}
 	\linespread{1.2}
+	\ba{例：}计算第一型曲线积分（设$a>0$）
+	\begin{enumerate}[(1)]
+	  \item $\ds\int\limits_{x^{2/3}+y^{2/3}=a^{2/3}}
+	  \left(x^{4/3}+y^{4/3}\right)\d s$
+	  \item $\ds\int\limits_{(x^2+y^2)^2=a^2(x^2-y^2)}|y|\d s$
+	  \item $\ds\int_Cz\d s$
+	  其中$C$为$x^2+y^2=z^2$与$y^2=ax$的交线上从原点到$(a,a,\sqrt2a)$的一段
+	\end{enumerate}
+		
+% 	\bigskip\pause
+% 	\alert{提示：}{\it\b 辅导书-P137-例3}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}计算积分
+	$$I=\int_Ly^2\d x+z^2\d y+x^2\d z,$$
+	其中$C$为曲线$\left\{\begin{array}{l}
+	x^2+y^2+z^2=1 \\ x^2+y^2=x
+	\end{array}\right.$
+	上$z\geq 0$的部分，从$x$轴正向看去为逆时针方向。
+		
+	\bigskip\pause
+	\alert{提示：}{\it\b 曲线的参数方程为 
+	$$x=\cos^2\theta,y=a\cos\theta\sin\theta, z=a|\sin\theta|\;
+	(\theta\in[-\pi/2,\pi/2])$$
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}设$L$为平面上的简单光滑闭曲线，$D$为$L$所围成的有界闭区域，$\bm{n}$
+	为$L$的外法向，$\df{\p u}{\p\bm{n}}$表示函数$u(x,y)$沿$\bm{n}$的方向导数
+	\begin{enumerate}[(1)]
+	  \item 将$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$化为对坐标的曲线积分；
+	  \item 设$u=x^2+y^2$，$L:x^2+y^2=6x$，计算
+	  $$\ds\oint_L\df{\p u}{\p\bm{n}}\d s$$
+	\end{enumerate}
+		
+	\bigskip\pause
+	\alert{提示：}{\it\b 辅导书-P137-例3}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}计算积分
+	$$I=\oint_C\df{\cos(\bm{r},\bm{n})}{r}\d s,$$
+	其中$C$为不包含原点的分段光滑闭曲线，$\bm{r}=(x,y)$，$r=|\bm{r}|$，
+	$\bm{n}$为$C$的外侧单位法向量
+		
+	\bigskip\pause
+	\alert{提示：}{\it\b 根据原点是否在$C$内部讨论。
+	原点不在$C$内时为$0$，直接使用Green公式，结果为$0$；
+	原点在$C$内时，“挖洞”处理，结果为$2\pi$}
+	
+	\alert{参考：教材12.4-例3}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{NUDT-2016春：}已知$C$为不经过原点的简单光滑闭曲线，取逆时针方向，
+	计算曲线积分
+	$$\oint_C\df{(x+y)\d x-(x-y)\d y}{(x^2+y^2)}$$
+	
+	\bigskip\pause
+	\alert{提示：}{\it\b 若$ac-b^2>0$，则
+	$$\df{x\d y-y\d x}{ax^2+2bxy+cy^2}$$
+	为全微分。椭圆$ax^2+2bxy+cy^2=1$的面积为$\df{\pi}{\sqrt{ac-b^2}}$
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{NUDT-2015春：}已知$C$为不经过原点的简单光滑闭曲线，取逆时针方向为正向，
+	$a>b>0$，计算曲线积分
+	$$\oint_C\df{y\d x-x\d y}{ax^2+by^2}$$
+	
+	\bigskip\pause
+	\alert{提示：}{根据原点是否在$C$内部进行讨论。若原点位于$C$外，
+	直接利用Green公式，结果为零；若原点位于$C$内，则在$C$内“挖洞”，
+	洞的边界为
+	$$C_{\e}:\;ax^2+by^2=\e,\quad(\e>0),$$
+	结果为$-\df{2\pi}{\sqrt{ab}}$
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{NUDT-2012春：}计算曲线积分
+	$$\oint_L\left(x-\df{y}{x^2+y^2}\right)\d x
+	+\left(y+\df{x}{x^2+y^2}\right)\d y,$$
+	其中$L:\df{x^2}9+\df{y^2}4=1$为逆时针方向。
+	
+	\bigskip\pause
+	\alert{提示：}{\it\b 利用“挖洞”简化计算，结果为$2\pi$}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}$L$为逆时针的单位圆，计算积分
+	$$\oint_L\df{(x-y)\d x+(x+4y)\d y}
+	{x^2+4y^2}$$
+	
+	\bigskip\pause
+	\alert{提示：}{\it\b 利用“挖洞”简化计算，“洞”为
+	$$C_{\e}:x^2+4y^2=\e^2\quad(0<\e<<1)$$
+	}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
 	\ba{例：}设$f(x)$当$x>0$时可导，$f(1)=2$，对右半平面内的任意封闭曲线$C$，
 	有$\ds\oint_C4x^3y\d x+xf(x)\d y=0$
 	\begin{enumerate}[(1)]
@@ -192,9 +303,9 @@
 	$$\bm{g}(x,y)=\left(u'_x-u'_y,v'_x-v'_y\right),$$
 	在单位圆上，$u(x,y)=x,v(x,y)=1$，求
 	$$\iint\limits_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma$$
-		
+
 % 	\bigskip\pause
-% 	\alert{提示：}{\it\b 
+% 	\alert{提示：}{\it\b
 % 	由C-R条件（积分与路径无关），可解得$f(x)=\df{x^4+1}x$}
 \end{frame}
 
@@ -205,7 +316,7 @@
 % 	$$\bm{g}(x,y)=\left(u'_x-u'_y,v'_x-v'_y\right),$$
 % 	在单位圆上，$u(x,y)=x,v(x,y)=1$，求
 % 	$$\iint_{x^2+y^2\leq 1}\bm{f}\cdot\bm{g}\d\sigma$$
-		
+
 % 	\bigskip\pause
 	\alert{提示：}
 	{\it\b
@@ -224,19 +335,31 @@
 
 \begin{frame}
 	\linespread{1.2}
+	\ba{例：}求上半球面$z=\sqrt{1-x^2-y^2}$被$x^2+y^2=x$所截取的部分的面积与形心。
+		
+	\bigskip\pause	
+	\alert{提示：}{\it\b 面积$\pi-2$，形心
+	$$\left(\df{2}{3(\pi-2)},0,\df{\pi}{4(\pi-2)}\right)$$}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
+	\ba{例：}设$S$为第一卦限中的半径为$a(a>0)$的球面，计算积分
+	$$\oiint\limits_S
+	xyz(y^2z^2+z^2x^2+x^2y^2)\d S$$
+		
+	\bigskip\pause	
+	\alert{提示：}{\it\b 使用轮换对称性，结果为$\df{a^9}{32}$}
+\end{frame}
+
+\begin{frame}
+	\linespread{1.2}
 	\ba{例：}设$\Sigma$为曲面$z=\sqrt{x^2+y^2}$及平面$z=1$和$z=2$
 	所围立体的外表面，求
 	$$\oiint\limits_{\Sigma}\sqrt{x^2+y^2}e^z(\d y\d z+\d z\d x+\d x\d y)$$
 		
 	\bigskip\pause	
-	\alert{思路1：}{\it\b Gauss公式，难度系数：
-	\FiveStar\FiveStar\FiveStar\FiveStar\FiveStar\pause}
-	
-	\alert{思路2：}{\it\b 直接计算，难度系数：
-	\FiveStar\FiveStar\FiveStar\FiveStarOpen\FiveStarOpen\pause}
-	
-	\alert{思路3：}{\it\b 化成第一型曲面积分，难度系数：
-	\FiveStar\FiveStar\FiveStar\FiveStar\FiveStarOpen}
+	\alert{提示：}{\it\b }
 \end{frame}
 
 % \begin{frame}
